@@ -13,6 +13,9 @@
 		541E351323887ED400BBCE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541E351223887ED400BBCE31 /* Assets.xcassets */; };
 		541E351623887ED400BBCE31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541E351523887ED400BBCE31 /* Preview Assets.xcassets */; };
 		541E351923887ED400BBCE31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541E351723887ED400BBCE31 /* LaunchScreen.storyboard */; };
+		541E35232388884F00BBCE31 /* minutes.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35212388884F00BBCE31 /* minutes.json */; };
+		541E35242388884F00BBCE31 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35222388884F00BBCE31 /* questions.json */; };
+		541E352723888D1800BBCE31 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E352623888D1800BBCE31 /* users.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		541E351523887ED400BBCE31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		541E351823887ED400BBCE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		541E351A23887ED400BBCE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		541E35212388884F00BBCE31 /* minutes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = minutes.json; sourceTree = "<group>"; };
+		541E35222388884F00BBCE31 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
+		541E352623888D1800BBCE31 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 		541E350B23887ED100BBCE31 /* DeltNU-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				541E35252388885A00BBCE31 /* Data */,
+				541E35202388847800BBCE31 /* Mock */,
 				541E350C23887ED100BBCE31 /* AppDelegate.swift */,
 				541E350E23887ED100BBCE31 /* SceneDelegate.swift */,
 				541E351023887ED100BBCE31 /* ContentView.swift */,
@@ -73,6 +81,23 @@
 				541E351523887ED400BBCE31 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		541E35202388847800BBCE31 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				541E352623888D1800BBCE31 /* users.json */,
+				541E35212388884F00BBCE31 /* minutes.json */,
+				541E35222388884F00BBCE31 /* questions.json */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		541E35252388885A00BBCE31 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +158,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541E352723888D1800BBCE31 /* users.json in Resources */,
+				541E35242388884F00BBCE31 /* questions.json in Resources */,
 				541E351923887ED400BBCE31 /* LaunchScreen.storyboard in Resources */,
+				541E35232388884F00BBCE31 /* minutes.json in Resources */,
 				541E351623887ED400BBCE31 /* Preview Assets.xcassets in Resources */,
 				541E351323887ED400BBCE31 /* Assets.xcassets in Resources */,
 			);

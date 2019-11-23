@@ -9,8 +9,23 @@
 import SwiftUI
 
 struct ContentView: View {
+    var members: MemberDirectory = Bundle.main.decode("users.json")
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            VStack {
+                NavigationLink(destination: Text("Minutes")) {
+                    Text("Minutes")
+                }
+                NavigationLink(destination: Text("Vote")) {
+                    Text("Vote")
+                }
+                NavigationLink(destination: DirectoryView(members: members)) {
+                    Text("Member Directory")
+                }
+            }
+            .navigationBarTitle("Welcome, \(members[0].firstName)")
+        }
     }
 }
 

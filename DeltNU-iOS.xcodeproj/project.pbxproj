@@ -16,6 +16,10 @@
 		541E35232388884F00BBCE31 /* minutes.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35212388884F00BBCE31 /* minutes.json */; };
 		541E35242388884F00BBCE31 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35222388884F00BBCE31 /* questions.json */; };
 		541E352723888D1800BBCE31 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E352623888D1800BBCE31 /* users.json */; };
+		541E352923888FAA00BBCE31 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 541E352823888FAA00BBCE31 /* .gitignore */; };
+		541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */; };
+		541E352D2388905B00BBCE31 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E352C2388905B00BBCE31 /* Member.swift */; };
+		541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35312389CF7800BBCE31 /* DirectoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		541E35212388884F00BBCE31 /* minutes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = minutes.json; sourceTree = "<group>"; };
 		541E35222388884F00BBCE31 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
 		541E352623888D1800BBCE31 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		541E352823888FAA00BBCE31 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		541E352C2388905B00BBCE31 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		541E35312389CF7800BBCE31 /* DirectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +54,7 @@
 		541E350023887ED100BBCE31 = {
 			isa = PBXGroup;
 			children = (
+				541E352823888FAA00BBCE31 /* .gitignore */,
 				541E350B23887ED100BBCE31 /* DeltNU-iOS */,
 				541E350A23887ED100BBCE31 /* Products */,
 			);
@@ -62,6 +71,7 @@
 		541E350B23887ED100BBCE31 /* DeltNU-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				541E35302389CF5500BBCE31 /* Directory */,
 				541E35252388885A00BBCE31 /* Data */,
 				541E35202388847800BBCE31 /* Mock */,
 				541E350C23887ED100BBCE31 /* AppDelegate.swift */,
@@ -96,8 +106,18 @@
 		541E35252388885A00BBCE31 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		541E35302389CF5500BBCE31 /* Directory */ = {
+			isa = PBXGroup;
+			children = (
+				541E352C2388905B00BBCE31 /* Member.swift */,
+				541E35312389CF7800BBCE31 /* DirectoryView.swift */,
+			);
+			path = Directory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				541E352723888D1800BBCE31 /* users.json in Resources */,
+				541E352923888FAA00BBCE31 /* .gitignore in Resources */,
 				541E35242388884F00BBCE31 /* questions.json in Resources */,
 				541E351923887ED400BBCE31 /* LaunchScreen.storyboard in Resources */,
 				541E35232388884F00BBCE31 /* minutes.json in Resources */,
@@ -174,9 +195,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */,
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
 				541E351123887ED100BBCE31 /* ContentView.swift in Sources */,
+				541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */,
+				541E352D2388905B00BBCE31 /* Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

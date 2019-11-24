@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct DirectoryView: View {
+    var members: MemberDirectory = Bundle.main.decode("users.json")
     @State var selectedMember: Int = 0
     @State var showingMember = false
-    var members: MemberDirectory
     
     var body: some View {
         ZStack {
@@ -37,10 +37,6 @@ struct DirectoryView: View {
             //TODO: Use predicate to match
             MemberView(member: self.members[0])
         }
-    }
-    
-    init(members: MemberDirectory) {
-        self.members = members
     }
 }
 

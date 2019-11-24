@@ -28,6 +28,8 @@
 		541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3544238A43AC00BBCE31 /* MemberView.swift */; };
 		541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3547238A46C100BBCE31 /* MinutesView.swift */; };
 		541E354A238A477B00BBCE31 /* Minute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3549238A477B00BBCE31 /* Minute.swift */; };
+		541E354F238A539C00BBCE31 /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E354E238A539C00BBCE31 /* NavigationDrawer.swift */; };
+		541E3552238A54D600BBCE31 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3551238A54D600BBCE31 /* DashboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		541E3544238A43AC00BBCE31 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		541E3547238A46C100BBCE31 /* MinutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesView.swift; sourceTree = "<group>"; };
 		541E3549238A477B00BBCE31 /* Minute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minute.swift; sourceTree = "<group>"; };
+		541E354E238A539C00BBCE31 /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
+		541E3551238A54D600BBCE31 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				541E354C238A4FD600BBCE31 /* Repository */,
-				541E354B238A4FC700BBCE31 /* Screens */,
+				541E354B238A4FC700BBCE31 /* View */,
 				541E35252388885A00BBCE31 /* Utility */,
 				541E35202388847800BBCE31 /* Mock */,
 				541E350C23887ED100BBCE31 /* AppDelegate.swift */,
@@ -147,14 +151,14 @@
 			path = Vote;
 			sourceTree = "<group>";
 		};
-		541E353B238A16CE00BBCE31 /* ViewCommon */ = {
+		541E353B238A16CE00BBCE31 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				541E351023887ED100BBCE31 /* ContentView.swift */,
 				541E3539238A0C5B00BBCE31 /* Style.swift */,
 				541E353C238A178200BBCE31 /* ViewExtensions.swift */,
 			);
-			path = ViewCommon;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		541E3546238A45E200BBCE31 /* Minutes */ = {
@@ -166,15 +170,17 @@
 			path = Minutes;
 			sourceTree = "<group>";
 		};
-		541E354B238A4FC700BBCE31 /* Screens */ = {
+		541E354B238A4FC700BBCE31 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				541E3550238A54C600BBCE31 /* Dashboard */,
+				541E354D238A538900BBCE31 /* Navigation */,
 				541E3546238A45E200BBCE31 /* Minutes */,
-				541E353B238A16CE00BBCE31 /* ViewCommon */,
+				541E353B238A16CE00BBCE31 /* Common */,
 				541E35362389D92B00BBCE31 /* Vote */,
 				541E35302389CF5500BBCE31 /* Directory */,
 			);
-			path = Screens;
+			path = View;
 			sourceTree = "<group>";
 		};
 		541E354C238A4FD600BBCE31 /* Repository */ = {
@@ -182,6 +188,22 @@
 			children = (
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		541E354D238A538900BBCE31 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				541E354E238A539C00BBCE31 /* NavigationDrawer.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		541E3550238A54C600BBCE31 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				541E3551238A54D600BBCE31 /* DashboardView.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				541E353F238A1BC200BBCE31 /* Poll.swift in Sources */,
+				541E3552238A54D600BBCE31 /* DashboardView.swift in Sources */,
 				541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */,
 				541E3543238A335600BBCE31 /* VoteView.swift in Sources */,
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
@@ -271,6 +294,7 @@
 				541E354A238A477B00BBCE31 /* Minute.swift in Sources */,
 				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,
 				541E352D2388905B00BBCE31 /* Member.swift in Sources */,
+				541E354F238A539C00BBCE31 /* NavigationDrawer.swift in Sources */,
 				541E35382389D94500BBCE31 /* PollsView.swift in Sources */,
 				541E353A238A0C5B00BBCE31 /* Style.swift in Sources */,
 			);

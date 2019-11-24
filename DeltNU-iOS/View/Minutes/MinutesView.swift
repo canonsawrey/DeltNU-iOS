@@ -16,14 +16,13 @@ struct MinutesView: View {
             Background(color: appStyle.secondary)
             VStack {
                 HeaderView(text: "Minutes")
-                ForEach(minutes) { min in
+                List(minutes) { min in
                     Button(action: {
                         //Launch into URL VC
                     }) {
                         HStack {
                             Text("Minutes for:")
                                 .padding()
-                            Spacer()
                             min.createdAtDate.map({ Text($0.description) })
                                 .padding()
                         }

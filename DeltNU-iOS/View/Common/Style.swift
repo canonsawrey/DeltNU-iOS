@@ -41,6 +41,15 @@ class Style {
         }
     }
     
+    var tertiary: Color {
+        switch self.theme {
+        case .light:
+            return Color(red: 255 / 255.0, green: 215 / 255.0, blue: 0 / 255.0)
+        case .dark:
+            return Color.black
+        }
+    }
+    
     var colorOnPrimary: Color {
         switch self.theme {
         case .light:

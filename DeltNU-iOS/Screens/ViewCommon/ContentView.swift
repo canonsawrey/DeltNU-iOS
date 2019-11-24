@@ -18,7 +18,7 @@ struct ContentView: View {
                     Image(systemName: "arkit")
                     Text("Vote")
                 }
-                Text("Minutes")
+                MinutesView()
                 .tabItem{
                     Image(systemName: "arkit")
                     Text("Minutes")

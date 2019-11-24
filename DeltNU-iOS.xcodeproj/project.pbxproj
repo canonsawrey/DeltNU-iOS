@@ -25,6 +25,9 @@
 		541E353D238A178200BBCE31 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E353C238A178200BBCE31 /* ViewExtensions.swift */; };
 		541E353F238A1BC200BBCE31 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E353E238A1BC200BBCE31 /* Poll.swift */; };
 		541E3543238A335600BBCE31 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3542238A335600BBCE31 /* VoteView.swift */; };
+		541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3544238A43AC00BBCE31 /* MemberView.swift */; };
+		541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3547238A46C100BBCE31 /* MinutesView.swift */; };
+		541E354A238A477B00BBCE31 /* Minute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3549238A477B00BBCE31 /* Minute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		541E353C238A178200BBCE31 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		541E353E238A1BC200BBCE31 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		541E3542238A335600BBCE31 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
+		541E3544238A43AC00BBCE31 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
+		541E3547238A46C100BBCE31 /* MinutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesView.swift; sourceTree = "<group>"; };
+		541E3549238A477B00BBCE31 /* Minute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +87,9 @@
 		541E350B23887ED100BBCE31 /* DeltNU-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				541E353B238A16CE00BBCE31 /* ViewCommon */,
-				541E35362389D92B00BBCE31 /* Vote */,
-				541E35302389CF5500BBCE31 /* Directory */,
-				541E35252388885A00BBCE31 /* Data */,
+				541E354C238A4FD600BBCE31 /* Repository */,
+				541E354B238A4FC700BBCE31 /* Screens */,
+				541E35252388885A00BBCE31 /* Utility */,
 				541E35202388847800BBCE31 /* Mock */,
 				541E350C23887ED100BBCE31 /* AppDelegate.swift */,
 				541E350E23887ED100BBCE31 /* SceneDelegate.swift */,
@@ -114,12 +119,12 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
-		541E35252388885A00BBCE31 /* Data */ = {
+		541E35252388885A00BBCE31 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */,
 			);
-			path = Data;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		541E35302389CF5500BBCE31 /* Directory */ = {
@@ -127,6 +132,7 @@
 			children = (
 				541E352C2388905B00BBCE31 /* Member.swift */,
 				541E35312389CF7800BBCE31 /* DirectoryView.swift */,
+				541E3544238A43AC00BBCE31 /* MemberView.swift */,
 			);
 			path = Directory;
 			sourceTree = "<group>";
@@ -149,6 +155,33 @@
 				541E353C238A178200BBCE31 /* ViewExtensions.swift */,
 			);
 			path = ViewCommon;
+			sourceTree = "<group>";
+		};
+		541E3546238A45E200BBCE31 /* Minutes */ = {
+			isa = PBXGroup;
+			children = (
+				541E3547238A46C100BBCE31 /* MinutesView.swift */,
+				541E3549238A477B00BBCE31 /* Minute.swift */,
+			);
+			path = Minutes;
+			sourceTree = "<group>";
+		};
+		541E354B238A4FC700BBCE31 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				541E3546238A45E200BBCE31 /* Minutes */,
+				541E353B238A16CE00BBCE31 /* ViewCommon */,
+				541E35362389D92B00BBCE31 /* Vote */,
+				541E35302389CF5500BBCE31 /* Directory */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		541E354C238A4FD600BBCE31 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +265,11 @@
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
 				541E351123887ED100BBCE31 /* ContentView.swift in Sources */,
+				541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */,
 				541E353D238A178200BBCE31 /* ViewExtensions.swift in Sources */,
 				541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */,
+				541E354A238A477B00BBCE31 /* Minute.swift in Sources */,
+				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,
 				541E352D2388905B00BBCE31 /* Member.swift in Sources */,
 				541E35382389D94500BBCE31 /* PollsView.swift in Sources */,
 				541E353A238A0C5B00BBCE31 /* Style.swift in Sources */,

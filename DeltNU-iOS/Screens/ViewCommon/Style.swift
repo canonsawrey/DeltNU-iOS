@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 import SwiftUI
 
 let appStyle = Style()
@@ -28,6 +27,15 @@ class Style {
         switch self.theme {
         case .light:
             return Color(red: 75 / 255.0, green: 0 / 255.0, blue: 130 / 255.0)
+        case .dark:
+            return Color.black
+        }
+    }
+    
+    var secondaryDark: Color {
+        switch self.theme {
+        case .light:
+            return Color(red: 35 / 255.0, green: 0 / 255.0, blue: 80 / 255.0)
         case .dark:
             return Color.black
         }

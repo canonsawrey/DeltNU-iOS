@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct DirectoryView: View {
+    @State var selectedMember: Int = 0
+    @State var showingMember = false
     var members: MemberDirectory
     
     var body: some View {
@@ -18,13 +20,22 @@ struct DirectoryView: View {
             VStack {
                 HeaderView(text: "Member Directory")
                 List(members) { member in
-                    HStack {
-                        Text("\(member.firstName) \(member.lastName)")
-                        Spacer()
-                        Text(member.pledgeClass.rawValue.toGreekCharacter())
+                    Button(action: {
+                        self.selectedMember = member.id
+                        self.showingMember = true
+                    }) {
+                        HStack {
+                            Text("\(member.firstName) \(member.lastName)")
+                            Spacer()
+                            Text(member.pledgeClass.rawValue.toGreekCharacter())
+                        }
                     }
                 }
             }
+        }
+        .sheet(isPresented: $showingMember) {
+            //TODO: Use predicate to match
+            MemberView(member: self.members[0])
         }
     }
     

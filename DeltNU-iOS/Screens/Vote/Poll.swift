@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 // MARK: - PollElement
 struct Poll: Codable, Identifiable {
     let id: Int
@@ -38,11 +36,30 @@ struct Poll: Codable, Identifiable {
     var isActive: Bool {
         return true
     }
+    
+    var identifiableOptions: [Option] {
+        var optionsArray = [Option]()
+        for opt in self.options {
+            optionsArray.append(Option(option: opt))
+        }
+        return optionsArray
+    }
 }
-
 typealias PollArray = [Poll]
 
 // MARK: - Encode/decode helpers
+
+class Option: Identifiable {
+    var option: String
+    
+    init(option: String) {
+        self.option = option
+    }
+    
+    var id: Int {
+        return option.hashValue
+    }
+}
 
 class JSONNull: Codable, Hashable {
 

@@ -20,6 +20,11 @@
 		541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */; };
 		541E352D2388905B00BBCE31 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E352C2388905B00BBCE31 /* Member.swift */; };
 		541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35312389CF7800BBCE31 /* DirectoryView.swift */; };
+		541E35382389D94500BBCE31 /* PollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35372389D94500BBCE31 /* PollsView.swift */; };
+		541E353A238A0C5B00BBCE31 /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3539238A0C5B00BBCE31 /* Style.swift */; };
+		541E353D238A178200BBCE31 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E353C238A178200BBCE31 /* ViewExtensions.swift */; };
+		541E353F238A1BC200BBCE31 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E353E238A1BC200BBCE31 /* Poll.swift */; };
+		541E3543238A335600BBCE31 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3542238A335600BBCE31 /* VoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,11 @@
 		541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		541E352C2388905B00BBCE31 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		541E35312389CF7800BBCE31 /* DirectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryView.swift; sourceTree = "<group>"; };
+		541E35372389D94500BBCE31 /* PollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsView.swift; sourceTree = "<group>"; };
+		541E3539238A0C5B00BBCE31 /* Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
+		541E353C238A178200BBCE31 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		541E353E238A1BC200BBCE31 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
+		541E3542238A335600BBCE31 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,12 +81,13 @@
 		541E350B23887ED100BBCE31 /* DeltNU-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				541E353B238A16CE00BBCE31 /* ViewCommon */,
+				541E35362389D92B00BBCE31 /* Vote */,
 				541E35302389CF5500BBCE31 /* Directory */,
 				541E35252388885A00BBCE31 /* Data */,
 				541E35202388847800BBCE31 /* Mock */,
 				541E350C23887ED100BBCE31 /* AppDelegate.swift */,
 				541E350E23887ED100BBCE31 /* SceneDelegate.swift */,
-				541E351023887ED100BBCE31 /* ContentView.swift */,
 				541E351223887ED400BBCE31 /* Assets.xcassets */,
 				541E351723887ED400BBCE31 /* LaunchScreen.storyboard */,
 				541E351A23887ED400BBCE31 /* Info.plist */,
@@ -118,6 +129,26 @@
 				541E35312389CF7800BBCE31 /* DirectoryView.swift */,
 			);
 			path = Directory;
+			sourceTree = "<group>";
+		};
+		541E35362389D92B00BBCE31 /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				541E35372389D94500BBCE31 /* PollsView.swift */,
+				541E353E238A1BC200BBCE31 /* Poll.swift */,
+				541E3542238A335600BBCE31 /* VoteView.swift */,
+			);
+			path = Vote;
+			sourceTree = "<group>";
+		};
+		541E353B238A16CE00BBCE31 /* ViewCommon */ = {
+			isa = PBXGroup;
+			children = (
+				541E351023887ED100BBCE31 /* ContentView.swift */,
+				541E3539238A0C5B00BBCE31 /* Style.swift */,
+				541E353C238A178200BBCE31 /* ViewExtensions.swift */,
+			);
+			path = ViewCommon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,12 +226,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541E353F238A1BC200BBCE31 /* Poll.swift in Sources */,
 				541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */,
+				541E3543238A335600BBCE31 /* VoteView.swift in Sources */,
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
 				541E351123887ED100BBCE31 /* ContentView.swift in Sources */,
+				541E353D238A178200BBCE31 /* ViewExtensions.swift in Sources */,
 				541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */,
 				541E352D2388905B00BBCE31 /* Member.swift in Sources */,
+				541E35382389D94500BBCE31 /* PollsView.swift in Sources */,
+				541E353A238A0C5B00BBCE31 /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

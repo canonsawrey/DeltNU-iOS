@@ -10,24 +10,27 @@ import SwiftUI
 
 struct MinutesView: View {
     var minutes: Minutes = Bundle.main.decode("minutes.json")
+    @State var showingMinutes = false
+    @State var selectedMinutes = 0
     
     var body: some View {
         NavigationView {
             VStack {
                 List(minutes) { min in
                     Button(action: {
-                        //Launch into URL VC
+                        self.selectedMinutes = min.id
+                        self.showingMinutes = true
                     }) {
-                        HStack {
-                            Text("Minutes for:")
-                                .padding()
-                            min.createdAtDate.map({ Text($0.description) })
-                                .padding()
-                        }
+                        Text(min.formattedCreatedAtDate).padding()
                     }
                 }
             }
             .navigationBarTitle("Minutes")
+            .sheet(isPresented: $showingMinutes) {
+                MinutesModal(minutes: self.minutes.first { minute in
+                    minute.id == self.selectedMinutes
+                }!)
+            }
         }
     }
 }

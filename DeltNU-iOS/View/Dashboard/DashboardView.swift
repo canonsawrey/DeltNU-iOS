@@ -14,11 +14,22 @@ struct DashboardView: View {
     var user: Member = members.first { member -> Bool in
         member.firstName == "Canon"
     }!
+    //TODO This needs to come from a new endpoint
+    var serviceHours = 8
+    var serviceHoursCompleted = false
     
     var body: some View {
         NavigationView {
             VStack {
-                Text("Welcome, \(user.firstName)")
+                Text("Welcome, \(user.firstName)").padding()
+                HStack {
+                    Text("Service hours: ")
+                        .padding()
+                    Text("\(serviceHours) / 10")
+                        .foregroundColor(serviceHoursCompleted ? Color.green : Color.red)
+                    .padding()
+                }
+                Text("Upcoming events:").padding()
             }.navigationBarTitle("Dashboard")
             .navigationBarItems(
                 trailing: Button(action: {

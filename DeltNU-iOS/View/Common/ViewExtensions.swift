@@ -37,3 +37,56 @@ struct Background: View {
         self.color = color
     }
 }
+
+struct TileButton: View {
+    let action: () -> ()
+    let text: String
+    let color: Color
+    let textColor: Color
+    
+    
+    var body: some View {
+        Button(action: self.action) {
+            VStack {
+                Text(self.text)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .foregroundColor(self.textColor)
+                    .background(self.color)
+                    .cornerRadius(10)
+            }.padding()
+        }
+    }
+    
+    init(action: @escaping () -> (), text: String, color: Color, textColor: Color) {
+        self.action = action
+        self.text = text
+        self.color = color
+        self.textColor = textColor
+    }
+    
+    init(text: String, color: Color, textColor: Color) {
+        self.init(action: { }, text: text, color: color, textColor: textColor)
+    }
+}
+
+struct Tile: View {
+    let text: String
+    let color: Color
+    let textColor: Color
+    
+    
+    var body: some View {
+        Text(self.text)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .foregroundColor(self.textColor)
+            .background(self.color)
+            .cornerRadius(10)
+            .padding()
+    }
+    
+    init(text: String, color: Color, textColor: Color) {
+        self.text = text
+        self.color = color
+        self.textColor = textColor
+    }
+}

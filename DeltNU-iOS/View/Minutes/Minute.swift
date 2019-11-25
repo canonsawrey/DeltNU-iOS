@@ -33,8 +33,21 @@ struct Minute: Codable, Identifiable {
     }
     
     var createdAtDate: Date? {
-        let isoFormatter = ISO8601DateFormatter()
-        return isoFormatter.date(from: self.createdAt)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let sub = String(self.createdAt.prefix(19))
+        print(sub)
+        return formatter.date(from: sub)
+    }
+    
+    var formattedCreatedAtDate: String {
+        if let date = createdAtDate {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .long
+            return formatter.string(from: date)
+        } else {
+            return "N/A"
+        }
     }
 }
 

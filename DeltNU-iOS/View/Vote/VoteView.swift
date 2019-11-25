@@ -15,19 +15,15 @@ struct VoteView: View {
     var body: some View {
         VStack {
             Text(poll.title)
+                .font(.headline)
                 .padding()
             ForEach(poll.identifiableOptions) { option in
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    VStack {
-                        Text(option.option)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .foregroundColor(appStyle.colorOnSecondary)
-                            .background(appStyle.secondary)
-                            .cornerRadius(10)
-                    }.padding()
-                }
+                TileButton(
+                    action: { self.presentationMode.wrappedValue.dismiss() },
+                    text: option.option,
+                    color: appStyle.secondary,
+                    textColor: appStyle.colorOnSecondary
+                )
             }
         }
     }

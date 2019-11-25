@@ -16,7 +16,6 @@ struct PollsView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HeaderView(text: "Vote")
                 List(polls) { poll in
                     Button(action: {
                         self.selectedPoll = poll.id
@@ -26,10 +25,11 @@ struct PollsView: View {
                     }
                 }
         }
-        .navigationBarTitle("Minutes")
+        .navigationBarTitle("Vote")
         .sheet(isPresented: $showingPoll) {
-            //TODO: Use predicate to match
-            VoteView(poll: self.polls[0])
+            VoteView(poll: self.polls.first { poll in
+                poll.id == self.selectedPoll
+            }!)
         }
         }
     }

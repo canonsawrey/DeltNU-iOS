@@ -36,6 +36,7 @@ struct DashboardView: View {
                     self.showingProfile = true
                 }) {
                     Image(systemName: "person")
+                        .padding()
                 }
             )
             .sheet(isPresented: $showingProfile) {

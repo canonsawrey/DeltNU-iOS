@@ -1,15 +1,13 @@
-//
-//  MinutesModal.swift
+//  MinutesWebView.swift
 //  DeltNU-iOS
 //
 //  Created by Canon Sawrey on 11/24/19.
 //  Copyright © 2019 Canon Sawrey. All rights reserved.
 //
-
 import SwiftUI
 import WebKit
 
-struct MinutesWebView: View {
+struct MasterformWebView: View {
     let minutes: Minute
     let url: URL?
     
@@ -29,11 +27,11 @@ struct MinutesWebView: View {
     }
 }
 
-struct MinutesModal_Previews: PreviewProvider {
+struct MasterformWebView_Previews: PreviewProvider {
     static let minutes: Minutes = Bundle.main.decode("minutes.json")
     
     static var previews: some View {
-        MinutesWebView(minutes: self.minutes[0])
+        MasterformWebView(minutes: self.minutes[0])
     }
 }
   
@@ -51,10 +49,8 @@ struct WebView : UIViewRepresentable {
       
 }
   
-#if DEBUG
 struct WebView_Previews : PreviewProvider {
     static var previews: some View {
         WebView(request: URLRequest(url: URL(string: "https://www.apple.com")!))
     }
 }
-#endif

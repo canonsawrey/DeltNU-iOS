@@ -18,14 +18,17 @@ struct MemberView: View {
                 .resizable()
                 .frame(maxWidth: self.pictureSize, maxHeight: self.pictureSize)
                 .padding(50)
+            
             Text("\(member.firstName) \(member.lastName)")
                 .font(.largeTitle)
                 .padding()
                 
             Text(member.pledgeClass.rawValue)
                 .padding()
+            
             Text(member.phoneNumber)
                 .padding()
+        
             Text(member.email)
                 .padding()
         }

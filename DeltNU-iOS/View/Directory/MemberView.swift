@@ -9,20 +9,27 @@
 import SwiftUI
 
 struct MemberView: View {
+    let pictureSize = UIScreen.main.bounds.width / 2
     var member: Member
     
     var body: some View {
         VStack {
-            HStack {
-                Text("\(member.firstName) \(member.lastName)")
-                    .padding()
-                Spacer()
-                Text(member.pledgeClass.rawValue)
+            Image(systemName: "person")
+                .resizable()
+                .frame(maxWidth: self.pictureSize, maxHeight: self.pictureSize)
+                .padding(50)
+            Text("\(member.firstName) \(member.lastName)")
+                .font(.largeTitle)
                 .padding()
-            }
-            Text(member.email)
+                
+            Text(member.pledgeClass.rawValue)
+                .padding()
             Text(member.phoneNumber)
+                .padding()
+            Text(member.email)
+                .padding()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
     
     init(member: Member) {

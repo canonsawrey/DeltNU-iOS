@@ -9,9 +9,27 @@
 import SwiftUI
 
 struct DashboardView: View {
+    @State var showingProfile = false
+    static let members: MemberDirectory = Bundle.main.decode("users.json")
+    var user: Member = members.first { member -> Bool in
+        member.firstName == "Canon"
+    }!
+    
     var body: some View {
-        VStack {
-            Text("Welcome, Canon")
+        NavigationView {
+            VStack {
+                Text("Welcome, \(user.firstName)")
+            }.navigationBarTitle("Dashboard")
+            .navigationBarItems(
+                trailing: Button(action: {
+                    self.showingProfile = true
+                }) {
+                    Image(systemName: "person")
+                }
+            )
+            .sheet(isPresented: $showingProfile) {
+                MemberView(member: self.user)
+            }
         }
     }
 }

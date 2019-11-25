@@ -14,9 +14,7 @@ struct DirectoryView: View {
     @State var showingMember = false
     
     var body: some View {
-        ZStack {
-            Background(color: appStyle.secondary)
-            
+        NavigationView {
             VStack {
                 HeaderView(text: "Member Directory")
                 List(members) { member in
@@ -32,10 +30,12 @@ struct DirectoryView: View {
                     }
                 }
             }
-        }
-        .sheet(isPresented: $showingMember) {
-            //TODO: Use predicate to match
-            MemberView(member: self.members[0])
+            .sheet(isPresented: $showingMember) {
+                MemberView(member: self.members.first { member in
+                    member.id == self.selectedMember
+                }!)
+            }
+            .navigationBarTitle("Minutes")
         }
     }
 }

@@ -12,10 +12,8 @@ struct MinutesView: View {
     var minutes: Minutes = Bundle.main.decode("minutes.json")
     
     var body: some View {
-        ZStack {
-            Background(color: appStyle.secondary)
+        NavigationView {
             VStack {
-                HeaderView(text: "Minutes")
                 List(minutes) { min in
                     Button(action: {
                         //Launch into URL VC
@@ -29,6 +27,7 @@ struct MinutesView: View {
                     }
                 }
             }
+            .navigationBarTitle("Minutes")
         }
     }
 }

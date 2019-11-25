@@ -173,6 +173,7 @@
 		541E354B238A4FC700BBCE31 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				541E3553238B741800BBCE31 /* Preferences */,
 				541E3550238A54C600BBCE31 /* Dashboard */,
 				541E354D238A538900BBCE31 /* Navigation */,
 				541E3546238A45E200BBCE31 /* Minutes */,
@@ -204,6 +205,13 @@
 				541E3551238A54D600BBCE31 /* DashboardView.swift */,
 			);
 			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		541E3553238B741800BBCE31 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

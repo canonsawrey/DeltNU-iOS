@@ -14,8 +14,7 @@ struct PollsView: View {
     @State var selectedPoll = 0
     
     var body: some View {
-        ZStack {
-            Background(color: appStyle.secondary)
+        NavigationView {
             VStack {
                 HeaderView(text: "Vote")
                 List(polls) { poll in
@@ -26,11 +25,12 @@ struct PollsView: View {
                         Text("\(poll.title)")
                     }
                 }
-            }
         }
+        .navigationBarTitle("Minutes")
         .sheet(isPresented: $showingPoll) {
             //TODO: Use predicate to match
             VoteView(poll: self.polls[0])
+        }
         }
     }
 }

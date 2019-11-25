@@ -32,6 +32,15 @@ class Style {
         }
     }
     
+    var secondaryLight: Color {
+        switch self.theme {
+        case .light:
+            return Color(red: 210 / 255.0, green: 191 / 255.0, blue: 224 / 255.0)
+        case .dark:
+            return Color.black
+        }
+    }
+    
     var secondaryDark: Color {
         switch self.theme {
         case .light:

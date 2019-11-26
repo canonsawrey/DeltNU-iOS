@@ -57,7 +57,18 @@ struct ContentView: View {
                     Image(systemName: "person.3")
                     Text("Directory")
             }
-        }.accentColor(appStyle.secondary)
+        }
+        .accentColor(Color(UIColor(named: "colorOnSecondary")!))
+        .edgesIgnoringSafeArea(.top)
+    }
+    
+    //TODO: This needs to be done in a different way once SwiftUI API is expanded
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(named: "secondary")
+        UITabBar.appearance().barTintColor = UIColor(named: "secondary")
+        UINavigationBar.appearance().backgroundColor = UIColor(named: "secondary")
+        UINavigationBar.appearance().barTintColor = UIColor(named: "secondary")
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "colorOnSecondary")!]
     }
 }
 

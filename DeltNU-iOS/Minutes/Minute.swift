@@ -11,11 +11,11 @@ import Foundation
 struct Minute: Codable, Identifiable {
     let id: Int
     let title: String
-    let createdAt, updatedAt: String
+    let createdAt, updatedAt: Date
     let pdfFileName: String?
-    let pdfContentType: PDFContentType?
+    let pdfContentType: String?
     let pdfFileSize: Int?
-    let pdfUpdatedAt: String?
+    let pdfUpdatedAt: Date?
     let newmember: Bool?
     let masterform: String
     let chapterID: Int
@@ -31,28 +31,6 @@ struct Minute: Codable, Identifiable {
         case newmember, masterform
         case chapterID = "chapter_id"
     }
-    
-    var createdAtDate: Date? {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        let sub = String(self.createdAt.prefix(19))
-        print(sub)
-        return formatter.date(from: sub)
-    }
-    
-    var formattedCreatedAtDate: String {
-        if let date = createdAtDate {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .long
-            return formatter.string(from: date)
-        } else {
-            return "N/A"
-        }
-    }
-}
-
-enum PDFContentType: String, Codable {
-    case applicationPDF = "application/pdf"
 }
 
 typealias Minutes = [Minute]

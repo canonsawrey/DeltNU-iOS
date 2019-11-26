@@ -73,20 +73,24 @@ struct Tile: View {
     let text: String
     let color: Color
     let textColor: Color
-    
+    let height: CGFloat
+    let width: CGFloat
     
     var body: some View {
         Text(self.text)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(maxWidth: self.width, maxHeight: self.height)
             .foregroundColor(self.textColor)
             .background(self.color)
             .cornerRadius(10)
             .padding()
     }
     
-    init(text: String, color: Color, textColor: Color) {
+    init(text: String, color: Color, textColor: Color, height: CGFloat, width: CGFloat) {
         self.text = text
         self.color = color
         self.textColor = textColor
+        self.width = width
+        self.height = height
     }
 }
+

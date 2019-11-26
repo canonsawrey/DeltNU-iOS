@@ -26,7 +26,7 @@ class Style {
     var secondary: Color {
         switch self.theme {
         case .light:
-            return Color(red: 75 / 255.0, green: 0 / 255.0, blue: 130 / 255.0)
+            return Color(UIColor(named: "secondary")!)
         case .dark:
             return Color.black
         }
@@ -53,7 +53,7 @@ class Style {
     var tertiary: Color {
         switch self.theme {
         case .light:
-            return Color(red: 255 / 255.0, green: 215 / 255.0, blue: 0 / 255.0)
+            return Color(UIColor(named: "tertiary")!)
         case .dark:
             return Color.black
         }
@@ -64,7 +64,7 @@ class Style {
         case .light:
             return Color.black
         case .dark:
-            return Color.black
+            return Color.white
         }
     }
     

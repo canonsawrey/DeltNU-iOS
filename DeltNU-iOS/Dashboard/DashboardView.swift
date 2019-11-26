@@ -21,16 +21,23 @@ struct DashboardView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Welcome, \(user.firstName)").padding()
-                HStack {
-                    Text("Service hours: ")
-                        .padding()
-                    Text("\(serviceHours) / 10")
-                        .foregroundColor(serviceHoursCompleted ? Color.green : Color.red)
+                Text("Welcome, \(user.firstName)")
+                    .font(.largeTitle)
+                    .frame(alignment: .top)
                     .padding()
-                }
-                Text("Upcoming events:").padding()
-            }.navigationBarTitle("Dashboard")
+                Text("Upcoming events")
+                    .padding()
+                Text("Placeholder for Google Calendar API events")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.black)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(50)
+                    .padding(.bottom)
+                    .padding(.horizontal)
+                
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .navigationBarTitle("Dashboard", displayMode: .inline)
             .navigationBarItems(
                 trailing: Button(action: {
                     self.showingProfile = true

@@ -15,7 +15,7 @@ struct Member: Codable, Identifiable {
     let role: Role
     let pledgeClass: PledgeClass
     let gradYear: String?
-    let createdAt, updatedAt: String
+    let createdAt, updatedAt: Date
     let pictureFileName: String?
     let pictureContentType: PictureContentType?
     let pictureFileSize: Int?

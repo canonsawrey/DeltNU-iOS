@@ -20,7 +20,6 @@ struct DirectoryView: View {
     var body: some View {
         NavigationView {
             VStack {
-                
                 HStack {
                     HStack {
                         Image(systemName: "magnifyingglass")
@@ -52,6 +51,7 @@ struct DirectoryView: View {
                     }
                 }
                 .padding(.horizontal)
+                .padding(.top)
                     .navigationBarHidden(showCancelButton) // .animation(.default) // animation does not work properly
                 
                 List {
@@ -70,7 +70,7 @@ struct DirectoryView: View {
                 }
                 .resignKeyboardOnDragGesture()
             }
-            .navigationBarTitle("Member Directory")
+            .navigationBarTitle("Member Directory", displayMode: .inline)
             .sheet(isPresented: $showingMember) {
                 MemberView(member: self.members.first { member in
                     member.id == self.selectedMember

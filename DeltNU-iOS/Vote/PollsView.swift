@@ -22,10 +22,10 @@ struct PollsView: View {
                         self.showingPoll = true
                     }) {
                         Text("\(poll.title)")
-                    }
+                    }.disabled(poll.isActive)
                 }
         }
-        .navigationBarTitle("Vote")
+        .navigationBarTitle("Vote", displayMode: .inline)
         .sheet(isPresented: $showingPoll) {
             VoteView(poll: self.polls.first { poll in
                 poll.id == self.selectedPoll

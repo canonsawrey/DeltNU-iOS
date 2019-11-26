@@ -12,13 +12,13 @@ import Foundation
 struct Poll: Codable, Identifiable {
     let id: Int
     let title: String
-    let question: JSONNull?
+    let question: String?
     let createdBy: Int
-    let expires, createdAt, updatedAt: String
-    let abstain, linkedQuestion: JSONNull?
+    let expires, createdAt, updatedAt: Date
+    let abstain, linkedQuestion: String?
     let options: [String]
     let poll: Bool?
-    let eventid: JSONNull?
+    let eventid: String?
     let chapterID: Int
 
     enum CodingKeys: String, CodingKey {
@@ -34,7 +34,7 @@ struct Poll: Codable, Identifiable {
     }
     
     var isActive: Bool {
-        return true
+        return Date() < expires
     }
     
     var identifiableOptions: [Option] {
@@ -58,30 +58,5 @@ class Option: Identifiable {
     
     var id: Int {
         return option.hashValue
-    }
-}
-
-class JSONNull: Codable, Hashable {
-
-    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
-        return true
-    }
-
-    public var hashValue: Int {
-        return 0
-    }
-
-    public init() {}
-
-    public required init(from decoder: Decoder) throws {
-        let container = try decoder.singleValueContainer()
-        if !container.decodeNil() {
-            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
-        }
-    }
-
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encodeNil()
     }
 }

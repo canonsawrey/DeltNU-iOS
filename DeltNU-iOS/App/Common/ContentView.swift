@@ -7,9 +7,11 @@
 //
 
 import SwiftUI
+import Foundation
+import Combine
 
 struct ContentView: View {
-    @State var isDrawerOpen: Bool = false
+    //@State var isDrawerOpen: Bool = false
     
     var body: some View {
         //        ZStack {
@@ -52,13 +54,20 @@ struct ContentView: View {
                     Image(systemName: "pencil")
                     Text("Vote")
             }
-            DirectoryView()
+            DirectoryView(
+                viewModel: DirectoryViewModel(
+                    directoryFetcher: MockDirectoryFetcher()))
                 .tabItem{
                     Image(systemName: "person.3")
                     Text("Directory")
             }
+            PreferencesView()
+                .tabItem{
+                    Image(systemName: "gear")
+                    Text("Preferences")
+            }
         }
-        .accentColor(Color(UIColor(named: "colorOnSecondary")!))
+        .accentColor(Color("colorOnSecondary"))
         .edgesIgnoringSafeArea(.top)
     }
     
@@ -69,6 +78,7 @@ struct ContentView: View {
         UINavigationBar.appearance().backgroundColor = UIColor(named: "secondary")
         UINavigationBar.appearance().barTintColor = UIColor(named: "secondary")
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "colorOnSecondary")!]
+        
     }
 }
 

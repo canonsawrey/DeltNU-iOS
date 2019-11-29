@@ -23,24 +23,6 @@ extension Bundle {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
         decoder.dateDecodingStrategy = .formatted(formatter)
         
-//        var createdAtDate: Date? {
-//            let formatter = DateFormatter()
-//            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-//            let sub = String(self.createdAt.prefix(19))
-//            print(sub)
-//            return formatter.date(from: sub)
-//        }
-//
-//        var formattedCreatedAtDate: String {
-//            if let date = createdAtDate {
-//                let formatter = DateFormatter()
-//                formatter.dateStyle = .long
-//                return formatter.string(from: date)
-//            } else {
-//                return "N/A"
-//            }
-//        }
-        
         guard let loaded = try? decoder.decode(T.self, from: data) else {
             fatalError("Failed to decode \(file) from bundle.")
         }

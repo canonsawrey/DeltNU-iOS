@@ -9,13 +9,14 @@
 import SwiftUI
 
 struct DirectoryView: View {
+    //Mocked data
     var members: MemberDirectory = Bundle.main.decode("users.json")
     
+    //View model
+    @ObservedObject var viewModel: DirectoryViewModel
+    //Member detail bottom sheet state
     @State var selectedMember: Int = 0
     @State var showingMember = false
-    //Searchbar stuff
-    @State private var searchText = ""
-    @State private var showCancelButton: Bool = false
     
     var body: some View {
         NavigationView {
@@ -24,38 +25,39 @@ struct DirectoryView: View {
                     HStack {
                         Image(systemName: "magnifyingglass")
                         
-                        TextField("Search", text: $searchText, onEditingChanged: { isEditing in
-                            self.showCancelButton = true
+                        TextField("Search", text: $viewModel.searchText, onEditingChanged: { isEditing in
+                            self.viewModel.showCancelButton = true
                         }, onCommit: {
                             print("onCommit")
-                        }).foregroundColor(appStyle.secondary)
+                        }).foregroundColor(Color("secondary"))
                         
                         Button(action: {
-                            self.searchText = ""
+                            self.viewModel.searchText = ""
                         }) {
-                            Image(systemName: "xmark.circle.fill").opacity(searchText == "" ? 0 : 1)
+                            Image(systemName: "xmark.circle.fill").opacity(self.viewModel.searchText == "" ? 0 : 1)
                         }
                     }
                     .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
-                    .foregroundColor(.secondary)
-                    .background(Color(.secondarySystemBackground))
+                    .foregroundColor(Color("secondary"))
+                    .background(Color("colorOnSecondary"))
                     .cornerRadius(10.0)
                     
-                    if showCancelButton  {
+                    if viewModel.showCancelButton  {
                         Button("Cancel") {
                             UIApplication.shared.endEditing(true) // this must be placed before the other commands here
-                            self.searchText = ""
-                            self.showCancelButton = false
+                            self.viewModel.searchText = ""
+                            self.viewModel.showCancelButton = false
                         }
-                        .foregroundColor(appStyle.secondary)
+                        .foregroundColor(Color("secondary"))
                     }
                 }
                 .padding(.horizontal)
                 .padding(.top)
-                    .navigationBarHidden(showCancelButton) // .animation(.default) // animation does not work properly
+                    .navigationBarHidden(viewModel.showCancelButton) // .animation(.default) // animation does not work properly
                 
+                //Member list - hide if not loaded
                 List {
-                    ForEach(self.members.filter{$0.firstName.hasPrefix(searchText) || searchText == ""}) { member in
+                    ForEach(viewModel.members.filter{$0.firstName.hasPrefix(viewModel.searchText) || viewModel.searchText == ""}) { member in
                         Button(action: {
                             self.selectedMember = member.id
                             self.showingMember = true
@@ -80,48 +82,15 @@ struct DirectoryView: View {
     }
 }
 
-struct DirectoryView_Previews: PreviewProvider {
-    static let members: MemberDirectory = Bundle.main.decode("users.json")
-    
-    static var previews: some View {
-        DirectoryView(members: members)
-    }
-}
+//struct DirectoryView_Previews: PreviewProvider {
+//    static let members: MemberDirectory = Bundle.main.decode("users.json")
+//    
+//    static var previews: some View {
+//        DirectoryView(members: members)
+//    }
+//}
 
-extension String {
-    func toGreekCharacter() -> String {
-        switch self {
-        case "Alpha":
-            return "Α"
-        case "Beta":
-            return "B"
-        case "Gamma":
-            return "Γ"
-        case "Delta":
-            return "Δ"
-        case "Epsilon":
-            return "E"
-        case "Zeta":
-            return "Z"
-        case "Eta":
-            return "H"
-        case "Theta":
-            return "Θ"
-        case "Iota":
-            return "I"
-        case "Kappa":
-            return "K"
-        case "Lambda":
-            return "Λ"
-        case "Mu":
-            return "M"
-        case "Nu":
-            return "N"
-        default:
-            return "-"
-        }
-    }
-}
+
 
 extension UIApplication {
     func endEditing(_ force: Bool) {

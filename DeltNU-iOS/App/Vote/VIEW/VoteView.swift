@@ -21,8 +21,8 @@ struct VoteView: View {
                 TileButton(
                     action: { self.presentationMode.wrappedValue.dismiss() },
                     text: option.option,
-                    color: appStyle.secondary,
-                    textColor: appStyle.colorOnSecondary
+                    color: Color("secondary"),
+                    textColor: Color("colorOnSecondary")
                 )
             }
         }

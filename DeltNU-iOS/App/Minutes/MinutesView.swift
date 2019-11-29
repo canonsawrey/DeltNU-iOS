@@ -24,8 +24,8 @@ struct MinutesView: View {
                                 NavigationLink(destination: Text("Minutes unavailable"), label: {
                                     Tile(
                                         text: "Minutes",
-                                        color: Color(UIColor(named: "secondary")!),
-                                        textColor: Color(UIColor(named: "colorOnSecondary")!),
+                                        color: Color("secondary"),
+                                        textColor: Color("colorOnSecondary"),
                                         height: .infinity,
                                         width: .infinity
                                     )
@@ -34,8 +34,8 @@ struct MinutesView: View {
                                 NavigationLink(destination: MasterformWebView(minutes: min), label: {
                                     Tile(
                                         text: "Masterform",
-                                        color: Color(UIColor(named: "secondary")!),
-                                        textColor: Color(UIColor(named: "colorOnSecondary")!),
+                                        color: Color("secondary"),
+                                        textColor: Color("colorOnSecondary"),
                                         height: .infinity,
                                         width: .infinity
                                 )

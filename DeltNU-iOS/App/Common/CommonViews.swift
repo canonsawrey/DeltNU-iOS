@@ -15,7 +15,7 @@ struct HeaderView: View {
     var body: some View {
         Text(text)
             .font(.headline)
-            .foregroundColor(appStyle.colorOnSecondary)
+            .foregroundColor(Color("colorOnSecondary"))
     }
     
     init(text: String) {

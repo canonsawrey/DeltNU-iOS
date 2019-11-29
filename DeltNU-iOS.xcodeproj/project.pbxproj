@@ -32,6 +32,13 @@
 		541E3557238B9F4D00BBCE31 /* MasterformWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3556238B9F4D00BBCE31 /* MasterformWebView.swift */; };
 		541E3559238C60CC00BBCE31 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3558238C60CC00BBCE31 /* Extensions.swift */; };
 		541E355B238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */; };
+		541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3570239131B000BBCE31 /* DirectoryViewModel.swift */; };
+		541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3572239132DE00BBCE31 /* Combine-Decodable.swift */; };
+		541E35792391342B00BBCE31 /* DeltNuError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35782391342B00BBCE31 /* DeltNuError.swift */; };
+		541E357D23914A6300BBCE31 /* MockDirectoryFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E357C23914A6300BBCE31 /* MockDirectoryFetcher.swift */; };
+		541E357F23914AE900BBCE31 /* DirectoryFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E357E23914AE900BBCE31 /* DirectoryFetchable.swift */; };
+		541E35812391815000BBCE31 /* options.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35802391815000BBCE31 /* options.json */; };
+		541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E358523918B0400BBCE31 /* PreferencesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +61,7 @@
 		541E3539238A0C5B00BBCE31 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		541E353C238A178200BBCE31 /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
 		541E353E238A1BC200BBCE31 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
-		541E3542238A335600BBCE31 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
+		541E3542238A335600BBCE31 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoteView.swift; path = ../VIEW/VoteView.swift; sourceTree = "<group>"; };
 		541E3544238A43AC00BBCE31 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		541E3547238A46C100BBCE31 /* MinutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesView.swift; sourceTree = "<group>"; };
 		541E3549238A477B00BBCE31 /* Minute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minute.swift; sourceTree = "<group>"; };
@@ -62,6 +69,13 @@
 		541E3556238B9F4D00BBCE31 /* MasterformWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterformWebView.swift; sourceTree = "<group>"; };
 		541E3558238C60CC00BBCE31 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiWorkarounds.swift; sourceTree = "<group>"; };
+		541E3570239131B000BBCE31 /* DirectoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewModel.swift; sourceTree = "<group>"; };
+		541E3572239132DE00BBCE31 /* Combine-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine-Decodable.swift"; sourceTree = "<group>"; };
+		541E35782391342B00BBCE31 /* DeltNuError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeltNuError.swift; sourceTree = "<group>"; };
+		541E357C23914A6300BBCE31 /* MockDirectoryFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDirectoryFetcher.swift; sourceTree = "<group>"; };
+		541E357E23914AE900BBCE31 /* DirectoryFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFetchable.swift; sourceTree = "<group>"; };
+		541E35802391815000BBCE31 /* options.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = options.json; sourceTree = "<group>"; };
+		541E358523918B0400BBCE31 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,13 +109,9 @@
 		541E350B23887ED100BBCE31 /* DeltNU-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				541E355C238CC67D00BBCE31 /* Data */,
-				541E3553238B741800BBCE31 /* Preferences */,
-				541E3550238A54C600BBCE31 /* Dashboard */,
-				541E3546238A45E200BBCE31 /* Minutes */,
-				541E353B238A16CE00BBCE31 /* Common */,
-				541E35362389D92B00BBCE31 /* Vote */,
-				541E35302389CF5500BBCE31 /* Directory */,
+				541E35252388885A00BBCE31 /* Utility */,
+				541E35202388847800BBCE31 /* Mock-Data */,
+				541E356F23912DF000BBCE31 /* App */,
 				541E350C23887ED100BBCE31 /* AppDelegate.swift */,
 				541E350E23887ED100BBCE31 /* SceneDelegate.swift */,
 				541E351223887ED400BBCE31 /* Assets.xcassets */,
@@ -120,21 +130,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		541E35202388847800BBCE31 /* Mock */ = {
+		541E35202388847800BBCE31 /* Mock-Data */ = {
 			isa = PBXGroup;
 			children = (
-				541E355D238CCA6300BBCE31 /* Repository */,
 				541E352623888D1800BBCE31 /* users.json */,
 				541E35212388884F00BBCE31 /* minutes.json */,
 				541E35222388884F00BBCE31 /* questions.json */,
+				541E35802391815000BBCE31 /* options.json */,
 			);
-			path = Mock;
+			path = "Mock-Data";
 			sourceTree = "<group>";
 		};
 		541E35252388885A00BBCE31 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				541E35782391342B00BBCE31 /* DeltNuError.swift */,
 				541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */,
+				541E3572239132DE00BBCE31 /* Combine-Decodable.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -142,9 +154,9 @@
 		541E35302389CF5500BBCE31 /* Directory */ = {
 			isa = PBXGroup;
 			children = (
-				541E352C2388905B00BBCE31 /* Member.swift */,
-				541E35312389CF7800BBCE31 /* DirectoryView.swift */,
-				541E3544238A43AC00BBCE31 /* MemberView.swift */,
+				541E35822391821700BBCE31 /* View */,
+				541E357B2391494C00BBCE31 /* Remote */,
+				541E357A239148E200BBCE31 /* Entity */,
 			);
 			path = Directory;
 			sourceTree = "<group>";
@@ -152,9 +164,7 @@
 		541E35362389D92B00BBCE31 /* Vote */ = {
 			isa = PBXGroup;
 			children = (
-				541E35372389D94500BBCE31 /* PollsView.swift */,
-				541E353E238A1BC200BBCE31 /* Poll.swift */,
-				541E3542238A335600BBCE31 /* VoteView.swift */,
+				541E358323918AB000BBCE31 /* View */,
 			);
 			path = Vote;
 			sourceTree = "<group>";
@@ -181,13 +191,6 @@
 			path = Minutes;
 			sourceTree = "<group>";
 		};
-		541E354C238A4FD600BBCE31 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
 		541E3550238A54C600BBCE31 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,28 +199,62 @@
 			path = Dashboard;
 			sourceTree = "<group>";
 		};
-		541E3553238B741800BBCE31 /* Preferences */ = {
+		541E356F23912DF000BBCE31 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				541E358423918ADA00BBCE31 /* Preferences */,
+				541E3550238A54C600BBCE31 /* Dashboard */,
+				541E3546238A45E200BBCE31 /* Minutes */,
+				541E353B238A16CE00BBCE31 /* Common */,
+				541E35362389D92B00BBCE31 /* Vote */,
+				541E35302389CF5500BBCE31 /* Directory */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		541E357A239148E200BBCE31 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				541E352C2388905B00BBCE31 /* Member.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		541E357B2391494C00BBCE31 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				541E357E23914AE900BBCE31 /* DirectoryFetchable.swift */,
+				541E357C23914A6300BBCE31 /* MockDirectoryFetcher.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		541E35822391821700BBCE31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				541E35312389CF7800BBCE31 /* DirectoryView.swift */,
+				541E3544238A43AC00BBCE31 /* MemberView.swift */,
+				541E3570239131B000BBCE31 /* DirectoryViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		541E358323918AB000BBCE31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				541E35372389D94500BBCE31 /* PollsView.swift */,
+				541E353E238A1BC200BBCE31 /* Poll.swift */,
+				541E3542238A335600BBCE31 /* VoteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		541E358423918ADA00BBCE31 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				541E358523918B0400BBCE31 /* PreferencesView.swift */,
 			);
 			path = Preferences;
-			sourceTree = "<group>";
-		};
-		541E355C238CC67D00BBCE31 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				541E354C238A4FD600BBCE31 /* Repository */,
-				541E35252388885A00BBCE31 /* Utility */,
-				541E35202388847800BBCE31 /* Mock */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		541E355D238CCA6300BBCE31 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541E35812391815000BBCE31 /* options.json in Resources */,
 				541E352723888D1800BBCE31 /* users.json in Resources */,
 				541E352923888FAA00BBCE31 /* .gitignore in Resources */,
 				541E35242388884F00BBCE31 /* questions.json in Resources */,
@@ -303,10 +341,16 @@
 				541E3543238A335600BBCE31 /* VoteView.swift in Sources */,
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
+				541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */,
+				541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */,
 				541E351123887ED100BBCE31 /* ContentView.swift in Sources */,
 				541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */,
 				541E353D238A178200BBCE31 /* CommonViews.swift in Sources */,
+				541E35792391342B00BBCE31 /* DeltNuError.swift in Sources */,
+				541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */,
+				541E357F23914AE900BBCE31 /* DirectoryFetchable.swift in Sources */,
 				541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */,
+				541E357D23914A6300BBCE31 /* MockDirectoryFetcher.swift in Sources */,
 				541E354A238A477B00BBCE31 /* Minute.swift in Sources */,
 				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,
 				541E352D2388905B00BBCE31 /* Member.swift in Sources */,

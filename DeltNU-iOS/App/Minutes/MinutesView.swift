@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct MinutesView: View {
+    
     var minutes: Minutes = Bundle.main.decode("minutes.json")
     
     var body: some View {
-        NavigationView {
             VStack {
                 ScrollView {
                     ForEach(minutes) { min in
@@ -45,8 +45,7 @@ struct MinutesView: View {
                     }
                 }
             }
-            .navigationBarTitle("Minutes")
-        }
+            .navigationBarTitle("Minutes", displayMode: .inline)
     }
 }
 

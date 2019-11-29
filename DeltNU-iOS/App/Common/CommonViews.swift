@@ -9,35 +9,6 @@
 import Foundation
 import SwiftUI
 
-struct HeaderView: View {
-    let text: String
-    
-    var body: some View {
-        Text(text)
-            .font(.headline)
-            .foregroundColor(Color("colorOnSecondary"))
-    }
-    
-    init(text: String) {
-        self.text = text
-    }
-}
-
-struct Background: View {
-    let color: Color
-    
-    var body: some View {
-        Rectangle()
-            .foregroundColor(.clear)
-            .background(color.edgesIgnoringSafeArea(.all))
-            .edgesIgnoringSafeArea(.all)
-    }
-    
-    init(color: Color) {
-        self.color = color
-    }
-}
-
 struct TileButton: View {
     let action: () -> ()
     let text: String

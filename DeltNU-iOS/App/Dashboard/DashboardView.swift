@@ -10,16 +10,18 @@ import SwiftUI
 
 struct DashboardView: View {
     @State var showingProfile = false
+    
+    //MOCK DATA
     static let members: MemberDirectory = Bundle.main.decode("users.json")
     var user: Member = members.first { member -> Bool in
         member.firstName == "Canon"
     }!
+    
     //TODO This needs to come from a new endpoint
     var serviceHours = 8
     var serviceHoursCompleted = false
     
     var body: some View {
-        NavigationView {
             VStack {
                 Text("Welcome, \(user.firstName)")
                     .font(.largeTitle)
@@ -34,30 +36,9 @@ struct DashboardView: View {
                     .cornerRadius(50)
                     .padding(.bottom)
                     .padding(.horizontal)
-                
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .navigationBarTitle("Dashboard")
-            .navigationBarItems(
-                leading: Button(action: {
-                    
-                }) {
-                    Image(systemName: "text.justify")
-                        .padding()
-                        .foregroundColor(Color("colorOnPrimary"))
-                },
-                trailing: Button(action: {
-                    self.showingProfile = true
-                }) {
-                    Image(systemName: "person")
-                        .padding()
-                    .foregroundColor(Color("colorOnPrimary"))
-                }
-            )
-            .sheet(isPresented: $showingProfile) {
-                MemberView(member: self.user)
-            }
-        }
+            .navigationBarTitle("Dashboard", displayMode: .inline)
     }
 }
 

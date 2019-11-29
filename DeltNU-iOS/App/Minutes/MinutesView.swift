@@ -29,8 +29,7 @@ struct MinutesView: View {
                                         height: .infinity,
                                         width: .infinity
                                     )
-                                }
-                                ).padding()
+                                })
                                 NavigationLink(destination: MasterformWebView(minutes: min), label: {
                                     Tile(
                                         text: "Masterform",
@@ -39,7 +38,7 @@ struct MinutesView: View {
                                         height: .infinity,
                                         width: .infinity
                                 )
-                                }).padding()
+                                })
                             }.frame(minHeight: 150)
                         }
                     }

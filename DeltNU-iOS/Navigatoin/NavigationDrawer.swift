@@ -36,7 +36,8 @@ struct DrawerContent: View {
                 DrawerItem(navTab: NavTab.vote, selectedFunction: self.selectedFunction)
                 DrawerItem(navTab: NavTab.directory, selectedFunction: self.selectedFunction)
                 DrawerItem(navTab: NavTab.preferences, selectedFunction: self.selectedFunction)
-            }
+                Spacer()
+            }.padding()
         }
     }
 }

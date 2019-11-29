@@ -30,16 +30,15 @@ struct ContentView: View {
                         PreferencesView()
                     }
                 }.opacity(self.isDrawerOpen ? 0.3 : 1.0)
-                    /// Other behaviors
-                .navigationBarItems(
-                    leading: Button(action: {
-                        print("toggled")
-                        self.isDrawerOpen.toggle()
-                    }) {
-                        Image(systemName: "text.justify")
-                            .padding()
-                            .foregroundColor(Color("colorOnPrimary"))
-                })
+                    .animation(.default)
+                    .navigationBarItems(
+                        leading: Button(action: {
+                            self.isDrawerOpen.toggle()
+                        }) {
+                            Image(systemName: "text.justify")
+                                .padding()
+                                .foregroundColor(Color("colorOnPrimary"))
+                    })
             }
             
             /// Navigation Drawer part

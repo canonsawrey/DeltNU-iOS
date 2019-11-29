@@ -39,6 +39,7 @@
 		541E357F23914AE900BBCE31 /* DirectoryFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E357E23914AE900BBCE31 /* DirectoryFetchable.swift */; };
 		541E35812391815000BBCE31 /* options.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35802391815000BBCE31 /* options.json */; };
 		541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E358523918B0400BBCE31 /* PreferencesView.swift */; };
+		54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		541E357E23914AE900BBCE31 /* DirectoryFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFetchable.swift; sourceTree = "<group>"; };
 		541E35802391815000BBCE31 /* options.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = options.json; sourceTree = "<group>"; };
 		541E358523918B0400BBCE31 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		541E350B23887ED100BBCE31 /* DeltNU-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				54B2A8672391B71D00D45D6E /* Navigatoin */,
 				541E35252388885A00BBCE31 /* Utility */,
 				541E35202388847800BBCE31 /* Mock-Data */,
 				541E356F23912DF000BBCE31 /* App */,
@@ -257,6 +260,14 @@
 			path = Preferences;
 			sourceTree = "<group>";
 		};
+		54B2A8672391B71D00D45D6E /* Navigatoin */ = {
+			isa = PBXGroup;
+			children = (
+				54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */,
+			);
+			path = Navigatoin;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -350,6 +361,7 @@
 				541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */,
 				541E357F23914AE900BBCE31 /* DirectoryFetchable.swift in Sources */,
 				541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */,
+				54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */,
 				541E357D23914A6300BBCE31 /* MockDirectoryFetcher.swift in Sources */,
 				541E354A238A477B00BBCE31 /* Minute.swift in Sources */,
 				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,

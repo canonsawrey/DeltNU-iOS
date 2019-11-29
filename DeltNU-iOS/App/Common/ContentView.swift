@@ -11,74 +11,32 @@ import Foundation
 import Combine
 
 struct ContentView: View {
-    //@State var isDrawerOpen: Bool = false
-    
+    @State var isDrawerOpen: Bool = false
+    @State var navTab: NavTab = NavTab.dashboard
     var body: some View {
-        //        ZStack {
-        //            if !self.isDrawerOpen {
-        //                NavigationView {
-        //                    DashboardView()
-        //                        .navigationBarTitle(Text("DeltNU Dashboard"))
-        //                        .navigationBarItems(leading: Button(action: {
-        //                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-        //                                self.isDrawerOpen.toggle()
-        //                            }
-        //                        }) {
-        //                            Image(systemName: "sidebar.left")
-        //                                .foregroundColor(appStyle.secondary)
-        //                        })
-        //                }
-        //            }
-        //            /// Navigation Drawer part
-        //            NavigationDrawer(isOpen: self.isDrawerOpen)
-        //         /// Other behaviors
-        //        }
-        //        .onTapGesture {
-        //            if self.isDrawerOpen {
-        //                self.isDrawerOpen.toggle()
-        //            }
-        //        }
-        TabView {
-            DashboardView()
-                .tabItem {
-                    Image(systemName: "house")
-                    Text("Dashboard")
-            }
-            MinutesView()
-                .tabItem{
-                    Image(systemName: "text.justify")
-                    Text("Minutes")
-            }
-            PollsView()
-                .tabItem {
-                    Image(systemName: "pencil")
-                    Text("Vote")
-            }
-            DirectoryView(
-                viewModel: DirectoryViewModel(
-                    directoryFetcher: MockDirectoryFetcher()))
-                .tabItem{
-                    Image(systemName: "person.3")
-                    Text("Directory")
-            }
-            PreferencesView()
-                .tabItem{
-                    Image(systemName: "gear")
-                    Text("Preferences")
+        
+        ZStack {
+            /// Navigation Bar Title part
+            ZStack {
+                if self.navTab == NavTab.dashboard {
+                    DashboardView()
+                } else {
+                    MinutesView()
+                }
+            }.opacity(self.isDrawerOpen ? 0.3 : 1.0)
+            /// Navigation Drawer part
+            NavigationDrawer(isOpen: self.isDrawerOpen, selectedFunction: { navTab in
+                self.navTab = navTab
+                self.isDrawerOpen = false
+                print(self.navTab.rawValue)
+            })
+            /// Other behaviors
+        }
+        .onTapGesture {
+            if self.isDrawerOpen {
+                self.isDrawerOpen.toggle()
             }
         }
-        .accentColor(Color("colorOnSecondary"))
-        .edgesIgnoringSafeArea(.top)
-    }
-    
-    //TODO: This needs to be done in a different way once SwiftUI API is expanded
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor(named: "secondary")
-        UITabBar.appearance().barTintColor = UIColor(named: "secondary")
-        UINavigationBar.appearance().backgroundColor = UIColor(named: "secondary")
-        UINavigationBar.appearance().barTintColor = UIColor(named: "secondary")
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "colorOnSecondary")!]
-        
     }
 }
 

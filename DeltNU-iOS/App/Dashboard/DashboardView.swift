@@ -37,13 +37,21 @@ struct DashboardView: View {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .navigationBarTitle("Dashboard", displayMode: .inline)
+            .navigationBarTitle("Dashboard")
             .navigationBarItems(
+                leading: Button(action: {
+                    
+                }) {
+                    Image(systemName: "text.justify")
+                        .padding()
+                        .foregroundColor(Color("colorOnPrimary"))
+                },
                 trailing: Button(action: {
                     self.showingProfile = true
                 }) {
                     Image(systemName: "person")
                         .padding()
+                    .foregroundColor(Color("colorOnPrimary"))
                 }
             )
             .sheet(isPresented: $showingProfile) {

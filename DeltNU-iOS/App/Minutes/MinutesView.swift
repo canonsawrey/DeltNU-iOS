@@ -45,7 +45,7 @@ struct MinutesView: View {
                     }
                 }
             }
-            .navigationBarTitle("Minutes", displayMode: .inline)
+            .navigationBarTitle("Minutes")
         }
     }
 }

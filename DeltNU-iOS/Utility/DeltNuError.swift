@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DirectoryError: Error {
+enum DeltNuError: Error {
       case parsing(description: String)
       case network(description: String)
 }

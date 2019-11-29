@@ -10,5 +10,5 @@ import Foundation
 import Combine
 
 protocol DirectoryFetchable {
-    func memberDirectory() -> AnyPublisher<MemberDirectory, DirectoryError>
+    func memberDirectory() -> AnyPublisher<MemberDirectory, DeltNuError>
 }

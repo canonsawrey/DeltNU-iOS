@@ -45,3 +45,39 @@ extension Color {
         return (r, g, b, a)
     }
 }
+
+//----------STRING--------------
+extension String {
+    func toGreekCharacter() -> String {
+        switch self {
+        case "Alpha":
+            return "Α"
+        case "Beta":
+            return "B"
+        case "Gamma":
+            return "Γ"
+        case "Delta":
+            return "Δ"
+        case "Epsilon":
+            return "E"
+        case "Zeta":
+            return "Z"
+        case "Eta":
+            return "H"
+        case "Theta":
+            return "Θ"
+        case "Iota":
+            return "I"
+        case "Kappa":
+            return "K"
+        case "Lambda":
+            return "Λ"
+        case "Mu":
+            return "M"
+        case "Nu":
+            return "N"
+        default:
+            return "-"
+        }
+    }
+}

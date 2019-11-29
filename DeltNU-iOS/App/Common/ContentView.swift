@@ -61,8 +61,13 @@ struct ContentView: View {
                     Image(systemName: "person.3")
                     Text("Directory")
             }
+            PreferencesView()
+                .tabItem{
+                    Image(systemName: "gear")
+                    Text("Preferences")
+            }
         }
-        .accentColor(Color(UIColor(named: "colorOnSecondary")!))
+        .accentColor(Color("colorOnSecondary"))
         .edgesIgnoringSafeArea(.top)
     }
     
@@ -73,6 +78,7 @@ struct ContentView: View {
         UINavigationBar.appearance().backgroundColor = UIColor(named: "secondary")
         UINavigationBar.appearance().barTintColor = UIColor(named: "secondary")
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "colorOnSecondary")!]
+        
     }
 }
 

@@ -29,7 +29,7 @@ struct DirectoryView: View {
                             self.viewModel.showCancelButton = true
                         }, onCommit: {
                             print("onCommit")
-                        }).foregroundColor(appStyle.secondary)
+                        }).foregroundColor(Color("secondary"))
                         
                         Button(action: {
                             self.viewModel.searchText = ""
@@ -38,8 +38,8 @@ struct DirectoryView: View {
                         }
                     }
                     .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
-                    .foregroundColor(.secondary)
-                    .background(Color(.secondarySystemBackground))
+                    .foregroundColor(Color("secondary"))
+                    .background(Color("colorOnSecondary"))
                     .cornerRadius(10.0)
                     
                     if viewModel.showCancelButton  {
@@ -48,7 +48,7 @@ struct DirectoryView: View {
                             self.viewModel.searchText = ""
                             self.viewModel.showCancelButton = false
                         }
-                        .foregroundColor(appStyle.secondary)
+                        .foregroundColor(Color("secondary"))
                     }
                 }
                 .padding(.horizontal)
@@ -90,40 +90,7 @@ struct DirectoryView: View {
 //    }
 //}
 
-extension String {
-    func toGreekCharacter() -> String {
-        switch self {
-        case "Alpha":
-            return "Α"
-        case "Beta":
-            return "B"
-        case "Gamma":
-            return "Γ"
-        case "Delta":
-            return "Δ"
-        case "Epsilon":
-            return "E"
-        case "Zeta":
-            return "Z"
-        case "Eta":
-            return "H"
-        case "Theta":
-            return "Θ"
-        case "Iota":
-            return "I"
-        case "Kappa":
-            return "K"
-        case "Lambda":
-            return "Λ"
-        case "Mu":
-            return "M"
-        case "Nu":
-            return "N"
-        default:
-            return "-"
-        }
-    }
-}
+
 
 extension UIApplication {
     func endEditing(_ force: Bool) {

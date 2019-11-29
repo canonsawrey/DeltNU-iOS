@@ -11,7 +11,7 @@ import Combine
 
 class MockDirectoryFetcher: DirectoryFetchable {
     
-    func memberDirectory() -> AnyPublisher<MemberDirectory, DirectoryError> {
+    func memberDirectory() -> AnyPublisher<MemberDirectory, DeltNuError> {
         var data = Data()
         let path = Bundle.main.path(forResource: "users", ofType: "json")!
         let fileUrl = URL(fileURLWithPath: path)

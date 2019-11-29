@@ -7,9 +7,11 @@
 //
 
 import SwiftUI
+import Foundation
+import Combine
 
 struct ContentView: View {
-    @State var isDrawerOpen: Bool = false
+    //@State var isDrawerOpen: Bool = false
     
     var body: some View {
         //        ZStack {
@@ -52,7 +54,9 @@ struct ContentView: View {
                     Image(systemName: "pencil")
                     Text("Vote")
             }
-            DirectoryView()
+            DirectoryView(
+                viewModel: DirectoryViewModel(
+                    directoryFetcher: MockDirectoryFetcher()))
                 .tabItem{
                     Image(systemName: "person.3")
                     Text("Directory")

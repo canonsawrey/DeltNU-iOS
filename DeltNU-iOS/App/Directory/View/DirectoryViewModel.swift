@@ -11,7 +11,6 @@ import Combine
 
 class DirectoryViewModel: ObservableObject, Identifiable {
     //Published to the subscribing View
-    var allMembers: MemberDirectory = []
     @Published var members: MemberDirectory = []
     @Published var dataState: DataState = .loading
     @Published var searchText = ""

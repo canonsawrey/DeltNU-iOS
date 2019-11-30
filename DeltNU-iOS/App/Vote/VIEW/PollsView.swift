@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct PollsView: View {
+
     var polls: PollArray = Bundle.main.decode("questions.json")
     @State var showingPoll = false
     @State var selectedPoll = 0
     
     var body: some View {
-        NavigationView {
             VStack {
                 List(polls) { poll in
                     Button(action: {
@@ -30,7 +30,6 @@ struct PollsView: View {
             VoteView(poll: self.polls.first { poll in
                 poll.id == self.selectedPoll
             }!)
-        }
         }
     }
 }

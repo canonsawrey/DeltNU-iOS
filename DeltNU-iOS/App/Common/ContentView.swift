@@ -11,75 +11,50 @@ import Foundation
 import Combine
 
 struct ContentView: View {
-    //@State var isDrawerOpen: Bool = false
+    @State var isDrawerOpen = false
+    @State var navTab: NavTab = NavTab.dashboard
     
     var body: some View {
-        //        ZStack {
-        //            if !self.isDrawerOpen {
-        //                NavigationView {
-        //                    DashboardView()
-        //                        .navigationBarTitle(Text("DeltNU Dashboard"))
-        //                        .navigationBarItems(leading: Button(action: {
-        //                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-        //                                self.isDrawerOpen.toggle()
-        //                            }
-        //                        }) {
-        //                            Image(systemName: "sidebar.left")
-        //                                .foregroundColor(appStyle.secondary)
-        //                        })
-        //                }
-        //            }
-        //            /// Navigation Drawer part
-        //            NavigationDrawer(isOpen: self.isDrawerOpen)
-        //         /// Other behaviors
-        //        }
-        //        .onTapGesture {
-        //            if self.isDrawerOpen {
-        //                self.isDrawerOpen.toggle()
-        //            }
-        //        }
-        TabView {
-            DashboardView()
-                .tabItem {
-                    Image(systemName: "house")
-                    Text("Dashboard")
+        ZStack {
+            NavigationView {
+                ZStack {
+                    if self.navTab == NavTab.dashboard {
+                        DashboardView()
+                    } else if self.navTab == NavTab.minutes {
+                        MinutesView()
+                    } else if self.navTab == NavTab.vote {
+                        PollsView()
+                    } else if self.navTab == NavTab.directory {
+                        DirectoryView(viewModel: DirectoryViewModel(directoryFetcher: MockDirectoryFetcher()))
+                    } else {
+                        PreferencesView()
+                    }
+                }.opacity(self.isDrawerOpen ? 0.3 : 1.0)
+                    .animation(.default)
+                    .navigationBarItems(
+                        leading: Button(action: {
+                            self.isDrawerOpen.toggle()
+                        }) {
+                            Image(systemName: "text.justify")
+                                .padding()
+                                .foregroundColor(Color("colorOnPrimary"))
+                    })
             }
-            MinutesView()
-                .tabItem{
-                    Image(systemName: "text.justify")
-                    Text("Minutes")
-            }
-            PollsView()
-                .tabItem {
-                    Image(systemName: "pencil")
-                    Text("Vote")
-            }
-            DirectoryView(
-                viewModel: DirectoryViewModel(
-                    directoryFetcher: MockDirectoryFetcher()))
-                .tabItem{
-                    Image(systemName: "person.3")
-                    Text("Directory")
-            }
-            PreferencesView()
-                .tabItem{
-                    Image(systemName: "gear")
-                    Text("Preferences")
+            
+            /// Navigation Drawer part
+            NavigationDrawer(isOpen: self.isDrawerOpen, selectedFunction: { navTab in
+                self.navTab = navTab
+                self.isDrawerOpen = false
+            })
+                .onTapGesture {
+                    self.isDrawerOpen = false
             }
         }
-        .accentColor(Color("colorOnSecondary"))
-        .edgesIgnoringSafeArea(.top)
     }
-    
-    //TODO: This needs to be done in a different way once SwiftUI API is expanded
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor(named: "secondary")
-        UITabBar.appearance().barTintColor = UIColor(named: "secondary")
-        UINavigationBar.appearance().backgroundColor = UIColor(named: "secondary")
-        UINavigationBar.appearance().barTintColor = UIColor(named: "secondary")
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor(named: "colorOnSecondary")!]
-        
-    }
+}
+
+class DrawerState: ObservableObject {
+    @Published var isDrawerOpen = false
 }
 
 struct ContentView_Previews: PreviewProvider {

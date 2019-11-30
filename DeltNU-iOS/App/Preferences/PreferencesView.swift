@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct PreferencesView: View {
+    
     var body: some View {
-        NavigationView {
             VStack {
                 List {
                     HStack {
@@ -22,8 +22,7 @@ struct PreferencesView: View {
                 .padding()
                 
             }.frame(maxHeight: .infinity, alignment: .top)
-            .navigationBarTitle("Settings", displayMode: .inline)
-        }
+                .navigationBarTitle("Settings", displayMode: .inline)
     }
 }
 

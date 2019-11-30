@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct DirectoryView: View {
+
     //Mocked data
     var members: MemberDirectory = Bundle.main.decode("users.json")
     
@@ -19,7 +20,6 @@ struct DirectoryView: View {
     @State var showingMember = false
     
     var body: some View {
-        NavigationView {
             VStack {
                 HStack {
                     HStack {
@@ -78,13 +78,12 @@ struct DirectoryView: View {
                     member.id == self.selectedMember
                     }!)
             }
-        }
     }
 }
 
 //struct DirectoryView_Previews: PreviewProvider {
 //    static let members: MemberDirectory = Bundle.main.decode("users.json")
-//    
+//
 //    static var previews: some View {
 //        DirectoryView(members: members)
 //    }

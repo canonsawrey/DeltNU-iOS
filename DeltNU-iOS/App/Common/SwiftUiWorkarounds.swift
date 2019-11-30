@@ -26,7 +26,7 @@ struct NavBarConfig: UIViewControllerRepresentable {
 
 //Change the status bar color
 class HostingController: UIHostingController<ContentView> {
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .lightContent
+//    }
 }

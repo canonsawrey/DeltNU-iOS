@@ -9,10 +9,10 @@
 import SwiftUI
 
 struct MinutesView: View {
+    
     var minutes: Minutes = Bundle.main.decode("minutes.json")
     
     var body: some View {
-        NavigationView {
             VStack {
                 ScrollView {
                     ForEach(minutes) { min in
@@ -29,8 +29,7 @@ struct MinutesView: View {
                                         height: .infinity,
                                         width: .infinity
                                     )
-                                }
-                                ).padding()
+                                })
                                 NavigationLink(destination: MasterformWebView(minutes: min), label: {
                                     Tile(
                                         text: "Masterform",
@@ -39,14 +38,13 @@ struct MinutesView: View {
                                         height: .infinity,
                                         width: .infinity
                                 )
-                                }).padding()
+                                })
                             }.frame(minHeight: 150)
                         }
                     }
                 }
             }
             .navigationBarTitle("Minutes", displayMode: .inline)
-        }
     }
 }
 

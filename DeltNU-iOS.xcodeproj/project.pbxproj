@@ -39,6 +39,7 @@
 		541E357F23914AE900BBCE31 /* DirectoryFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E357E23914AE900BBCE31 /* DirectoryFetchable.swift */; };
 		541E35812391815000BBCE31 /* options.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35802391815000BBCE31 /* options.json */; };
 		541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E358523918B0400BBCE31 /* PreferencesView.swift */; };
+		54308A392392CFA00008FE98 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 54308A382392CFA00008FE98 /* README.md */; };
 		54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,6 +78,7 @@
 		541E357E23914AE900BBCE31 /* DirectoryFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFetchable.swift; sourceTree = "<group>"; };
 		541E35802391815000BBCE31 /* options.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = options.json; sourceTree = "<group>"; };
 		541E358523918B0400BBCE31 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+		54308A382392CFA00008FE98 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 		541E350023887ED100BBCE31 = {
 			isa = PBXGroup;
 			children = (
+				54308A382392CFA00008FE98 /* README.md */,
 				541E352823888FAA00BBCE31 /* .gitignore */,
 				541E350B23887ED100BBCE31 /* DeltNU-iOS */,
 				541E350A23887ED100BBCE31 /* Products */,
@@ -332,6 +335,7 @@
 				541E35242388884F00BBCE31 /* questions.json in Resources */,
 				541E351923887ED400BBCE31 /* LaunchScreen.storyboard in Resources */,
 				541E35232388884F00BBCE31 /* minutes.json in Resources */,
+				54308A392392CFA00008FE98 /* README.md in Resources */,
 				541E351623887ED400BBCE31 /* Preview Assets.xcassets in Resources */,
 				541E351323887ED400BBCE31 /* Assets.xcassets in Resources */,
 			);

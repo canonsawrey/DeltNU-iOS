@@ -19,17 +19,18 @@ struct ContentView: View {
             NavigationView {
                 ZStack {
                     if self.navTab == NavTab.dashboard {
-                        DashboardView()
+                        DashboardView().navTransition()
                     } else if self.navTab == NavTab.minutes {
-                        MinutesView()
+                        MinutesView().navTransition()
                     } else if self.navTab == NavTab.vote {
-                        PollsView()
+                        PollsView().navTransition()
                     } else if self.navTab == NavTab.directory {
-                        DirectoryView(viewModel: DirectoryViewModel(directoryFetcher: MockDirectoryFetcher()))
+                        DirectoryView(viewModel: DirectoryViewModel(directoryFetcher: MockDirectoryFetcher())).navTransition()
                     } else {
-                        PreferencesView()
+                        PreferencesView().navTransition()
                     }
-                }.opacity(self.isDrawerOpen ? 0.3 : 1.0)
+                }.blur(radius: self.isDrawerOpen ? 5.0 : 0.0)
+                    .opacity(self.isDrawerOpen ? 0.3 : 1.0)
                     .animation(.default)
                     .navigationBarItems(
                         leading: Button(action: {
@@ -42,7 +43,7 @@ struct ContentView: View {
             }
             
             /// Navigation Drawer part
-            NavigationDrawer(isOpen: self.isDrawerOpen, selectedFunction: { navTab in
+            NavigationDrawer(isOpen: self.isDrawerOpen, selectedTab: self.navTab, selectedFunction: { navTab in
                 self.navTab = navTab
                 self.isDrawerOpen = false
             })
@@ -50,6 +51,17 @@ struct ContentView: View {
                     self.isDrawerOpen = false
             }
         }
+    }
+}
+
+extension View {
+    func navTransition() -> some View {
+        return self.transition(
+            .asymmetric(
+                insertion: AnyTransition.opacity.combined(with: .move(edge: .trailing)).animation(.easeInOut(duration: 0.5)),
+                removal: AnyTransition.opacity.combined(with: .move(edge: .leading)).animation(.easeInOut(duration: 0.5))
+            )
+        )
     }
 }
 

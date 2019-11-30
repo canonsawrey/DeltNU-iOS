@@ -19,7 +19,7 @@ struct MinutesView: View {
                         VStack {
                             Text(min.createdAt.formattedDate())
                                 .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding()
+                                .padding(.top)
                             HStack {
                                 NavigationLink(destination: Text("Minutes unavailable"), label: {
                                     Tile(
@@ -40,7 +40,7 @@ struct MinutesView: View {
                                 )
                                 })
                             }.frame(minHeight: 150)
-                        }
+                        }.padding()
                     }
                 }
             }

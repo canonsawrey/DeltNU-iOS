@@ -9,13 +9,16 @@
 import SwiftUI
 
 struct NavigationDrawer: View {
-    private let width = UIScreen.main.bounds.width - 100
+    
     let isOpen: Bool
+    let selectedTab: NavTab
     let selectedFunction: (NavTab) -> ()
+    
+    private let width = UIScreen.main.bounds.width - 100
     
     var body: some View {
         HStack {
-            DrawerContent(selectedFunction: self.selectedFunction)
+            DrawerContent(selectedFunction: self.selectedFunction, selectedTab: self.selectedTab)
                 .frame(width: self.width)
                 .offset(x: self.isOpen ? 0 : -self.width)
                 .animation(.easeOut(duration: 0.20))
@@ -26,16 +29,17 @@ struct NavigationDrawer: View {
 
 struct DrawerContent: View {
     var selectedFunction: (NavTab) -> ()
+    var selectedTab: NavTab
     
     var body: some View {
         ZStack {
             Color("secondary").edgesIgnoringSafeArea(.all)
             VStack {
-                DrawerItem(navTab: NavTab.dashboard, selectedFunction: self.selectedFunction)
-                DrawerItem(navTab: NavTab.minutes, selectedFunction: self.selectedFunction)
-                DrawerItem(navTab: NavTab.vote, selectedFunction: self.selectedFunction)
-                DrawerItem(navTab: NavTab.directory, selectedFunction: self.selectedFunction)
-                DrawerItem(navTab: NavTab.preferences, selectedFunction: self.selectedFunction)
+                DrawerItem(navTab: NavTab.dashboard, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
+                DrawerItem(navTab: NavTab.minutes, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
+                DrawerItem(navTab: NavTab.vote, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
+                DrawerItem(navTab: NavTab.directory, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
+                DrawerItem(navTab: NavTab.preferences, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
                 Spacer()
             }.padding()
         }
@@ -45,6 +49,7 @@ struct DrawerContent: View {
 struct DrawerItem: View {
     let navTab: NavTab
     let selectedFunction: (NavTab) -> ()
+    let currentlySelected: NavTab
     
     var body: some View {
         Button(action: {
@@ -54,8 +59,14 @@ struct DrawerItem: View {
             Image(systemName: navTab.systemAsset())
                     .foregroundColor(Color("colorOnSecondary"))
                 Spacer()
-            Text(navTab.rawValue)
+            if currentlySelected == navTab {
+                Text(navTab.rawValue)
+                    .underline(color: Color("tertiary"))
                     .foregroundColor(Color("colorOnSecondary"))
+            } else {
+                Text(navTab.rawValue)
+                    .foregroundColor(Color("colorOnSecondary"))
+            }
             }.padding()
                 .padding(.horizontal)
         }
@@ -66,7 +77,7 @@ struct DrawerItem: View {
 
 struct NavigationDrawer_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationDrawer(isOpen: true, selectedFunction: { navTab in })
+        NavigationDrawer(isOpen: true, selectedTab: NavTab.directory, selectedFunction: { navTab in })
     }
 }
 

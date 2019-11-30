@@ -23,7 +23,7 @@ struct TileButton: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(self.textColor)
                     .background(self.color)
-                    .cornerRadius(10)
+                    .shadow(color: color, radius: 20)
             }.padding()
         }
     }

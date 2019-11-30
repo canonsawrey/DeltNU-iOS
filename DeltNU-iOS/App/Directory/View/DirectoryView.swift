@@ -56,8 +56,7 @@ struct DirectoryView: View {
                     .navigationBarHidden(viewModel.showCancelButton) // .animation(.default) // animation does not work properly
                 
                 //Member list - hide if not loaded
-                List {
-                    ForEach(viewModel.members.filter{$0.firstName.hasPrefix(viewModel.searchText) || viewModel.searchText == ""}) { member in
+                List(viewModel.members.filter{$0.firstName.hasPrefix(viewModel.searchText) || viewModel.searchText == ""}) { member in
                         Button(action: {
                             self.selectedMember = member.id
                             self.showingMember = true
@@ -65,9 +64,8 @@ struct DirectoryView: View {
                             HStack {
                                 Text("\(member.firstName) \(member.lastName)")
                                 Spacer()
-                                Text(member.pledgeClass.rawValue.toGreekCharacter())
+                                Text(member.gradYear ?? "-")
                             }
-                        }
                     }
                 }
                 .resignKeyboardOnDragGesture()

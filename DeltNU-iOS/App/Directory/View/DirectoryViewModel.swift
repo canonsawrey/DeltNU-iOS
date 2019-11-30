@@ -25,6 +25,7 @@ class DirectoryViewModel: ObservableObject, Identifiable {
     
     init(directoryFetcher: DirectoryFetchable) {
         self.directoryFetcher = directoryFetcher
+        print("getMembers() called")
         getMembers()
     }
     

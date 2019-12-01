@@ -16,12 +16,17 @@ struct NavigationDrawer: View {
     
     private let width = UIScreen.main.bounds.width - 100
     
+    
     var body: some View {
+        VStack {
         HStack {
             DrawerContent(selectedFunction: self.selectedFunction, selectedTab: self.selectedTab)
                 .frame(width: self.width)
-                .offset(x: self.isOpen ? 0 : -self.width)
+                .cornerRadius(30.0)
+                .offset(x: self.isOpen ? 15 : -self.width)
                 .animation(.easeOut(duration: 0.20))
+            Spacer()
+        }
             Spacer()
         }
     }
@@ -32,16 +37,15 @@ struct DrawerContent: View {
     var selectedTab: NavTab
     
     var body: some View {
-        ZStack {
-            Color("secondary").edgesIgnoringSafeArea(.all)
+        VStack {
             VStack {
                 DrawerItem(navTab: NavTab.dashboard, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
                 DrawerItem(navTab: NavTab.minutes, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
                 DrawerItem(navTab: NavTab.vote, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
                 DrawerItem(navTab: NavTab.directory, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
                 DrawerItem(navTab: NavTab.preferences, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
-                Spacer()
             }.padding()
+            .background(Color("secondary"))
         }
     }
 }

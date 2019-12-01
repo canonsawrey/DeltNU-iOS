@@ -22,7 +22,6 @@ struct PreferencesView: View {
                 .padding()
                 
             }.frame(maxHeight: .infinity, alignment: .top)
-                .navigationBarTitle("Settings", displayMode: .inline)
     }
 }
 

@@ -38,7 +38,10 @@ struct DashboardView: View {
                     .padding(.horizontal)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .navigationBarTitle("Dashboard", displayMode: .inline)
+    }
+    
+    init() {
+        print("Dashboard created")
     }
 }
 

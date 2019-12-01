@@ -15,8 +15,23 @@ struct ContentView: View {
     @State var navTab: NavTab = NavTab.dashboard
     
     var body: some View {
-        ZStack {
-            NavigationView {
+        VStack {
+            HStack {
+                Button(action: {
+                        self.isDrawerOpen.toggle()
+                    }) {
+                        Image(systemName: "triangle")
+                            .padding()
+                            .foregroundColor(Color("secondary"))
+                            .rotationEffect(self.isDrawerOpen ? .degrees(270) : .degrees(0))
+                            .animation(.default)
+                            .cornerRadius(30.0)
+                            
+
+                }
+                Spacer()
+            }
+            ZStack {
                 ZStack {
                     if self.navTab == NavTab.dashboard {
                         DashboardView().navTransition()
@@ -32,15 +47,6 @@ struct ContentView: View {
                 }.blur(radius: self.isDrawerOpen ? 5.0 : 0.0)
                     .opacity(self.isDrawerOpen ? 0.3 : 1.0)
                     .animation(.default)
-                    .navigationBarItems(
-                        leading: Button(action: {
-                            self.isDrawerOpen.toggle()
-                        }) {
-                            Image(systemName: "text.justify")
-                                .padding()
-                                .foregroundColor(Color("colorOnPrimary"))
-                    })
-            }
             
             /// Navigation Drawer part
             NavigationDrawer(isOpen: self.isDrawerOpen, selectedTab: self.navTab, selectedFunction: { navTab in
@@ -49,7 +55,8 @@ struct ContentView: View {
             })
                 .onTapGesture {
                     self.isDrawerOpen = false
-            }
+                }
+        }
         }
     }
 }

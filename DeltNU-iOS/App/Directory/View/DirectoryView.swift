@@ -70,7 +70,6 @@ struct DirectoryView: View {
                 }
                 .resignKeyboardOnDragGesture()
             }
-            .navigationBarTitle("Member Directory", displayMode: .inline)
             .sheet(isPresented: $showingMember) {
                 MemberView(member: self.members.first { member in
                     member.id == self.selectedMember

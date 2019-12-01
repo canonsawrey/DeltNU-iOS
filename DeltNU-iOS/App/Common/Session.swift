@@ -10,7 +10,12 @@ import Foundation
 
 
 class Session: Identifiable, ObservableObject {
+    
     @Published var loggedIn: Bool = false
     @Published var authToken: String? = nil
     @Published var mockedLogin: Bool = true
+    
+    static let shared = Session()
+    
+    private init() {}
 }

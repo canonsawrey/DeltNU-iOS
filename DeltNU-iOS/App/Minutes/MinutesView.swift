@@ -21,11 +21,13 @@ struct MinutesView: View {
             VStack {
                     List(viewModel.minutes) { min in
                             Button(action: { }) {
-                                Text(min.createdAt.formattedDate()).foregroundColor(Color("colorOnPrimaryAccent")).padding()
-                                
+                                HStack {
+                                    Text(min.createdAt.formattedDate())
+                                    Spacer()
+                                    Text(min.createdAt.getElapsedInterval())
+                                }
                             }
-                        }
-                        .animation(nil)
+                        }.padding()
                 HStack {
                     Spacer()
                     Button(action: {

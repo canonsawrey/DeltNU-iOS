@@ -14,7 +14,7 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var password = ""
     @Published var error = ""
     @Published var loggingIn = false
-    var session: Session
+    var session: Session = Session.shared
     
     func login() {
         Timer.scheduledTimer(timeInterval: 2.0,
@@ -33,9 +33,5 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
             self.error = "Login failed. Try again"
             self.loggingIn = false
         }
-    }
-    
-    init(session: Session) {
-        self.session = session
     }
 }

@@ -11,7 +11,7 @@ import Foundation
 import Combine
 
 struct SessionView: View {
-    @ObservedObject var session: Session = Session()
+    @ObservedObject var session: Session = Session.shared
     @State var isDrawerOpen = false
     @State var navTab: NavTab = NavTab.dashboard
     
@@ -67,7 +67,7 @@ struct SessionView: View {
                 }
                 }
             } else {
-                LoginView(session: self.session)
+                LoginView()
             }
         }
     }

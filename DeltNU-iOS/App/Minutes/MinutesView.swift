@@ -22,10 +22,10 @@ struct MinutesView: View {
                                 .padding()
                             HStack {
                                 NavigationLink(destination: Text("Minutes unavailable"), label: {
-                                    Text("Minutes").foregroundColor(Color("secondary")).padding()
+                                    Text("Minutes").foregroundColor(Color("colorOnPrimaryAccent")).padding()
                                 })
                                 NavigationLink(destination: MasterformWebView(minutes: min), label: {
-                                    Text("Masterform").foregroundColor(Color("secondary")).padding()
+                                    Text("Masterform").foregroundColor(Color("colorOnPrimaryAccent")).padding()
                                 })
                             }
                         }.padding()

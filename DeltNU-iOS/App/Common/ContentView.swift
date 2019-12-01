@@ -25,7 +25,7 @@ struct ContentView: View {
                     }) {
                         Image(systemName: "triangle")
                             .padding()
-                            .foregroundColor(Color("secondary"))
+                            .foregroundColor(Color("colorOnPrimaryAccent"))
                             .rotationEffect(self.isDrawerOpen ? .degrees(270) : .degrees(0))
                             .animation(.default)
                             .cornerRadius(appStyle.cornerRadius)

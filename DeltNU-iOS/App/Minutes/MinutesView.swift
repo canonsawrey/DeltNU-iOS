@@ -12,26 +12,46 @@ struct MinutesView: View {
     
     //View model
     @ObservedObject var viewModel: MinutesViewModel
+    @State private var minutesShowing: Bool = true
+    private var masterformShowing: Bool {
+        !minutesShowing
+    }
     
     var body: some View {
             VStack {
-                ScrollView {
-                    ForEach(viewModel.minutes) { min in
-                        VStack {
-                            Text(min.createdAt.formattedDate())
-                                .padding()
-                            HStack {
-                                NavigationLink(destination: Text("Minutes unavailable"), label: {
-                                    Text("Minutes").foregroundColor(Color("colorOnPrimaryAccent")).padding()
-                                })
-                                NavigationLink(destination: MasterformWebView(minutes: min), label: {
-                                    Text("Masterform").foregroundColor(Color("colorOnPrimaryAccent")).padding()
-                                })
+                    List(viewModel.minutes) { min in
+                            Button(action: { }) {
+                                Text(min.createdAt.formattedDate()).foregroundColor(Color("colorOnPrimaryAccent")).padding()
+                                
                             }
-                        }.padding()
-                    }.animation(nil)
+                        }
+                        .animation(nil)
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.minutesShowing = true
+                    }) {
+                        Text("Minutes").padding()
+                            .foregroundColor(Color("colorOnPrimary"))
+                                .overlay(self.minutesShowing ? RoundedRectangle(cornerRadius: appStyle.cornerRadius)
+                                    .stroke(Color("secondary"), lineWidth: 1) : RoundedRectangle(cornerRadius: 0)
+                                        .stroke(Color("primary"), lineWidth: 10))
+                            .animation(.default)
+                    }
+                    Spacer()
+                    Button(action: {
+                        self.minutesShowing = false
+                    }) {
+                        Text("Masterform").padding()
+                        .foregroundColor(Color("colorOnPrimary"))
+                            .overlay(!self.minutesShowing ? RoundedRectangle(cornerRadius: appStyle.cornerRadius)
+                                .stroke(Color("secondary"), lineWidth: 1) : RoundedRectangle(cornerRadius: 0)
+                                    .stroke(Color("primary"), lineWidth: 10))
+                                    .animation(.default)
+                    }
+                    Spacer()
                 }
-            }
+        }
     }
 }
 

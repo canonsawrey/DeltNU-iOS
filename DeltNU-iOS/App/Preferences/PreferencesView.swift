@@ -14,7 +14,7 @@ struct PreferencesView: View {
             VStack {
                 List {
                     HStack {
-                        Text("App Version:")
+                        Text("App Version")
                         Spacer()
                         Text("1.0.0.0")
                     }

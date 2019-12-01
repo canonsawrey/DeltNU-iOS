@@ -40,6 +40,8 @@
 		541E35812391815000BBCE31 /* options.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35802391815000BBCE31 /* options.json */; };
 		541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E358523918B0400BBCE31 /* PreferencesView.swift */; };
 		54308A392392CFA00008FE98 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 54308A382392CFA00008FE98 /* README.md */; };
+		54308A3D2393797D0008FE98 /* MinutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A3C2393797D0008FE98 /* MinutesViewModel.swift */; };
+		54308A3F23937B450008FE98 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A3E23937B450008FE98 /* ViewModel.swift */; };
 		54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 		541E35802391815000BBCE31 /* options.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = options.json; sourceTree = "<group>"; };
 		541E358523918B0400BBCE31 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		54308A382392CFA00008FE98 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		54308A3C2393797D0008FE98 /* MinutesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesViewModel.swift; sourceTree = "<group>"; };
+		54308A3E23937B450008FE98 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -183,6 +187,7 @@
 				541E353C238A178200BBCE31 /* CommonViews.swift */,
 				541E3558238C60CC00BBCE31 /* Extensions.swift */,
 				541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */,
+				54308A3E23937B450008FE98 /* ViewModel.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				541E3547238A46C100BBCE31 /* MinutesView.swift */,
+				54308A3C2393797D0008FE98 /* MinutesViewModel.swift */,
 				541E3549238A477B00BBCE31 /* Minute.swift */,
 				541E3556238B9F4D00BBCE31 /* MasterformWebView.swift */,
 			);
@@ -358,6 +364,7 @@
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
 				541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */,
 				541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */,
+				54308A3F23937B450008FE98 /* ViewModel.swift in Sources */,
 				541E351123887ED100BBCE31 /* ContentView.swift in Sources */,
 				541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */,
 				541E353D238A178200BBCE31 /* CommonViews.swift in Sources */,
@@ -368,6 +375,7 @@
 				54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */,
 				541E357D23914A6300BBCE31 /* MockDirectoryFetcher.swift in Sources */,
 				541E354A238A477B00BBCE31 /* Minute.swift in Sources */,
+				54308A3D2393797D0008FE98 /* MinutesViewModel.swift in Sources */,
 				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,
 				541E352D2388905B00BBCE31 /* Member.swift in Sources */,
 				541E35382389D94500BBCE31 /* PollsView.swift in Sources */,

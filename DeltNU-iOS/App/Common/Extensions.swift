@@ -81,3 +81,14 @@ extension String {
         }
     }
 }
+
+// ----------VIEW---------------
+extension Image {
+    func resizeImage(side: CGFloat, resized: Bool? = nil) -> some View {
+        return self.resizable().frame(width: side, height: side)
+    }
+    
+    func resizeImage(width: CGFloat, height: CGFloat) -> some View {
+        return self.resizable().frame(width: width, height: height)
+    }
+}

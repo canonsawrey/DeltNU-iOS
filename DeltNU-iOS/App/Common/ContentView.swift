@@ -14,6 +14,9 @@ struct ContentView: View {
     @State var isDrawerOpen = false
     @State var navTab: NavTab = NavTab.dashboard
     
+    var directoryViewModel = DirectoryViewModel(directoryFetcher: MockDirectoryFetcher())
+    var minutesViewModel = MinutesViewModel()
+    
     var body: some View {
         VStack {
             HStack {
@@ -25,9 +28,7 @@ struct ContentView: View {
                             .foregroundColor(Color("secondary"))
                             .rotationEffect(self.isDrawerOpen ? .degrees(270) : .degrees(0))
                             .animation(.default)
-                            .cornerRadius(30.0)
-                            
-
+                            .cornerRadius(appStyle.cornerRadius)
                 }
                 Spacer()
             }
@@ -36,11 +37,11 @@ struct ContentView: View {
                     if self.navTab == NavTab.dashboard {
                         DashboardView().navTransition()
                     } else if self.navTab == NavTab.minutes {
-                        MinutesView().navTransition()
+                        MinutesView(viewModel: self.minutesViewModel).navTransition()
                     } else if self.navTab == NavTab.vote {
                         PollsView().navTransition()
                     } else if self.navTab == NavTab.directory {
-                        DirectoryView(viewModel: DirectoryViewModel(directoryFetcher: MockDirectoryFetcher())).navTransition()
+                        DirectoryView(viewModel: self.directoryViewModel).navTransition()
                     } else {
                         PreferencesView().navTransition()
                     }

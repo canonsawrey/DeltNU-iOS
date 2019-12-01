@@ -18,16 +18,12 @@ struct NavigationDrawer: View {
     
     
     var body: some View {
-        VStack {
         HStack {
             DrawerContent(selectedFunction: self.selectedFunction, selectedTab: self.selectedTab)
                 .frame(width: self.width)
-                .cornerRadius(30.0)
                 .offset(x: self.isOpen ? 15 : -self.width)
                 .animation(.easeOut(duration: 0.20))
-            Spacer()
-        }
-            Spacer()
+            ClickableSpacer()
         }
     }
 }
@@ -46,6 +42,8 @@ struct DrawerContent: View {
                 DrawerItem(navTab: NavTab.preferences, selectedFunction: self.selectedFunction, currentlySelected: self.selectedTab)
             }.padding()
             .background(Color("secondary"))
+            .cornerRadius(appStyle.cornerRadius)
+            ClickableSpacer()
         }
     }
 }
@@ -61,7 +59,7 @@ struct DrawerItem: View {
         }) {
         HStack {
             Image(systemName: navTab.systemAsset())
-                    .foregroundColor(Color("colorOnSecondary"))
+                .foregroundColor(Color("colorOnSecondary"))
                 Spacer()
             if currentlySelected == navTab {
                 Text(navTab.rawValue)

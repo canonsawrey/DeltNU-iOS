@@ -33,7 +33,7 @@ struct DashboardView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(Color("secondary"))
                     .foregroundColor(Color("colorOnSecondary"))
-                    .cornerRadius(50)
+                    .cornerRadius(appStyle.cornerRadius)
                     .padding(.bottom)
                     .padding(.horizontal)
             }

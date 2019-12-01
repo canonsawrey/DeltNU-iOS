@@ -23,7 +23,7 @@ struct PollsView: View {
                     }) {
                         Text("\(poll.title)")
                     }.disabled(poll.isActive)
-                }
+                }.padding()
         }
         .sheet(isPresented: $showingPoll) {
             VoteView(poll: self.polls.first { poll in

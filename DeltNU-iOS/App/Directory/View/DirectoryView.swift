@@ -31,27 +31,28 @@ struct DirectoryView: View {
                             print("onCommit")
                         }).foregroundColor(Color("secondary"))
                         
-                        Button(action: {
-                            self.viewModel.searchText = ""
-                        }) {
-                            Image(systemName: "xmark.circle.fill").opacity(self.viewModel.searchText == "" ? 0 : 1)
-                        }
+                        //TODO Get this working tooo
+//                        Button(action: {
+//                            self.viewModel.searchText = ""
+//                        }) {
+//                            Image(systemName: "xmark.circle.fill").opacity(self.viewModel.searchText == "" ? 0 : 1)
+//                        }
                     }
-                    .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
+                .padding()
                     .foregroundColor(Color("secondary"))
                     .background(Color("colorOnSecondary"))
                     .cornerRadius(10.0)
                     
                     if viewModel.showCancelButton  {
-                        Button("Cancel") {
-                            UIApplication.shared.endEditing(true) // this must be placed before the other commands here
-                            self.viewModel.searchText = ""
-                            self.viewModel.showCancelButton = false
-                        }
-                        .foregroundColor(Color("secondary"))
+                        //TODO Get this working
+//                        Button("Cancel") {
+//                            UIApplication.shared.endEditing(true) // this must be placed before the other commands here
+//                            self.viewModel.searchText = ""
+//                            self.viewModel.showCancelButton = false
+//                        }
+//                        .foregroundColor(Color("secondary"))
                     }
                 }
-                .padding(.horizontal)
                 .padding(.top)
                     .navigationBarHidden(viewModel.showCancelButton) // .animation(.default) // animation does not work properly
                 

@@ -10,38 +10,26 @@ import SwiftUI
 
 struct MinutesView: View {
     
-    var minutes: Minutes = Bundle.main.decode("minutes.json")
+    //View model
+    @ObservedObject var viewModel: MinutesViewModel
     
     var body: some View {
             VStack {
                 ScrollView {
-                    ForEach(minutes) { min in
+                    ForEach(viewModel.minutes) { min in
                         VStack {
                             Text(min.createdAt.formattedDate())
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.top)
+                                .padding()
                             HStack {
                                 NavigationLink(destination: Text("Minutes unavailable"), label: {
-                                    Tile(
-                                        text: "Minutes",
-                                        color: Color("secondary"),
-                                        textColor: Color("colorOnSecondary"),
-                                        height: .infinity,
-                                        width: .infinity
-                                    )
+                                    Text("Minutes").foregroundColor(Color("secondary")).padding()
                                 })
                                 NavigationLink(destination: MasterformWebView(minutes: min), label: {
-                                    Tile(
-                                        text: "Masterform",
-                                        color: Color("secondary"),
-                                        textColor: Color("colorOnSecondary"),
-                                        height: .infinity,
-                                        width: .infinity
-                                )
+                                    Text("Masterform").foregroundColor(Color("secondary")).padding()
                                 })
-                            }.frame(minHeight: 150)
+                            }
                         }.padding()
-                    }
+                    }.animation(nil)
                 }
             }
     }
@@ -49,6 +37,6 @@ struct MinutesView: View {
 
 struct MinutesView_Previews: PreviewProvider {
     static var previews: some View {
-        MinutesView()
+        MinutesView(viewModel: MinutesViewModel())
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class DirectoryViewModel: ObservableObject, Identifiable {
+class DirectoryViewModel: ViewModel, ObservableObject, Identifiable {
     //Published to the subscribing View
     @Published var members: MemberDirectory = []
     @Published var dataState: DataState = .loading
@@ -25,7 +25,7 @@ class DirectoryViewModel: ObservableObject, Identifiable {
     
     init(directoryFetcher: DirectoryFetchable) {
         self.directoryFetcher = directoryFetcher
-        print("getMembers() called")
+        super.init()
         getMembers()
     }
     

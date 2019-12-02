@@ -9,20 +9,22 @@
 import SwiftUI
 
 struct LoginView: View {
-    
-    @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
+    var session: Session
+    @ObservedObject var viewModel: LoginViewModel
     
     var body: some View {
         ZStack {
-            Color("secondary").edgesIgnoringSafeArea(.all)
+            Color("primary").edgesIgnoringSafeArea(.all)
             VStack {
                 Text("ΔTΔ").font(.system(size: 40))
                     .padding(.vertical)
-                    .foregroundColor(Color("colorOnSecondary"))
-                TextField("Email", text: $viewModel.email).padding()
-                    .background(Color("colorOnSecondary")).cornerRadius( appStyle.cornerRadius).padding()
-                SecureField("Password", text: $viewModel.password).padding()
-                    .background(Color("colorOnSecondary")).cornerRadius( appStyle.cornerRadius).padding()
+                    .foregroundColor(Color("colorOnPrimary"))
+                TextField("Email", text: $viewModel.email)
+                    .padding()
+                    .cornerRadius( appStyle.cornerRadius).padding()
+                SecureField("Password", text: $viewModel.password)
+                    .padding()
+                    .cornerRadius( appStyle.cornerRadius).padding()
                 Button(
                     action: {
                         self.viewModel.loggingIn = true
@@ -34,8 +36,8 @@ struct LoginView: View {
                         Text(viewModel.loggingIn ? "Logging in..." : "Login")
                         Spacer()
                     }.padding().padding(.horizontal)
-                    .background(viewModel.loggingIn ? Color("secondary") : Color("primary"))
-                    .foregroundColor(viewModel.loggingIn ? Color("colorOnSecondary") : Color("colorOnPrimary"))
+                        .background(viewModel.loggingIn ? Color("primary"): Color("secondary"))
+                    .foregroundColor(viewModel.loggingIn ? Color("colorOnPrimary") : Color("colorOnSecondary"))
                     .cornerRadius(appStyle.cornerRadius)
                 }
                 .disabled(viewModel.loggingIn).padding()
@@ -48,10 +50,15 @@ struct LoginView: View {
             }.padding()
         }
     }
+    
+    init(session: Session) {
+        self.session = session
+        self.viewModel = LoginViewModel(session: self.session)
+    }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(session: Session())
     }
 }

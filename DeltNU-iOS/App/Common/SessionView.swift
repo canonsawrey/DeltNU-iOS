@@ -11,7 +11,7 @@ import Foundation
 import Combine
 
 struct SessionView: View {
-    @ObservedObject var session: Session = Session.shared
+    @ObservedObject var session = Session()
     @State var isDrawerOpen = false
     @State var navTab: NavTab = NavTab.dashboard
     
@@ -35,8 +35,9 @@ struct SessionView: View {
                         }
                         Spacer()
                         Text(navTab.rawValue)
+                            .font(.headline)
                             .padding()
-                            .foregroundColor(Color("colorOnPrimaryAccent"))
+                            .foregroundColor(Color("colorOnPrimary"))
                             .animation(.default)
                     }
                     ZStack {
@@ -67,7 +68,7 @@ struct SessionView: View {
                 }
                 }
             } else {
-                LoginView()
+                LoginView(session: self.session).transition(.opacity)
             }
         }
     }
@@ -77,8 +78,8 @@ extension View {
     func navTransition() -> some View {
         return self.transition(
             .asymmetric(
-                insertion: AnyTransition.opacity.combined(with: .move(edge: .trailing)).animation(.easeInOut(duration: 0.5)),
-                removal: AnyTransition.opacity.combined(with: .move(edge: .leading)).animation(.easeInOut(duration: 0.5))
+                insertion: AnyTransition.opacity.combined(with: .move(edge: .trailing)).animation(.easeInOut(duration: 0.25)),
+                removal: AnyTransition.opacity.combined(with: .move(edge: .leading)).animation(.easeInOut(duration: 0.25))
             )
         )
     }
@@ -90,6 +91,6 @@ class DrawerState: ObservableObject {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionView()
+        SessionView(session: Session())
     }
 }

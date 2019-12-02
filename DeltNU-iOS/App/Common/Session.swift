@@ -7,15 +7,11 @@
 //
 
 import Foundation
+import SwiftUI
 
-
-class Session: Identifiable, ObservableObject {
-    
+class Session: ObservableObject {
     @Published var loggedIn: Bool = false
-    @Published var authToken: String? = nil
-    @Published var mockedLogin: Bool = true
+    @Published var sessionCookie: String? = nil
     
-    static let shared = Session()
-    
-    private init() {}
+    static let mockSessionCookie = "mockSessionCookie123456789"
 }

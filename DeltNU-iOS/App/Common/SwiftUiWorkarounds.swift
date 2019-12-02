@@ -23,10 +23,3 @@ struct NavBarConfig: UIViewControllerRepresentable {
         }
     }
 }
-
-//Change the status bar color
-class HostingController: UIHostingController<SessionView> {
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
-}

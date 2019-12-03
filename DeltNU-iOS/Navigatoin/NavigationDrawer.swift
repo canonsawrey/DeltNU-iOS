@@ -58,9 +58,6 @@ struct DrawerItem: View {
             self.selectedFunction(self.navTab)
         }) {
         HStack {
-            Image(systemName: navTab.systemAsset())
-                .foregroundColor(Color("colorOnSecondary"))
-                Spacer()
             if currentlySelected == navTab {
                 Text(navTab.rawValue)
                     .underline(color: Color("tertiary"))
@@ -69,8 +66,11 @@ struct DrawerItem: View {
                 Text(navTab.rawValue)
                     .foregroundColor(Color("colorOnSecondary"))
             }
+            Spacer()
+            Image(systemName: navTab.systemAsset())
+                .foregroundColor(Color("colorOnSecondary"))
             }.padding()
-                .padding(.horizontal)
+            
         }
     }
 }

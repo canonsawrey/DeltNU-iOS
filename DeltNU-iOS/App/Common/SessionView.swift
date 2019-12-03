@@ -36,6 +36,8 @@ struct SessionView: View {
                         Spacer()
                         Text(navTab.rawValue)
                             .font(.headline)
+                            .opacity(self.isDrawerOpen ? 0.3 : 1.0)
+                            .blur(radius: self.isDrawerOpen ? 5.0 : 0.0)
                             .padding()
                             .foregroundColor(Color("colorOnPrimary"))
                             .animation(.default)
@@ -68,7 +70,7 @@ struct SessionView: View {
                 }
                 }
             } else {
-                LoginView(session: self.session).transition(.opacity)
+                LoginView(session: self.session).transition(AnyTransition.move(edge: .top))
             }
         }
     }

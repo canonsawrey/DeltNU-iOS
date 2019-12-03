@@ -16,6 +16,12 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var loggingIn = false
     //Environment object to control session state of our app
     private var session: Session
+    //Some state mngmnt stuff
+    private var previousRequestEmail = ""
+    private var previousRequestPassword = ""
+    var textChangedSincePreviousRequest: Bool {
+        return !(email == previousRequestEmail && password == previousRequestPassword)
+    }
     
     func login() {
         Timer.scheduledTimer(timeInterval: 2.0,
@@ -32,7 +38,9 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
                 session.loggedIn = true
             }
         } else {
-            self.error = "Login failed. Try again"
+            previousRequestEmail = email
+            previousRequestPassword = password
+            self.error = "Login with input credentials failed"
             self.loggingIn = false
         }
     }

@@ -42,7 +42,7 @@ struct LoginView: View {
                 }
                 .disabled(viewModel.loggingIn).padding()
                 .animation(.default)
-                Text(viewModel.error)
+                Text(viewModel.textChangedSincePreviousRequest ? "" : viewModel.error)
                     .foregroundColor(Color("negative"))
                     .padding()
                     .animation(.default)

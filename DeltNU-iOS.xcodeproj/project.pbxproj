@@ -48,6 +48,9 @@
 		54308A4723946AEF0008FE98 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4623946AEF0008FE98 /* LoginView.swift */; };
 		54308A4A23946C280008FE98 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4923946C280008FE98 /* LoginViewModel.swift */; };
 		54308A4C23947CC00008FE98 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4B23947CC00008FE98 /* Session.swift */; };
+		54308A4F2395C73C0008FE98 /* CredentialFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4E2395C73C0008FE98 /* CredentialFetchable.swift */; };
+		54308A512395CA260008FE98 /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A502395CA260008FE98 /* AuthenticationResponse.swift */; };
+		54308A532395CA4C0008FE98 /* CredentialFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A522395CA4C0008FE98 /* CredentialFetcher.swift */; };
 		54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +98,9 @@
 		54308A4623946AEF0008FE98 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		54308A4923946C280008FE98 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		54308A4B23947CC00008FE98 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		54308A4E2395C73C0008FE98 /* CredentialFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialFetchable.swift; sourceTree = "<group>"; };
+		54308A502395CA260008FE98 /* AuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
+		54308A522395CA4C0008FE98 /* CredentialFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialFetcher.swift; sourceTree = "<group>"; };
 		54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -289,10 +295,21 @@
 		54308A4823946AF50008FE98 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				54308A4D2395C49F0008FE98 /* Remote */,
 				54308A4623946AEF0008FE98 /* LoginView.swift */,
 				54308A4923946C280008FE98 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		54308A4D2395C49F0008FE98 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				54308A4E2395C73C0008FE98 /* CredentialFetchable.swift */,
+				54308A502395CA260008FE98 /* AuthenticationResponse.swift */,
+				54308A522395CA4C0008FE98 /* CredentialFetcher.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		54B2A8672391B71D00D45D6E /* Navigatoin */ = {
@@ -383,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				541E353F238A1BC200BBCE31 /* Poll.swift in Sources */,
+				54308A4F2395C73C0008FE98 /* CredentialFetchable.swift in Sources */,
 				54308A4723946AEF0008FE98 /* LoginView.swift in Sources */,
 				541E3559238C60CC00BBCE31 /* Extensions.swift in Sources */,
 				541E3557238B9F4D00BBCE31 /* MasterformWebView.swift in Sources */,
@@ -393,6 +411,7 @@
 				54308A4A23946C280008FE98 /* LoginViewModel.swift in Sources */,
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
 				541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */,
+				54308A532395CA4C0008FE98 /* CredentialFetcher.swift in Sources */,
 				541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */,
 				54308A3F23937B450008FE98 /* ViewModel.swift in Sources */,
 				541E351123887ED100BBCE31 /* SessionView.swift in Sources */,
@@ -412,6 +431,7 @@
 				541E352D2388905B00BBCE31 /* Member.swift in Sources */,
 				541E35382389D94500BBCE31 /* PollsView.swift in Sources */,
 				541E353A238A0C5B00BBCE31 /* AppStyle.swift in Sources */,
+				54308A512395CA260008FE98 /* AuthenticationResponse.swift in Sources */,
 				541E355B238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,15 +9,16 @@
 import SwiftUI
 
 struct LogoutSheet: View {
-
+    private let credentialRepository = DefaultCredentialRepository()
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack {
             TileButton(
                 action: {
-                    print("Logged out!")
-                    self.presentationMode.wrappedValue.dismiss() },
+                    self.credentialRepository.clearCredentials()
+                    self.presentationMode.wrappedValue.dismiss()
+                },
                 text: "Confirm logout",
                 color: Color("negative"),
                 textColor: Color("colorOnSecondary")

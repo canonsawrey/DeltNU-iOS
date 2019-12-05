@@ -16,7 +16,8 @@ struct MinutesView: View {
     var body: some View {
             ZStack(alignment: .bottom) {
                 List(viewModel.minutes) { min in
-                            Button(action: { }) {
+                            Button(action: {
+                            }) {
                                 HStack {
                                     Text(min.createdAt.formattedDate())
                                     Spacer()

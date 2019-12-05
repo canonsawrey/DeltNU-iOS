@@ -52,6 +52,8 @@
 		54308A512395CA260008FE98 /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A502395CA260008FE98 /* AuthenticationResponse.swift */; };
 		54308A532395CA4C0008FE98 /* CredentialFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A522395CA4C0008FE98 /* CredentialFetcher.swift */; };
 		54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */; };
+		54C14E052399943D0065A1CB /* CredentialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E042399943D0065A1CB /* CredentialRepository.swift */; };
+		54C14E07239997860065A1CB /* DefaultCredentialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +104,8 @@
 		54308A502395CA260008FE98 /* AuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
 		54308A522395CA4C0008FE98 /* CredentialFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialFetcher.swift; sourceTree = "<group>"; };
 		54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
+		54C14E042399943D0065A1CB /* CredentialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialRepository.swift; sourceTree = "<group>"; };
+		54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCredentialRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +299,7 @@
 		54308A4823946AF50008FE98 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				54C14E03239994250065A1CB /* Cache */,
 				54308A4D2395C49F0008FE98 /* Remote */,
 				54308A4623946AEF0008FE98 /* LoginView.swift */,
 				54308A4923946C280008FE98 /* LoginViewModel.swift */,
@@ -318,6 +323,15 @@
 				54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */,
 			);
 			path = Navigatoin;
+			sourceTree = "<group>";
+		};
+		54C14E03239994250065A1CB /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				54C14E042399943D0065A1CB /* CredentialRepository.swift */,
+				54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */,
+			);
+			path = Cache;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,6 +424,7 @@
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
 				54308A4A23946C280008FE98 /* LoginViewModel.swift in Sources */,
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
+				54C14E052399943D0065A1CB /* CredentialRepository.swift in Sources */,
 				541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */,
 				54308A532395CA4C0008FE98 /* CredentialFetcher.swift in Sources */,
 				541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */,
@@ -422,6 +437,7 @@
 				541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */,
 				54308A4C23947CC00008FE98 /* Session.swift in Sources */,
 				541E357F23914AE900BBCE31 /* DirectoryFetchable.swift in Sources */,
+				54C14E07239997860065A1CB /* DefaultCredentialRepository.swift in Sources */,
 				541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */,
 				54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */,
 				541E357D23914A6300BBCE31 /* MockDirectoryFetcher.swift in Sources */,

@@ -27,9 +27,10 @@ struct LoginView: View {
                     .cornerRadius( appStyle.cornerRadius).padding()
                 Button(
                     action: {
+                        UIApplication.shared.endEditing()
                         self.viewModel.loggingIn = true
                         self.viewModel.login()
-                        }
+                    }
                 ) {
                     HStack {
                         Spacer()
@@ -60,5 +61,11 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView(session: Session())
+    }
+}
+
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

@@ -14,11 +14,13 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var password = ""
     @Published var error = ""
     @Published var loggingIn = false
-    //Environment object to control session state of our app
+    //Objects to control state of our app
     private var session: Session
+    private var credentialRepository: DefaultCredentialRepository
     //Some state mngmnt stuff
     private var previousRequestEmail = ""
     private var previousRequestPassword = ""
+    
     var textChangedSincePreviousRequest: Bool {
         return !(email == previousRequestEmail && password == previousRequestPassword)
     }
@@ -28,11 +30,12 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
                              target: self,
                              selector: #selector(evalCredentials),
                              userInfo: nil,
-                             repeats: true)
+                             repeats: false)
     }
     
     @objc private func evalCredentials() {
         if (self.email == "MockUser" && password == "MockUser") {
+            credentialRepository.storeCredentials(email: self.email, password: self.password)
             session.sessionCookie = Session.mockSessionCookie
             withAnimation {
                 session.loggedIn = true
@@ -47,5 +50,11 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     
     init(session: Session) {
         self.session = session
+        self.credentialRepository = DefaultCredentialRepository()
+        let response = credentialRepository.getCachedCredentials()
+        if (response is CredentialSuccess) {
+            self.email = (response as! CredentialSuccess).email
+            self.password = (response as! CredentialSuccess).password
+        }
     }
 }

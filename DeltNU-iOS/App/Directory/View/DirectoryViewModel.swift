@@ -15,7 +15,6 @@ class DirectoryViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var dataState: DataState = .loading
     @Published var searchText = ""
     @Published var showCancelButton: Bool = false
-    //self.members.filter{$0.firstName.hasPrefix(viewModel.searchText) || viewModel.searchText == ""}
     
     //Repositories
     private let directoryFetcher: DirectoryFetchable

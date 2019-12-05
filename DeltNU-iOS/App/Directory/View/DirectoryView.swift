@@ -22,42 +22,22 @@ struct DirectoryView: View {
     var body: some View {
             VStack {
                 HStack {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                        
-                        TextField("Search", text: $viewModel.searchText, onEditingChanged: { isEditing in
-                            self.viewModel.showCancelButton = true
-                        }, onCommit: {
-                            print("onCommit")
-                        }).foregroundColor(Color("secondary"))
-                        
-                        //TODO Get this working tooo
-//                        Button(action: {
-//                            self.viewModel.searchText = ""
-//                        }) {
-//                            Image(systemName: "xmark.circle.fill").opacity(self.viewModel.searchText == "" ? 0 : 1)
-//                        }
-                    }
-                .padding()
-                    .foregroundColor(Color("secondary"))
-                    .background(Color("colorOnSecondary"))
-                    .cornerRadius(10.0)
-                    
-                    if viewModel.showCancelButton  {
-                        //TODO Get this working
-//                        Button("Cancel") {
-//                            UIApplication.shared.endEditing(true) // this must be placed before the other commands here
-//                            self.viewModel.searchText = ""
-//                            self.viewModel.showCancelButton = false
-//                        }
-//                        .foregroundColor(Color("secondary"))
-                    }
+                    Image(systemName: "magnifyingglass")
+                    TextField("Search", text: $viewModel.searchText).foregroundColor(Color("secondary"))
                 }
+                .foregroundColor(Color("secondary"))
+                .background(Color("colorOnSecondary"))
+                .cornerRadius(appStyle.cornerRadius)
+                .padding(.horizontal)
                 .padding(.top)
-                    .navigationBarHidden(viewModel.showCancelButton) // .animation(.default) // animation does not work properly
                 
                 //Member list - hide if not loaded
-                List(viewModel.members.filter{$0.firstName.hasPrefix(viewModel.searchText) || viewModel.searchText == ""}) { member in
+                List(viewModel.members.filter {
+                    $0.firstName.hasPrefix(viewModel.searchText) ||
+                    $0.lastName.hasPrefix(viewModel.searchText) ||
+                    "\($0.firstName) \($0.lastName)".hasPrefix(viewModel.searchText) ||
+                    viewModel.searchText == ""
+                }) { member in
                         Button(action: {
                             self.selectedMember = member.id
                             self.showingMember = true
@@ -79,13 +59,13 @@ struct DirectoryView: View {
     }
 }
 
-//struct DirectoryView_Previews: PreviewProvider {
-//    static let members: MemberDirectory = Bundle.main.decode("users.json")
-//
-//    static var previews: some View {
-//        DirectoryView(members: members)
-//    }
-//}
+struct DirectoryView_Previews: PreviewProvider {
+    static let members: MemberDirectory = Bundle.main.decode("users.json")
+
+    static var previews: some View {
+        DirectoryView(viewModel: DirectoryViewModel(directoryFetcher: MockDirectoryFetcher()))
+    }
+}
 
 
 

@@ -12,6 +12,14 @@ import SwiftUI
 class Session: ObservableObject {
     @Published var loggedIn: Bool = false
     @Published var sessionCookie: String? = nil
-    
     static let mockSessionCookie = "mockSessionCookie123456789"
+
+    //Singleton stuff
+    static let shared = Session()
+    private init() { }
+    
+    func clearSession() {
+        self.loggedIn = false
+        self.sessionCookie = nil
+    }
 }

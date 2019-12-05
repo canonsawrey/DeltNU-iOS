@@ -11,7 +11,7 @@ import Foundation
 import Combine
 
 struct SessionView: View {
-    @ObservedObject var session = Session()
+    @ObservedObject var session = Session.shared
     @State var isDrawerOpen = false
     @State var navTab: NavTab = NavTab.dashboard
     
@@ -70,7 +70,8 @@ struct SessionView: View {
                 }
                 }
             } else {
-                LoginView(session: self.session).transition(AnyTransition.move(edge: .top))
+                LoginView(viewModel: LoginViewModel())
+                    .transition(AnyTransition.move(edge: .top))
             }
         }
     }
@@ -93,6 +94,6 @@ class DrawerState: ObservableObject {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        SessionView(session: Session())
+        SessionView()
     }
 }

@@ -10,12 +10,16 @@ import SwiftUI
 
 struct LogoutSheet: View {
     private let credentialRepository = DefaultCredentialRepository()
+    private let session = Session.shared
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack {
             TileButton(
                 action: {
+                    withAnimation {
+                        self.session.clearSession()
+                    }
                     self.credentialRepository.clearCredentials()
                     self.presentationMode.wrappedValue.dismiss()
                 },

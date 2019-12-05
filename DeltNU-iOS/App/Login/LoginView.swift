@@ -9,8 +9,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    var session: Session
     @ObservedObject var viewModel: LoginViewModel
+    @ObservedObject var session = Session.shared
     
     var body: some View {
         ZStack {
@@ -51,16 +51,11 @@ struct LoginView: View {
             }.padding()
         }
     }
-    
-    init(session: Session) {
-        self.session = session
-        self.viewModel = LoginViewModel(session: self.session)
-    }
 }
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(session: Session())
+        LoginView(viewModel: LoginViewModel())
     }
 }
 

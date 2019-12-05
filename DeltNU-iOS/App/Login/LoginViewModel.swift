@@ -15,7 +15,7 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var error = ""
     @Published var loggingIn = false
     //Objects to control state of our app
-    private var session: Session
+    private var session = Session.shared
     private var credentialRepository: DefaultCredentialRepository
     //Some state mngmnt stuff
     private var previousRequestEmail = ""
@@ -48,8 +48,7 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
         }
     }
     
-    init(session: Session) {
-        self.session = session
+    override init() {
         self.credentialRepository = DefaultCredentialRepository()
         let response = credentialRepository.getCachedCredentials()
         if (response is CredentialSuccess) {

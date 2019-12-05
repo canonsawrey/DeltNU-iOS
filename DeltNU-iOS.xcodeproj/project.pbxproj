@@ -140,7 +140,7 @@
 		541E350B23887ED100BBCE31 /* DeltNU-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				54B2A8672391B71D00D45D6E /* Navigatoin */,
+				54B2A8672391B71D00D45D6E /* Navigation */,
 				541E35252388885A00BBCE31 /* Utility */,
 				541E35202388847800BBCE31 /* Mock-Data */,
 				541E356F23912DF000BBCE31 /* App */,
@@ -317,12 +317,12 @@
 			path = Remote;
 			sourceTree = "<group>";
 		};
-		54B2A8672391B71D00D45D6E /* Navigatoin */ = {
+		54B2A8672391B71D00D45D6E /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */,
 			);
-			path = Navigatoin;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		54C14E03239994250065A1CB /* Cache */ = {

@@ -69,7 +69,7 @@ struct Tile: View {
 struct ClickableSpacer: View {
     
     var body: some View {
-        //TODO This is a total hack bc 0 opacity unclickable
-        Rectangle().opacity(0.000001)
+        //TODO_ANY This is a total hack bc 0 opacity unclickable
+        Rectangle().opacity(0.00000000000001)
     }
 }

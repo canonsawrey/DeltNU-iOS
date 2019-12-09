@@ -11,6 +11,7 @@ import SwiftUI
 struct VoteView: View {
     @Environment(\.presentationMode) var presentationMode
     let poll: Poll
+    @State private var votedState = false
     
     var body: some View {
         VStack {
@@ -19,12 +20,19 @@ struct VoteView: View {
                 .padding()
             ForEach(poll.identifiableOptions) { option in
                 TileButton(
-                    action: { self.presentationMode.wrappedValue.dismiss() },
+                    action: {
+                        self.votedState = true
+                },
                     text: option.option,
                     color: Color("secondary"),
                     textColor: Color("colorOnSecondary")
                 )
             }
+        }
+        .alert(isPresented: $votedState) {
+            Alert(title: Text("Voted"), message: Text("Success! Your vote was cast."), dismissButton: .default(Text("Done"), action: {
+                self.presentationMode.wrappedValue.dismiss()
+            }))
         }
     }
     

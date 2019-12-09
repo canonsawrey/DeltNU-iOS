@@ -23,25 +23,22 @@ struct DashboardView: View {
     
     var body: some View {
             VStack {
-                Text("Welcome, \(user.firstName)")
-                    .font(.largeTitle)
-                    .frame(alignment: .top)
-                    .padding()
-                Text("Upcoming events")
-                    .padding()
-                Text("Placeholder for Google Calendar API events")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color("secondary"))
-                    .foregroundColor(Color("colorOnSecondary"))
-                    .cornerRadius(appStyle.cornerRadius)
-                    .padding(.bottom)
-                    .padding(.horizontal)
+                HStack {
+                    Text("Upcoming events")
+                        .padding(.horizontal)
+                }
+                ScrollView {
+                    MockHistoryItem(index: 1)
+                    MockHistoryItem(index: 2)
+                    MockHistoryItem(index: 3)
+                    MockHistoryItem(index: 4)
+                    MockHistoryItem(index: 5)
+                    MockHistoryItem(index: 6)
+                    MockHistoryItem(index: 7)
+                    MockHistoryItem(index: 8)
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-    
-    init() {
-        print("Dashboard created")
     }
 }
 

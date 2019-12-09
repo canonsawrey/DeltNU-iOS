@@ -20,10 +20,10 @@ class DefaultSessionTokenFetcher: SessionTokenFetchable {
     
     
     func authenticate(credential: Credential) -> AnyPublisher<AuthenticationResponse, DeltNuError> {
-        //let encoder = JSONEncoder()
+        let encoder = JSONEncoder()
         
         //TODO_LUKE: You might have a more idiomatic way to write this
-        //let jsonData = try! encoder.encode(credential)
+        let jsonData = try! encoder.encode(credential)
 //        catch {
 //            let error = DeltNuError.parsing(description: "Unable to encode credentials")
 //            return Fail(error: error).eraseToAnyPublisher()
@@ -31,13 +31,8 @@ class DefaultSessionTokenFetcher: SessionTokenFetchable {
         
         var urlRequest = URLRequest(url: url)
         
-        //BAD-----------
-        let params = ["email": "sawrey.c@husky.neu.edu", "password": "deltPASS814"]
-        urlRequest.httpBody = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-        //END BAD-------
-        
+        urlRequest.httpBody = jsonData
         urlRequest.httpMethod = "POST"
-        //urlRequest.httpBody = jsonData
         
         return session.dataTaskPublisher(for: urlRequest)
             .mapError { error in

@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+
 struct LogoutSheet: View {
     private let credentialRepository = DefaultCredentialRepository()
     private let session = Session.shared

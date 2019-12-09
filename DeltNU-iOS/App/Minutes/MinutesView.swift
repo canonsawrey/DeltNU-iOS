@@ -12,11 +12,15 @@ struct MinutesView: View {
     
     //View model
     @ObservedObject var viewModel: MinutesViewModel
+    @State private var showingMasterform = false
+    @State private var masterform = true
     
     var body: some View {
             ZStack(alignment: .bottom) {
                 List(viewModel.minutes) { min in
                             Button(action: {
+                                self.masterform = false
+                                self.showingMasterform = true
                             }) {
                                 HStack {
                                     Text(min.createdAt.formattedDate())
@@ -27,7 +31,8 @@ struct MinutesView: View {
                         }
                 
                 Button(action: {
-                    //TODO Masterform modal
+                    self.masterform = true
+                    self.showingMasterform = true
                 }) {
                     HStack {
                     Spacer()
@@ -36,6 +41,15 @@ struct MinutesView: View {
                     Spacer()
                         }.background(Color("secondary")).cornerRadius(appStyle.cornerRadius).padding(.horizontal)
                 }
+        }
+        .sheet(isPresented: $showingMasterform) {
+            Group {
+                if self.masterform {
+                    MasterformWebView(minutes: self.viewModel.minutes[1])
+                } else {
+                    MinutesWebView()
+                }
+            }
         }
     }
 }

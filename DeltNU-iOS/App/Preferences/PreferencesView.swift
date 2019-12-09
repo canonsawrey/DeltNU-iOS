@@ -12,6 +12,9 @@ struct PreferencesView: View {
     
     @State var showingLogout = false
     
+    private let credentialRepository = DefaultCredentialRepository()
+    private let session = Session.shared
+    
     var body: some View {
             VStack {
                 List {
@@ -29,9 +32,17 @@ struct PreferencesView: View {
                 .padding()
                 
             }.frame(maxHeight: .infinity, alignment: .top)
-            .sheet(isPresented: $showingLogout) {
-                LogoutSheet()
-            }
+            .alert(isPresented: $showingLogout) {
+            Alert(
+                title: Text("Logout?"),
+                message: Text("Are you sure you want to logout of DeltNU?"),
+                primaryButton: .destructive(Text("Logout")) {
+                    withAnimation {
+                        self.session.clearSession()
+                    }
+                    self.credentialRepository.clearCredentials()
+                }, secondaryButton: .cancel())
+        }
     }
 }
 

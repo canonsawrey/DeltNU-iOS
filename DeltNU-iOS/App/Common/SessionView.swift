@@ -23,7 +23,7 @@ struct SessionView: View {
             EmptyView()
             if session.loggedIn {
                 VStack {
-                    HStack {
+                    ZStack {
                         Button(action: {
                                 self.isDrawerOpen.toggle()
                             }) {
@@ -32,13 +32,12 @@ struct SessionView: View {
                                     .foregroundColor(Color("colorOnPrimaryAccent"))
                                     .rotationEffect(self.isDrawerOpen ? .degrees(270) : .degrees(0))
                                     .animation(.default)
-                        }
-                        Spacer()
+                        }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
                         Text(navTab.rawValue)
-                            .font(.headline)
+                            .font(.title)
                             .opacity(self.isDrawerOpen ? 0.3 : 1.0)
                             .blur(radius: self.isDrawerOpen ? 5.0 : 0.0)
-                            .padding()
+                            .padding(.horizontal)
                             .foregroundColor(Color("colorOnPrimary"))
                             .animation(.default)
                     }

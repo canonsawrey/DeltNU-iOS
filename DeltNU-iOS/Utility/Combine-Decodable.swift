@@ -11,7 +11,6 @@ import Foundation
 import Foundation
 import Combine
 
-//TODO This needs to be generic to types beyound DirectoryError
 func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, DeltNuError> {
   let decoder = JSONDecoder()
   let formatter = DateFormatter() //"2019-03-07T13:00:39.369-05:00"

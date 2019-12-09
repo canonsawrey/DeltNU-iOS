@@ -28,7 +28,7 @@ struct PollsView: View {
         .sheet(isPresented: $showingPoll) {
             VoteView(poll: self.polls.first { poll in
                 poll.id == self.selectedPoll
-            }!)
+                }!)
         }
     }
 }

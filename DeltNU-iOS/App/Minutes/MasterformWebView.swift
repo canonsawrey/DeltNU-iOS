@@ -16,7 +16,7 @@ struct MasterformWebView: View {
             if url != nil {
                 WebView(request: URLRequest(url: url!))
             } else {
-                Text("Minutes link is busted!")
+                Text("Link is busted!")
             }
         }
     }

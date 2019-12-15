@@ -44,7 +44,7 @@ struct SessionView: View {
                     ZStack {
                         ZStack {
                             if self.navTab == NavTab.dashboard {
-                                DashboardView().navTransition()
+                                HomeView().navTransition()
                             } else if self.navTab == NavTab.minutes {
                                 MinutesView(viewModel: self.minutesViewModel).navTransition()
                             } else if self.navTab == NavTab.vote {

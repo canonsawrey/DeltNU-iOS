@@ -28,7 +28,7 @@
 		541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3544238A43AC00BBCE31 /* MemberView.swift */; };
 		541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3547238A46C100BBCE31 /* MinutesView.swift */; };
 		541E354A238A477B00BBCE31 /* Minute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3549238A477B00BBCE31 /* Minute.swift */; };
-		541E3552238A54D600BBCE31 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3551238A54D600BBCE31 /* DashboardView.swift */; };
+		541E3552238A54D600BBCE31 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3551238A54D600BBCE31 /* HomeView.swift */; };
 		541E3557238B9F4D00BBCE31 /* MasterformWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3556238B9F4D00BBCE31 /* MasterformWebView.swift */; };
 		541E3559238C60CC00BBCE31 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3558238C60CC00BBCE31 /* Extensions.swift */; };
 		541E355B238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */; };
@@ -83,7 +83,7 @@
 		541E3544238A43AC00BBCE31 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		541E3547238A46C100BBCE31 /* MinutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesView.swift; sourceTree = "<group>"; };
 		541E3549238A477B00BBCE31 /* Minute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minute.swift; sourceTree = "<group>"; };
-		541E3551238A54D600BBCE31 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		541E3551238A54D600BBCE31 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		541E3556238B9F4D00BBCE31 /* MasterformWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterformWebView.swift; sourceTree = "<group>"; };
 		541E3558238C60CC00BBCE31 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiWorkarounds.swift; sourceTree = "<group>"; };
@@ -206,6 +206,7 @@
 		541E35362389D92B00BBCE31 /* Vote */ = {
 			isa = PBXGroup;
 			children = (
+				54E3279B23A6D276007827B5 /* Entity */,
 				541E358323918AB000BBCE31 /* View */,
 			);
 			path = Vote;
@@ -237,12 +238,12 @@
 			path = Minutes;
 			sourceTree = "<group>";
 		};
-		541E3550238A54C600BBCE31 /* Dashboard */ = {
+		541E3550238A54C600BBCE31 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				541E3551238A54D600BBCE31 /* DashboardView.swift */,
+				541E3551238A54D600BBCE31 /* HomeView.swift */,
 			);
-			path = Dashboard;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		541E356F23912DF000BBCE31 /* App */ = {
@@ -250,7 +251,7 @@
 			children = (
 				54308A4823946AF50008FE98 /* Login */,
 				541E358423918ADA00BBCE31 /* Preferences */,
-				541E3550238A54C600BBCE31 /* Dashboard */,
+				541E3550238A54C600BBCE31 /* Home */,
 				541E3546238A45E200BBCE31 /* Minutes */,
 				541E353B238A16CE00BBCE31 /* Common */,
 				541E35362389D92B00BBCE31 /* Vote */,
@@ -290,7 +291,6 @@
 			isa = PBXGroup;
 			children = (
 				541E35372389D94500BBCE31 /* PollsView.swift */,
-				541E353E238A1BC200BBCE31 /* Poll.swift */,
 				541E3542238A335600BBCE31 /* VoteView.swift */,
 			);
 			path = View;
@@ -349,6 +349,14 @@
 				54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */,
 			);
 			path = Cache;
+			sourceTree = "<group>";
+		};
+		54E3279B23A6D276007827B5 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				541E353E238A1BC200BBCE31 /* Poll.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -436,7 +444,7 @@
 				54308A4723946AEF0008FE98 /* LoginView.swift in Sources */,
 				541E3559238C60CC00BBCE31 /* Extensions.swift in Sources */,
 				541E3557238B9F4D00BBCE31 /* MasterformWebView.swift in Sources */,
-				541E3552238A54D600BBCE31 /* DashboardView.swift in Sources */,
+				541E3552238A54D600BBCE31 /* HomeView.swift in Sources */,
 				541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */,
 				541E3543238A335600BBCE31 /* VoteView.swift in Sources */,
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,

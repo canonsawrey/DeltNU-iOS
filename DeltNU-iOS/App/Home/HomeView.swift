@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct DashboardView: View {
+struct HomeView: View {
     @State var showingProfile = false
     
     //MOCK DATA
@@ -44,6 +44,6 @@ struct DashboardView: View {
 
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardView()
+        HomeView()
     }
 }

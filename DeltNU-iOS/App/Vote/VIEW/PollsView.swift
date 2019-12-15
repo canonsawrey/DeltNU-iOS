@@ -15,15 +15,34 @@ struct PollsView: View {
     @State var selectedPoll = 0
     
     var body: some View {
-            VStack {
-                List(polls) { poll in
-                    Button(action: {
-                        self.selectedPoll = poll.id
-                        self.showingPoll = true
-                    }) {
-                        Text("\(poll.title)")
-                    }.disabled(poll.isActive)
-                }.padding()
+        VStack {
+            List {
+                Section(header: Text("Active")) {
+                    ForEach(polls.filter { poll in
+                        poll.isActive
+                    }) { poll in
+                        Button(action: {
+                            self.selectedPoll = poll.id
+                            self.showingPoll = true
+                        }) {
+                            Text("\(poll.title)")
+                        }
+                    }
+                }
+                Section(header: Text("Expired")) {
+                    ForEach(polls.filter { poll in
+                        !poll.isActive
+                    }) { poll in
+                        Button(action: {
+                            self.selectedPoll = poll.id
+                            self.showingPoll = true
+                        }) {
+                            Text("\(poll.title)")
+                        }.disabled(true)
+                    }
+                }
+            }
+            Spacer()
         }
         .sheet(isPresented: $showingPoll) {
             VoteView(poll: self.polls.first { poll in

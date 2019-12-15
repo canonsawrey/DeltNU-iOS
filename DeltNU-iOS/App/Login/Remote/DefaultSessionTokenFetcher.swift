@@ -24,14 +24,10 @@ class DefaultSessionTokenFetcher: SessionTokenFetchable {
         
         //TODO_LUKE: You might have a more idiomatic way to write this
         let jsonData = try! encoder.encode(credential)
-//        catch {
-//            let error = DeltNuError.parsing(description: "Unable to encode credentials")
-//            return Fail(error: error).eraseToAnyPublisher()
-//        }
         
         var urlRequest = URLRequest(url: url)
         
-        urlRequest.httpBody = jsonData
+        urlRequest.httpBody = Data(base64Encoded: "utf8=%E2%9C%93&authenticity_token=32yFmHJPskc%2BdYkYHbQT9P8Zyc28bA5PU5pTrLUl5lfRQ2AFDY4F75Nlfv2NSJqXYAu%2B5AkplJdQweKNB65i8A%3D%3D&session%5Bemail%5D=sawrey.c%40husky.neu.edu&session%5Bpassword%5D=deltPASS814&commit=LOG+IN&session%5Bremember_me%5D=0")//jsonData
         urlRequest.httpMethod = "POST"
         
         return session.dataTaskPublisher(for: urlRequest)
@@ -39,29 +35,28 @@ class DefaultSessionTokenFetcher: SessionTokenFetchable {
               .network(description: error.localizedDescription)
             }
             .flatMap() { output in
-                self.sessionCookie(output.response, url: self.url)
+                self.sessionCookie(output.response as! HTTPURLResponse, url: self.url)
             }
         .eraseToAnyPublisher()
     }
 }
 
 extension DefaultSessionTokenFetcher {
-    func sessionCookie(_ response: URLResponse, url: URL) -> AnyPublisher<AuthenticationResponse, DeltNuError> {
-        let http = response as! HTTPURLResponse
-        let headers = (response as! HTTPURLResponse).allHeaderFields as! [String: String]
-        let cookies = HTTPCookie.cookies(withResponseHeaderFields: headers, for: url)
+    func sessionCookie(_ response: HTTPURLResponse, url: URL) -> AnyPublisher<AuthenticationResponse, DeltNuError> {
+//        let headers = (response as! HTTPURLResponse).allHeaderFields as! [String: String]
+//        let cookies = HTTPCookie.cookies(withResponseHeaderFields: headers, for: url)
         
-        print(http.statusCode)
-        print("Headers")
-        for header in http.allHeaderFields {
-            print(header)
-        }
-        print("Stored cookies")
-        for cookie in HTTPCookieStorage.shared.cookies(for: url)! as [HTTPCookie] {
-            print("Extracted cookie: \(cookie)")
-        }
-        print("Other cookies")
-        print(cookies)
+        print(response.statusCode)
+        print(response.allHeaderFields.count)
+//        print("Stored cookies")
+            let httpCookeis = HTTPCookie.cookies(withResponseHeaderFields: response.allHeaderFields as! [String:String], for: url)
+        print(httpCookeis.count)
+//        let cookies = HTTPCookieStorage.
+//        if let unwrappedCookies = cookies {
+//            for cookie in unwrappedCookies {
+//                print("Extracted cookie: \(cookie)")
+//            }
+//        }
         
         let authResponse = AuthenticationResponse(sessionCookie: "1234")
         

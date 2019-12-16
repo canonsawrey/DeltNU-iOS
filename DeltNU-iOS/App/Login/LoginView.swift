@@ -28,13 +28,12 @@ struct LoginView: View {
                 Button(
                     action: {
                         UIApplication.shared.endEditing()
-                        self.viewModel.loggingIn = true
                         self.viewModel.login()
                     }
                 ) {
                     HStack {
                         Spacer()
-                        Text(viewModel.loggingIn ? "Logging in..." : "Login")
+                        Text(viewModel.loggingIn ? "Signing in..." : "Sign in")
                         Spacer()
                     }.padding().padding(.horizontal)
                         .background(viewModel.loggingIn ? Color("primary"): Color("secondary"))

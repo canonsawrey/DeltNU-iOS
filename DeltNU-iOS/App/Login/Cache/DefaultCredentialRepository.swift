@@ -25,11 +25,9 @@ class DefaultCredentialRepository: CredentialRepository {
         return CredentialFailure(reason: "Email or password not found")
     }
     
-    func storeCredentials(email: String, password: String) -> CredentialResponse {
+    func storeCredentials(email: String, password: String) {
         defaults.set(email, forKey: emailKey)
         defaults.set(password, forKey: passwordKey)
-        
-        return CredentialSuccess(email: email, password: password)
     }
     
     func clearCredentials() {

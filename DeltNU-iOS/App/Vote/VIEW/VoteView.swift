@@ -9,42 +9,54 @@
 import SwiftUI
 
 struct VoteView: View {
-    @Environment(\.presentationMode) var presentationMode
-    let poll: Poll
-    @State private var votedState = false
+
+    var polls: PollArray = Bundle.main.decode("questions.json")
+    @State var showingPoll = false
+    @State var selectedPoll = 0
     
     var body: some View {
+        NavigationView {
         VStack {
-            Text(poll.title)
-                .font(.headline)
-                .padding()
-            ForEach(poll.identifiableOptions) { option in
-                TileButton(
-                    action: {
-                        self.votedState = true
-                },
-                    text: option.option,
-                    color: Color("secondary"),
-                    textColor: Color("colorOnSecondary")
-                )
+            List {
+                Section(header: Text("Active")) {
+                    ForEach(polls.filter { poll in
+                        poll.isActive
+                    }) { poll in
+                        Button(action: {
+                            self.selectedPoll = poll.id
+                            self.showingPoll = true
+                        }) {
+                            Text("\(poll.title)")
+                        }
+                    }
+                }
+                Section(header: Text("Expired")) {
+                    ForEach(polls.filter { poll in
+                        !poll.isActive
+                    }) { poll in
+                        Button(action: {
+                            self.selectedPoll = poll.id
+                            self.showingPoll = true
+                        }) {
+                            Text("\(poll.title)")
+                        }.disabled(true)
+                    }
+                }
             }
+            Spacer()
         }
-        .alert(isPresented: $votedState) {
-            Alert(title: Text("Voted"), message: Text("Success! Your vote was cast."), dismissButton: .default(Text("Done"), action: {
-                self.presentationMode.wrappedValue.dismiss()
-            }))
+        .sheet(isPresented: $showingPoll) {
+            SinglePollView(poll: self.polls.first { poll in
+                poll.id == self.selectedPoll
+                }!)
         }
-    }
-    
-    init(poll: Poll) {
-        self.poll = poll
+        .navigationBarTitle("Vote")
+        }
     }
 }
 
 struct VoteView_Previews: PreviewProvider {
-    static let polls: PollArray = Bundle.main.decode("questions.json")
-    
     static var previews: some View {
-        VoteView(poll: polls[0])
+        VoteView()
     }
 }

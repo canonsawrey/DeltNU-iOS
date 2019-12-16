@@ -9,36 +9,18 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State var showingProfile = false
-    
-    //MOCK DATA
-    static let members: MemberDirectory = Bundle.main.decode("users.json")
-    var user: Member = members.first { member -> Bool in
-        member.firstName == "Canon"
-    }!
-    
     //TODO_ANY This needs to come from an endpoint
     var serviceHours = 8
     var serviceHoursCompleted = false
     
     var body: some View {
+        NavigationView {
             VStack {
-                HStack {
-                    Text("Upcoming events")
-                        .padding(.horizontal)
-                }
-                ScrollView {
-                    MockHistoryItem(index: 1)
-                    MockHistoryItem(index: 2)
-                    MockHistoryItem(index: 3)
-                    MockHistoryItem(index: 4)
-                    MockHistoryItem(index: 5)
-                    MockHistoryItem(index: 6)
-                    MockHistoryItem(index: 7)
-                    MockHistoryItem(index: 8)
-                }
+                Text("Home")
             }
+            .navigationBarTitle("Home")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
     }
 }
 

@@ -14,5 +14,5 @@ protocol SessionTokenFetchable {
 }
 
 struct AuthenticationResponse: Codable {
-    let sessionCookie: String
+    let sessionCookie: String?
 }

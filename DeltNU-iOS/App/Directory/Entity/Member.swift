@@ -17,20 +17,19 @@ struct Member: Codable, Identifiable {
     let gradYear: String?
     let createdAt, updatedAt: Date
     let pictureFileName: String?
-    let pictureContentType: PictureContentType?
+    let pictureContentType: String?
     let pictureFileSize: Int?
-    let pictureUpdatedAt: String?
+    let pictureUpdatedAt: Date?
     let phoneNumber: String
-    let address, aptnum: String?
+    let address: String?
+    let aptnum: String?
     let major: String?
     let clubs, nuid: String?
     let active, admin: Bool
     let latitude, longitude: Double?
     let rememberDigest, resetDigest, resetSentAt: String?
     let gradSemester: Int?
-    let car: Bool?
-    let carseats: Int?
-    let chapterID: Int
+
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -53,23 +52,18 @@ struct Member: Codable, Identifiable {
         case resetDigest = "reset_digest"
         case resetSentAt = "reset_sent_at"
         case gradSemester = "grad_semester"
-        case car, carseats
-        case chapterID = "chapter_id"
     }
 }
 
-enum PictureContentType: String, Codable {
-    case imageJPEG = "image/jpeg"
-}
-
 enum PledgeClass: String, Codable {
-    case delta = "Delta"
     case epsilon = "Epsilon"
     case eta = "Eta"
     case gamma = "Gamma"
     case iota = "Iota"
     case kappa = "Kappa"
     case lambda = "Lambda"
+    case mu = "Mu"
+    case nu = "Nu"
     case theta = "Theta"
     case zeta = "Zeta"
 }

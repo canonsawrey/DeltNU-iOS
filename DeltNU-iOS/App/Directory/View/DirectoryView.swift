@@ -9,27 +9,48 @@
 import SwiftUI
 
 struct DirectoryView: View {
-
-    //Mocked data
-    var members: MemberDirectory = Bundle.main.decode("users.json")
-    
     //View model
     @ObservedObject var viewModel: DirectoryViewModel
     //Member detail bottom sheet state
     @State var selectedMember: Int = 0
     @State var showingMember = false
-    
+    @State var showCancelButton = false
     var body: some View {
+        NavigationView {
             VStack {
                 HStack {
-                    Image(systemName: "magnifyingglass")
-                    TextField("Search", text: $viewModel.searchText).foregroundColor(Color("secondary"))
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                        .foregroundColor(Color("colorOnPrimaryAccent"))
+
+                        TextField("Search", text: $viewModel.searchText, onEditingChanged: { isEditing in
+                            self.showCancelButton = true
+                        }, onCommit: {
+                            print("onCommit")
+                        }).foregroundColor(.primary)
+
+                        Button(action: {
+                            self.viewModel.searchText = ""
+                        }) {
+                            Image(systemName: "xmark.circle.fill").opacity(viewModel.searchText == "" ? 0 : 1)
+                        }
+                    }
+                    .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
+                    .foregroundColor(.secondary)
+                    .background(Color(.secondarySystemBackground))
+                    .cornerRadius(10.0)
+
+                    if showCancelButton  {
+                        Button("Cancel") {
+                                UIApplication.shared.endEditing(true) // this must be placed before the other commands here
+                            self.viewModel.searchText = ""
+                                self.showCancelButton = false
+                        }
+                        .foregroundColor(Color("colorOnPrimaryAccent"))
+                    }
                 }
-                .foregroundColor(Color("secondary"))
-                .background(Color("colorOnSecondary"))
-                .cornerRadius(appStyle.cornerRadius)
                 .padding(.horizontal)
-                .padding(.top)
+                .navigationBarHidden(showCancelButton)
                 
                 //Member list - hide if not loaded
                 List(viewModel.members.filter {
@@ -52,10 +73,12 @@ struct DirectoryView: View {
                 .resignKeyboardOnDragGesture()
             }
             .sheet(isPresented: $showingMember) {
-                MemberView(member: self.members.first { member in
+                MemberView(member: self.viewModel.members.first { member in
                     member.id == self.selectedMember
                     }!)
             }
+            .navigationBarTitle("Directory")
+        }
     }
 }
 

@@ -20,11 +20,11 @@
 		541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */; };
 		541E352D2388905B00BBCE31 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E352C2388905B00BBCE31 /* Member.swift */; };
 		541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35312389CF7800BBCE31 /* DirectoryView.swift */; };
-		541E35382389D94500BBCE31 /* PollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35372389D94500BBCE31 /* PollsView.swift */; };
+		541E35382389D94500BBCE31 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35372389D94500BBCE31 /* VoteView.swift */; };
 		541E353A238A0C5B00BBCE31 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3539238A0C5B00BBCE31 /* AppStyle.swift */; };
 		541E353D238A178200BBCE31 /* CommonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E353C238A178200BBCE31 /* CommonViews.swift */; };
 		541E353F238A1BC200BBCE31 /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E353E238A1BC200BBCE31 /* Poll.swift */; };
-		541E3543238A335600BBCE31 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3542238A335600BBCE31 /* VoteView.swift */; };
+		541E3543238A335600BBCE31 /* SinglePollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3542238A335600BBCE31 /* SinglePollView.swift */; };
 		541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3544238A43AC00BBCE31 /* MemberView.swift */; };
 		541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3547238A46C100BBCE31 /* MinutesView.swift */; };
 		541E354A238A477B00BBCE31 /* Minute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3549238A477B00BBCE31 /* Minute.swift */; };
@@ -42,7 +42,6 @@
 		54308A392392CFA00008FE98 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 54308A382392CFA00008FE98 /* README.md */; };
 		54308A3D2393797D0008FE98 /* MinutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A3C2393797D0008FE98 /* MinutesViewModel.swift */; };
 		54308A3F23937B450008FE98 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A3E23937B450008FE98 /* ViewModel.swift */; };
-		54308A4123938C030008FE98 /* LogoutSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4023938C030008FE98 /* LogoutSheet.swift */; };
 		54308A432394461E0008FE98 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 54308A422394461E0008FE98 /* LaunchScreen.png */; };
 		54308A4523944A1D0008FE98 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 54308A4423944A1D0008FE98 /* LaunchScreen.png */; };
 		54308A4723946AEF0008FE98 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4623946AEF0008FE98 /* LoginView.swift */; };
@@ -51,12 +50,12 @@
 		54308A4F2395C73C0008FE98 /* SessionTokenFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4E2395C73C0008FE98 /* SessionTokenFetchable.swift */; };
 		54308A532395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A522395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift */; };
 		549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A832399BBE100B6BEA9 /* Credential.swift */; };
-		549A3A86239AB1AB00B6BEA9 /* GetSessionCookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A85239AB1AB00B6BEA9 /* GetSessionCookie.swift */; };
 		549A3A88239E011400B6BEA9 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A87239E011400B6BEA9 /* Mock.swift */; };
 		549A3A8A239E0ADD00B6BEA9 /* MinutesWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A89239E0ADD00B6BEA9 /* MinutesWebView.swift */; };
 		54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */; };
 		54C14E052399943D0065A1CB /* CredentialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E042399943D0065A1CB /* CredentialRepository.swift */; };
 		54C14E07239997860065A1CB /* DefaultCredentialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */; };
+		54E3279D23A7154B007827B5 /* DefaultDirectoryFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3279C23A7154B007827B5 /* DefaultDirectoryFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,11 +74,11 @@
 		541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		541E352C2388905B00BBCE31 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		541E35312389CF7800BBCE31 /* DirectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryView.swift; sourceTree = "<group>"; };
-		541E35372389D94500BBCE31 /* PollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollsView.swift; sourceTree = "<group>"; };
+		541E35372389D94500BBCE31 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
 		541E3539238A0C5B00BBCE31 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		541E353C238A178200BBCE31 /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
 		541E353E238A1BC200BBCE31 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
-		541E3542238A335600BBCE31 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoteView.swift; path = ../VIEW/VoteView.swift; sourceTree = "<group>"; };
+		541E3542238A335600BBCE31 /* SinglePollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SinglePollView.swift; path = ../VIEW/SinglePollView.swift; sourceTree = "<group>"; };
 		541E3544238A43AC00BBCE31 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		541E3547238A46C100BBCE31 /* MinutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesView.swift; sourceTree = "<group>"; };
 		541E3549238A477B00BBCE31 /* Minute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minute.swift; sourceTree = "<group>"; };
@@ -97,7 +96,6 @@
 		54308A382392CFA00008FE98 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		54308A3C2393797D0008FE98 /* MinutesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesViewModel.swift; sourceTree = "<group>"; };
 		54308A3E23937B450008FE98 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		54308A4023938C030008FE98 /* LogoutSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutSheet.swift; sourceTree = "<group>"; };
 		54308A422394461E0008FE98 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		54308A4423944A1D0008FE98 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		54308A4623946AEF0008FE98 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -106,12 +104,12 @@
 		54308A4E2395C73C0008FE98 /* SessionTokenFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTokenFetchable.swift; sourceTree = "<group>"; };
 		54308A522395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSessionTokenFetcher.swift; sourceTree = "<group>"; };
 		549A3A832399BBE100B6BEA9 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
-		549A3A85239AB1AB00B6BEA9 /* GetSessionCookie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSessionCookie.swift; sourceTree = "<group>"; };
 		549A3A87239E011400B6BEA9 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		549A3A89239E0ADD00B6BEA9 /* MinutesWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesWebView.swift; sourceTree = "<group>"; };
 		54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
 		54C14E042399943D0065A1CB /* CredentialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialRepository.swift; sourceTree = "<group>"; };
 		54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCredentialRepository.swift; sourceTree = "<group>"; };
+		54E3279C23A7154B007827B5 /* DefaultDirectoryFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDirectoryFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +186,6 @@
 				541E35782391342B00BBCE31 /* DeltNuError.swift */,
 				541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */,
 				541E3572239132DE00BBCE31 /* Combine-Decodable.swift */,
-				549A3A85239AB1AB00B6BEA9 /* GetSessionCookie.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -273,6 +270,7 @@
 			children = (
 				541E357E23914AE900BBCE31 /* DirectoryFetchable.swift */,
 				541E357C23914A6300BBCE31 /* MockDirectoryFetcher.swift */,
+				54E3279C23A7154B007827B5 /* DefaultDirectoryFetcher.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -290,8 +288,8 @@
 		541E358323918AB000BBCE31 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				541E35372389D94500BBCE31 /* PollsView.swift */,
-				541E3542238A335600BBCE31 /* VoteView.swift */,
+				541E35372389D94500BBCE31 /* VoteView.swift */,
+				541E3542238A335600BBCE31 /* SinglePollView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				541E358523918B0400BBCE31 /* PreferencesView.swift */,
-				54308A4023938C030008FE98 /* LogoutSheet.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -439,14 +436,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				541E353F238A1BC200BBCE31 /* Poll.swift in Sources */,
-				549A3A86239AB1AB00B6BEA9 /* GetSessionCookie.swift in Sources */,
 				54308A4F2395C73C0008FE98 /* SessionTokenFetchable.swift in Sources */,
 				54308A4723946AEF0008FE98 /* LoginView.swift in Sources */,
 				541E3559238C60CC00BBCE31 /* Extensions.swift in Sources */,
 				541E3557238B9F4D00BBCE31 /* MasterformWebView.swift in Sources */,
 				541E3552238A54D600BBCE31 /* HomeView.swift in Sources */,
 				541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */,
-				541E3543238A335600BBCE31 /* VoteView.swift in Sources */,
+				541E3543238A335600BBCE31 /* SinglePollView.swift in Sources */,
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
 				54308A4A23946C280008FE98 /* LoginViewModel.swift in Sources */,
 				549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */,
@@ -454,13 +450,13 @@
 				54C14E052399943D0065A1CB /* CredentialRepository.swift in Sources */,
 				541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */,
 				54308A532395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift in Sources */,
+				54E3279D23A7154B007827B5 /* DefaultDirectoryFetcher.swift in Sources */,
 				541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */,
 				54308A3F23937B450008FE98 /* ViewModel.swift in Sources */,
 				541E351123887ED100BBCE31 /* SessionView.swift in Sources */,
 				541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */,
 				541E353D238A178200BBCE31 /* CommonViews.swift in Sources */,
 				541E35792391342B00BBCE31 /* DeltNuError.swift in Sources */,
-				54308A4123938C030008FE98 /* LogoutSheet.swift in Sources */,
 				549A3A8A239E0ADD00B6BEA9 /* MinutesWebView.swift in Sources */,
 				541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */,
 				54308A4C23947CC00008FE98 /* Session.swift in Sources */,
@@ -474,7 +470,7 @@
 				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,
 				549A3A88239E011400B6BEA9 /* Mock.swift in Sources */,
 				541E352D2388905B00BBCE31 /* Member.swift in Sources */,
-				541E35382389D94500BBCE31 /* PollsView.swift in Sources */,
+				541E35382389D94500BBCE31 /* VoteView.swift in Sources */,
 				541E353A238A0C5B00BBCE31 /* AppStyle.swift in Sources */,
 				541E355B238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift in Sources */,
 			);

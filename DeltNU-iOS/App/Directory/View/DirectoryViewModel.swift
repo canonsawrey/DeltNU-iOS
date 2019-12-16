@@ -36,7 +36,6 @@ class DirectoryViewModel: ViewModel, ObservableObject, Identifiable {
                     guard let self = self else { return }
                     switch value {
                     case .failure:
-                        // 6
                         self.dataState = .error
                     case .finished:
                         self.dataState = .loaded

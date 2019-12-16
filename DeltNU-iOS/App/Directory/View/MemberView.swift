@@ -7,17 +7,26 @@
 //
 
 import SwiftUI
+import Contacts
 
 struct MemberView: View {
     let pictureSize = UIScreen.main.bounds.width / 2
     var member: Member
     
+    //Saving contacts stuff
+    let store = CNContactStore()
+    @State private var showSavedMessage = false
+    @State private var saveSuccessful = true
+    
     var body: some View {
         VStack {
-            Image(systemName: "person")
-                .resizable()
-                .frame(maxWidth: self.pictureSize, maxHeight: self.pictureSize)
-                .padding(50)
+            ZStack {
+                Image(systemName: "person")
+                    .resizable()
+                    .frame(maxWidth: self.pictureSize, maxHeight: self.pictureSize)
+                    .padding(50)
+            }
+            
             
             Text("\(member.firstName) \(member.lastName)")
                 .font(.largeTitle)
@@ -31,12 +40,47 @@ struct MemberView: View {
         
             Text(member.email)
                 .padding()
+            
+            Spacer()
+            
+            Button(action: {
+                self.saveContact()
+            }) {
+                HStack {
+                    Text("Add to contacts ")
+                    Image(systemName: "person.badge.plus")
+                }.foregroundColor(Color("colorOnPrimaryAccent"))
+            }.padding(.bottom)
+            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .alert(isPresented: $showSavedMessage) {
+            Alert(title: self.saveSuccessful ? Text("Saved") : Text("Error"),
+                  message: self.saveSuccessful ? Text("Success! The contact was saved.") : Text("There was an error saving the contact."),
+                  dismissButton: .default(Text("Done")))
+        }
     }
     
     init(member: Member) {
         self.member = member
+    }
+    
+    private func saveContact() {
+        let saveRequest = CNSaveRequest()
+        let contact = CNMutableContact()
+        contact.givenName = self.member.firstName
+        contact.familyName = self.member.lastName
+        let phoneNumberField = CNLabeledValue(label: CNLabelPhoneNumberMain,
+                                              value: CNPhoneNumber(stringValue: self.member.phoneNumber))
+        contact.phoneNumbers = [phoneNumberField]
+        saveRequest.add(contact, toContainerWithIdentifier: nil)
+        do {
+            try self.store.execute(saveRequest)
+            saveSuccessful = true
+        } catch {
+            saveSuccessful = false
+        }
+        showSavedMessage = true
     }
 }
 

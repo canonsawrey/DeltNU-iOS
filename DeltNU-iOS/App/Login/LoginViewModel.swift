@@ -31,8 +31,9 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
         return !(email == previousRequestEmail && password == previousRequestPassword)
     }
     
-    
     func login() {
+        self.loggingIn = true
+        
         sessionTokenFetchable.authenticate(
             credential: Credential(email: self.email, password: self.password)
         )
@@ -42,46 +43,33 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
                 guard let self = self else { return }
                 switch value {
                 case .failure:
-                    self.previousRequestEmail = self.email
-                    self.previousRequestPassword = self.password
-                    self.error = "Login with these credentials failed"
-                    self.loggingIn = false
+                    self.badCredentials()
                 case .finished:
                   break
                 }
               },
               receiveValue: { [weak self] authResponse in
                 guard let self = self else { return }
-                self.credentialRepository.storeCredentials(email: self.email, password: self.password)
-                self.session.sessionCookie = authResponse.sessionCookie
-                withAnimation {
-                    self.session.loggedIn = true
+                //TODO This is a terrible way to do this. We should find a way to throw a combine error if auth fails
+                if let cookie = authResponse.sessionCookie {
+                    self.credentialRepository.storeCredentials(email: self.email, password: self.password)
+                    self.session.sessionCookie = cookie
+                    withAnimation {
+                        self.session.loggedIn = true
+                    }
+                } else {
+                    self.badCredentials()
                 }
             })
             .store(in: &disposables)
     }
-//
-//        Timer.scheduledTimer(timeInterval: 2.0,
-//                             target: self,
-//                             selector: #selector(evalCredentials),
-//                             userInfo: nil,
-//                             repeats: false)
-//    }
-//
-//    @objc private func evalCredentials() {
-//        if (self.email == "MockUser" && password == "MockUser") {
-//            credentialRepository.storeCredentials(email: self.email, password: self.password)
-//            session.sessionCookie = Session.mockSessionCookie
-//            withAnimation {
-//                session.loggedIn = true
-//            }
-//        } else {
-//            previousRequestEmail = email
-//            previousRequestPassword = password
-//            self.error = "Login with input credentials failed"
-//            self.loggingIn = false
-//        }
-//    }
+    
+    private func badCredentials() {
+        self.previousRequestEmail = self.email
+        self.previousRequestPassword = self.password
+        self.error = "Sign in with these credentials failed"
+        self.loggingIn = false
+    }
     
     override init() {
         self.credentialRepository = DefaultCredentialRepository()

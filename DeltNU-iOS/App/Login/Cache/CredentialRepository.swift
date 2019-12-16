@@ -10,7 +10,7 @@ import Foundation
 
 protocol CredentialRepository {
     func getCachedCredentials() -> CredentialResponse
-    func storeCredentials(email: String, password: String) -> CredentialResponse
+    func storeCredentials(email: String, password: String)
     func clearCredentials()
 }
 

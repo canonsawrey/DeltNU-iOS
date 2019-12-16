@@ -16,40 +16,43 @@ struct MinutesView: View {
     @State private var masterform = true
     
     var body: some View {
+        NavigationView {
             ZStack(alignment: .bottom) {
                 List(viewModel.minutes) { min in
-                            Button(action: {
-                                self.masterform = false
-                                self.showingMasterform = true
-                            }) {
-                                HStack {
-                                    Text(min.createdAt.formattedDate())
-                                    Spacer()
-                                    Text(min.createdAt.getElapsedInterval())
-                                }
-                            }
+                    Button(action: {
+                        self.masterform = false
+                        self.showingMasterform = true
+                    }) {
+                        HStack {
+                            Text(min.createdAt.formattedDate())
+                            Spacer()
+                            Text(min.createdAt.getElapsedInterval())
                         }
+                    }
+                }
                 
                 Button(action: {
                     self.masterform = true
                     self.showingMasterform = true
                 }) {
                     HStack {
-                    Spacer()
-                    Text("Latest masterform: \(viewModel.minutes[0].createdAt.getElapsedInterval())").padding()
-                        .foregroundColor(Color("colorOnSecondary"))
-                    Spacer()
-                        }.background(Color("secondary")).cornerRadius(appStyle.cornerRadius).padding(.horizontal)
-                }
-        }
-        .sheet(isPresented: $showingMasterform) {
-            Group {
-                if self.masterform {
-                    MasterformWebView(minutes: self.viewModel.minutes[1])
-                } else {
-                    MinutesWebView()
+                        Spacer()
+                        Text("Latest masterform: \(viewModel.minutes[0].createdAt.getElapsedInterval())").padding()
+                            .foregroundColor(Color("colorOnSecondary"))
+                        Spacer()
+                    }.background(Color("secondary")).cornerRadius(appStyle.cornerRadius).padding(.horizontal)
                 }
             }
+            .sheet(isPresented: $showingMasterform) {
+                Group {
+                    if self.masterform {
+                        MasterformWebView(minutes: self.viewModel.minutes[1])
+                    } else {
+                        MinutesWebView()
+                    }
+                }
+            }
+        .navigationBarTitle("Minutes")
         }
     }
 }

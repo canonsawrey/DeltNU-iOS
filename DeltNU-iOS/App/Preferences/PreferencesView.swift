@@ -16,6 +16,7 @@ struct PreferencesView: View {
     private let session = Session.shared
     
     var body: some View {
+        NavigationView {
             VStack {
                 List {
                     HStack {
@@ -29,8 +30,6 @@ struct PreferencesView: View {
                         Text("Logout")
                     }
                 }
-                .padding()
-                
             }.frame(maxHeight: .infinity, alignment: .top)
             .alert(isPresented: $showingLogout) {
             Alert(
@@ -41,7 +40,9 @@ struct PreferencesView: View {
                         self.session.clearSession()
                     }
                     self.credentialRepository.clearCredentials()
+
                 }, secondaryButton: .cancel())
+            }.navigationBarTitle("Preferences")
         }
     }
 }

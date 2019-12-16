@@ -21,5 +21,14 @@ class Session: ObservableObject {
     func clearSession() {
         self.loggedIn = false
         self.sessionCookie = nil
+        
+        if let unwrappedCookies = HTTPCookieStorage.shared.cookies {
+            let sessionCookie = unwrappedCookies.first { cookie in
+                cookie.name == "_deltwebsite_session"
+            }
+            if let cookie = sessionCookie {
+                HTTPCookieStorage.shared.deleteCookie(cookie)
+            }
+        }
     }
 }

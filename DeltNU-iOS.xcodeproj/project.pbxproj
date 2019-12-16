@@ -29,7 +29,7 @@
 		541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3547238A46C100BBCE31 /* MinutesView.swift */; };
 		541E354A238A477B00BBCE31 /* Minute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3549238A477B00BBCE31 /* Minute.swift */; };
 		541E3552238A54D600BBCE31 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3551238A54D600BBCE31 /* HomeView.swift */; };
-		541E3557238B9F4D00BBCE31 /* MasterformWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3556238B9F4D00BBCE31 /* MasterformWebView.swift */; };
+		541E3557238B9F4D00BBCE31 /* UrlWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3556238B9F4D00BBCE31 /* UrlWebView.swift */; };
 		541E3559238C60CC00BBCE31 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3558238C60CC00BBCE31 /* Extensions.swift */; };
 		541E355B238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */; };
 		541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3570239131B000BBCE31 /* DirectoryViewModel.swift */; };
@@ -56,6 +56,8 @@
 		54C14E052399943D0065A1CB /* CredentialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E042399943D0065A1CB /* CredentialRepository.swift */; };
 		54C14E07239997860065A1CB /* DefaultCredentialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */; };
 		54E3279D23A7154B007827B5 /* DefaultDirectoryFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3279C23A7154B007827B5 /* DefaultDirectoryFetcher.swift */; };
+		54E3279F23A72300007827B5 /* MinutesFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3279E23A72300007827B5 /* MinutesFetchable.swift */; };
+		54E327A123A725CF007827B5 /* DefaultMinutesFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E327A023A725CF007827B5 /* DefaultMinutesFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,7 +85,7 @@
 		541E3547238A46C100BBCE31 /* MinutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesView.swift; sourceTree = "<group>"; };
 		541E3549238A477B00BBCE31 /* Minute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minute.swift; sourceTree = "<group>"; };
 		541E3551238A54D600BBCE31 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		541E3556238B9F4D00BBCE31 /* MasterformWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterformWebView.swift; sourceTree = "<group>"; };
+		541E3556238B9F4D00BBCE31 /* UrlWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlWebView.swift; sourceTree = "<group>"; };
 		541E3558238C60CC00BBCE31 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiWorkarounds.swift; sourceTree = "<group>"; };
 		541E3570239131B000BBCE31 /* DirectoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewModel.swift; sourceTree = "<group>"; };
@@ -110,6 +112,8 @@
 		54C14E042399943D0065A1CB /* CredentialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialRepository.swift; sourceTree = "<group>"; };
 		54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCredentialRepository.swift; sourceTree = "<group>"; };
 		54E3279C23A7154B007827B5 /* DefaultDirectoryFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDirectoryFetcher.swift; sourceTree = "<group>"; };
+		54E3279E23A72300007827B5 /* MinutesFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesFetchable.swift; sourceTree = "<group>"; };
+		54E327A023A725CF007827B5 /* DefaultMinutesFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMinutesFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,8 +233,10 @@
 				541E3547238A46C100BBCE31 /* MinutesView.swift */,
 				54308A3C2393797D0008FE98 /* MinutesViewModel.swift */,
 				541E3549238A477B00BBCE31 /* Minute.swift */,
-				541E3556238B9F4D00BBCE31 /* MasterformWebView.swift */,
+				541E3556238B9F4D00BBCE31 /* UrlWebView.swift */,
 				549A3A89239E0ADD00B6BEA9 /* MinutesWebView.swift */,
+				54E3279E23A72300007827B5 /* MinutesFetchable.swift */,
+				54E327A023A725CF007827B5 /* DefaultMinutesFetcher.swift */,
 			);
 			path = Minutes;
 			sourceTree = "<group>";
@@ -436,10 +442,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				541E353F238A1BC200BBCE31 /* Poll.swift in Sources */,
+				54E327A123A725CF007827B5 /* DefaultMinutesFetcher.swift in Sources */,
 				54308A4F2395C73C0008FE98 /* SessionTokenFetchable.swift in Sources */,
 				54308A4723946AEF0008FE98 /* LoginView.swift in Sources */,
 				541E3559238C60CC00BBCE31 /* Extensions.swift in Sources */,
-				541E3557238B9F4D00BBCE31 /* MasterformWebView.swift in Sources */,
+				541E3557238B9F4D00BBCE31 /* UrlWebView.swift in Sources */,
 				541E3552238A54D600BBCE31 /* HomeView.swift in Sources */,
 				541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */,
 				541E3543238A335600BBCE31 /* SinglePollView.swift in Sources */,
@@ -457,6 +464,7 @@
 				541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */,
 				541E353D238A178200BBCE31 /* CommonViews.swift in Sources */,
 				541E35792391342B00BBCE31 /* DeltNuError.swift in Sources */,
+				54E3279F23A72300007827B5 /* MinutesFetchable.swift in Sources */,
 				549A3A8A239E0ADD00B6BEA9 /* MinutesWebView.swift in Sources */,
 				541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */,
 				54308A4C23947CC00008FE98 /* Session.swift in Sources */,

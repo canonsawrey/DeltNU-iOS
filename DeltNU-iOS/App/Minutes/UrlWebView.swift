@@ -7,8 +7,7 @@
 import SwiftUI
 import WebKit
 
-struct MasterformWebView: View {
-    let minutes: Minute
+struct UrlWebView: View {
     let url: URL?
     
     var body: some View {
@@ -21,17 +20,16 @@ struct MasterformWebView: View {
         }
     }
     
-    init(minutes: Minute) {
-        self.minutes = minutes
-        self.url = URL(string: minutes.masterform)
+    init(url: String) {
+        self.url = URL(string: url)
     }
 }
 
-struct MasterformWebView_Previews: PreviewProvider {
+struct UrlWebView_Previews: PreviewProvider {
     static let minutes: Minutes = Bundle.main.decode("minutes.json")
     
     static var previews: some View {
-        MasterformWebView(minutes: self.minutes[0])
+        UrlWebView(url: "www.google.com")
     }
 }
   

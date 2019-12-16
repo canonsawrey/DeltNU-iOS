@@ -16,9 +16,21 @@ struct Minute: Codable, Identifiable {
     let pdfContentType: String?
     let pdfFileSize: Int?
     let pdfUpdatedAt: Date?
-    let newmember: Bool?
+    let newmember: String?
     let masterform: String
-    let chapterID: Int
+    
+    init() {
+        id = 12341232
+        title = "a"
+        createdAt = Date()
+        updatedAt = Date()
+        pdfFileName = nil
+        pdfContentType =  nil
+        pdfFileSize = nil
+        pdfUpdatedAt = nil
+        newmember = nil
+        masterform = "www.google.com"
+    }
 
     enum CodingKeys: String, CodingKey {
         case id, title
@@ -29,10 +41,8 @@ struct Minute: Codable, Identifiable {
         case pdfFileSize = "pdf_file_size"
         case pdfUpdatedAt = "pdf_updated_at"
         case newmember, masterform
-        case chapterID = "chapter_id"
     }
 }
 
 typealias Minutes = [Minute]
 
-// MARK: - Encode/decode helpers

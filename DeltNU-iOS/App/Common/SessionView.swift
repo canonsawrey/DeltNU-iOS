@@ -17,7 +17,7 @@ struct SessionView: View {
     @State var tabIndex = 0
     
     var directoryViewModel = DirectoryViewModel(directoryFetcher: DefaultDirectoryFetcher())
-    var minutesViewModel = MinutesViewModel()
+    var minutesViewModel = MinutesViewModel(fetchable: DefaultMinutesFetcher())
     
     var body: some View {
         ZStack {

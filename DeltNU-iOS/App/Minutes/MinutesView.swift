@@ -9,19 +9,16 @@
 import SwiftUI
 
 struct MinutesView: View {
-    
     //View model
     @ObservedObject var viewModel: MinutesViewModel
-    @State private var showingMasterform = false
-    @State private var masterform = true
     
     var body: some View {
         NavigationView {
             ZStack(alignment: .bottom) {
                 List(viewModel.minutes) { min in
                     Button(action: {
-                        self.masterform = false
-                        self.showingMasterform = true
+                        guard let url = URL(string: "https://www.deltnu.com/minutes/\(min.id)") else { return }
+                        UIApplication.shared.open(url)
                     }) {
                         HStack {
                             Text(min.createdAt.formattedDate())
@@ -30,35 +27,21 @@ struct MinutesView: View {
                         }
                     }
                 }
-                
-                Button(action: {
-                    self.masterform = true
-                    self.showingMasterform = true
-                }) {
-                    HStack {
-                        Spacer()
-                        Text("Latest masterform: \(viewModel.minutes[0].createdAt.getElapsedInterval())").padding()
-                            .foregroundColor(Color("colorOnSecondary"))
-                        Spacer()
-                    }.background(Color("secondary")).cornerRadius(appStyle.cornerRadius).padding(.horizontal)
-                }
-            }
-            .sheet(isPresented: $showingMasterform) {
-                Group {
-                    if self.masterform {
-                        MasterformWebView(minutes: self.viewModel.minutes[1])
-                    } else {
-                        MinutesWebView()
-                    }
-                }
             }
         .navigationBarTitle("Minutes")
+        .navigationBarItems(
+            trailing: Button(action: {
+                guard let url = URL(string: self.viewModel.minutes[0].masterform) else { return }
+                UIApplication.shared.open(url)
+            }) {
+            Text("Masterform")
+        })
         }
     }
 }
 
 struct MinutesView_Previews: PreviewProvider {
     static var previews: some View {
-        MinutesView(viewModel: MinutesViewModel())
+        MinutesView(viewModel: MinutesViewModel(fetchable: DefaultMinutesFetcher()))
     }
 }

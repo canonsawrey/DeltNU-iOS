@@ -1,5 +1,5 @@
 //
-//  DefaultDirectoryFetcher.swift
+//  DefaultMinutesFetcher.swift
 //  DeltNU-iOS
 //
 //  Created by Canon Sawrey on 12/15/19.
@@ -9,16 +9,16 @@
 import Foundation
 import Combine
 
-class DefaultDirectoryFetcher: DirectoryFetchable {
+class DefaultMinutesFetcher: MinutesFetchable {
     private let session: URLSession
-    private let url: URL = URL(string: "https://www.deltnu.com/directory/app_index")!
+    private let url: URL = URL(string: "https://www.deltnu.com/minutes/app_index")!
     private var cancellable: AnyCancellable? = nil
     
     init(session: URLSession = .shared) {
         self.session = session
     }
     
-    func memberDirectory() -> AnyPublisher<MemberDirectory, DeltNuError> {
+    func getMinutes() -> AnyPublisher<Minutes, DeltNuError> {
         let urlRequest = URLRequest(url: url)
         
         return session.dataTaskPublisher(for: urlRequest)

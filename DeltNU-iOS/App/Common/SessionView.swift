@@ -71,34 +71,35 @@ struct SessionView: View {
 //                }
                 TabView(selection: $tabIndex) {
                     HomeView()
-                        .transition(AnyTransition.move(edge: .top))
+                    .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.dashboard.systemAsset())
                             Text("Home")
                         }
                         .tag(0)
                     MinutesView(viewModel: minutesViewModel)
+                    .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.minutes.systemAsset())
                             Text("Minutes")
                         }
                         .tag(1)
                     VoteView()
-                        .transition(AnyTransition.move(edge: .top))
+                    .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.vote.systemAsset())
                             Text("Vote")
                         }
                         .tag(2)
                     DirectoryView(viewModel: directoryViewModel)
-                        .transition(AnyTransition.move(edge: .top))
+                        .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.directory.systemAsset())
                             Text("Directory")
                         }
                         .tag(3)
                     PreferencesView()
-                        .transition(AnyTransition.move(edge: .top))
+                        .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.preferences.systemAsset())
                             Text("Preferences")

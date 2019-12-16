@@ -16,7 +16,6 @@ struct SinglePollView: View {
     var body: some View {
         VStack {
             Text(poll.title)
-                .font(.headline)
                 .padding()
             ForEach(poll.identifiableOptions) { option in
                 TileButton(

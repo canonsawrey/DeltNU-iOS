@@ -22,7 +22,7 @@ struct MockHistoryItem: View {
     var body: some View {
         VStack {
             HStack {
-                Text(randomTitle()).bold().padding().frame(alignment: Alignment.leading)
+                Text(randomTitle()).padding().frame(alignment: Alignment.leading)
                 Spacer()
                 Text(getDate(index: self.index).formattedDate()).padding()
             }

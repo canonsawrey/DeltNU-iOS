@@ -16,10 +16,33 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Home")
+                Tile(
+                    text: "Welcome, Canon",
+                    color: Color("primary"),
+                    textColor: Color("colorOnPrimary"),
+                    width: .infinity,
+                    height: .infinity)
+                Tile(
+                    text: "Welcome, Canon",
+                    color: Color("secondary"),
+                    textColor: Color("colorOnSecondary"),
+                    width: .infinity,
+                    height: .infinity)
+                Tile(
+                    text: "Welcome, Canon",
+                    color: Color("secondary"),
+                    textColor: Color("colorOnSecondary"),
+                    width: .infinity,
+                    height: .infinity)
+                Tile(
+                    text: "Welcome, Canon",
+                    color: Color("secondary"),
+                    textColor: Color("colorOnSecondary"),
+                    width: .infinity,
+                    height: .infinity)
             }
             .navigationBarTitle("Home")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
     }
 }

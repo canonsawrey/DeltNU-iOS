@@ -45,8 +45,8 @@ struct Tile: View {
     let text: String
     let color: Color
     let textColor: Color
-    let height: CGFloat
-    let width: CGFloat
+    var height: CGFloat = .infinity
+    var width: CGFloat = .infinity
     
     var body: some View {
         Text(self.text)
@@ -57,10 +57,14 @@ struct Tile: View {
             .padding()
     }
     
-    init(text: String, color: Color, textColor: Color, height: CGFloat, width: CGFloat) {
+    init(text: String, color: Color, textColor: Color) {
         self.text = text
         self.color = color
         self.textColor = textColor
+    }
+    
+    init(text: String, color: Color, textColor: Color, width: CGFloat, height: CGFloat) {
+        self.init(text: text, color: color, textColor: textColor)
         self.width = width
         self.height = height
     }

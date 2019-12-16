@@ -41,7 +41,7 @@ struct SinglePollView: View {
 }
 
 struct SinglePoll_Previews: PreviewProvider {
-    static let polls: PollArray = Bundle.main.decode("questions.json")
+    static let polls: Polls = Bundle.main.decode("questions.json")
     
     static var previews: some View {
         SinglePollView(poll: polls[0])

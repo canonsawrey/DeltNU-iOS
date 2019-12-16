@@ -49,6 +49,9 @@
 		54308A4C23947CC00008FE98 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4B23947CC00008FE98 /* Session.swift */; };
 		54308A4F2395C73C0008FE98 /* SessionTokenFetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4E2395C73C0008FE98 /* SessionTokenFetchable.swift */; };
 		54308A532395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A522395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift */; };
+		544ABAB023A822C0004227C2 /* VoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAAF23A822C0004227C2 /* VoteRemote.swift */; };
+		544ABAB223A827C3004227C2 /* DefaultVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */; };
+		544ABAB423A82B1B004227C2 /* VoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAB323A82B1B004227C2 /* VoteViewModel.swift */; };
 		549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A832399BBE100B6BEA9 /* Credential.swift */; };
 		549A3A88239E011400B6BEA9 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A87239E011400B6BEA9 /* Mock.swift */; };
 		549A3A8A239E0ADD00B6BEA9 /* MinutesWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A89239E0ADD00B6BEA9 /* MinutesWebView.swift */; };
@@ -105,6 +108,9 @@
 		54308A4B23947CC00008FE98 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		54308A4E2395C73C0008FE98 /* SessionTokenFetchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionTokenFetchable.swift; sourceTree = "<group>"; };
 		54308A522395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSessionTokenFetcher.swift; sourceTree = "<group>"; };
+		544ABAAF23A822C0004227C2 /* VoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRemote.swift; sourceTree = "<group>"; };
+		544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteRemote.swift; sourceTree = "<group>"; };
+		544ABAB323A82B1B004227C2 /* VoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoteViewModel.swift; path = "DeltNU-iOS/App/Vote/VIEW/VoteViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		549A3A832399BBE100B6BEA9 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		549A3A87239E011400B6BEA9 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		549A3A89239E0ADD00B6BEA9 /* MinutesWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesWebView.swift; sourceTree = "<group>"; };
@@ -207,6 +213,7 @@
 		541E35362389D92B00BBCE31 /* Vote */ = {
 			isa = PBXGroup;
 			children = (
+				544ABAAE23A82273004227C2 /* Repository */,
 				54E3279B23A6D276007827B5 /* Entity */,
 				541E358323918AB000BBCE31 /* View */,
 			);
@@ -296,6 +303,7 @@
 			children = (
 				541E35372389D94500BBCE31 /* VoteView.swift */,
 				541E3542238A335600BBCE31 /* SinglePollView.swift */,
+				544ABAB323A82B1B004227C2 /* VoteViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,6 +335,31 @@
 				54308A522395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift */,
 			);
 			path = Remote;
+			sourceTree = "<group>";
+		};
+		544ABAAC23A820C0004227C2 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				544ABAAF23A822C0004227C2 /* VoteRemote.swift */,
+				544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		544ABAAD23A820C9004227C2 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		544ABAAE23A82273004227C2 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				544ABAAD23A820C9004227C2 /* Cache */,
+				544ABAAC23A820C0004227C2 /* Remote */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		549A3A822399BBAF00B6BEA9 /* Entity */ = {
@@ -449,14 +482,17 @@
 				541E3557238B9F4D00BBCE31 /* UrlWebView.swift in Sources */,
 				541E3552238A54D600BBCE31 /* HomeView.swift in Sources */,
 				541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */,
+				544ABAB423A82B1B004227C2 /* VoteViewModel.swift in Sources */,
 				541E3543238A335600BBCE31 /* SinglePollView.swift in Sources */,
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
 				54308A4A23946C280008FE98 /* LoginViewModel.swift in Sources */,
 				549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */,
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
+				544ABAB023A822C0004227C2 /* VoteRemote.swift in Sources */,
 				54C14E052399943D0065A1CB /* CredentialRepository.swift in Sources */,
 				541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */,
 				54308A532395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift in Sources */,
+				544ABAB223A827C3004227C2 /* DefaultVoteRemote.swift in Sources */,
 				54E3279D23A7154B007827B5 /* DefaultDirectoryFetcher.swift in Sources */,
 				541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */,
 				54308A3F23937B450008FE98 /* ViewModel.swift in Sources */,

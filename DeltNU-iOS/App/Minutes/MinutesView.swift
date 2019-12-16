@@ -63,6 +63,11 @@ struct MinutesView: View {
             return year == years[selectedYear] && rightSemester
         }
     }
+    
+    init(viewModel: MinutesViewModel) {
+        self.viewModel = viewModel
+        viewModel.getMinutes()
+    }
 }
 
 struct MinutesView_Previews: PreviewProvider {

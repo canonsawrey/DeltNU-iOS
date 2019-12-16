@@ -18,6 +18,7 @@ struct SessionView: View {
     
     var directoryViewModel = DirectoryViewModel(directoryFetcher: DefaultDirectoryFetcher())
     var minutesViewModel = MinutesViewModel(fetchable: DefaultMinutesFetcher())
+    var voteViewModel = VoteViewModel(fetchable: DefaultVoteRemote())
     
     var body: some View {
         ZStack {
@@ -84,7 +85,7 @@ struct SessionView: View {
                             Text("Minutes")
                         }
                         .tag(1)
-                    VoteView()
+                    VoteView(viewModel: voteViewModel)
                     .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.vote.systemAsset())

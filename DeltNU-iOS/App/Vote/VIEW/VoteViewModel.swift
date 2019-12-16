@@ -1,46 +1,46 @@
 //
-//  MinutesViewModel.swift
+//  VoteViewModel.swift
 //  DeltNU-iOS
 //
-//  Created by Canon Sawrey on 11/30/19.
+//  Created by Canon Sawrey on 12/16/19.
 //  Copyright © 2019 Canon Sawrey. All rights reserved.
 //
 
 import Foundation
 import Combine
 
-class MinutesViewModel: ViewModel, ObservableObject, Identifiable {
+class VoteViewModel: ViewModel, ObservableObject, Identifiable {
     
-    @Published var minutes: Minutes = []
+    @Published var polls: Polls = []
     
-    private let minutesFetcher: MinutesFetchable
+    private let voteFetcher: VoteRemote
     //Other
     private var disposables = Set<AnyCancellable>()
     
-    init(fetchable: MinutesFetchable) {
-        minutesFetcher = fetchable
+    init(fetchable: VoteRemote) {
+        voteFetcher = fetchable
         super.init()
-        getMinutes()
+        getPolls()
     }
     
-    func getMinutes() {
-        minutesFetcher.getMinutes()
+    func getPolls() {
+        voteFetcher.getPolls()
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] value in
                     guard let self = self else { return }
                     switch value {
                     case .failure:
-                        print("fail")
+                        print("poll fail")
                     case .finished:
-                        print("end")
+                        print("poll end")
                     }
                 },
-                receiveValue: { [weak self] receivedMinutes in
+                receiveValue: { [weak self] receivedPolls in
                     guard let self = self else { return }
-                    print("Received \(receivedMinutes.count) minutes")
+                    print("Received \(receivedPolls.count) polls")
                     // 7
-                    self.minutes = receivedMinutes
+                    self.polls = receivedPolls
             })
             .store(in: &disposables)
     }

@@ -17,9 +17,6 @@ struct Poll: Codable, Identifiable {
     let expires, createdAt, updatedAt: Date
     let abstain, linkedQuestion: String?
     let options: [String]
-    let poll: Bool?
-    let eventid: String?
-    let chapterID: Int
 
     enum CodingKeys: String, CodingKey {
         case id, title, question
@@ -29,8 +26,7 @@ struct Poll: Codable, Identifiable {
         case updatedAt = "updated_at"
         case abstain
         case linkedQuestion = "linked_question"
-        case options, poll, eventid
-        case chapterID = "chapter_id"
+        case options
     }
     
     var isActive: Bool {
@@ -45,7 +41,7 @@ struct Poll: Codable, Identifiable {
         return optionsArray
     }
 }
-typealias PollArray = [Poll]
+typealias Polls = [Poll]
 
 // MARK: - Encode/decode helpers
 

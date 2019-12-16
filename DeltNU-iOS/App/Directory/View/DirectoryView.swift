@@ -15,6 +15,7 @@ struct DirectoryView: View {
     @State var selectedMember: Int = 0
     @State var showingMember = false
     @State var showCancelButton = false
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -79,6 +80,11 @@ struct DirectoryView: View {
             }
             .navigationBarTitle("Directory")
         }
+    }
+    
+    init(viewModel: DirectoryViewModel) {
+        self.viewModel = viewModel
+        viewModel.getMembers()
     }
 }
 

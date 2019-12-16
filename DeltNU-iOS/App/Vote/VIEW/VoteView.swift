@@ -9,44 +9,55 @@
 import SwiftUI
 
 struct VoteView: View {
-
-    var polls: PollArray = Bundle.main.decode("questions.json")
+    @ObservedObject var viewModel: VoteViewModel
     @State var showingPoll = false
     @State var selectedPoll = 0
+    private var activePolls: Polls { viewModel.polls.filter { poll in
+            poll.isActive
+        }
+    }
+    private var expiredPolls: Polls { viewModel.polls.filter { poll in
+            !poll.isActive
+        }
+    }
     
     var body: some View {
         NavigationView {
         VStack {
             List {
                 Section(header: Text("Active")) {
-                    ForEach(polls.filter { poll in
-                        poll.isActive
-                    }) { poll in
-                        Button(action: {
-                            self.selectedPoll = poll.id
-                            self.showingPoll = true
-                        }) {
-                            Text("\(poll.title)")
+                    if (activePolls.count > 0) {
+                        ForEach(activePolls) { poll in
+                            Button(action: {
+                                self.selectedPoll = poll.id
+                                self.showingPoll = true
+                            }) {
+                                Text("\(poll.title)")
+                            }
                         }
+                    } else {
+                        Text("-")
                     }
                 }
                 Section(header: Text("Expired")) {
-                    ForEach(polls.filter { poll in
-                        !poll.isActive
-                    }) { poll in
-                        Button(action: {
-                            self.selectedPoll = poll.id
-                            self.showingPoll = true
-                        }) {
-                            Text("\(poll.title)")
-                        }.disabled(true)
+                    if (expiredPolls.count > 0) {
+                        ForEach(expiredPolls) { poll in
+                            Button(action: {
+                                self.selectedPoll = poll.id
+                                self.showingPoll = true
+                            }) {
+                                Text("\(poll.title)")
+                            }.disabled(true)
+                        }
+                    } else {
+                        Text("-")
                     }
                 }
             }
             Spacer()
         }
         .sheet(isPresented: $showingPoll) {
-            SinglePollView(poll: self.polls.first { poll in
+            SinglePollView(poll: self.viewModel.polls.first { poll in
                 poll.id == self.selectedPoll
                 }!)
         }
@@ -57,6 +68,6 @@ struct VoteView: View {
 
 struct VoteView_Previews: PreviewProvider {
     static var previews: some View {
-        VoteView()
+        VoteView(viewModel: VoteViewModel(fetchable: DefaultVoteRemote()))
     }
 }

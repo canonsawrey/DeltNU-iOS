@@ -63,9 +63,11 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
         self.credentialRepository = DefaultCredentialRepository()
         self.authRemote = DefaultAuthRemote()
         let response = credentialRepository.getCachedCredentials()
+        super.init()
         if (response is CredentialSuccess) {
             self.email = (response as! CredentialSuccess).email
             self.password = (response as! CredentialSuccess).password
+            self.login()
         }
     }
 }

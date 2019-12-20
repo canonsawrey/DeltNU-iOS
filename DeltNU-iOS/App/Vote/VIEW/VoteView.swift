@@ -64,6 +64,12 @@ struct VoteView: View {
         .navigationBarTitle("Vote")
         }
     }
+    
+    init(viewModel: VoteViewModel) {
+        self.viewModel = viewModel
+        viewModel.getPolls()
+        print("Vote view created")
+    }
 }
 
 struct VoteView_Previews: PreviewProvider {

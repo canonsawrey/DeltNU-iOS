@@ -18,17 +18,21 @@ struct MinutesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List(filterredMinutes) { min in
-                    Button(action: {
-                        guard let url = URL(string: "https://www.deltnu.com/minutes/\(min.id)") else { return }
-                        UIApplication.shared.open(url)
-                    }) {
-                        HStack {
-                            Text(min.createdAt.formattedDate())
-                            Spacer()
-                            Text(min.createdAt.getElapsedInterval())
+                if (filterredMinutes.count > 0) {
+                    List(filterredMinutes) { min in
+                        Button(action: {
+                            guard let url = URL(string: "https://www.deltnu.com/minutes/\(min.id)") else { return }
+                            UIApplication.shared.open(url)
+                        }) {
+                            HStack {
+                                Text(min.createdAt.formattedDate())
+                                Spacer()
+                                Text(min.createdAt.getElapsedInterval())
+                            }
                         }
                     }
+                } else {
+                    Text("No minutes to display").frame(maxHeight: .infinity)
                 }
                 Picker(selection: $selectedSemester, label: Text("Semester")) {
                     Text("Fall").tag(0)

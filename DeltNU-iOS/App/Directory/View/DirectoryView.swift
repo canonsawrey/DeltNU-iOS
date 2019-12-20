@@ -27,7 +27,7 @@ struct DirectoryView: View {
                         TextField("Search", text: $viewModel.searchText, onEditingChanged: { isEditing in
                             self.showCancelButton = true
                         }, onCommit: {
-                            print("onCommit")
+                            //print("onCommit")
                         }).foregroundColor(.primary)
 
                         Button(action: {

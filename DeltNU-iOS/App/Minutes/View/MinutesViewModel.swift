@@ -21,6 +21,7 @@ class MinutesViewModel: ViewModel, ObservableObject, Identifiable {
         minutesRepository = repository
         super.init()
         getMinutes()
+        print("Minutes VM created")
     }
     
     func getMinutes() {
@@ -31,14 +32,16 @@ class MinutesViewModel: ViewModel, ObservableObject, Identifiable {
                     guard let self = self else { return }
                     switch value {
                     case .failure:
-                        print("Minutes fail")
+                        //print("Minutes fail")
+                        break
                     case .finished:
-                        print("Minutes end")
+                        //print("Minutes end")
+                        break
                     }
                 },
                 receiveValue: { [weak self] receivedMinutes in
                     guard let self = self else { return }
-                    print("Received \(receivedMinutes.count) minutes")
+                    //print("Received \(receivedMinutes.count) minutes")
                     // 7
                     self.minutes = receivedMinutes
             })

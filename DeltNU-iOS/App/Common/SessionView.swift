@@ -23,84 +23,32 @@ struct SessionView: View {
     var body: some View {
         ZStack {
             if session.activeSession {
-                //Old side nav
-//                VStack {
-//                    ZStack {
-//                        Button(action: {
-//                            self.isDrawerOpen.toggle()
-//                        }) {
-//                            Image(systemName: "triangle")
-//                                .padding()
-//                                .foregroundColor(Color("colorOnPrimaryAccent"))
-//                                .rotationEffect(self.isDrawerOpen ? .degrees(270) : .degrees(0))
-//                                .animation(.default)
-//                        }.frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-//                        Text(navTab.rawValue)
-//                            .font(.title)
-//                            .opacity(self.isDrawerOpen ? 0.3 : 1.0)
-//                            .blur(radius: self.isDrawerOpen ? 5.0 : 0.0)
-//                            .padding(.horizontal)
-//                            .foregroundColor(Color("colorOnPrimary"))
-//                            .animation(.default)
-//                    }
-//                    ZStack {
-//                        ZStack {
-//                            if self.navTab == NavTab.dashboard {
-//                                HomeView().navTransition()
-//                            } else if self.navTab == NavTab.minutes {
-//                                MinutesView(viewModel: self.minutesViewModel).navTransition()
-//                            } else if self.navTab == NavTab.vote {
-//                                PollsView().navTransition()
-//                            } else if self.navTab == NavTab.directory {
-//                                DirectoryView(viewModel: self.directoryViewModel).navTransition()
-//                            } else {
-//                                PreferencesView().navTransition()
-//                            }
-//                        }.blur(radius: self.isDrawerOpen ? 5.0 : 0.0)
-//                            .opacity(self.isDrawerOpen ? 0.3 : 1.0)
-//                            .animation(.default)
-//
-//                        /// Navigation Drawer part
-//                        NavigationDrawer(isOpen: self.isDrawerOpen, selectedTab: self.navTab, selectedFunction: { navTab in
-//                            self.navTab = navTab
-//                            self.isDrawerOpen = false
-//                        })
-//                            .onTapGesture {
-//                                self.isDrawerOpen = false
-//                        }
-//                    }
-//                }
                 TabView(selection: $tabIndex) {
                     HomeView()
-                    .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.dashboard.systemAsset())
                             Text("Home")
                         }
                         .tag(0)
                     MinutesView(viewModel: minutesViewModel)
-                    .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.minutes.systemAsset())
                             Text("Minutes")
                         }
                         .tag(1)
                     VoteView(viewModel: voteViewModel)
-                    .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.vote.systemAsset())
                             Text("Vote")
                         }
                         .tag(2)
                     DirectoryView(viewModel: directoryViewModel)
-                        .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.directory.systemAsset())
                             Text("Directory")
                         }
                         .tag(3)
                     PreferencesView()
-                        .transition(.slide)
                         .tabItem {
                             Image(systemName: NavTab.preferences.systemAsset())
                             Text("Preferences")
@@ -126,10 +74,6 @@ extension View {
         )
     }
 }
-//
-//class DrawerState: ObservableObject {
-//    @Published var isDrawerOpen = false
-//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

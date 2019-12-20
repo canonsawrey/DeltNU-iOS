@@ -31,14 +31,16 @@ class VoteViewModel: ViewModel, ObservableObject, Identifiable {
                     guard let self = self else { return }
                     switch value {
                     case .failure:
-                        print("poll fail")
+                        //print("poll fail")
+                        break
                     case .finished:
-                        print("poll end")
+                        //print("poll end")
+                        break
                     }
                 },
                 receiveValue: { [weak self] receivedPolls in
                     guard let self = self else { return }
-                    print("Received \(receivedPolls.count) polls")
+                    //print("Received \(receivedPolls.count) polls")
                     // 7
                     self.polls = receivedPolls
             })

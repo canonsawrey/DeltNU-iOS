@@ -68,7 +68,7 @@ struct VoteView: View {
     init(viewModel: VoteViewModel) {
         self.viewModel = viewModel
         viewModel.getPolls()
-        print("Vote view created")
+        //print("Vote view created")
     }
 }
 

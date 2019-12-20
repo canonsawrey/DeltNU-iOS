@@ -30,4 +30,12 @@ class Session: ObservableObject {
             }
         }
     }
+    
+    func refreshSetCookie() {
+        //TODO this
+    }
+    
+    func fillCaches() {
+        
+    }
 }

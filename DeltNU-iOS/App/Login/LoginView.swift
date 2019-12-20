@@ -11,17 +11,21 @@ import SwiftUI
 struct LoginView: View {
     @ObservedObject var viewModel: LoginViewModel
     @ObservedObject var session = Session.shared
+    var signInButtonDisabled: Bool {
+        viewModel.email == "" || viewModel.password == "" || viewModel.signingIn
+    }
     
     var body: some View {
         ZStack {
             Color("primary").edgesIgnoringSafeArea(.all)
             VStack {
-                Text("ΔTΔ").font(.system(size: 40))
+                Text("Sign in to DeltNU").font(.system(size: 40))
                     .padding(.vertical)
                     .foregroundColor(Color("colorOnPrimary"))
                 TextField("Email", text: $viewModel.email)
                     .padding()
                     .cornerRadius( appStyle.cornerRadius).padding()
+                    .autocapitalization(UITextAutocapitalizationType.none)
                 SecureField("Password", text: $viewModel.password)
                     .padding()
                     .cornerRadius( appStyle.cornerRadius).padding()
@@ -33,16 +37,14 @@ struct LoginView: View {
                 ) {
                     HStack {
                         Spacer()
-                        Text(viewModel.loggingIn ? "Signing in..." : "Sign in")
+                        Text(viewModel.signingIn ? "Signing in..." : "Sign in")
                         Spacer()
-                    }.padding().padding(.horizontal)
-                        .background(viewModel.loggingIn ? Color("primary"): Color("secondary"))
-                    .foregroundColor(viewModel.loggingIn ? Color("colorOnPrimary") : Color("colorOnSecondary"))
-                    .cornerRadius(appStyle.cornerRadius)
-                }
-                .disabled(viewModel.loggingIn).padding()
-                .animation(.default)
-                Text(viewModel.textChangedSincePreviousRequest ? "" : viewModel.error)
+                    }
+                    }.buttonStyle(MainButtonStyle())
+                    .opacity(signInButtonDisabled ? 0.5 : 1.0)
+                    .disabled(signInButtonDisabled).padding()
+                    .animation(.spring())
+                Text(viewModel.error)
                     .foregroundColor(Color("negative"))
                     .padding()
                     .animation(.default)

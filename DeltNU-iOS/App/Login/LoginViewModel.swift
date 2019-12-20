@@ -14,27 +14,18 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var email = ""
     @Published var password = ""
     @Published var error = ""
-    @Published var loggingIn = false
-    
-    //Local state mngmnt stuff
-    private var previousRequestEmail = ""
-    private var previousRequestPassword = ""
+    @Published var signingIn = false
     
     //Remote stuff
     private var disposables = Set<AnyCancellable>()
     private var session = Session.shared
     private var credentialRepository: CredentialRepository
-    private var sessionTokenFetchable: SessionTokenFetchable
-    
-    //Computed properties
-    var textChangedSincePreviousRequest: Bool {
-        return !(email == previousRequestEmail && password == previousRequestPassword)
-    }
+    private var authRemote: AuthRemote
     
     func login() {
-        self.loggingIn = true
+        self.signingIn = true
         
-        sessionTokenFetchable.authenticate(
+        authRemote.authenticate(
             credential: Credential(email: self.email, password: self.password)
         )
             .receive(on: DispatchQueue.main)
@@ -51,11 +42,10 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
               receiveValue: { [weak self] authResponse in
                 guard let self = self else { return }
                 //TODO This is a terrible way to do this. We should find a way to throw a combine error if auth fails
-                if let cookie = authResponse.sessionCookie {
+                if authResponse.success {
                     self.credentialRepository.storeCredentials(email: self.email, password: self.password)
-                    self.session.sessionCookie = cookie
                     withAnimation {
-                        self.session.loggedIn = true
+                        self.session.activeSession = true
                     }
                 } else {
                     self.badCredentials()
@@ -65,19 +55,17 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     }
     
     private func badCredentials() {
-        self.previousRequestEmail = self.email
-        self.previousRequestPassword = self.password
         self.error = "Sign in with these credentials failed"
-        self.loggingIn = false
+        self.signingIn = false
     }
     
     override init() {
         self.credentialRepository = DefaultCredentialRepository()
-        self.sessionTokenFetchable = DefaultSessionTokenFetcher()
+        self.authRemote = DefaultAuthRemote()
         let response = credentialRepository.getCachedCredentials()
         if (response is CredentialSuccess) {
-            self.email = "sawrey.c@husky.neu.edu" //(response as! CredentialSuccess).email
-            self.password = "deltPASS814"//(response as! CredentialSuccess).password
+            self.email = (response as! CredentialSuccess).email
+            self.password = (response as! CredentialSuccess).password
         }
     }
 }

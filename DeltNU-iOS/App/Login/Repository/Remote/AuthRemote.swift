@@ -9,10 +9,11 @@
 import Foundation
 import Combine
 
-protocol SessionTokenFetchable {
+protocol AuthRemote {
     func authenticate(credential: Credential) -> AnyPublisher<AuthenticationResponse, DeltNuError>
 }
 
-struct AuthenticationResponse: Codable {
-    let sessionCookie: String?
+struct AuthenticationResponse {
+    let success: Bool
+    let response: HTTPURLResponse?
 }

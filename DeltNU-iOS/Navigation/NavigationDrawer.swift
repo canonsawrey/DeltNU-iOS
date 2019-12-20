@@ -23,7 +23,7 @@ struct NavigationDrawer: View {
                 .frame(width: self.width)
                 .offset(x: self.isOpen ? 15 : -self.width)
                 .animation(.easeOut(duration: 0.20))
-            ClickableSpacer()
+           // ClickableSpacer()
         }
     }
 }
@@ -43,7 +43,7 @@ struct DrawerContent: View {
             }.padding()
             .background(Color("secondary"))
             .cornerRadius(appStyle.cornerRadius)
-            ClickableSpacer()
+         //   ClickableSpacer()
         }
     }
 }

@@ -1,14 +1,14 @@
 //
-//  MinutesFetchable.swift
+//  MinutesRepository.swift
 //  DeltNU-iOS
 //
-//  Created by Canon Sawrey on 12/15/19.
+//  Created by Canon Sawrey on 12/16/19.
 //  Copyright © 2019 Canon Sawrey. All rights reserved.
 //
 
 import Foundation
 import Combine
 
-protocol MinutesFetchable {
+protocol MinutesRepository {
     func getMinutes() -> AnyPublisher<Minutes, DeltNuError>
 }

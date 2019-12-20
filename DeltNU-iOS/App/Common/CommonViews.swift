@@ -70,10 +70,14 @@ struct Tile: View {
     }
 }
 
-struct ClickableSpacer: View {
-    
-    var body: some View {
-        //TODO_ANY This is a total hack bc 0 opacity unclickable
-        Rectangle().opacity(0.00000000000001)
+struct MainButtonStyle: ButtonStyle {
+ 
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding()
+                .foregroundColor(Color("colorOnSecondary"))
+            .background(Color("secondary"))
+            .cornerRadius(appStyle.cornerRadius)
     }
 }

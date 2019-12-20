@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class DefaultMinutesFetcher: MinutesFetchable {
+class DefaultMinutesRemote: MinutesRemote {
     private let session: URLSession
     private let url: URL = URL(string: "https://www.deltnu.com/minutes/app_index")!
     private var cancellable: AnyCancellable? = nil
@@ -18,12 +18,13 @@ class DefaultMinutesFetcher: MinutesFetchable {
         self.session = session
     }
     
-    func getMinutes() -> AnyPublisher<Minutes, DeltNuError> {
+    func getRemoteMinutes() -> AnyPublisher<Minutes, DeltNuError> {
         let urlRequest = URLRequest(url: url)
         
         return session.dataTaskPublisher(for: urlRequest)
-        .mapError { error in
-            .network(description: error.localizedDescription)
+            .retry(1)
+            .mapError { error in
+                .network(description: error.localizedDescription)
         }
         .flatMap(maxPublishers: .max(1)) { pair in
             decode(pair.data)

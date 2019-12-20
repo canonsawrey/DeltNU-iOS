@@ -13,27 +13,27 @@ class MinutesViewModel: ViewModel, ObservableObject, Identifiable {
     
     @Published var minutes: Minutes = []
     
-    private let minutesFetcher: MinutesFetchable
+    private let minutesRepository: MinutesRepository
     //Other
     private var disposables = Set<AnyCancellable>()
     
-    init(fetchable: MinutesFetchable) {
-        minutesFetcher = fetchable
+    init(repository: MinutesRepository) {
+        minutesRepository = repository
         super.init()
         getMinutes()
     }
     
     func getMinutes() {
-        minutesFetcher.getMinutes()
+        minutesRepository.getMinutes()
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] value in
                     guard let self = self else { return }
                     switch value {
                     case .failure:
-                        print("fail")
+                        print("Minutes fail")
                     case .finished:
-                        print("end")
+                        print("Minutes end")
                     }
                 },
                 receiveValue: { [weak self] receivedMinutes in

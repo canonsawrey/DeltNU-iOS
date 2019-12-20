@@ -12,8 +12,9 @@ import Foundation
 import Combine
 
 func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, DeltNuError> {
-  let decoder = JSONDecoder()
-  let formatter = DateFormatter() //"2019-03-07T13:00:39.369-05:00"
+  //TODO change this to coder abstraction
+    let decoder = JSONDecoder()
+  let formatter = DateFormatter()
   formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
   decoder.dateDecodingStrategy = .formatted(formatter)
 

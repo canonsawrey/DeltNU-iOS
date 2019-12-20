@@ -9,6 +9,9 @@
 import Foundation
 
 enum DeltNuError: Error {
-      case parsing(description: String)
-      case network(description: String)
+    case parsing(description: String)
+    case network(description: String)
+    case cache(description: String)
+    case invalidSignIn
+    case unknown(description: String)
 }

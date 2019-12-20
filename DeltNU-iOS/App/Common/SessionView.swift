@@ -17,12 +17,12 @@ struct SessionView: View {
     @State var tabIndex = 0
     
     var directoryViewModel = DirectoryViewModel(directoryFetcher: DefaultDirectoryFetcher())
-    var minutesViewModel = MinutesViewModel(fetchable: DefaultMinutesFetcher())
+    var minutesViewModel = MinutesViewModel(repository: DefaultMinutesRepository())
     var voteViewModel = VoteViewModel(fetchable: DefaultVoteRemote())
     
     var body: some View {
         ZStack {
-            if session.loggedIn {
+            if session.activeSession {
                 //Old side nav
 //                VStack {
 //                    ZStack {

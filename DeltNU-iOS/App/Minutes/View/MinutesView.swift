@@ -67,11 +67,12 @@ struct MinutesView: View {
     init(viewModel: MinutesViewModel) {
         self.viewModel = viewModel
         viewModel.getMinutes()
+        print("Minutes view created")
     }
 }
 
 struct MinutesView_Previews: PreviewProvider {
     static var previews: some View {
-        MinutesView(viewModel: MinutesViewModel(fetchable: DefaultMinutesFetcher()))
+        MinutesView(viewModel: MinutesViewModel(repository: DefaultMinutesRepository()))
     }
 }

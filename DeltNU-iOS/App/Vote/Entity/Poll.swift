@@ -16,7 +16,7 @@ struct Poll: Codable, Identifiable {
     let createdBy: Int
     let expires, createdAt, updatedAt: Date
     let abstain, linkedQuestion: String?
-    let options: [String]
+    let options: [Option]
 
     enum CodingKeys: String, CodingKey {
         case id, title, question
@@ -33,26 +33,18 @@ struct Poll: Codable, Identifiable {
         return Date() < expires
     }
     
-    var identifiableOptions: [Option] {
-        var optionsArray = [Option]()
-        for opt in self.options {
-            optionsArray.append(Option(option: opt))
-        }
-        return optionsArray
-    }
 }
 typealias Polls = [Poll]
 
-// MARK: - Encode/decode helpers
+struct Option: Codable {
+    let id: Int
+    let name: String
+    let questionid: Int
+    let createdAt, updatedAt: Date
 
-class Option: Identifiable {
-    var option: String
-    
-    init(option: String) {
-        self.option = option
-    }
-    
-    var id: Int {
-        return option.hashValue
+    enum CodingKeys: String, CodingKey {
+        case id, name, questionid
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
     }
 }

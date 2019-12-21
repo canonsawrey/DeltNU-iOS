@@ -47,7 +47,7 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
                     withAnimation {
                         self.session.activeSession = true
                     }
-                    session.loadAppData()
+                    //session.loadAppData()
                 } else {
                     self.badCredentials()
                 }

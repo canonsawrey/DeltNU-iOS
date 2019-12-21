@@ -17,12 +17,12 @@ struct SinglePollView: View {
         VStack {
             Text(poll.title)
                 .padding()
-            ForEach(poll.identifiableOptions) { option in
+            ForEach(poll.options, id: \.self.id) { option in
                 TileButton(
                     action: {
                         self.votedState = true
                 },
-                    text: option.option,
+                    text: option.name,
                     color: Color("secondary"),
                     textColor: Color("colorOnSecondary")
                 )

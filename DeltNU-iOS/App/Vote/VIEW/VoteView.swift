@@ -62,6 +62,16 @@ struct VoteView: View {
                 }!)
         }
         .navigationBarTitle("Vote")
+        .navigationBarItems(trailing: Button(action: {
+            self.viewModel.getPolls()
+            self.viewModel.refreshing = true
+        }) {
+            if !viewModel.refreshing {
+                Image(systemName: "goforward").foregroundColor(Color("colorOnPrimaryAccent"))
+            } else {
+                EmptyView()
+            }
+        })
         }
     }
     

@@ -12,6 +12,7 @@ import Combine
 class VoteViewModel: ViewModel, ObservableObject, Identifiable {
     
     @Published var polls: Polls = []
+    @Published var refreshing = false
     
     private let voteFetcher: VoteRemote
     //Other
@@ -40,9 +41,10 @@ class VoteViewModel: ViewModel, ObservableObject, Identifiable {
                 },
                 receiveValue: { [weak self] receivedPolls in
                     guard let self = self else { return }
-                    //print("Received \(receivedPolls.count) polls")
+                    print("Received \(receivedPolls.count) polls")
                     // 7
                     self.polls = receivedPolls
+                    self.refreshing = false
             })
             .store(in: &disposables)
     }

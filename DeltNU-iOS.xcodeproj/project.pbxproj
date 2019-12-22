@@ -48,7 +48,7 @@
 		54308A4A23946C280008FE98 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4923946C280008FE98 /* LoginViewModel.swift */; };
 		54308A4C23947CC00008FE98 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4B23947CC00008FE98 /* Session.swift */; };
 		54308A4F2395C73C0008FE98 /* AuthRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4E2395C73C0008FE98 /* AuthRemote.swift */; };
-		54308A532395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A522395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift */; };
+		54308A532395CA4C0008FE98 /* DefaultAuthRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A522395CA4C0008FE98 /* DefaultAuthRemote.swift */; };
 		544ABAB023A822C0004227C2 /* VoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAAF23A822C0004227C2 /* VoteRemote.swift */; };
 		544ABAB223A827C3004227C2 /* DefaultVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */; };
 		544ABAB423A82B1B004227C2 /* VoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAB323A82B1B004227C2 /* VoteViewModel.swift */; };
@@ -57,6 +57,9 @@
 		544ABAC023A8464A004227C2 /* MinutesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABABF23A8464A004227C2 /* MinutesRepository.swift */; };
 		544ABAC223A84657004227C2 /* DefaultMinutesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAC123A84657004227C2 /* DefaultMinutesRepository.swift */; };
 		544ABAC723A86D7A004227C2 /* Coder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAC623A86D7A004227C2 /* Coder.swift */; };
+		544ABACE23AFF531004227C2 /* SinglePollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABACD23AFF531004227C2 /* SinglePollViewModel.swift */; };
+		544ABAD023AFF562004227C2 /* CastVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABACF23AFF562004227C2 /* CastVoteRemote.swift */; };
+		544ABAD223AFF5AC004227C2 /* DefaultCastVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAD123AFF5AC004227C2 /* DefaultCastVoteRemote.swift */; };
 		549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A832399BBE100B6BEA9 /* Credential.swift */; };
 		549A3A88239E011400B6BEA9 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A87239E011400B6BEA9 /* Mock.swift */; };
 		54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */; };
@@ -87,7 +90,7 @@
 		541E3539238A0C5B00BBCE31 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		541E353C238A178200BBCE31 /* CommonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViews.swift; sourceTree = "<group>"; };
 		541E353E238A1BC200BBCE31 /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
-		541E3542238A335600BBCE31 /* SinglePollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SinglePollView.swift; path = ../VIEW/SinglePollView.swift; sourceTree = "<group>"; };
+		541E3542238A335600BBCE31 /* SinglePollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePollView.swift; sourceTree = "<group>"; };
 		541E3544238A43AC00BBCE31 /* MemberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberView.swift; sourceTree = "<group>"; };
 		541E3547238A46C100BBCE31 /* MinutesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesView.swift; sourceTree = "<group>"; };
 		541E3549238A477B00BBCE31 /* Minute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Minute.swift; sourceTree = "<group>"; };
@@ -111,7 +114,7 @@
 		54308A4923946C280008FE98 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		54308A4B23947CC00008FE98 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		54308A4E2395C73C0008FE98 /* AuthRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemote.swift; sourceTree = "<group>"; };
-		54308A522395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSessionTokenFetcher.swift; sourceTree = "<group>"; };
+		54308A522395CA4C0008FE98 /* DefaultAuthRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthRemote.swift; sourceTree = "<group>"; };
 		544ABAAF23A822C0004227C2 /* VoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRemote.swift; sourceTree = "<group>"; };
 		544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteRemote.swift; sourceTree = "<group>"; };
 		544ABAB323A82B1B004227C2 /* VoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoteViewModel.swift; path = "DeltNU-iOS/App/Vote/VIEW/VoteViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -120,6 +123,9 @@
 		544ABABF23A8464A004227C2 /* MinutesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesRepository.swift; sourceTree = "<group>"; };
 		544ABAC123A84657004227C2 /* DefaultMinutesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMinutesRepository.swift; sourceTree = "<group>"; };
 		544ABAC623A86D7A004227C2 /* Coder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coder.swift; sourceTree = "<group>"; };
+		544ABACD23AFF531004227C2 /* SinglePollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePollViewModel.swift; sourceTree = "<group>"; };
+		544ABACF23AFF562004227C2 /* CastVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastVoteRemote.swift; sourceTree = "<group>"; };
+		544ABAD123AFF5AC004227C2 /* DefaultCastVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCastVoteRemote.swift; sourceTree = "<group>"; };
 		549A3A832399BBE100B6BEA9 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		549A3A87239E011400B6BEA9 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
@@ -222,6 +228,7 @@
 		541E35362389D92B00BBCE31 /* Vote */ = {
 			isa = PBXGroup;
 			children = (
+				544ABACA23AFF033004227C2 /* SinglePoll */,
 				544ABAAE23A82273004227C2 /* Repository */,
 				54E3279B23A6D276007827B5 /* Entity */,
 				541E358323918AB000BBCE31 /* View */,
@@ -232,8 +239,6 @@
 		541E353B238A16CE00BBCE31 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				541E351023887ED100BBCE31 /* SessionView.swift */,
-				54308A4B23947CC00008FE98 /* Session.swift */,
 				541E3539238A0C5B00BBCE31 /* AppStyle.swift */,
 				541E353C238A178200BBCE31 /* CommonViews.swift */,
 				541E3558238C60CC00BBCE31 /* Extensions.swift */,
@@ -264,6 +269,7 @@
 		541E356F23912DF000BBCE31 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				544ABAC923AEB43D004227C2 /* Session */,
 				54308A4823946AF50008FE98 /* Login */,
 				541E358423918ADA00BBCE31 /* Preferences */,
 				541E3550238A54C600BBCE31 /* Home */,
@@ -307,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				541E35372389D94500BBCE31 /* VoteView.swift */,
-				541E3542238A335600BBCE31 /* SinglePollView.swift */,
 				544ABAB323A82B1B004227C2 /* VoteViewModel.swift */,
 			);
 			path = View;
@@ -336,7 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				54308A4E2395C73C0008FE98 /* AuthRemote.swift */,
-				54308A522395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift */,
+				54308A522395CA4C0008FE98 /* DefaultAuthRemote.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -420,6 +425,42 @@
 				54308A4D2395C49F0008FE98 /* Remote */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		544ABAC923AEB43D004227C2 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				541E351023887ED100BBCE31 /* SessionView.swift */,
+				54308A4B23947CC00008FE98 /* Session.swift */,
+			);
+			path = Session;
+			sourceTree = "<group>";
+		};
+		544ABACA23AFF033004227C2 /* SinglePoll */ = {
+			isa = PBXGroup;
+			children = (
+				544ABACC23AFF425004227C2 /* Remote */,
+				544ABACB23AFF03C004227C2 /* View */,
+			);
+			path = SinglePoll;
+			sourceTree = "<group>";
+		};
+		544ABACB23AFF03C004227C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				541E3542238A335600BBCE31 /* SinglePollView.swift */,
+				544ABACD23AFF531004227C2 /* SinglePollViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		544ABACC23AFF425004227C2 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				544ABACF23AFF562004227C2 /* CastVoteRemote.swift */,
+				544ABAD123AFF5AC004227C2 /* DefaultCastVoteRemote.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		549A3A822399BBAF00B6BEA9 /* Entity */ = {
@@ -544,6 +585,7 @@
 				541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */,
 				544ABAB423A82B1B004227C2 /* VoteViewModel.swift in Sources */,
 				541E3543238A335600BBCE31 /* SinglePollView.swift in Sources */,
+				544ABAD023AFF562004227C2 /* CastVoteRemote.swift in Sources */,
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
 				54308A4A23946C280008FE98 /* LoginViewModel.swift in Sources */,
 				549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */,
@@ -551,12 +593,13 @@
 				544ABAB023A822C0004227C2 /* VoteRemote.swift in Sources */,
 				54C14E052399943D0065A1CB /* CredentialRepository.swift in Sources */,
 				541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */,
-				54308A532395CA4C0008FE98 /* DefaultSessionTokenFetcher.swift in Sources */,
+				54308A532395CA4C0008FE98 /* DefaultAuthRemote.swift in Sources */,
 				544ABAB223A827C3004227C2 /* DefaultVoteRemote.swift in Sources */,
 				54E3279D23A7154B007827B5 /* DefaultDirectoryFetcher.swift in Sources */,
 				541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */,
 				54308A3F23937B450008FE98 /* ViewModel.swift in Sources */,
 				541E351123887ED100BBCE31 /* SessionView.swift in Sources */,
+				544ABAD223AFF5AC004227C2 /* DefaultCastVoteRemote.swift in Sources */,
 				541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */,
 				544ABABC23A84633004227C2 /* MinutesCache.swift in Sources */,
 				541E353D238A178200BBCE31 /* CommonViews.swift in Sources */,
@@ -575,6 +618,7 @@
 				54308A3D2393797D0008FE98 /* MinutesViewModel.swift in Sources */,
 				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,
 				544ABABE23A8463F004227C2 /* DefaultMinutesCache.swift in Sources */,
+				544ABACE23AFF531004227C2 /* SinglePollViewModel.swift in Sources */,
 				549A3A88239E011400B6BEA9 /* Mock.swift in Sources */,
 				541E352D2388905B00BBCE31 /* Member.swift in Sources */,
 				541E35382389D94500BBCE31 /* VoteView.swift in Sources */,

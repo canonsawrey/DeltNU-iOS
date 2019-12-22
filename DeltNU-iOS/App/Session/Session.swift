@@ -38,4 +38,8 @@ class Session: ObservableObject {
     func fillCaches() {
         
     }
+    
+    func emptyCaches() {
+        
+    }
 }

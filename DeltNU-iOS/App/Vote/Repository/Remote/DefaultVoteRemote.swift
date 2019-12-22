@@ -22,8 +22,8 @@ class DefaultVoteRemote: VoteRemote {
         let urlRequest = URLRequest(url: url)
         
         return session.dataTaskPublisher(for: urlRequest)
-        .mapError { error in
-            .network(description: error.localizedDescription)
+            .mapError { error in
+                .network(description: error.localizedDescription)
         }
         .flatMap(maxPublishers: .max(1)) { pair in
             decode(pair.data)

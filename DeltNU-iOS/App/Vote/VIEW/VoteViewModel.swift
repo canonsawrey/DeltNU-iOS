@@ -14,18 +14,18 @@ class VoteViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var polls: Polls = []
     @Published var refreshing = false
     
-    private let voteFetcher: VoteRemote
+    private let voteRepository: VoteRemote
     //Other
     private var disposables = Set<AnyCancellable>()
     
     init(fetchable: VoteRemote) {
-        voteFetcher = fetchable
+        voteRepository = fetchable
         super.init()
         getPolls()
     }
     
     func getPolls() {
-        voteFetcher.getPolls()
+        voteRepository.getPolls()
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] value in
@@ -41,8 +41,6 @@ class VoteViewModel: ViewModel, ObservableObject, Identifiable {
                 },
                 receiveValue: { [weak self] receivedPolls in
                     guard let self = self else { return }
-                    print("Received \(receivedPolls.count) polls")
-                    // 7
                     self.polls = receivedPolls
                     self.refreshing = false
             })

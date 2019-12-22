@@ -17,18 +17,19 @@ struct LoginView: View {
     
     var body: some View {
         ZStack {
-            Color("primary").edgesIgnoringSafeArea(.all)
             VStack {
                 Text("Sign in to DeltNU").font(.system(size: 40))
-                    .padding(.vertical)
+                    .padding()
                     .foregroundColor(Color("colorOnPrimary"))
                 TextField("Email", text: $viewModel.email)
                     .padding()
-                    .cornerRadius( appStyle.cornerRadius).padding()
+                    .cornerRadius( appStyle.cornerRadius)
                     .autocapitalization(UITextAutocapitalizationType.none)
+                    .padding(.top, 50)
                 SecureField("Password", text: $viewModel.password)
                     .padding()
-                    .cornerRadius( appStyle.cornerRadius).padding()
+                    .cornerRadius( appStyle.cornerRadius)
+                    .padding(.bottom, 80)
                 Button(
                     action: {
                         UIApplication.shared.endEditing()
@@ -42,14 +43,20 @@ struct LoginView: View {
                     }
                     }.buttonStyle(MainButtonStyle())
                     .opacity(signInButtonDisabled ? 0.5 : 1.0)
-                    .disabled(signInButtonDisabled).padding()
+                    .disabled(signInButtonDisabled)
                     .animation(.spring())
                 Text(viewModel.error)
                     .foregroundColor(Color("negative"))
                     .padding()
                     .animation(.default)
                 Spacer()
-            }.padding()
+                Button(action: {
+                        guard let url = URL(string: "https://www.deltnu.com/password_resets/new") else { return }
+                        UIApplication.shared.open(url)
+                    }) {
+                    Text("Forgot password")
+                }.foregroundColor(Color("colorOnPrimaryAccent"))
+                }.frame(maxHeight: .infinity).padding()
         }
     }
 }

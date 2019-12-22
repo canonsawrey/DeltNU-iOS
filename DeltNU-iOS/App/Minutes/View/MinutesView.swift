@@ -14,6 +14,7 @@ struct MinutesView: View {
     @State var selectedYear: Int = 0
     let years = [2020, 2019, 2018]
     @State var selectedSemester: Int = 0
+    @State var showingNoMasterform: Bool = false
     
     var body: some View {
         NavigationView {
@@ -47,14 +48,28 @@ struct MinutesView: View {
                 }.pickerStyle(SegmentedPickerStyle())
                     .padding()
             }
-        .navigationBarTitle("Minutes")
-        .navigationBarItems(
-            trailing: Button(action: {
-                guard let url = URL(string: self.viewModel.minutes[0].masterform) else { return }
-                UIApplication.shared.open(url)
-            }) {
-            Text("Masterform")
-        })
+            .navigationBarTitle("Minutes")
+            .navigationBarItems(
+                trailing: Button(action: {
+                    if self.viewModel.minutes.count > 0 {
+                        guard let url = URL(string: self.viewModel.minutes[0].masterform) else {
+                            self.showingNoMasterform = true
+                            return
+                        }
+                        UIApplication.shared.open(url)
+                    } else {
+                        self.showingNoMasterform = true
+                    }
+                    
+                }) {
+                    Text("Masterform")
+            })
+                .alert(isPresented: $showingNoMasterform) {
+                    Alert(
+                        title: Text("No recent masterform"),
+                        message: Text("There is no masterform associated with the most recent minutes")
+                    )
+            }
         }
     }
     
@@ -71,7 +86,6 @@ struct MinutesView: View {
     init(viewModel: MinutesViewModel) {
         self.viewModel = viewModel
         viewModel.getMinutes()
-        print("Minutes view created")
     }
 }
 

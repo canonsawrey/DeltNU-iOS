@@ -13,6 +13,7 @@ class DefaultMinutesRemote: MinutesRemote {
     private let session: URLSession
     private let url: URL = URL(string: "https://www.deltnu.com/minutes/app_index")!
     private var cancellable: AnyCancellable? = nil
+    private let minutesCache = DefaultMinutesCache()
     
     init(session: URLSession = .shared) {
         self.session = session
@@ -29,6 +30,9 @@ class DefaultMinutesRemote: MinutesRemote {
         .flatMap(maxPublishers: .max(1)) { pair in
             decode(pair.data)
         }
+        .handleEvents(receiveOutput: { output in
+            self.minutesCache.setCachedMinutes(minutes: output)
+        })
         .eraseToAnyPublisher()
     }
 }

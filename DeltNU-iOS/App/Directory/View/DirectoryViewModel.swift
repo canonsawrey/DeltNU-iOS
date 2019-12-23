@@ -23,8 +23,6 @@ class DirectoryViewModel: ViewModel, ObservableObject, Identifiable {
     
     init(directoryFetcher: DirectoryFetchable) {
         self.directoryFetcher = directoryFetcher
-        super.init()
-        getMembers()
     }
     
     func getMembers() {

@@ -20,8 +20,6 @@ class VoteViewModel: ViewModel, ObservableObject, Identifiable {
     
     init(fetchable: VoteRemote) {
         voteRepository = fetchable
-        super.init()
-        getPolls()
     }
     
     func getPolls() {

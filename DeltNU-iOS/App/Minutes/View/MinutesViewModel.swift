@@ -20,11 +20,10 @@ class MinutesViewModel: ViewModel, ObservableObject, Identifiable {
     init(repository: MinutesRepository) {
         minutesRepository = repository
         super.init()
-        getMinutes()
-        print("Minutes VM created")
     }
     
     func getMinutes() {
+        print("VM getMinutes()")
         minutesRepository.getMinutes()
             .receive(on: DispatchQueue.main)
             .sink(

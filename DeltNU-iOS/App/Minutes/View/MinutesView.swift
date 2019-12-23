@@ -70,7 +70,7 @@ struct MinutesView: View {
                         message: Text("There is no masterform associated with the most recent minutes")
                     )
             }
-        }
+        }.onAppear(perform: viewModel.getMinutes)
     }
     
     var filterredMinutes: Minutes {

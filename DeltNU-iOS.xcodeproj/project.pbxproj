@@ -60,6 +60,7 @@
 		544ABACE23AFF531004227C2 /* SinglePollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABACD23AFF531004227C2 /* SinglePollViewModel.swift */; };
 		544ABAD023AFF562004227C2 /* CastVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABACF23AFF562004227C2 /* CastVoteRemote.swift */; };
 		544ABAD223AFF5AC004227C2 /* DefaultCastVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAD123AFF5AC004227C2 /* DefaultCastVoteRemote.swift */; };
+		544ABAD423B17BFE004227C2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAD323B17BFE004227C2 /* Reachability.swift */; };
 		549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A832399BBE100B6BEA9 /* Credential.swift */; };
 		549A3A88239E011400B6BEA9 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A87239E011400B6BEA9 /* Mock.swift */; };
 		54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */; };
@@ -126,6 +127,7 @@
 		544ABACD23AFF531004227C2 /* SinglePollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinglePollViewModel.swift; sourceTree = "<group>"; };
 		544ABACF23AFF562004227C2 /* CastVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastVoteRemote.swift; sourceTree = "<group>"; };
 		544ABAD123AFF5AC004227C2 /* DefaultCastVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCastVoteRemote.swift; sourceTree = "<group>"; };
+		544ABAD323B17BFE004227C2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		549A3A832399BBE100B6BEA9 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		549A3A87239E011400B6BEA9 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				541E3558238C60CC00BBCE31 /* Extensions.swift */,
 				541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */,
 				54308A3E23937B450008FE98 /* ViewModel.swift */,
+				544ABAD323B17BFE004227C2 /* Reachability.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -598,6 +601,7 @@
 				54E3279D23A7154B007827B5 /* DefaultDirectoryFetcher.swift in Sources */,
 				541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */,
 				54308A3F23937B450008FE98 /* ViewModel.swift in Sources */,
+				544ABAD423B17BFE004227C2 /* Reachability.swift in Sources */,
 				541E351123887ED100BBCE31 /* SessionView.swift in Sources */,
 				544ABAD223AFF5AC004227C2 /* DefaultCastVoteRemote.swift in Sources */,
 				541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */,

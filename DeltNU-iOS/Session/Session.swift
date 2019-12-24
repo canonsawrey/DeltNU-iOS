@@ -8,9 +8,12 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class Session: ObservableObject {
     @Published var activeSession: Bool = false
+    let authRemote = DefaultAuthRemote()
+    let credentialCache = DefaultCredentialCache()
 
     //Singleton stuff
     static let shared = Session()
@@ -31,8 +34,12 @@ class Session: ObservableObject {
         }
     }
     
-    func refreshSetCookie() {
-        //TODO this
+    func refreshCookie() -> AnyPublisher<AuthenticationResponse, DeltNuError> {
+        let credentials = credentialCache.getCachedCredentials()
+        //TODO Fix the hard cast
+        let credentialSuccess = credentials as! CredentialSuccess
+        let credential = Credential(email: credentialSuccess.email, password: credentialSuccess.password)
+        return authRemote.authenticate(credential: credential)
     }
     
     func fillCaches() {

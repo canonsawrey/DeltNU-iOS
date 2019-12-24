@@ -10,7 +10,7 @@ import Foundation
 
 
 //TODO_ANY: This needs to be encyprted
-class DefaultCredentialRepository: CredentialRepository {
+class DefaultCredentialCache: CredentialCache {
     private let defaults = UserDefaults.standard
     private let emailKey = "key::email"
     private let passwordKey = "key::password"

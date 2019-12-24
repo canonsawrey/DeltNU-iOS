@@ -11,7 +11,7 @@ import Combine
 
 class DefaultDirectoryFetcher: DirectoryFetchable {
     private let session: URLSession
-    private let url: URL = URL(string: "https://www.deltnu.com/directory/app_index")!
+    private let url: URL = URL(string: EndpointApi.directoryIndex)!
     private var cancellable: AnyCancellable? = nil
     
     init(session: URLSession = .shared) {

@@ -11,7 +11,7 @@ import Combine
 
 class DefaultAuthRemote: AuthRemote {
     private let session: URLSession
-    private let url: URL = URL(string: "https://www.deltnu.com/app_login")!
+    private let url: URL = URL(string: EndpointApi.login)!
     private var cancellable: AnyCancellable? = nil
     
     init(session: URLSession = .shared) {

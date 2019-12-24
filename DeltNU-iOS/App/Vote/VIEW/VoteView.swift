@@ -13,72 +13,71 @@ struct VoteView: View {
     @State var showingPoll = false
     @State var selectedPoll = 0
     private var activePolls: Polls { viewModel.polls.filter { poll in
-            poll.isActive
+        poll.isActive
         }
     }
     private var expiredPolls: Polls { viewModel.polls.filter { poll in
-            !poll.isActive
+        !poll.isActive
         }
     }
     
     var body: some View {
         NavigationView {
-        VStack {
-            List {
-                Section(header: Text("Active")) {
-                    if (activePolls.count > 0) {
-                        ForEach(activePolls) { poll in
-                            Button(action: {
-                                self.selectedPoll = poll.id
-                                self.showingPoll = true
-                            }) {
-                                Text("\(poll.title)")
+            VStack {
+                List {
+                    Section(header: Text("Active")) {
+                        if (activePolls.count > 0) {
+                            ForEach(activePolls) { poll in
+                                Button(action: {
+                                    self.selectedPoll = poll.id
+                                    self.showingPoll = true
+                                }) {
+                                    Text("\(poll.title)")
+                                }
                             }
+                        } else {
+                            Text("-")
                         }
-                    } else {
-                        Text("-")
+                    }
+                    Section(header: Text("Expired")) {
+                        if (expiredPolls.count > 0) {
+                            ForEach(expiredPolls) { poll in
+                                Button(action: {
+                                    self.selectedPoll = poll.id
+                                    self.showingPoll = true
+                                }) {
+                                    Text("\(poll.title)")
+                                }.disabled(true)
+                            }
+                        } else {
+                            Text("-")
+                        }
                     }
                 }
-                Section(header: Text("Expired")) {
-                    if (expiredPolls.count > 0) {
-                        ForEach(expiredPolls) { poll in
-                            Button(action: {
-                                self.selectedPoll = poll.id
-                                self.showingPoll = true
-                            }) {
-                                Text("\(poll.title)")
-                            }.disabled(true)
-                        }
-                    } else {
-                        Text("-")
-                    }
+                Spacer()
+            }
+            .sheet(isPresented: $showingPoll) {
+                SinglePollView(poll: self.viewModel.polls.first { poll in
+                    poll.id == self.selectedPoll
+                    }!)
+            }
+            .navigationBarTitle("Vote")
+            .navigationBarItems(trailing: Button(action: {
+                self.viewModel.getPolls()
+                self.viewModel.refreshing = true
+            }) {
+                if !viewModel.refreshing {
+                    Image(systemName: "goforward").foregroundColor(Color("colorOnPrimaryAccent"))
+                } else {
+                    EmptyView()
                 }
-            }
-            Spacer()
-        }
-        .sheet(isPresented: $showingPoll) {
-            SinglePollView(poll: self.viewModel.polls.first { poll in
-                poll.id == self.selectedPoll
-                }!)
-        }
-        .navigationBarTitle("Vote")
-        .navigationBarItems(trailing: Button(action: {
-            self.viewModel.getPolls()
-            self.viewModel.refreshing = true
-        }) {
-            if !viewModel.refreshing {
-                Image(systemName: "goforward").foregroundColor(Color("colorOnPrimaryAccent"))
-            } else {
-                EmptyView()
-            }
-        })
-        }
+            })
+        }.onAppear(perform: viewModel.getPolls)
     }
     
     init(viewModel: VoteViewModel) {
         self.viewModel = viewModel
         viewModel.getPolls()
-        //print("Vote view created")
     }
 }
 

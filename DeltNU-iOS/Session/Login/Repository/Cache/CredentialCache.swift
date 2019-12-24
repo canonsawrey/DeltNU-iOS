@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CredentialRepository {
+protocol CredentialCache {
     func getCachedCredentials() -> CredentialResponse
     func storeCredentials(email: String, password: String)
     func clearCredentials()

@@ -61,11 +61,12 @@
 		544ABAD023AFF562004227C2 /* CastVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABACF23AFF562004227C2 /* CastVoteRemote.swift */; };
 		544ABAD223AFF5AC004227C2 /* DefaultCastVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAD123AFF5AC004227C2 /* DefaultCastVoteRemote.swift */; };
 		544ABAD423B17BFE004227C2 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAD323B17BFE004227C2 /* Reachability.swift */; };
+		544ABAD623B1A2F5004227C2 /* EndpointApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAD523B1A2F5004227C2 /* EndpointApi.swift */; };
+		544ABAD823B1A567004227C2 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAD723B1A567004227C2 /* Navigation.swift */; };
 		549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A832399BBE100B6BEA9 /* Credential.swift */; };
 		549A3A88239E011400B6BEA9 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A87239E011400B6BEA9 /* Mock.swift */; };
-		54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */; };
-		54C14E052399943D0065A1CB /* CredentialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E042399943D0065A1CB /* CredentialRepository.swift */; };
-		54C14E07239997860065A1CB /* DefaultCredentialRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */; };
+		54C14E052399943D0065A1CB /* CredentialCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E042399943D0065A1CB /* CredentialCache.swift */; };
+		54C14E07239997860065A1CB /* DefaultCredentialCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E06239997860065A1CB /* DefaultCredentialCache.swift */; };
 		54E3279D23A7154B007827B5 /* DefaultDirectoryFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3279C23A7154B007827B5 /* DefaultDirectoryFetcher.swift */; };
 		54E3279F23A72300007827B5 /* MinutesRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3279E23A72300007827B5 /* MinutesRemote.swift */; };
 		54E327A123A725CF007827B5 /* DefaultMinutesRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E327A023A725CF007827B5 /* DefaultMinutesRemote.swift */; };
@@ -128,11 +129,12 @@
 		544ABACF23AFF562004227C2 /* CastVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastVoteRemote.swift; sourceTree = "<group>"; };
 		544ABAD123AFF5AC004227C2 /* DefaultCastVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCastVoteRemote.swift; sourceTree = "<group>"; };
 		544ABAD323B17BFE004227C2 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		544ABAD523B1A2F5004227C2 /* EndpointApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointApi.swift; sourceTree = "<group>"; };
+		544ABAD723B1A567004227C2 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		549A3A832399BBE100B6BEA9 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		549A3A87239E011400B6BEA9 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
-		54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDrawer.swift; sourceTree = "<group>"; };
-		54C14E042399943D0065A1CB /* CredentialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialRepository.swift; sourceTree = "<group>"; };
-		54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCredentialRepository.swift; sourceTree = "<group>"; };
+		54C14E042399943D0065A1CB /* CredentialCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialCache.swift; sourceTree = "<group>"; };
+		54C14E06239997860065A1CB /* DefaultCredentialCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCredentialCache.swift; sourceTree = "<group>"; };
 		54E3279C23A7154B007827B5 /* DefaultDirectoryFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDirectoryFetcher.swift; sourceTree = "<group>"; };
 		54E3279E23A72300007827B5 /* MinutesRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesRemote.swift; sourceTree = "<group>"; };
 		54E327A023A725CF007827B5 /* DefaultMinutesRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMinutesRemote.swift; sourceTree = "<group>"; };
@@ -170,9 +172,10 @@
 		541E350B23887ED100BBCE31 /* DeltNU-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				54B2A8672391B71D00D45D6E /* Navigation */,
+				541E353B238A16CE00BBCE31 /* Common */,
 				541E35252388885A00BBCE31 /* Utility */,
-				541E35202388847800BBCE31 /* Mock-Data */,
+				541E35202388847800BBCE31 /* Mock */,
+				544ABAC923AEB43D004227C2 /* Session */,
 				541E356F23912DF000BBCE31 /* App */,
 				541E350C23887ED100BBCE31 /* AppDelegate.swift */,
 				541E350E23887ED100BBCE31 /* SceneDelegate.swift */,
@@ -194,7 +197,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		541E35202388847800BBCE31 /* Mock-Data */ = {
+		541E35202388847800BBCE31 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
 				541E352623888D1800BBCE31 /* users.json */,
@@ -203,7 +206,7 @@
 				541E35802391815000BBCE31 /* options.json */,
 				549A3A87239E011400B6BEA9 /* Mock.swift */,
 			);
-			path = "Mock-Data";
+			path = Mock;
 			sourceTree = "<group>";
 		};
 		541E35252388885A00BBCE31 /* Utility */ = {
@@ -213,6 +216,8 @@
 				541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */,
 				541E3572239132DE00BBCE31 /* Combine-Decodable.swift */,
 				544ABAC623A86D7A004227C2 /* Coder.swift */,
+				544ABAD523B1A2F5004227C2 /* EndpointApi.swift */,
+				544ABAD723B1A567004227C2 /* Navigation.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -272,12 +277,9 @@
 		541E356F23912DF000BBCE31 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				544ABAC923AEB43D004227C2 /* Session */,
-				54308A4823946AF50008FE98 /* Login */,
 				541E358423918ADA00BBCE31 /* Preferences */,
 				541E3550238A54C600BBCE31 /* Home */,
 				541E3546238A45E200BBCE31 /* Minutes */,
-				541E353B238A16CE00BBCE31 /* Common */,
 				541E35362389D92B00BBCE31 /* Vote */,
 				541E35302389CF5500BBCE31 /* Directory */,
 			);
@@ -435,6 +437,7 @@
 			children = (
 				541E351023887ED100BBCE31 /* SessionView.swift */,
 				54308A4B23947CC00008FE98 /* Session.swift */,
+				54308A4823946AF50008FE98 /* Login */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -474,19 +477,11 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		54B2A8672391B71D00D45D6E /* Navigation */ = {
-			isa = PBXGroup;
-			children = (
-				54B2A8682391B7B100D45D6E /* NavigationDrawer.swift */,
-			);
-			path = Navigation;
-			sourceTree = "<group>";
-		};
 		54C14E03239994250065A1CB /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				54C14E042399943D0065A1CB /* CredentialRepository.swift */,
-				54C14E06239997860065A1CB /* DefaultCredentialRepository.swift */,
+				54C14E042399943D0065A1CB /* CredentialCache.swift */,
+				54C14E06239997860065A1CB /* DefaultCredentialCache.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -594,7 +589,7 @@
 				549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */,
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
 				544ABAB023A822C0004227C2 /* VoteRemote.swift in Sources */,
-				54C14E052399943D0065A1CB /* CredentialRepository.swift in Sources */,
+				54C14E052399943D0065A1CB /* CredentialCache.swift in Sources */,
 				541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */,
 				54308A532395CA4C0008FE98 /* DefaultAuthRemote.swift in Sources */,
 				544ABAB223A827C3004227C2 /* DefaultVoteRemote.swift in Sources */,
@@ -612,14 +607,15 @@
 				541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */,
 				54308A4C23947CC00008FE98 /* Session.swift in Sources */,
 				541E357F23914AE900BBCE31 /* DirectoryFetchable.swift in Sources */,
-				54C14E07239997860065A1CB /* DefaultCredentialRepository.swift in Sources */,
+				54C14E07239997860065A1CB /* DefaultCredentialCache.swift in Sources */,
+				544ABAD823B1A567004227C2 /* Navigation.swift in Sources */,
 				544ABAC023A8464A004227C2 /* MinutesRepository.swift in Sources */,
 				541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */,
-				54B2A8692391B7B100D45D6E /* NavigationDrawer.swift in Sources */,
 				544ABAC223A84657004227C2 /* DefaultMinutesRepository.swift in Sources */,
 				541E357D23914A6300BBCE31 /* MockDirectoryFetcher.swift in Sources */,
 				541E354A238A477B00BBCE31 /* Minute.swift in Sources */,
 				54308A3D2393797D0008FE98 /* MinutesViewModel.swift in Sources */,
+				544ABAD623B1A2F5004227C2 /* EndpointApi.swift in Sources */,
 				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,
 				544ABABE23A8463F004227C2 /* DefaultMinutesCache.swift in Sources */,
 				544ABACE23AFF531004227C2 /* SinglePollViewModel.swift in Sources */,

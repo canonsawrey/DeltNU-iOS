@@ -19,7 +19,7 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     //Remote stuff
     private var disposables = Set<AnyCancellable>()
     private var session = Session.shared
-    private var credentialRepository: CredentialRepository
+    private var credentialRepository: CredentialCache
     private var authRemote: AuthRemote
     
     func login() {
@@ -61,7 +61,7 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     }
     
     override init() {
-        self.credentialRepository = DefaultCredentialRepository()
+        self.credentialRepository = DefaultCredentialCache()
         self.authRemote = DefaultAuthRemote()
         let response = credentialRepository.getCachedCredentials()
         super.init()

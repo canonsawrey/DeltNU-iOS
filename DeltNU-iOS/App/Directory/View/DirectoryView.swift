@@ -22,14 +22,14 @@ struct DirectoryView: View {
                 HStack {
                     HStack {
                         Image(systemName: "magnifyingglass")
-                        .foregroundColor(Color("colorOnPrimaryAccent"))
-
+                            .foregroundColor(Color("colorOnPrimaryAccent"))
+                        
                         TextField("Search", text: $viewModel.searchText, onEditingChanged: { isEditing in
                             self.showCancelButton = true
                         }, onCommit: {
                             //print("onCommit")
                         }).foregroundColor(.primary)
-
+                        
                         Button(action: {
                             self.viewModel.searchText = ""
                         }) {
@@ -40,12 +40,12 @@ struct DirectoryView: View {
                     .foregroundColor(.secondary)
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(10.0)
-
+                    
                     if showCancelButton  {
                         Button("Cancel") {
-                                UIApplication.shared.endEditing(true) // this must be placed before the other commands here
+                            UIApplication.shared.endEditing(true) // this must be placed before the other commands here
                             self.viewModel.searchText = ""
-                                self.showCancelButton = false
+                            self.showCancelButton = false
                         }
                         .foregroundColor(Color("colorOnPrimaryAccent"))
                     }
@@ -56,19 +56,19 @@ struct DirectoryView: View {
                 //Member list - hide if not loaded
                 List(viewModel.members.filter {
                     $0.firstName.hasPrefix(viewModel.searchText) ||
-                    $0.lastName.hasPrefix(viewModel.searchText) ||
-                    "\($0.firstName) \($0.lastName)".hasPrefix(viewModel.searchText) ||
-                    viewModel.searchText == ""
+                        $0.lastName.hasPrefix(viewModel.searchText) ||
+                        "\($0.firstName) \($0.lastName)".hasPrefix(viewModel.searchText) ||
+                        viewModel.searchText == ""
                 }) { member in
-                        Button(action: {
-                            self.selectedMember = member.id
-                            self.showingMember = true
-                        }) {
-                            HStack {
-                                Text("\(member.firstName) \(member.lastName)")
-                                Spacer()
-                                Text(member.gradYear ?? "-")
-                            }
+                    Button(action: {
+                        self.selectedMember = member.id
+                        self.showingMember = true
+                    }) {
+                        HStack {
+                            Text("\(member.firstName) \(member.lastName)")
+                            Spacer()
+                            Text(member.gradYear ?? "-")
+                        }
                     }
                 }
                 .resignKeyboardOnDragGesture()
@@ -79,7 +79,7 @@ struct DirectoryView: View {
                     }!)
             }
             .navigationBarTitle("Directory")
-        }
+        }.onAppear(perform: viewModel.getMembers)
     }
     
     init(viewModel: DirectoryViewModel) {
@@ -90,7 +90,7 @@ struct DirectoryView: View {
 
 struct DirectoryView_Previews: PreviewProvider {
     static let members: MemberDirectory = Bundle.main.decode("users.json")
-
+    
     static var previews: some View {
         DirectoryView(viewModel: DirectoryViewModel(directoryFetcher: MockDirectoryFetcher()))
     }

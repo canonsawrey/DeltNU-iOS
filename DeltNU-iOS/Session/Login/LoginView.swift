@@ -51,7 +51,7 @@ struct LoginView: View {
                     .animation(.default)
                 Spacer()
                 Button(action: {
-                        guard let url = URL(string: "https://www.deltnu.com/password_resets/new") else { return }
+                    guard let url = URL(string: EndpointApi.resetPassword) else { return }
                         UIApplication.shared.open(url)
                     }) {
                     Text("Forgot password")

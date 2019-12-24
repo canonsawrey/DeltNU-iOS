@@ -22,7 +22,7 @@ struct MinutesView: View {
                 if (filterredMinutes.count > 0) {
                     List(filterredMinutes) { min in
                         Button(action: {
-                            guard let url = URL(string: "https://www.deltnu.com/minutes/\(min.id)") else { return }
+                            guard let url = URL(string: EndpointApi.minutesDetail + String(min.id)) else { return }
                             UIApplication.shared.open(url)
                         }) {
                             HStack {

@@ -12,7 +12,7 @@ struct PreferencesView: View {
     
     @State var showingLogout = false
     
-    private let credentialRepository = DefaultCredentialRepository()
+    private let credentialRepository = DefaultCredentialCache()
     private let session = Session.shared
     
     var body: some View {

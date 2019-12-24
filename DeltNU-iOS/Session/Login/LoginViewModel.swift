@@ -44,10 +44,11 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
                 //TODO This is a terrible way to do this. We should find a way to throw a combine error if auth fails
                 if authResponse.success {
                     self.credentialRepository.storeCredentials(email: self.email, password: self.password)
-                    withAnimation {
-                        self.session.activeSession = true
+                    if (self.session.fillCaches(userEmail: self.email)) {
+                        withAnimation {
+                            self.session.activeSession = true
+                        }
                     }
-                    //session.loadAppData()
                 } else {
                     self.badCredentials()
                 }

@@ -10,8 +10,9 @@ import SwiftUI
 import Contacts
 
 struct MemberView: View {
-    let pictureSize = UIScreen.main.bounds.width / 2
-    var member: Member
+    private let pictureSize = UIScreen.main.bounds.width / 2
+    private let member: Member
+    private let addVisible: Bool
     
     //Saving contacts stuff
     let store = CNContactStore()
@@ -43,15 +44,16 @@ struct MemberView: View {
             
             Spacer()
             
-            Button(action: {
-                self.saveContact()
-            }) {
-                HStack {
-                    Text("Add to contacts ")
-                    Image(systemName: "person.badge.plus")
-                }.foregroundColor(Color("colorOnPrimaryAccent"))
-            }.padding(.bottom)
-            
+            if (addVisible) {
+                Button(action: {
+                    self.saveContact()
+                }) {
+                    HStack {
+                        Text("Add to contacts ")
+                        Image(systemName: "person.badge.plus")
+                    }.foregroundColor(Color("colorOnPrimaryAccent"))
+                }.padding(.bottom)
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .alert(isPresented: $showSavedMessage) {
@@ -61,8 +63,9 @@ struct MemberView: View {
         }
     }
     
-    init(member: Member) {
+    init(member: Member, addVisible: Bool = true) {
         self.member = member
+        self.addVisible = addVisible
     }
     
     private func saveContact() {

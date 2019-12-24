@@ -9,9 +9,11 @@
 import SwiftUI
 
 struct HomeView: View {
-    //TODO_ANY This needs to come from an endpoint
-    var serviceHours = 8
-    var serviceHoursCompleted = false
+    private let userRepository = DefaultUserRepository()
+    private var user: Member? {
+        userRepository.getUser()
+    }
+    @State var showingUser = false
     
     var body: some View {
         NavigationView {
@@ -19,12 +21,27 @@ struct HomeView: View {
                 Spacer()
             }
             .navigationBarTitle("Home")
-            .navigationBarItems(trailing: Text("Welcome, Canon").padding(.top))
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        }
+            .navigationBarItems(trailing:
+                ZStack {
+                    if (user == nil) {
+                        Text("Welcome")
+                    } else {
+                        Button(action: {
+                            self.showingUser = true
+                        }) {
+                            HStack {
+                                Text("Welcome, \(user!.firstName)")
+                            }.foregroundColor(Color("colorOnPrimaryAccent"))
+                        }
+                    }
+                }
+            )
+            .sheet(isPresented: $showingUser) {
+                MemberView(member: self.user!, addVisible: false)
+            }
+        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }
-
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()

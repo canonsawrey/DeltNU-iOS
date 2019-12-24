@@ -15,9 +15,14 @@ class Session: ObservableObject {
     static let shared = Session()
     private init() { }
     
+    private let directoryRepository = DefaultDirectoryRepository()
+    private let userRepository = DefaultUserRepository()
+    
     @Published var activeSession: Bool = false
-    let authRemote = DefaultAuthRemote()
-    let credentialCache = DefaultCredentialCache()
+    private let authRemote = DefaultAuthRemote()
+    private let credentialCache = DefaultCredentialCache()
+    
+    private var disposables = Set<AnyCancellable>()
     
     func clearSession() {
         self.activeSession = false
@@ -42,11 +47,33 @@ class Session: ObservableObject {
         return authRemote.authenticate(credential: credential)
     }
     
-    func fillCaches() {
+    func fillCaches(userEmail: String) -> Bool {
+        //Fill directory cache + set user object
+        let directoryStream = directoryRepository.getMembers()
+        var result: Bool = false
+        directoryStream.sink(
+          receiveCompletion: { [weak self] value in },
+          receiveValue: { [weak self] members in
+            guard let self = self else { return }
+            guard let user = members.first(where: { member in
+                member.email == userEmail
+            }) else {
+                return
+            }
+            result = self.userRepository.setUser(user: user)
+        })
+        .store(in: &disposables)
         
+        return result
     }
     
     func emptyCaches() {
         
+    }
+    
+    deinit {
+        for disposable in disposables {
+            disposable.cancel()
+        }
     }
 }

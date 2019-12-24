@@ -10,7 +10,7 @@ import Foundation
 
 enum NavTab: String {
     
-    case dashboard = "Dashboard"
+    case home = "Home"
     case minutes = "Minutes"
     case vote = "Vote"
     case directory = "Directory"
@@ -18,7 +18,7 @@ enum NavTab: String {
     
     func systemAsset() -> String {
         switch self {
-        case .dashboard:
+        case .home:
             return "house"
         case .minutes:
             return "text.justify"

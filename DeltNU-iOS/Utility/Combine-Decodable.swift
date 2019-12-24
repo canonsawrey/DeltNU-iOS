@@ -12,14 +12,10 @@ import Foundation
 import Combine
 
 func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, DeltNuError> {
-  //TODO change this to coder abstraction
-    let decoder = JSONDecoder()
-  let formatter = DateFormatter()
-  formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-  decoder.dateDecodingStrategy = .formatted(formatter)
+    let coder = Coder()
 
   return Just(data)
-    .decode(type: T.self, decoder: decoder)
+    .decode(type: T.self, decoder: coder.decoder)
     .mapError { error in
       .parsing(description: error.localizedDescription)
     }

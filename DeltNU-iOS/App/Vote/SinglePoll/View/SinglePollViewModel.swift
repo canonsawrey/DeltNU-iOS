@@ -28,10 +28,10 @@ class SinglePollViewModel: ViewModel, ObservableObject, Identifiable {
                     guard let self = self else { return }
                     switch value {
                     case .failure:
-                        //print("poll fail")
+                        print("poll fail")
                         break
                     case .finished:
-                        //print("poll end")
+                        print("poll end")
                         break
                     }
                 },

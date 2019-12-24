@@ -13,7 +13,7 @@ import Combine
 struct SessionView: View {
     @ObservedObject var session = Session.shared
 //    @State var isDrawerOpen = false
-    @State var navTab: NavTab = NavTab.dashboard
+    @State var navTab: NavTab = NavTab.home
     @State var tabIndex = 0
     
     var directoryViewModel = DirectoryViewModel(repository: DefaultDirectoryRepository())
@@ -27,7 +27,7 @@ struct SessionView: View {
                     TabView(selection: $tabIndex) {
                         HomeView()
                             .tabItem {
-                                Image(systemName: NavTab.dashboard.systemAsset())
+                                Image(systemName: NavTab.home.systemAsset())
                                 Text("Home")
                             }
                             .tag(0)
@@ -55,7 +55,8 @@ struct SessionView: View {
                                 Text("Preferences")
                             }
                             .tag(4)
-                    }.edgesIgnoringSafeArea(.top)
+                    }.onAppear(perform: {self.tabIndex = 0})
+                    .edgesIgnoringSafeArea(.top)
                     .accentColor(Color("colorOnPrimaryAccent"))
                 } else {
                     LoginView(viewModel: LoginViewModel())

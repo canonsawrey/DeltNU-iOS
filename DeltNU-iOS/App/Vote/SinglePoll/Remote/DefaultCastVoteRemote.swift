@@ -22,6 +22,7 @@ class DefaultCastVoteRemote: CastVoteRemote {
         let request = buildRequest(optionId: optionId)
         
         return session.dataTaskPublisher(for: request)
+            //.timeout(interval: , scheduler: Scheduler.)
             .tryMap { data, response in
                 guard let httpResponse = response as? HTTPURLResponse else {
                     throw DeltNuError.network(description: "Failed cast to HTTPURLResponse")
@@ -29,10 +30,10 @@ class DefaultCastVoteRemote: CastVoteRemote {
                 return httpResponse.statusCode
         }
         .mapError { error in
-            guard error is DeltNuError else {
+            guard let deltError = error as? DeltNuError else {
                 return DeltNuError.unknown(description: error.localizedDescription)
             }
-            return error as! DeltNuError
+            return deltError
         }
         .eraseToAnyPublisher()
         

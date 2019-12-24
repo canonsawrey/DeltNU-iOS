@@ -9,6 +9,6 @@
 import Foundation
 import Combine
 
-protocol DirectoryFetchable {
-    func memberDirectory() -> AnyPublisher<MemberDirectory, DeltNuError>
+protocol DirectoryRemote {
+    func getRemoteDirectory() -> AnyPublisher<MemberDirectory, DeltNuError>
 }

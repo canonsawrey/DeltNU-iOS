@@ -12,8 +12,8 @@ import Foundation
 //TODO_ANY: This needs to be encyprted
 class DefaultCredentialCache: CredentialCache {
     private let defaults = UserDefaults.standard
-    private let emailKey = "key::email"
-    private let passwordKey = "key::password"
+    private let emailKey = UserDefaultsKeyApi.credentialEmail
+    private let passwordKey = UserDefaultsKeyApi.credentialPassword
     
     func getCachedCredentials() -> CredentialResponse {
         let email = defaults.string(forKey: emailKey)

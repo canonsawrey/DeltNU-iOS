@@ -10,10 +10,12 @@ import Foundation
 import Combine
 
 class MinutesViewModel: ViewModel, ObservableObject, Identifiable {
-    
+    //Published to the subscribing View
     @Published var minutes: Minutes = []
     
+    //Repositories
     private let minutesRepository: MinutesRepository
+    
     //Other
     private var disposables = Set<AnyCancellable>()
     
@@ -23,7 +25,6 @@ class MinutesViewModel: ViewModel, ObservableObject, Identifiable {
     }
     
     func getMinutes() {
-        print("VM getMinutes()")
         minutesRepository.getMinutes()
             .receive(on: DispatchQueue.main)
             .sink(
@@ -31,19 +32,21 @@ class MinutesViewModel: ViewModel, ObservableObject, Identifiable {
                     guard let self = self else { return }
                     switch value {
                     case .failure:
-                        //print("Minutes fail")
                         break
                     case .finished:
-                        //print("Minutes end")
                         break
                     }
                 },
                 receiveValue: { [weak self] receivedMinutes in
                     guard let self = self else { return }
-                    //print("Received \(receivedMinutes.count) minutes")
-                    // 7
                     self.minutes = receivedMinutes
             })
             .store(in: &disposables)
+    }
+    
+    deinit {
+        for disposable in disposables {
+            disposable.cancel()
+        }
     }
 }

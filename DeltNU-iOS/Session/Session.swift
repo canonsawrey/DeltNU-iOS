@@ -11,13 +11,13 @@ import SwiftUI
 import Combine
 
 class Session: ObservableObject {
-    @Published var activeSession: Bool = false
-    let authRemote = DefaultAuthRemote()
-    let credentialCache = DefaultCredentialCache()
-
     //Singleton stuff
     static let shared = Session()
     private init() { }
+    
+    @Published var activeSession: Bool = false
+    let authRemote = DefaultAuthRemote()
+    let credentialCache = DefaultCredentialCache()
     
     func clearSession() {
         self.activeSession = false

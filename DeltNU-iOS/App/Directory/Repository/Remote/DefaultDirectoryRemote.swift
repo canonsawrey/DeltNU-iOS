@@ -9,25 +9,28 @@
 import Foundation
 import Combine
 
-class DefaultDirectoryFetcher: DirectoryFetchable {
+class DefaultDirectoryRemote: DirectoryRemote {
     private let session: URLSession
     private let url: URL = URL(string: EndpointApi.directoryIndex)!
     private var cancellable: AnyCancellable? = nil
+    private let directoryCache = DefaultDirectoryCache()
     
     init(session: URLSession = .shared) {
         self.session = session
     }
     
-    func memberDirectory() -> AnyPublisher<MemberDirectory, DeltNuError> {
+    func getRemoteDirectory() -> AnyPublisher<MemberDirectory, DeltNuError> {
         let urlRequest = URLRequest(url: url)
         
         return session.dataTaskPublisher(for: urlRequest)
-        .mapError { error in
-            .network(description: error.localizedDescription)
+            .mapError { error in
+                .network(description: error.localizedDescription)
         }
         .flatMap(maxPublishers: .max(1)) { pair in
             decode(pair.data)
-        }
-        .eraseToAnyPublisher()
+        }.handleEvents(receiveOutput: { output in
+            self.directoryCache.setCachedDirectory(directory: output)
+        })
+            .eraseToAnyPublisher()
     }
 }

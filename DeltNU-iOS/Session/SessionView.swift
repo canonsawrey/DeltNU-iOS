@@ -16,7 +16,7 @@ struct SessionView: View {
     @State var navTab: NavTab = NavTab.dashboard
     @State var tabIndex = 0
     
-    var directoryViewModel = DirectoryViewModel(directoryFetcher: DefaultDirectoryFetcher())
+    var directoryViewModel = DirectoryViewModel(repository: DefaultDirectoryRepository())
     var minutesViewModel = MinutesViewModel(repository: DefaultMinutesRepository())
     var voteViewModel = VoteViewModel(fetchable: DefaultVoteRemote())
     

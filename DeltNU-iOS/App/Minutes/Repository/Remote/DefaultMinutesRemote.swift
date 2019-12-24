@@ -23,7 +23,6 @@ class DefaultMinutesRemote: MinutesRemote {
         let urlRequest = URLRequest(url: url)
         
         return session.dataTaskPublisher(for: urlRequest)
-            .retry(1)
             .mapError { error in
                 .network(description: error.localizedDescription)
         }
@@ -33,6 +32,6 @@ class DefaultMinutesRemote: MinutesRemote {
         .handleEvents(receiveOutput: { output in
             self.minutesCache.setCachedMinutes(minutes: output)
         })
-        .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
 }

@@ -16,17 +16,17 @@ class DirectoryViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var showCancelButton: Bool = false
     
     //Repositories
-    private let directoryFetcher: DirectoryFetchable
+    private let directoryRepository: DirectoryRepository
     
     //Other
     private var disposables = Set<AnyCancellable>()
     
-    init(directoryFetcher: DirectoryFetchable) {
-        self.directoryFetcher = directoryFetcher
+    init(repository: DirectoryRepository) {
+        self.directoryRepository = repository
     }
     
     func getMembers() {
-        directoryFetcher.memberDirectory()
+        directoryRepository.getMembers()
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] value in
@@ -40,9 +40,14 @@ class DirectoryViewModel: ViewModel, ObservableObject, Identifiable {
                 },
                 receiveValue: { [weak self] receivedMembers in
                     guard let self = self else { return }
-                    //print("Received \(receivedMembers.count) members")
                     self.members = receivedMembers
             })
             .store(in: &disposables)
+    }
+    
+    deinit {
+        for disposable in disposables {
+            disposable.cancel()
+        }
     }
 }

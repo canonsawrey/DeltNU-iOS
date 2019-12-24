@@ -92,7 +92,7 @@ struct DirectoryView_Previews: PreviewProvider {
     static let members: MemberDirectory = Bundle.main.decode("users.json")
     
     static var previews: some View {
-        DirectoryView(viewModel: DirectoryViewModel(directoryFetcher: MockDirectoryFetcher()))
+        DirectoryView(viewModel: DirectoryViewModel(repository: DefaultDirectoryRepository()))
     }
 }
 

@@ -15,6 +15,9 @@ class Session: ObservableObject {
     static let shared = Session()
     private init() { }
     
+    //TODO remove this
+    static let debug = true
+    
     @Published var activeSession: Bool = false
     
     //For storing user object

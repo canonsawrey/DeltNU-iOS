@@ -30,21 +30,24 @@ struct LoginView: View {
                     .padding()
                     .cornerRadius( appStyle.cornerRadius)
                     .padding(.bottom, 80)
-                Button(
-                    action: {
-                        UIApplication.shared.endEditing()
-                        self.viewModel.login()
-                    }
-                ) {
-                    HStack {
-                        Spacer()
-                        Text(viewModel.signedIn ? "Success. Retrieving data..." : (viewModel.signingIn ? "Signing in..." : "Sign in"))
-                        Spacer()
-                    }
-                    }.buttonStyle(MainButtonStyle())
-                    .opacity(signInButtonDisabled ? 0.5 : 1.0)
-                    .disabled(signInButtonDisabled)
-                    .animation(.spring())
+                ZStack {
+                    Text("Success. Retrieving data...").opacity(viewModel.signedIn ? 1.0 : 0.0)
+                    Button(
+                        action: {
+                            UIApplication.shared.endEditing()
+                            self.viewModel.login()
+                        }
+                    ) {
+                        HStack {
+                            Spacer()
+                            Text(viewModel.signingIn ? "Signing in..." : "Sign in")
+                            Spacer()
+                        }
+                        }.buttonStyle(MainButtonStyle())
+                        .opacity(viewModel.signedIn ? 0.0 : (signInButtonDisabled ? 0.5 : 1.0))
+                        .animation(.linear)
+                        .disabled(signInButtonDisabled)
+                }.frame(alignment: .center)
                 Text(viewModel.error)
                     .foregroundColor(Color("negative"))
                     .padding()

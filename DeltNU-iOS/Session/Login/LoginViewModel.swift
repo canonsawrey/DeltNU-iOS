@@ -21,6 +21,8 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     private var disposables = Set<AnyCancellable>()
     private var session = Session.shared
     private var credentialRepository: CredentialCache
+    private var userRepository: UserRepository
+    private var directoryCache: DirectoryCache
     private var authRemote: AuthRemote
     
     func login() {
@@ -73,6 +75,8 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
                 },
                 receiveValue: { [weak self] cacheResponse in
                     guard let self = self else { return }
+                    //TODO this prrooooobably should live elsewhere and its pretty ugly
+                    self.userRepository.setUser(user: self.directoryCache.getUser(email: self.email))
                     withAnimation {
                         self.session.activeSession = true
                     }
@@ -83,6 +87,8 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     override init() {
         self.credentialRepository = DefaultCredentialCache()
         self.authRemote = DefaultAuthRemote()
+        self.directoryCache = DefaultDirectoryCache()
+        self.userRepository = DefaultUserRepository()
         let response = credentialRepository.getCachedCredentials()
         super.init()
         if (response is CredentialSuccess) {

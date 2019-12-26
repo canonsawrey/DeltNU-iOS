@@ -38,4 +38,12 @@ class DefaultDirectoryCache: DirectoryCache {
             return false
         }
     }
+    
+    func getUser(email: String) -> Member? {
+        guard let data = userDefaults.data(forKey: cacheKey) else { return nil }
+        let directory = try! coder.decoder.decode(MemberDirectory.self, from: data)
+        return directory.first(where: { member in
+            member.email == email
+        })
+    }
 }

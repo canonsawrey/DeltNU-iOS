@@ -13,4 +13,6 @@ protocol DirectoryCache {
     func getCachedDirectory() -> AnyPublisher<MemberDirectory, DeltNuError>
     
     func setCachedDirectory(directory: MemberDirectory) -> Bool
+    
+    func getUser(email: String) -> Member?
 }

@@ -27,7 +27,8 @@ class DefaultUserRepository: UserRepository {
         }
     }
     
-    func setUser(user: Member) -> Bool {
+    func setUser(user: Member?) -> Bool {
+        guard let user = user else { return false }
         do {
             try userDefaults.set(coder.encoder.encode(user), forKey: cacheKey)
             return true

@@ -10,5 +10,5 @@ import Foundation
 
 protocol UserRepository {
     func getUser() -> Member?
-    func setUser(user: Member) -> Bool
+    func setUser(user: Member?) -> Bool
 }

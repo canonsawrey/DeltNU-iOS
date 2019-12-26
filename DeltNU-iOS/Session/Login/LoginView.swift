@@ -38,7 +38,7 @@ struct LoginView: View {
                 ) {
                     HStack {
                         Spacer()
-                        Text(viewModel.signingIn ? "Signing in..." : "Sign in")
+                        Text(viewModel.signedIn ? "Success. Retrieving data..." : (viewModel.signingIn ? "Signing in..." : "Sign in"))
                         Spacer()
                     }
                     }.buttonStyle(MainButtonStyle())

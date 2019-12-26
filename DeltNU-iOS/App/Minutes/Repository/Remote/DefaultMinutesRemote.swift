@@ -10,6 +10,7 @@ import Foundation
 import Combine
 
 class DefaultMinutesRemote: MinutesRemote {
+    
     private let session: URLSession
     private let url: URL = URL(string: EndpointApi.minutesIndex)!
     private var cancellable: AnyCancellable? = nil
@@ -33,5 +34,27 @@ class DefaultMinutesRemote: MinutesRemote {
             self.minutesCache.setCachedMinutes(minutes: output)
         })
             .eraseToAnyPublisher()
+    }
+    
+    
+    func fetchAndCache() -> AnyPublisher<CacheResponse, Never> {
+        let urlRequest = URLRequest(url: url)
+        var cacheSuccess = false
+        
+        return session.dataTaskPublisher(for: urlRequest)
+        .mapError { error in
+                .network(description: error.localizedDescription)
+        }
+        .flatMap(maxPublishers: .max(1)) { pair in
+            decode(pair.data)
+        }
+        .handleEvents(receiveOutput: { output in
+            cacheSuccess = self.minutesCache.setCachedMinutes(minutes: output)
+        })
+        .map{ minutes in
+            CacheResponse(success: cacheSuccess)
+        }
+        .replaceError(with: CacheResponse(success: false))
+        .eraseToAnyPublisher()
     }
 }

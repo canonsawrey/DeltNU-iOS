@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		541278C223B52ED00005224D /* Cachable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278C123B52ED00005224D /* Cachable.swift */; };
+		541278C623B532AD0005224D /* VoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278C523B532AD0005224D /* VoteRepository.swift */; };
+		541278C823B5331B0005224D /* DefaultVoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278C723B5331B0005224D /* DefaultVoteRepository.swift */; };
+		541278CA23B5342F0005224D /* VoteCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278C923B5342F0005224D /* VoteCache.swift */; };
+		541278CC23B534910005224D /* DefaultVoteCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278CB23B534910005224D /* DefaultVoteCache.swift */; };
 		541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E350C23887ED100BBCE31 /* AppDelegate.swift */; };
 		541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E350E23887ED100BBCE31 /* SceneDelegate.swift */; };
 		541E351123887ED100BBCE31 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E351023887ED100BBCE31 /* SessionView.swift */; };
@@ -17,7 +22,6 @@
 		541E35242388884F00BBCE31 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35222388884F00BBCE31 /* questions.json */; };
 		541E352723888D1800BBCE31 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E352623888D1800BBCE31 /* users.json */; };
 		541E352923888FAA00BBCE31 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 541E352823888FAA00BBCE31 /* .gitignore */; };
-		541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */; };
 		541E352D2388905B00BBCE31 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E352C2388905B00BBCE31 /* Member.swift */; };
 		541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35312389CF7800BBCE31 /* DirectoryView.swift */; };
 		541E35382389D94500BBCE31 /* VoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35372389D94500BBCE31 /* VoteView.swift */; };
@@ -77,6 +81,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		541278C123B52ED00005224D /* Cachable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cachable.swift; sourceTree = "<group>"; };
+		541278C523B532AD0005224D /* VoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRepository.swift; sourceTree = "<group>"; };
+		541278C723B5331B0005224D /* DefaultVoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteRepository.swift; sourceTree = "<group>"; };
+		541278C923B5342F0005224D /* VoteCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCache.swift; sourceTree = "<group>"; };
+		541278CB23B534910005224D /* DefaultVoteCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteCache.swift; sourceTree = "<group>"; };
 		541E350923887ED100BBCE31 /* DeltNU-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DeltNU-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		541E350C23887ED100BBCE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541E350E23887ED100BBCE31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,7 +98,6 @@
 		541E35222388884F00BBCE31 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
 		541E352623888D1800BBCE31 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		541E352823888FAA00BBCE31 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		541E352C2388905B00BBCE31 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		541E35312389CF7800BBCE31 /* DirectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryView.swift; sourceTree = "<group>"; };
 		541E35372389D94500BBCE31 /* VoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteView.swift; sourceTree = "<group>"; };
@@ -159,6 +167,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		541278C323B52ED50005224D /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				544ABAD523B1A2F5004227C2 /* EndpointApi.swift */,
+				541278C123B52ED00005224D /* Cachable.swift */,
+				544ABAEA23B1B381004227C2 /* UserDefaultsKeyApi.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		541278C423B52EF10005224D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				541E353C238A178200BBCE31 /* CommonViews.swift */,
+				541E3539238A0C5B00BBCE31 /* AppStyle.swift */,
+				541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */,
+				54308A3E23937B450008FE98 /* ViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		541E350023887ED100BBCE31 = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				541E353B238A16CE00BBCE31 /* Common */,
-				541E35252388885A00BBCE31 /* Utility */,
 				541E35202388847800BBCE31 /* Mock */,
 				544ABAC923AEB43D004227C2 /* Session */,
 				541E356F23912DF000BBCE31 /* App */,
@@ -219,12 +247,11 @@
 			isa = PBXGroup;
 			children = (
 				541E35782391342B00BBCE31 /* DeltNuError.swift */,
-				541E352A23888FF700BBCE31 /* Bundle-Decodable.swift */,
 				541E3572239132DE00BBCE31 /* Combine-Decodable.swift */,
 				544ABAC623A86D7A004227C2 /* Coder.swift */,
-				544ABAD523B1A2F5004227C2 /* EndpointApi.swift */,
-				544ABAEA23B1B381004227C2 /* UserDefaultsKeyApi.swift */,
 				544ABAD723B1A567004227C2 /* Navigation.swift */,
+				541E3558238C60CC00BBCE31 /* Extensions.swift */,
+				544ABAD323B17BFE004227C2 /* Reachability.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -253,12 +280,9 @@
 		541E353B238A16CE00BBCE31 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				541E3539238A0C5B00BBCE31 /* AppStyle.swift */,
-				541E353C238A178200BBCE31 /* CommonViews.swift */,
-				541E3558238C60CC00BBCE31 /* Extensions.swift */,
-				541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */,
-				54308A3E23937B450008FE98 /* ViewModel.swift */,
-				544ABAD323B17BFE004227C2 /* Reachability.swift */,
+				541E35252388885A00BBCE31 /* Utility */,
+				541278C423B52EF10005224D /* View */,
+				541278C323B52ED50005224D /* Remote */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -369,6 +393,8 @@
 		544ABAAD23A820C9004227C2 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				541278C923B5342F0005224D /* VoteCache.swift */,
+				541278CB23B534910005224D /* DefaultVoteCache.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -378,6 +404,8 @@
 			children = (
 				544ABAAD23A820C9004227C2 /* Cache */,
 				544ABAAC23A820C0004227C2 /* Remote */,
+				541278C523B532AD0005224D /* VoteRepository.swift */,
+				541278C723B5331B0005224D /* DefaultVoteRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -603,14 +631,17 @@
 				54E327A123A725CF007827B5 /* DefaultMinutesRemote.swift in Sources */,
 				54308A4F2395C73C0008FE98 /* AuthRemote.swift in Sources */,
 				54308A4723946AEF0008FE98 /* LoginView.swift in Sources */,
+				541278CA23B5342F0005224D /* VoteCache.swift in Sources */,
 				541E3559238C60CC00BBCE31 /* Extensions.swift in Sources */,
 				541E3557238B9F4D00BBCE31 /* UrlWebView.swift in Sources */,
 				541E3552238A54D600BBCE31 /* HomeView.swift in Sources */,
 				541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */,
+				541278C223B52ED00005224D /* Cachable.swift in Sources */,
 				544ABAB423A82B1B004227C2 /* VoteViewModel.swift in Sources */,
 				541E3543238A335600BBCE31 /* SinglePollView.swift in Sources */,
 				544ABAD023AFF562004227C2 /* CastVoteRemote.swift in Sources */,
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
+				541278CC23B534910005224D /* DefaultVoteCache.swift in Sources */,
 				54308A4A23946C280008FE98 /* LoginViewModel.swift in Sources */,
 				549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */,
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
@@ -631,7 +662,9 @@
 				541E353D238A178200BBCE31 /* CommonViews.swift in Sources */,
 				541E35792391342B00BBCE31 /* DeltNuError.swift in Sources */,
 				54E3279F23A72300007827B5 /* MinutesRemote.swift in Sources */,
+				541278C823B5331B0005224D /* DefaultVoteRepository.swift in Sources */,
 				544ABAE923B1ADB1004227C2 /* DefaultDirectoryCache.swift in Sources */,
+				541278C623B532AD0005224D /* VoteRepository.swift in Sources */,
 				541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */,
 				544ABADF23B1A7E8004227C2 /* UserRepository.swift in Sources */,
 				54308A4C23947CC00008FE98 /* Session.swift in Sources */,
@@ -641,7 +674,6 @@
 				544ABAE323B1AC73004227C2 /* DirectoryRepository.swift in Sources */,
 				544ABAC023A8464A004227C2 /* MinutesRepository.swift in Sources */,
 				544ABADD23B1A7BE004227C2 /* DefaultUserRepository.swift in Sources */,
-				541E352B23888FF700BBCE31 /* Bundle-Decodable.swift in Sources */,
 				544ABAC223A84657004227C2 /* DefaultMinutesRepository.swift in Sources */,
 				541E354A238A477B00BBCE31 /* Minute.swift in Sources */,
 				54308A3D2393797D0008FE98 /* MinutesViewModel.swift in Sources */,

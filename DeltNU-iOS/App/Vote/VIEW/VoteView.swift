@@ -83,6 +83,6 @@ struct VoteView: View {
 
 struct VoteView_Previews: PreviewProvider {
     static var previews: some View {
-        VoteView(viewModel: VoteViewModel(fetchable: DefaultVoteRemote()))
+        VoteView(viewModel: VoteViewModel(repository: DefaultVoteRepository()))
     }
 }

@@ -10,15 +10,17 @@ import Foundation
 import Combine
 
 class DefaultVoteRemote: VoteRemote {
+    
     private let session: URLSession
     private let url: URL = URL(string: EndpointApi.voteIndex)!
     private var cancellable: AnyCancellable? = nil
+    private let voteCache = DefaultVoteCache()
     
     init(session: URLSession = .shared) {
         self.session = session
     }
     
-    func getPolls() -> AnyPublisher<Polls, DeltNuError> {
+    func getRemotePolls() -> AnyPublisher<Polls, DeltNuError> {
         let urlRequest = URLRequest(url: url)
         
         return session.dataTaskPublisher(for: urlRequest)
@@ -28,6 +30,30 @@ class DefaultVoteRemote: VoteRemote {
         .flatMap(maxPublishers: .max(1)) { pair in
             decode(pair.data)
         }
+        .handleEvents(receiveOutput: { output in
+            self.voteCache.setCachedPolls(polls: output)
+        })
+        .eraseToAnyPublisher()
+    }
+    
+    func fetchAndCache() -> AnyPublisher<CacheResponse, Never> {
+        let urlRequest = URLRequest(url: url)
+        var cacheSuccess = false
+        
+        return session.dataTaskPublisher(for: urlRequest)
+        .mapError { error in
+                .network(description: error.localizedDescription)
+        }
+        .flatMap(maxPublishers: .max(1)) { pair in
+            decode(pair.data)
+        }
+        .handleEvents(receiveOutput: { output in
+            cacheSuccess = self.voteCache.setCachedPolls(polls: output)
+        })
+        .map{ polls in
+            CacheResponse(success: cacheSuccess)
+        }
+        .replaceError(with: CacheResponse(success: false))
         .eraseToAnyPublisher()
     }
 }

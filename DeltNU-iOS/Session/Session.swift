@@ -15,12 +15,19 @@ class Session: ObservableObject {
     static let shared = Session()
     private init() { }
     
-    private let directoryRepository = DefaultDirectoryRepository()
+    @Published var activeSession: Bool = false
+    
+    //For storing user object
     private let userRepository = DefaultUserRepository()
     
-    @Published var activeSession: Bool = false
+    //For refreshing session cookie
     private let authRemote = DefaultAuthRemote()
     private let credentialCache = DefaultCredentialCache()
+    
+    //For filling caches at the start of the session
+    private let voteRemote: Cachable = DefaultVoteRemote()
+    private let directoryRemote: Cachable = DefaultDirectoryRemote()
+    private let minutesRemote: Cachable = DefaultMinutesRemote()
     
     private var disposables = Set<AnyCancellable>()
     
@@ -47,25 +54,15 @@ class Session: ObservableObject {
         return authRemote.authenticate(credential: credential)
     }
     
-    func fillCaches(userEmail: String) -> Bool {
-        //Fill directory cache + set user object
-        //TODO on launch, this doesnt work - Combine stream happens off main thread, so false getting returned
-        let directoryStream = directoryRepository.getMembers()
-        var result: Bool = false
-        directoryStream.sink(
-          receiveCompletion: { [weak self] value in },
-          receiveValue: { [weak self] members in
-            guard let self = self else { return }
-            guard let user = members.first(where: { member in
-                member.email == userEmail
-            }) else {
-                return
-            }
-            result = self.userRepository.setUser(user: user)
-        })
-        .store(in: &disposables)
+    func fillCaches(userEmail: String) -> AnyPublisher<[CacheResponse], Never> {
+        //TODO dispose of these
+        let publishers = [voteRemote.fetchAndCache(), directoryRemote.fetchAndCache(), minutesRemote.fetchAndCache()]
         
-        return result
+        return publishers
+            .publisher
+            .flatMap { $0 }
+            .collect()
+            .eraseToAnyPublisher()
     }
     
     func emptyCaches() {

@@ -14,12 +14,12 @@ class VoteViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var polls: Polls = []
     @Published var refreshing = false
     
-    private let voteRepository: VoteRemote
+    private let voteRepository: VoteRepository
     //Other
     private var disposables = Set<AnyCancellable>()
     
-    init(fetchable: VoteRemote) {
-        voteRepository = fetchable
+    init(repository: VoteRepository) {
+        voteRepository = repository
     }
     
     func getPolls() {
@@ -43,5 +43,11 @@ class VoteViewModel: ViewModel, ObservableObject, Identifiable {
                     self.refreshing = false
             })
             .store(in: &disposables)
+    }
+    
+    deinit {
+        for disposable in disposables {
+            disposable.cancel()
+        }
     }
 }

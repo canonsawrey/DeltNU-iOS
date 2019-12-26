@@ -16,10 +16,6 @@ struct SessionView: View {
     @State var navTab: NavTab = NavTab.home
     @State var tabIndex = 0
     
-    var directoryViewModel = DirectoryViewModel(repository: DefaultDirectoryRepository())
-    var minutesViewModel = MinutesViewModel(repository: DefaultMinutesRepository())
-    var voteViewModel = VoteViewModel(fetchable: DefaultVoteRemote())
-    
     var body: some View {
         VStack {
             ZStack {
@@ -31,24 +27,28 @@ struct SessionView: View {
                                 Text("Home")
                             }
                             .tag(0)
-                        MinutesView(viewModel: minutesViewModel)
+                        
+                        MinutesView(viewModel: MinutesViewModel(repository: DefaultMinutesRepository()))
                             .tabItem {
                                 Image(systemName: NavTab.minutes.systemAsset())
                                 Text("Minutes")
                             }
                             .tag(1)
-                        VoteView(viewModel: voteViewModel)
+                        
+                        VoteView(viewModel: VoteViewModel(repository: DefaultVoteRepository()))
                             .tabItem {
                                 Image(systemName: NavTab.vote.systemAsset())
                                 Text("Vote")
                             }
                             .tag(2)
-                        DirectoryView(viewModel: directoryViewModel)
+                        
+                        DirectoryView(viewModel: DirectoryViewModel(repository: DefaultDirectoryRepository()))
                             .tabItem {
                                 Image(systemName: NavTab.directory.systemAsset())
                                 Text("Directory")
                             }
                             .tag(3)
+                        
                         PreferencesView()
                             .tabItem {
                                 Image(systemName: NavTab.preferences.systemAsset())

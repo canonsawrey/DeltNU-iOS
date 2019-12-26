@@ -33,4 +33,25 @@ class DefaultDirectoryRemote: DirectoryRemote {
         })
             .eraseToAnyPublisher()
     }
+    
+    func fetchAndCache() -> AnyPublisher<CacheResponse, Never> {
+        let urlRequest = URLRequest(url: url)
+        var cacheSuccess = false
+        
+        return session.dataTaskPublisher(for: urlRequest)
+        .mapError { error in
+                .network(description: error.localizedDescription)
+        }
+        .flatMap(maxPublishers: .max(1)) { pair in
+            decode(pair.data)
+        }
+        .handleEvents(receiveOutput: { output in
+            cacheSuccess = self.directoryCache.setCachedDirectory(directory: output)
+        })
+        .map{ polls in
+            CacheResponse(success: cacheSuccess)
+        }
+        .replaceError(with: CacheResponse(success: false))
+        .eraseToAnyPublisher()
+    }
 }

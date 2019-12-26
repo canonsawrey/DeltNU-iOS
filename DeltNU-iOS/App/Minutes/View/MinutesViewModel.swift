@@ -21,7 +21,6 @@ class MinutesViewModel: ViewModel, ObservableObject, Identifiable {
     
     init(repository: MinutesRepository) {
         minutesRepository = repository
-        super.init()
     }
     
     func getMinutes() {

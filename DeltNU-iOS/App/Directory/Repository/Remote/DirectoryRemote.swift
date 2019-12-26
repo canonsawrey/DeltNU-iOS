@@ -9,6 +9,6 @@
 import Foundation
 import Combine
 
-protocol DirectoryRemote {
+protocol DirectoryRemote: Cachable {
     func getRemoteDirectory() -> AnyPublisher<MemberDirectory, DeltNuError>
 }

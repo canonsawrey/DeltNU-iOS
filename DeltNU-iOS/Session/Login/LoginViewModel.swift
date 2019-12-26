@@ -15,6 +15,7 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var password = ""
     @Published var error = ""
     @Published var signingIn = false
+    @Published var signedIn = false
     
     //Remote stuff
     private var disposables = Set<AnyCancellable>()
@@ -25,35 +26,28 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     func login() {
         self.signingIn = true
         
-        authRemote.authenticate(
-            credential: Credential(email: self.email, password: self.password)
-        )
+        authRemote.authenticate(credential: Credential(email: self.email, password: self.password))
             .receive(on: DispatchQueue.main)
             .sink(
-              receiveCompletion: { [weak self] value in
-                guard let self = self else { return }
-                switch value {
-                case .failure:
-                    self.badCredentials()
-                case .finished:
-                  break
-                }
-              },
-              receiveValue: { [weak self] authResponse in
-                guard let self = self else { return }
-                //TODO This is a terrible way to do this. We should find a way to throw a combine error if auth fails
-                if authResponse.success {
-                    self.credentialRepository.storeCredentials(email: self.email, password: self.password)
-                    if (self.session.fillCaches(userEmail: self.email)) {
-                        withAnimation {
-                            self.session.activeSession = true
-                        }
-                    } else {
-                        fatalError("Should not be possible")
+                receiveCompletion: { [weak self] value in
+                    guard let self = self else { return }
+                    switch value {
+                    case .failure:
+                        self.badCredentials()
+                    case .finished:
+                        break
                     }
-                } else {
-                    self.badCredentials()
-                }
+                },
+                receiveValue: { [weak self] authResponse in
+                    guard let self = self else { return }
+                    //TODO This is a terrible way to do this. We should find a way to throw a combine error if auth fails
+                    if authResponse.success {
+                        self.credentialRepository.storeCredentials(email: self.email, password: self.password)
+                        self.signedIn = true
+                        self.setupSession()
+                    } else {
+                        self.badCredentials()
+                    }
             })
             .store(in: &disposables)
     }
@@ -61,6 +55,29 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     private func badCredentials() {
         self.error = "Sign in with these credentials failed"
         self.signingIn = false
+    }
+    
+    private func setupSession() {
+        self.session.fillCaches(userEmail: self.email)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [weak self] value in
+                    guard let self = self else { return }
+                    switch value {
+                    //TODO handle these
+                    case .failure:
+                        break
+                    case .finished:
+                        break
+                    }
+                },
+                receiveValue: { [weak self] cacheResponse in
+                    guard let self = self else { return }
+                    withAnimation {
+                        self.session.activeSession = true
+                    }
+            })
+            .store(in: &disposables)
     }
     
     override init() {
@@ -72,6 +89,12 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
             self.email = (response as! CredentialSuccess).email
             self.password = (response as! CredentialSuccess).password
             self.login()
+        }
+    }
+    
+    deinit {
+        for disposable in disposables {
+            disposable.cancel()
         }
     }
 }

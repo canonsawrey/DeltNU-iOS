@@ -9,6 +9,6 @@
 import Foundation
 import Combine
 
-protocol MinutesRemote {
+protocol MinutesRemote: Cachable {
     func getRemoteMinutes() -> AnyPublisher<Minutes, DeltNuError>
 }

@@ -10,6 +10,6 @@ import Foundation
 import Combine
 
 
-protocol VoteRemote {
-    func getPolls() -> AnyPublisher<Polls, DeltNuError>
+protocol VoteRemote: Cachable {
+    func getRemotePolls() -> AnyPublisher<Polls, DeltNuError>
 }

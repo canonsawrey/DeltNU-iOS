@@ -19,4 +19,5 @@ class UserDefaultsKeyApi {
     static let credentialPassword =  "key::password"
     static let minutes = "key::minutes"
     static let directory =  "key::directory"
+    static let polls = "key::polls"
 }

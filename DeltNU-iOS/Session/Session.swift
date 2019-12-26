@@ -49,6 +49,7 @@ class Session: ObservableObject {
     
     func fillCaches(userEmail: String) -> Bool {
         //Fill directory cache + set user object
+        //TODO on launch, this doesnt work - Combine stream happens off main thread, so false getting returned
         let directoryStream = directoryRepository.getMembers()
         var result: Bool = false
         directoryStream.sink(

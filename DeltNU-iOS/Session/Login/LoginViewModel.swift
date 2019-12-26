@@ -48,6 +48,8 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
                         withAnimation {
                             self.session.activeSession = true
                         }
+                    } else {
+                        fatalError("Should not be possible")
                     }
                 } else {
                     self.badCredentials()

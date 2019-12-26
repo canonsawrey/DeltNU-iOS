@@ -13,12 +13,10 @@ struct VoteView: View {
     @State var showingPoll = false
     @State var selectedPoll = 0
     private var activePolls: Polls { viewModel.polls.filter { poll in
-        poll.isActive
-        }
+        poll.isActive }
     }
     private var expiredPolls: Polls { viewModel.polls.filter { poll in
-        !poll.isActive
-        }
+        !poll.isActive }
     }
     
     var body: some View {

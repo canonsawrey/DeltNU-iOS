@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PreferencesView: View {
     
+    @Environment(\.presentationMode) var presentationMode
     @State var showingLogout = false
     
     private let credentialRepository = DefaultCredentialCache()
@@ -40,7 +41,7 @@ struct PreferencesView: View {
                         self.session.clearSession()
                     }
                     self.credentialRepository.clearCredentials()
-
+                    self.presentationMode.wrappedValue.dismiss()
                 }, secondaryButton: .cancel())
             }.navigationBarTitle("Preferences")
         }

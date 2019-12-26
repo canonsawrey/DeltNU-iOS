@@ -8,13 +8,14 @@
 
 import Foundation
 
-enum NavTab: String {
+enum Navigation: String {
     
     case home = "Home"
     case minutes = "Minutes"
     case vote = "Vote"
     case directory = "Directory"
     case preferences = "Preferences"
+    case profile = "Profile"
     
     func systemAsset() -> String {
         switch self {
@@ -28,6 +29,8 @@ enum NavTab: String {
             return "person.3"
         case .preferences:
             return "gear"
+        case .profile:
+            return "person"
         }
     }
 }

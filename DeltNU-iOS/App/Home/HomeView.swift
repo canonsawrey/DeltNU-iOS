@@ -13,7 +13,9 @@ struct HomeView: View {
     private var user: Member? {
         userRepository.getUser()
     }
-    @State var showingUser = false
+    @State var showingSheet = false
+    //true for profile, false for settings
+    @State var showProfile = true
     
     var body: some View {
         NavigationView {
@@ -21,23 +23,30 @@ struct HomeView: View {
                 Spacer()
             }
             .navigationBarTitle("Home")
-            .navigationBarItems(trailing:
-                ZStack {
-                    if (user == nil) {
-                        Text("Welcome")
-                    } else {
-                        Button(action: {
-                            self.showingUser = true
-                        }) {
-                            HStack {
-                                Text("Welcome, \(user!.firstName)")
-                            }.foregroundColor(Color("colorOnPrimaryAccent"))
-                        }
-                    }
+            .navigationBarItems(
+                leading: Button(action: {
+                    self.showingSheet = true
+                    self.showProfile = true
+                }) {
+                    Image(systemName: Navigation.profile.systemAsset()).foregroundColor(Color("colorOnPrimaryAccent"))
+                        .opacity(self.user == nil ? 0.0 : 1.0)
+                },
+                trailing: Button(action: {
+                    self.showingSheet = true
+                    self.showProfile = false
+                }) {
+                    Image(systemName: Navigation.preferences.systemAsset()).foregroundColor(Color("colorOnPrimaryAccent"))
                 }
             )
-            .sheet(isPresented: $showingUser) {
-                MemberView(member: self.user!, addVisible: false)
+                .sheet(isPresented: $showingSheet) {
+                    ZStack {
+                        EmptyView()
+                        if (self.showProfile) {
+                            MemberView(member: self.user!, addVisible: false)
+                        } else {
+                            PreferencesView()
+                        }
+                    }
             }
         }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }

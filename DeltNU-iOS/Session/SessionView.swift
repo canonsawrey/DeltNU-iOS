@@ -13,7 +13,7 @@ import Combine
 struct SessionView: View {
     @ObservedObject var session = Session.shared
 //    @State var isDrawerOpen = false
-    @State var navTab: NavTab = NavTab.home
+    @State var navTab: Navigation = Navigation.home
     @State var tabIndex = 0
     
     var body: some View {
@@ -23,38 +23,31 @@ struct SessionView: View {
                     TabView(selection: $tabIndex) {
                         HomeView()
                             .tabItem {
-                                Image(systemName: NavTab.home.systemAsset())
+                                Image(systemName: Navigation.home.systemAsset())
                                 Text("Home")
                             }
                             .tag(0)
                         
                         MinutesView(viewModel: MinutesViewModel(repository: DefaultMinutesRepository()))
                             .tabItem {
-                                Image(systemName: NavTab.minutes.systemAsset())
+                                Image(systemName: Navigation.minutes.systemAsset())
                                 Text("Minutes")
                             }
                             .tag(1)
                         
                         VoteView(viewModel: VoteViewModel(repository: DefaultVoteRepository()))
                             .tabItem {
-                                Image(systemName: NavTab.vote.systemAsset())
+                                Image(systemName: Navigation.vote.systemAsset())
                                 Text("Vote")
                             }
                             .tag(2)
                         
                         DirectoryView(viewModel: DirectoryViewModel(repository: DefaultDirectoryRepository()))
                             .tabItem {
-                                Image(systemName: NavTab.directory.systemAsset())
+                                Image(systemName: Navigation.directory.systemAsset())
                                 Text("Directory")
                             }
                             .tag(3)
-                        
-                        PreferencesView()
-                            .tabItem {
-                                Image(systemName: NavTab.preferences.systemAsset())
-                                Text("Preferences")
-                            }
-                            .tag(4)
                     }.onAppear(perform: {self.tabIndex = 0})
                     .edgesIgnoringSafeArea(.top)
                     .accentColor(Color("colorOnPrimaryAccent"))

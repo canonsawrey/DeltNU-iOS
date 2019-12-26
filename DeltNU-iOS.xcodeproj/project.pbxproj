@@ -300,6 +300,7 @@
 		541E3550238A54C600BBCE31 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				541E358423918ADA00BBCE31 /* Preferences */,
 				541E3551238A54D600BBCE31 /* HomeView.swift */,
 			);
 			path = Home;
@@ -308,7 +309,6 @@
 		541E356F23912DF000BBCE31 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				541E358423918ADA00BBCE31 /* Preferences */,
 				541E3550238A54C600BBCE31 /* Home */,
 				541E3546238A45E200BBCE31 /* Minutes */,
 				541E35362389D92B00BBCE31 /* Vote */,

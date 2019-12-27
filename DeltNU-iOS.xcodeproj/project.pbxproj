@@ -12,6 +12,7 @@
 		541278C823B5331B0005224D /* DefaultVoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278C723B5331B0005224D /* DefaultVoteRepository.swift */; };
 		541278CA23B5342F0005224D /* VoteCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278C923B5342F0005224D /* VoteCache.swift */; };
 		541278CC23B534910005224D /* DefaultVoteCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278CB23B534910005224D /* DefaultVoteCache.swift */; };
+		541278CF23B65E910005224D /* InterstitialLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278CE23B65E910005224D /* InterstitialLaunchScreen.swift */; };
 		541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E350C23887ED100BBCE31 /* AppDelegate.swift */; };
 		541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E350E23887ED100BBCE31 /* SceneDelegate.swift */; };
 		541E351123887ED100BBCE31 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E351023887ED100BBCE31 /* SessionView.swift */; };
@@ -86,6 +87,7 @@
 		541278C723B5331B0005224D /* DefaultVoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteRepository.swift; sourceTree = "<group>"; };
 		541278C923B5342F0005224D /* VoteCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCache.swift; sourceTree = "<group>"; };
 		541278CB23B534910005224D /* DefaultVoteCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteCache.swift; sourceTree = "<group>"; };
+		541278CE23B65E910005224D /* InterstitialLaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialLaunchScreen.swift; sourceTree = "<group>"; };
 		541E350923887ED100BBCE31 /* DeltNU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltNU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		541E350C23887ED100BBCE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541E350E23887ED100BBCE31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				541E351723887ED400BBCE31 /* LaunchScreen.storyboard */,
+				541278CE23B65E910005224D /* InterstitialLaunchScreen.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				54308A4C23947CC00008FE98 /* Session.swift in Sources */,
 				541E357F23914AE900BBCE31 /* DirectoryRemote.swift in Sources */,
 				54C14E07239997860065A1CB /* DefaultCredentialCache.swift in Sources */,
+				541278CF23B65E910005224D /* InterstitialLaunchScreen.swift in Sources */,
 				544ABAD823B1A567004227C2 /* Navigation.swift in Sources */,
 				544ABAE323B1AC73004227C2 /* DirectoryRepository.swift in Sources */,
 				544ABAC023A8464A004227C2 /* MinutesRepository.swift in Sources */,

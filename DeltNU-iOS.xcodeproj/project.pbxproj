@@ -86,7 +86,7 @@
 		541278C723B5331B0005224D /* DefaultVoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteRepository.swift; sourceTree = "<group>"; };
 		541278C923B5342F0005224D /* VoteCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCache.swift; sourceTree = "<group>"; };
 		541278CB23B534910005224D /* DefaultVoteCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteCache.swift; sourceTree = "<group>"; };
-		541E350923887ED100BBCE31 /* DeltNU-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DeltNU-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		541E350923887ED100BBCE31 /* DeltNU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltNU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		541E350C23887ED100BBCE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541E350E23887ED100BBCE31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		541E351023887ED100BBCE31 /* SessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionView.swift; sourceTree = "<group>"; };
@@ -188,6 +188,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		541278CD23B5CE670005224D /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				541E351723887ED400BBCE31 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
 		541E350023887ED100BBCE31 = {
 			isa = PBXGroup;
 			children = (
@@ -201,7 +209,7 @@
 		541E350A23887ED100BBCE31 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				541E350923887ED100BBCE31 /* DeltNU-iOS.app */,
+				541E350923887ED100BBCE31 /* DeltNU.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -215,8 +223,8 @@
 				541E356F23912DF000BBCE31 /* App */,
 				541E350C23887ED100BBCE31 /* AppDelegate.swift */,
 				541E350E23887ED100BBCE31 /* SceneDelegate.swift */,
+				541278CD23B5CE670005224D /* Launch */,
 				541E351223887ED400BBCE31 /* Assets.xcassets */,
-				541E351723887ED400BBCE31 /* LaunchScreen.storyboard */,
 				541E351A23887ED400BBCE31 /* Info.plist */,
 				541E351423887ED400BBCE31 /* Preview Content */,
 			);
@@ -553,9 +561,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		541E350823887ED100BBCE31 /* DeltNU-iOS */ = {
+		541E350823887ED100BBCE31 /* DeltNU */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 541E351D23887ED400BBCE31 /* Build configuration list for PBXNativeTarget "DeltNU-iOS" */;
+			buildConfigurationList = 541E351D23887ED400BBCE31 /* Build configuration list for PBXNativeTarget "DeltNU" */;
 			buildPhases = (
 				541E350523887ED100BBCE31 /* Sources */,
 				541E350623887ED100BBCE31 /* Frameworks */,
@@ -565,9 +573,9 @@
 			);
 			dependencies = (
 			);
-			name = "DeltNU-iOS";
+			name = DeltNU;
 			productName = "DeltNU-iOS";
-			productReference = 541E350923887ED100BBCE31 /* DeltNU-iOS.app */;
+			productReference = 541E350923887ED100BBCE31 /* DeltNU.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -598,7 +606,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				541E350823887ED100BBCE31 /* DeltNU-iOS */,
+				541E350823887ED100BBCE31 /* DeltNU */,
 			);
 		};
 /* End PBXProject section */
@@ -872,7 +880,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		541E351D23887ED400BBCE31 /* Build configuration list for PBXNativeTarget "DeltNU-iOS" */ = {
+		541E351D23887ED400BBCE31 /* Build configuration list for PBXNativeTarget "DeltNU" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				541E351E23887ED400BBCE31 /* Debug */,

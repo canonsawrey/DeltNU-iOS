@@ -14,22 +14,26 @@ struct LoginView: View {
     var signInButtonDisabled: Bool {
         viewModel.email == "" || viewModel.password == "" || viewModel.signingIn
     }
+    private let pictureSize = UIScreen.main.bounds.width * 3 / 4
     
     var body: some View {
         ZStack {
             VStack {
-                Text("Sign in to DeltNU").font(.system(size: 40))
-                    .padding()
-                    .foregroundColor(Color("colorOnPrimary"))
+                Spacer()
+                    Image("Icon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: pictureSize)
+                Spacer()
                 TextField("Email", text: $viewModel.email)
                     .padding()
                     .cornerRadius( appStyle.cornerRadius)
                     .autocapitalization(UITextAutocapitalizationType.none)
-                    .padding(.top, 50)
+                    .padding()
                 SecureField("Password", text: $viewModel.password)
                     .padding()
-                    .cornerRadius( appStyle.cornerRadius)
-                    .padding(.bottom, 80)
+                    .cornerRadius(appStyle.cornerRadius)
+                    .padding()
                 ZStack {
                     Text("Success. Retrieving data...").opacity(viewModel.signedIn ? 1.0 : 0.0)
                     Button(
@@ -47,19 +51,18 @@ struct LoginView: View {
                         .opacity(viewModel.signedIn ? 0.0 : (signInButtonDisabled ? 0.5 : 1.0))
                         .animation(.linear)
                         .disabled(signInButtonDisabled)
-                }.frame(alignment: .center)
+                }.padding()//.frame(alignment: .center)
                 Text(viewModel.error)
                     .foregroundColor(Color("negative"))
-                    .padding()
                     .animation(.default)
-                Spacer()
+                    .padding()
                 Button(action: {
                     guard let url = URL(string: EndpointApi.resetPassword) else { return }
                         UIApplication.shared.open(url)
                     }) {
                     Text("Forgot password")
-                }.foregroundColor(Color("colorOnPrimaryAccent"))
-                }.frame(maxHeight: .infinity).padding()
+                }.foregroundColor(Color("colorCTA")).padding()
+                }
         }
     }
 }

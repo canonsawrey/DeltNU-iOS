@@ -15,12 +15,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="0BA-PD-pQt">
-                                <rect key="frame" x="-49" y="-119" width="512" height="1024"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="Launch" translatesAutoresizingMaskIntoConstraints="NO" id="0BA-PD-pQt">
+                                <rect key="frame" x="-6" y="-76" width="420" height="1048"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.27843137254901962" green="0.18823529411764706" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -30,6 +30,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Launch" width="512" height="1024"/>
+        <image name="Launch" width="512" height="1280"/>
     </resources>
 </document>

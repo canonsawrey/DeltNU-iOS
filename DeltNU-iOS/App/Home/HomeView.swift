@@ -28,14 +28,14 @@ struct HomeView: View {
                     self.showingSheet = true
                     self.showProfile = true
                 }) {
-                    Image(systemName: Navigation.profile.systemAsset()).foregroundColor(Color("colorOnPrimaryAccent"))
+                    Image(systemName: Navigation.profile.systemAsset()).foregroundColor(Color("colorCTA"))
                         .opacity(self.user == nil ? 0.0 : 1.0)
                 },
                 trailing: Button(action: {
                     self.showingSheet = true
                     self.showProfile = false
                 }) {
-                    Image(systemName: Navigation.preferences.systemAsset()).foregroundColor(Color("colorOnPrimaryAccent"))
+                    Image(systemName: Navigation.preferences.systemAsset()).foregroundColor(Color("colorCTA"))
                 }
             )
                 .sheet(isPresented: $showingSheet) {

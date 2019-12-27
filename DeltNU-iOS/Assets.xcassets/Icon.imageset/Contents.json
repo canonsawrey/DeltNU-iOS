@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Artboard1024w.png",
+      "filename" : "Artboard400px.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Artboard1024w-1.png",
+      "filename" : "Artboard800px.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Artboard1024w-2.png",
+      "filename" : "Artboard1200px.png",
       "scale" : "3x"
     }
   ],

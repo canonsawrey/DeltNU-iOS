@@ -51,7 +51,7 @@ struct MemberView: View {
                     HStack {
                         Text("Add to contacts ")
                         Image(systemName: "person.badge.plus")
-                    }.foregroundColor(Color("colorCTA"))
+                    }.foregroundColor(Color("colorOnPrimaryAccent"))
                 }.padding(.bottom)
             }
         }

@@ -101,7 +101,7 @@ struct AttendanceView: View {
     
     var body: some View {
         VStack {
-            Text("Events attended this week")
+            Text("Weekly attendance")
             GeometryReader { geo in
                 HStack {
                     ForEach(1...self.events, id: \.self) { count in

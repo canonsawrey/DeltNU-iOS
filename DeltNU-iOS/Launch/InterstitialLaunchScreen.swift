@@ -9,10 +9,6 @@
 import UIKit
 
 class InterstitialLaunchScreen: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
 
     /*

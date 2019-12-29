@@ -12,7 +12,6 @@
 		541278C823B5331B0005224D /* DefaultVoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278C723B5331B0005224D /* DefaultVoteRepository.swift */; };
 		541278CA23B5342F0005224D /* VoteCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278C923B5342F0005224D /* VoteCache.swift */; };
 		541278CC23B534910005224D /* DefaultVoteCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278CB23B534910005224D /* DefaultVoteCache.swift */; };
-		541278CF23B65E910005224D /* InterstitialLaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541278CE23B65E910005224D /* InterstitialLaunchScreen.swift */; };
 		541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E350C23887ED100BBCE31 /* AppDelegate.swift */; };
 		541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E350E23887ED100BBCE31 /* SceneDelegate.swift */; };
 		541E351123887ED100BBCE31 /* SessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E351023887ED100BBCE31 /* SessionView.swift */; };
@@ -72,6 +71,8 @@
 		544ABAE723B1AD5A004227C2 /* DirectoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAE623B1AD59004227C2 /* DirectoryCache.swift */; };
 		544ABAE923B1ADB1004227C2 /* DefaultDirectoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAE823B1ADB1004227C2 /* DefaultDirectoryCache.swift */; };
 		544ABAEB23B1B381004227C2 /* UserDefaultsKeyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAEA23B1B381004227C2 /* UserDefaultsKeyApi.swift */; };
+		5461467423B96779006D4D23 /* InterstitialLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5461467323B96779006D4D23 /* InterstitialLaunchScreen.storyboard */; };
+		5461467623B96AA0006D4D23 /* InterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5461467523B96AA0006D4D23 /* InterstitialViewController.swift */; };
 		549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A832399BBE100B6BEA9 /* Credential.swift */; };
 		549A3A88239E011400B6BEA9 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A87239E011400B6BEA9 /* Mock.swift */; };
 		54C14E052399943D0065A1CB /* CredentialCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E042399943D0065A1CB /* CredentialCache.swift */; };
@@ -89,7 +90,6 @@
 		541278C723B5331B0005224D /* DefaultVoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteRepository.swift; sourceTree = "<group>"; };
 		541278C923B5342F0005224D /* VoteCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCache.swift; sourceTree = "<group>"; };
 		541278CB23B534910005224D /* DefaultVoteCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteCache.swift; sourceTree = "<group>"; };
-		541278CE23B65E910005224D /* InterstitialLaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialLaunchScreen.swift; sourceTree = "<group>"; };
 		541E350923887ED100BBCE31 /* DeltNU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeltNU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		541E350C23887ED100BBCE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541E350E23887ED100BBCE31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +151,8 @@
 		544ABAE623B1AD59004227C2 /* DirectoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryCache.swift; sourceTree = "<group>"; };
 		544ABAE823B1ADB1004227C2 /* DefaultDirectoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDirectoryCache.swift; sourceTree = "<group>"; };
 		544ABAEA23B1B381004227C2 /* UserDefaultsKeyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeyApi.swift; sourceTree = "<group>"; };
+		5461467323B96779006D4D23 /* InterstitialLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InterstitialLaunchScreen.storyboard; sourceTree = "<group>"; };
+		5461467523B96AA0006D4D23 /* InterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
 		549A3A832399BBE100B6BEA9 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		549A3A87239E011400B6BEA9 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		54C14E042399943D0065A1CB /* CredentialCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialCache.swift; sourceTree = "<group>"; };
@@ -199,7 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				541E351723887ED400BBCE31 /* LaunchScreen.storyboard */,
-				541278CE23B65E910005224D /* InterstitialLaunchScreen.swift */,
+				5461467323B96779006D4D23 /* InterstitialLaunchScreen.storyboard */,
+				5461467523B96AA0006D4D23 /* InterstitialViewController.swift */,
 			);
 			path = Launch;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				541E352923888FAA00BBCE31 /* .gitignore in Resources */,
 				541E35242388884F00BBCE31 /* questions.json in Resources */,
 				541E351923887ED400BBCE31 /* LaunchScreen.storyboard in Resources */,
+				5461467423B96779006D4D23 /* InterstitialLaunchScreen.storyboard in Resources */,
 				541E35232388884F00BBCE31 /* minutes.json in Resources */,
 				54308A392392CFA00008FE98 /* README.md in Resources */,
 				541E351623887ED400BBCE31 /* Preview Assets.xcassets in Resources */,
@@ -749,7 +753,7 @@
 				54308A4C23947CC00008FE98 /* Session.swift in Sources */,
 				541E357F23914AE900BBCE31 /* DirectoryRemote.swift in Sources */,
 				54C14E07239997860065A1CB /* DefaultCredentialCache.swift in Sources */,
-				541278CF23B65E910005224D /* InterstitialLaunchScreen.swift in Sources */,
+				5461467623B96AA0006D4D23 /* InterstitialViewController.swift in Sources */,
 				544ABAD823B1A567004227C2 /* Navigation.swift in Sources */,
 				544ABAE323B1AC73004227C2 /* DirectoryRepository.swift in Sources */,
 				544ABAC023A8464A004227C2 /* MinutesRepository.swift in Sources */,

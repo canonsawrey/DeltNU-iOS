@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,14 +20,32 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
-        // Use a UIHostingController as window root view controller.
-        if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            let hostingController = UIHostingController(rootView: SessionView())
-            window.rootViewController = hostingController
-            self.window = window
-            window.makeKeyAndVisible()
+        let showApplication: () -> Void = {
+            // Use a UIHostingController as window root view controller.
+            if let windowScene = scene as? UIWindowScene {
+                let window = UIWindow(windowScene: windowScene)
+                let hostingController = UIHostingController(rootView: SessionView())
+                window.rootViewController = hostingController
+                self.window = window
+                window.makeKeyAndVisible()
+            }
         }
+        // Check to see if there are existing credentials
+        let credentials = DefaultCredentialCache().getCachedCredentials()
+        guard let validCredentials = credentials.getCredentials() else {
+            showApplication()
+            return
+        }
+        let authentication = DefaultAuthRemote()
+        var disposables = Set<AnyCancellable>()
+        authentication.authenticate(credential: validCredentials)
+        .sink(
+            receiveCompletion: { _ in },
+            receiveValue: { _ in
+                showApplication()
+                disposables.forEach { $0.cancel() }
+        })
+        .store(in: &disposables)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

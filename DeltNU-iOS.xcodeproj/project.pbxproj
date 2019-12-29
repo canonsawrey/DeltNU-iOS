@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -582,7 +582,6 @@
 				1BBABF0B348A113E05E54DCB /* Pods-DeltNU.debug.xcconfig */,
 				799C0615F46738F74D2B1A59 /* Pods-DeltNU.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -908,7 +907,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DeltNU-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = HGQ277ZQTF;
+				DEVELOPMENT_TEAM = 24SJ8US62Z;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "DeltNU-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -929,7 +928,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"DeltNU-iOS/Preview Content\"";
-				DEVELOPMENT_TEAM = HGQ277ZQTF;
+				DEVELOPMENT_TEAM = 24SJ8US62Z;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "DeltNU-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

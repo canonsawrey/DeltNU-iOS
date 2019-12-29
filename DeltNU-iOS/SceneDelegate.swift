@@ -40,12 +40,53 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         var disposables = Set<AnyCancellable>()
         authentication.authenticate(credential: validCredentials)
         .sink(
-            receiveCompletion: { _ in },
+            receiveCompletion: {  value in //[weak self] completion in
+                switch value {
+                case .failure:
+                    print("fail")
+                case .finished:
+                    break
+                }
+        },
             receiveValue: { _ in
-                showApplication()
-                disposables.forEach { $0.cancel() }
+                self.setupSession(cred: validCredentials)
         })
-        .store(in: &disposables)
+    }
+    
+    private func setupSession(cred: Credential) {
+        let userRepository = DefaultUserRepository()
+        let dir = DefaultDirectoryCache()
+        let session = Session.shared
+        
+        session.fillCaches(userEmail: cred.email)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [weak self] value in
+                    guard let self = self else { return }
+                    switch value {
+                    //TODO handle these
+                    case .failure:
+                        break
+                    case .finished:
+                        break
+                    }
+                },
+                receiveValue: { [weak self] cacheResponse in
+                    guard let self = self else { return }
+                    //TODO this prrooooobably should live elsewhere and its pretty ugly
+                    userRepository.setUser(user: dir.getUser(email: cred.email))
+                    if let windowScene = self.scene as? UIWindowScene {
+                        let window = UIWindow(windowScene: windowScene)
+                        let hostingController = UIHostingController(rootView: SessionView())
+                        window.rootViewController = hostingController
+                        self.window = window
+                        window.makeKeyAndVisible()
+                    }
+                    withAnimation {
+                        session.activeSession = true
+                    }
+                    
+            })
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

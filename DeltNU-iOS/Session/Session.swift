@@ -16,7 +16,8 @@ class Session: ObservableObject {
     private init() { }
     
     @Published var activeSession: Bool = false
-    
+    @Published var globalError = false
+    @Published var globalErrorMessage = "Try again later."
     //For storing user object
     private let userRepository = DefaultUserRepository()
     
@@ -28,9 +29,10 @@ class Session: ObservableObject {
     private let voteRemote: Cachable = DefaultVoteRemote()
     private let directoryRemote: Cachable = DefaultDirectoryRemote()
     private let minutesRemote: Cachable = DefaultMinutesRemote()
+    private let directoryCache = DefaultDirectoryCache()
     
     private var disposables = Set<AnyCancellable>()
-    
+        
     func clearSession() {
         self.activeSession = false
         
@@ -57,7 +59,6 @@ class Session: ObservableObject {
     func fillCaches(userEmail: String) -> AnyPublisher<[CacheResponse], Never> {
         //TODO dispose of these
         let publishers = [voteRemote.fetchAndCache(), directoryRemote.fetchAndCache(), minutesRemote.fetchAndCache()]
-        
         return publishers
             .publisher
             .flatMap { $0 }
@@ -66,8 +67,62 @@ class Session: ObservableObject {
     }
     
     func emptyCaches() {
-        
+        //TODO implement these
     }
+    
+    func initSession(showApp: @escaping () -> Void) {
+        guard let credentials = credentialCache.getCachedCredentials().getCredentials() else {
+            showApp()
+            return
+        }
+        
+        self.authRemote.authenticate(credential: credentials)
+                .receive(on: DispatchQueue.main)
+                .sink(
+                    receiveCompletion: { [weak self] value in
+                        guard let self = self else { return }
+                        switch value {
+                        case .failure:
+                            showApp()
+                        case .finished:
+                            break
+                        }
+                    },
+                    receiveValue: { [weak self] authResponse in
+                        guard let self = self else { return }
+                        //TODO This is a terrible way to do this. We should find a way to throw a combine error if auth fails
+                        if authResponse.success {
+                            self.setupSession(credential: credentials, showApp: showApp)
+                        } else {
+                            showApp()
+                        }
+                })
+                .store(in: &disposables)
+        }
+        
+    private func setupSession(credential: Credential, showApp: @escaping () -> Void) {
+            self.fillCaches(userEmail: credential.email)
+                .receive(on: DispatchQueue.main)
+                .sink(
+                    receiveCompletion: { [weak self] value in
+                        guard let self = self else { return }
+                        switch value {
+                        //TODO handle these
+                        case .failure:
+                            break
+                        case .finished:
+                            break
+                        }
+                    },
+                    receiveValue: { [weak self] cacheResponse in
+                        guard let self = self else { return }
+                        //TODO this prrooooobably should live elsewhere and its pretty ugly
+                        self.userRepository.setUser(user: self.directoryCache.getUser(email: credential.email))
+                        self.activeSession = true
+                        showApp()
+                })
+                .store(in: &disposables)
+        }
     
     deinit {
         for disposable in disposables {

@@ -30,63 +30,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 window.makeKeyAndVisible()
             }
         }
-        // Check to see if there are existing credentials
-        let credentials = DefaultCredentialCache().getCachedCredentials()
-        guard let validCredentials = credentials.getCredentials() else {
-            showApplication()
-            return
-        }
-        let authentication = DefaultAuthRemote()
-        var disposables = Set<AnyCancellable>()
-        authentication.authenticate(credential: validCredentials)
-        .sink(
-            receiveCompletion: {  value in //[weak self] completion in
-                switch value {
-                case .failure:
-                    print("fail")
-                case .finished:
-                    break
-                }
-        },
-            receiveValue: { _ in
-                self.setupSession(cred: validCredentials)
-        })
-    }
-    
-    private func setupSession(cred: Credential) {
-        let userRepository = DefaultUserRepository()
-        let dir = DefaultDirectoryCache()
-        let session = Session.shared
         
-        session.fillCaches(userEmail: cred.email)
-            .receive(on: DispatchQueue.main)
-            .sink(
-                receiveCompletion: { [weak self] value in
-                    guard let self = self else { return }
-                    switch value {
-                    //TODO handle these
-                    case .failure:
-                        break
-                    case .finished:
-                        break
-                    }
-                },
-                receiveValue: { [weak self] cacheResponse in
-                    guard let self = self else { return }
-                    //TODO this prrooooobably should live elsewhere and its pretty ugly
-                    userRepository.setUser(user: dir.getUser(email: cred.email))
-                    if let windowScene = self.scene as? UIWindowScene {
-                        let window = UIWindow(windowScene: windowScene)
-                        let hostingController = UIHostingController(rootView: SessionView())
-                        window.rootViewController = hostingController
-                        self.window = window
-                        window.makeKeyAndVisible()
-                    }
-                    withAnimation {
-                        session.activeSession = true
-                    }
-                    
-            })
+        Session.shared.initSession(showApp: showApplication)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

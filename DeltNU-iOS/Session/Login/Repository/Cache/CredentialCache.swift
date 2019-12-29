@@ -14,13 +14,21 @@ protocol CredentialCache {
     func clearCredentials()
 }
 
-protocol CredentialResponse { }
+protocol CredentialResponse {
+    func getCredentials() -> Credential?
+}
 
 struct CredentialFailure: CredentialResponse {
+    func getCredentials() -> Credential? {
+        return nil
+    }
     let reason: String
 }
 
 struct CredentialSuccess: CredentialResponse {
+    func getCredentials() -> Credential? {
+        return Credential(email: email, password: password)
+    }
     let email: String
     let password: String
 }

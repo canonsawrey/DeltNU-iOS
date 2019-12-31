@@ -22,7 +22,7 @@ struct DirectoryView: View {
                 HStack {
                     HStack {
                         Image(systemName: "magnifyingglass")
-                            .foregroundColor(Color("secondary"))
+                            .foregroundColor(Color("colorCTA"))
                         
                         TextField("Search", text: $viewModel.searchText, onEditingChanged: { isEditing in
                             self.showCancelButton = true
@@ -37,7 +37,7 @@ struct DirectoryView: View {
                         }
                     }
                     .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
-                    .foregroundColor(.secondary)
+                    .foregroundColor(Color("secondary"))
                     .background(Color(.secondarySystemBackground))
                     .cornerRadius(10.0)
                     

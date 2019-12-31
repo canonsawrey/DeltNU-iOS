@@ -19,12 +19,14 @@ struct LoginView: View {
     var body: some View {
         ZStack {
             VStack {
-                Spacer()
-                    Image("Icon")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: pictureSize)
-                Spacer()
+                VStack {
+                    Spacer()
+                        Image("Icon")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: pictureSize)
+                    Spacer()
+                }.frame(maxHeight: signInButtonDisabled ? .infinity : 0)
                 TextField("Email", text: $viewModel.email)
                     .padding()
                     .cornerRadius( appStyle.cornerRadius)
@@ -56,6 +58,7 @@ struct LoginView: View {
                     .foregroundColor(Color("negative"))
                     .animation(.default)
                     .padding()
+                Spacer()
                 Button(action: {
                     guard let url = URL(string: EndpointApi.resetPassword) else { return }
                         UIApplication.shared.open(url)

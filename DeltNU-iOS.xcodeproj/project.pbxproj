@@ -37,7 +37,6 @@
 		541E3559238C60CC00BBCE31 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3558238C60CC00BBCE31 /* Extensions.swift */; };
 		541E355B238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */; };
 		541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3570239131B000BBCE31 /* DirectoryViewModel.swift */; };
-		541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3572239132DE00BBCE31 /* Combine-Decodable.swift */; };
 		541E35792391342B00BBCE31 /* DeltNuError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35782391342B00BBCE31 /* DeltNuError.swift */; };
 		541E357F23914AE900BBCE31 /* DirectoryRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E357E23914AE900BBCE31 /* DirectoryRemote.swift */; };
 		541E35812391815000BBCE31 /* options.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35802391815000BBCE31 /* options.json */; };
@@ -50,6 +49,7 @@
 		54308A4C23947CC00008FE98 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4B23947CC00008FE98 /* Session.swift */; };
 		54308A4F2395C73C0008FE98 /* AuthRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4E2395C73C0008FE98 /* AuthRemote.swift */; };
 		54308A532395CA4C0008FE98 /* DefaultAuthRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A522395CA4C0008FE98 /* DefaultAuthRemote.swift */; };
+		5434D9FF23BC0DEE003DDEA9 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434D9FE23BC0DEE003DDEA9 /* Combine.swift */; };
 		544ABAB023A822C0004227C2 /* VoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAAF23A822C0004227C2 /* VoteRemote.swift */; };
 		544ABAB223A827C3004227C2 /* DefaultVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */; };
 		544ABAB423A82B1B004227C2 /* VoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAB323A82B1B004227C2 /* VoteViewModel.swift */; };
@@ -117,7 +117,6 @@
 		541E3558238C60CC00BBCE31 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		541E355A238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiWorkarounds.swift; sourceTree = "<group>"; };
 		541E3570239131B000BBCE31 /* DirectoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewModel.swift; sourceTree = "<group>"; };
-		541E3572239132DE00BBCE31 /* Combine-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine-Decodable.swift"; sourceTree = "<group>"; };
 		541E35782391342B00BBCE31 /* DeltNuError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeltNuError.swift; sourceTree = "<group>"; };
 		541E357E23914AE900BBCE31 /* DirectoryRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryRemote.swift; sourceTree = "<group>"; };
 		541E35802391815000BBCE31 /* options.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = options.json; sourceTree = "<group>"; };
@@ -130,6 +129,7 @@
 		54308A4B23947CC00008FE98 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		54308A4E2395C73C0008FE98 /* AuthRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemote.swift; sourceTree = "<group>"; };
 		54308A522395CA4C0008FE98 /* DefaultAuthRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthRemote.swift; sourceTree = "<group>"; };
+		5434D9FE23BC0DEE003DDEA9 /* Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Combine.swift; path = "DeltNU-iOS/Common/Utility/Combine.swift"; sourceTree = "<group>"; };
 		544ABAAF23A822C0004227C2 /* VoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRemote.swift; sourceTree = "<group>"; };
 		544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteRemote.swift; sourceTree = "<group>"; };
 		544ABAB323A82B1B004227C2 /* VoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoteViewModel.swift; path = "DeltNU-iOS/App/Vote/VIEW/VoteViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -210,6 +210,7 @@
 		541E350023887ED100BBCE31 = {
 			isa = PBXGroup;
 			children = (
+				5434D9FE23BC0DEE003DDEA9 /* Combine.swift */,
 				54308A382392CFA00008FE98 /* README.md */,
 				541E352823888FAA00BBCE31 /* .gitignore */,
 				541E350B23887ED100BBCE31 /* DeltNU-iOS */,
@@ -268,7 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				541E35782391342B00BBCE31 /* DeltNuError.swift */,
-				541E3572239132DE00BBCE31 /* Combine-Decodable.swift */,
 				544ABAC623A86D7A004227C2 /* Coder.swift */,
 				544ABAD723B1A567004227C2 /* Navigation.swift */,
 				541E3558238C60CC00BBCE31 /* Extensions.swift */,
@@ -710,6 +710,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5434D9FF23BC0DEE003DDEA9 /* Combine.swift in Sources */,
 				541E353F238A1BC200BBCE31 /* Poll.swift in Sources */,
 				54E327A123A725CF007827B5 /* DefaultMinutesRemote.swift in Sources */,
 				54308A4F2395C73C0008FE98 /* AuthRemote.swift in Sources */,
@@ -734,7 +735,6 @@
 				54308A532395CA4C0008FE98 /* DefaultAuthRemote.swift in Sources */,
 				544ABAB223A827C3004227C2 /* DefaultVoteRemote.swift in Sources */,
 				54E3279D23A7154B007827B5 /* DefaultDirectoryRemote.swift in Sources */,
-				541E3573239132DE00BBCE31 /* Combine-Decodable.swift in Sources */,
 				54308A3F23937B450008FE98 /* ViewModel.swift in Sources */,
 				544ABAD423B17BFE004227C2 /* Reachability.swift in Sources */,
 				544ABAE723B1AD5A004227C2 /* DirectoryCache.swift in Sources */,

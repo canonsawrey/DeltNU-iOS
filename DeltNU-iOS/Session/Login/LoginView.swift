@@ -15,27 +15,31 @@ struct LoginView: View {
         viewModel.email == "" || viewModel.password == "" || viewModel.signingIn
     }
     private let pictureSize = UIScreen.main.bounds.width * 3 / 4
+    @ObservedObject private var keyboard = KeyboardResponder()
     
     var body: some View {
         ZStack {
             VStack {
-                VStack {
-                    Spacer()
-                        Image("Icon")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: pictureSize)
-                    Spacer()
-                }.frame(maxHeight: signInButtonDisabled ? .infinity : 0)
+                    VStack {
+                        Spacer()
+                            Image("Icon")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: pictureSize)
+                        Spacer()
+                    }.frame(maxHeight: keyboard.currentHeight == 0.0 ? .infinity : 100)
+                        .animation(.default)
                 TextField("Email", text: $viewModel.email)
                     .padding()
                     .cornerRadius( appStyle.cornerRadius)
                     .autocapitalization(UITextAutocapitalizationType.none)
                     .padding()
+                    .animation(.default)
                 SecureField("Password", text: $viewModel.password)
                     .padding()
                     .cornerRadius(appStyle.cornerRadius)
                     .padding()
+                    .animation(.default)
                 ZStack {
                     Text("Success. Retrieving data...").opacity(viewModel.signedIn ? 1.0 : 0.0)
                     Button(
@@ -51,7 +55,7 @@ struct LoginView: View {
                         }
                         }.buttonStyle(MainButtonStyle())
                         .opacity(viewModel.signedIn ? 0.0 : (signInButtonDisabled ? 0.5 : 1.0))
-                        .animation(.linear)
+                        .animation(.default)
                         .disabled(signInButtonDisabled)
                 }.padding()//.frame(alignment: .center)
                 Text(viewModel.error)

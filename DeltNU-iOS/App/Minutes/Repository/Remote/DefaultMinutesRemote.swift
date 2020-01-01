@@ -27,7 +27,7 @@ class DefaultMinutesRemote: MinutesRemote {
             .mapError { error in
                 .network(description: error.localizedDescription)
         }
-        .flatMap(maxPublishers: .max(1)) { pair -> AnyPublisher<Minutes, DeltNuError> in
+        .flatMap(maxPublishers: .max(1)) { pair in
             decode(pair.data)
         }
         .handleEvents(receiveOutput: { output in

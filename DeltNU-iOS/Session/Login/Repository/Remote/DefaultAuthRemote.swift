@@ -46,8 +46,13 @@ class DefaultAuthRemote: AuthRemote {
         let request = self.buildRequest(credential: credential)
         
         let task = session.dataTask(with: request) { data, response, error in
-            if error != nil {
+            guard let httpResponse = response as? HTTPURLResponse else {
                 Session.shared.activeSession = false
+                return
+            }
+            guard error == nil && self.containsSetCookie(response: httpResponse) else {
+                Session.shared.activeSession = false
+                return
             }
         }
         

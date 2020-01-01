@@ -22,33 +22,28 @@ func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, DeltNuError> {
     .eraseToAnyPublisher()
 }
 
-func decodePolls(_ data: Data) -> AnyPublisher<Polls, DeltNuError> {
-    let coder = Coder()
-
-  return Just(data)
-    .decode(type: Polls.self, decoder: coder.decoder)
-    .mapError { error in
-      .parsing(description: error.localizedDescription)
-    }
-    .eraseToAnyPublisher()
-}
-
 extension URLSession.DataTaskPublisher {
-//    func catch302() -> AnyPublisher<Int, DeltNuError> {
-//        return self
-//            .mapError { error in
-//                .network(description: error.localizedDescription)
-//            }
-//            .flatMap { pair in
-//            guard let httpResponse = pair.response as? HTTPURLResponse else {
-//                fatalError("Catch 302 should only be used on HTTP requests")
-//            }
-//            if httpResponse.statusCode == 302 {
-//                return 1
-//            } else {
-//                return 2
-//            }
-//        }.eraseToAnyPublisher()
-//    }
+    func checkStatusCode() -> Publishers.TryMap<URLSession.DataTaskPublisher, URLSession.DataTaskPublisher.Output> {
+        var refreshSent = false
+        
+        return self
+            .tryMap { (output) -> URLSession.DataTaskPublisher.Output in
+            guard let httpResponse = output.response as? HTTPURLResponse else {
+                throw DeltNuError.network(description: "Unable to cast URLResponse to HTTPURLResponse")
+            }
+            guard httpResponse.statusCode == 400 else {
+                if (httpResponse.statusCode == 302) {
+                    if !refreshSent {
+                        Session.shared.refreshCookie()
+                        refreshSent = true
+                    }
+                    throw DeltNuError.network(description: "Auth token expired")
+                } else {
+                    throw DeltNuError.network(description: "Status code: \(httpResponse.statusCode) received")
+                }
+            }
+            return output
+        }
+    }
 }
 

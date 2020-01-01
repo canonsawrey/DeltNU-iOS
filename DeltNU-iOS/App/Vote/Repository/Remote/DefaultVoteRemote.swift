@@ -29,7 +29,7 @@ class DefaultVoteRemote: VoteRemote {
                 guard let httpResponse = output.response as? HTTPURLResponse else {
                     throw DeltNuError.network(description: "Unable to cast URLResponse to HTTPURLResponse")
                 }
-                guard httpResponse.statusCode == 400 else {
+                guard httpResponse.statusCode == 200 else {
                     if (httpResponse.statusCode == 302) {
                         if !refreshSent {
                             Session.shared.refreshCookie()

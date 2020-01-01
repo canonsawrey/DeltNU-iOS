@@ -22,6 +22,17 @@ func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, DeltNuError> {
     .eraseToAnyPublisher()
 }
 
+func decodePolls(_ data: Data) -> AnyPublisher<Polls, DeltNuError> {
+    let coder = Coder()
+
+  return Just(data)
+    .decode(type: Polls.self, decoder: coder.decoder)
+    .mapError { error in
+      .parsing(description: error.localizedDescription)
+    }
+    .eraseToAnyPublisher()
+}
+
 extension URLSession.DataTaskPublisher {
 //    func catch302() -> AnyPublisher<Int, DeltNuError> {
 //        return self

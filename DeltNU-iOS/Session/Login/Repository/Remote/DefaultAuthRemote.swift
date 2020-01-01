@@ -38,8 +38,22 @@ class DefaultAuthRemote: AuthRemote {
                 }
                 return error as! DeltNuError
             }
+            .first()
             .eraseToAnyPublisher()
     }
+    
+    func refreshCookie(credential: Credential) {
+        let request = self.buildRequest(credential: credential)
+        
+        let task = session.dataTask(with: request) { data, response, error in
+            if error != nil {
+                Session.shared.activeSession = false
+            }
+        }
+        
+        task.resume()
+    }
+    
     
     private func containsSetCookie(response: HTTPURLResponse) -> Bool {
         if (response.allHeaderFields.contains(where: { header in

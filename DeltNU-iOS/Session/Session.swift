@@ -48,12 +48,12 @@ class Session: ObservableObject {
         }
     }
     
-    func refreshCookie() -> AnyPublisher<AuthenticationResponse, DeltNuError> {
+    func refreshCookie() {
         let credentials = credentialCache.getCachedCredentials()
         //TODO Fix the hard cast
         let credentialSuccess = credentials as! CredentialSuccess
         let credential = Credential(email: credentialSuccess.email, password: credentialSuccess.password)
-        return authRemote.authenticate(credential: credential)
+        authRemote.refreshCookie(credential: credential)
     }
     
     func fillCaches(userEmail: String) -> AnyPublisher<[CacheResponse], Never> {

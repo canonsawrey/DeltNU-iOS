@@ -22,18 +22,41 @@ class DefaultVoteRemote: VoteRemote {
     
     func getRemotePolls() -> AnyPublisher<Polls, DeltNuError> {
         let urlRequest = URLRequest(url: url)
+        var refreshSent = false
         
         return session.dataTaskPublisher(for: urlRequest)
+            .tryMap { (output) -> URLSession.DataTaskPublisher.Output in
+                guard let httpResponse = output.response as? HTTPURLResponse else {
+                    throw DeltNuError.network(description: "Unable to cast URLResponse to HTTPURLResponse")
+                }
+                guard httpResponse.statusCode == 400 else {
+                    if (httpResponse.statusCode == 302) {
+                        if !refreshSent {
+                            Session.shared.refreshCookie()
+                            refreshSent = true
+                        }
+                        throw DeltNuError.network(description: "Auth token expired")
+                    } else {
+                        throw DeltNuError.network(description: "Status code: \(httpResponse.statusCode) received")
+                    }
+                }
+                return output
+            }
+            .retry(3)
             .mapError { error in
-                .network(description: error.localizedDescription)
-        }
-        .flatMap(maxPublishers: .max(1)) { pair in
-            decode(pair.data)
-        }
-        .handleEvents(receiveOutput: { output in
-            self.voteCache.setCachedPolls(polls: output)
-        })
-        .eraseToAnyPublisher()
+                if error is DeltNuError {
+                    return error as! DeltNuError
+                } else {
+                    return DeltNuError.unknown(description: error.localizedDescription)
+                }
+            }
+            .flatMap(maxPublishers: .max(1)) { pair in
+                decode(pair.data)
+            }
+            .handleEvents(receiveOutput: { output in
+                self.voteCache.setCachedPolls(polls: output)
+            })
+            .eraseToAnyPublisher()
     }
     
     func fetchAndCache() -> AnyPublisher<CacheResponse, Never> {

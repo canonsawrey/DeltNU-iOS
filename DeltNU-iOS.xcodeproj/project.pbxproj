@@ -50,6 +50,7 @@
 		54308A4F2395C73C0008FE98 /* AuthRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4E2395C73C0008FE98 /* AuthRemote.swift */; };
 		54308A532395CA4C0008FE98 /* DefaultAuthRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A522395CA4C0008FE98 /* DefaultAuthRemote.swift */; };
 		5434D9FF23BC0DEE003DDEA9 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434D9FE23BC0DEE003DDEA9 /* Combine.swift */; };
+		5434DA0123BC214A003DDEA9 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434DA0023BC214A003DDEA9 /* Combine.swift */; };
 		544ABAB023A822C0004227C2 /* VoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAAF23A822C0004227C2 /* VoteRemote.swift */; };
 		544ABAB223A827C3004227C2 /* DefaultVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */; };
 		544ABAB423A82B1B004227C2 /* VoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAB323A82B1B004227C2 /* VoteViewModel.swift */; };
@@ -130,6 +131,7 @@
 		54308A4E2395C73C0008FE98 /* AuthRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemote.swift; sourceTree = "<group>"; };
 		54308A522395CA4C0008FE98 /* DefaultAuthRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthRemote.swift; sourceTree = "<group>"; };
 		5434D9FE23BC0DEE003DDEA9 /* Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Combine.swift; path = "DeltNU-iOS/Common/Utility/Combine.swift"; sourceTree = "<group>"; };
+		5434DA0023BC214A003DDEA9 /* Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combine.swift; sourceTree = "<group>"; };
 		544ABAAF23A822C0004227C2 /* VoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRemote.swift; sourceTree = "<group>"; };
 		544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteRemote.swift; sourceTree = "<group>"; };
 		544ABAB323A82B1B004227C2 /* VoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VoteViewModel.swift; path = "DeltNU-iOS/App/Vote/VIEW/VoteViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -268,6 +270,7 @@
 		541E35252388885A00BBCE31 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				5434DA0023BC214A003DDEA9 /* Combine.swift */,
 				541E35782391342B00BBCE31 /* DeltNuError.swift */,
 				544ABAC623A86D7A004227C2 /* Coder.swift */,
 				544ABAD723B1A567004227C2 /* Navigation.swift */,
@@ -747,6 +750,7 @@
 				54E3279F23A72300007827B5 /* MinutesRemote.swift in Sources */,
 				541278C823B5331B0005224D /* DefaultVoteRepository.swift in Sources */,
 				544ABAE923B1ADB1004227C2 /* DefaultDirectoryCache.swift in Sources */,
+				5434DA0123BC214A003DDEA9 /* Combine.swift in Sources */,
 				541278C623B532AD0005224D /* VoteRepository.swift in Sources */,
 				541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */,
 				544ABADF23B1A7E8004227C2 /* UserRepository.swift in Sources */,

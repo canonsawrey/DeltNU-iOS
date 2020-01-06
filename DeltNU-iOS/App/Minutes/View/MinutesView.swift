@@ -14,23 +14,24 @@ struct MinutesView: View {
     @State var selectedYear: Int = 0
     let years = [2020, 2019, 2018]
     @State var selectedSemester: Int = 0
-    @State var showingNoMasterform: Bool = false
+    var availableMasterform: Bool {
+        return self.viewModel.minutes.count > 0 && self.viewModel.minutes[0].masterform != ""
+    }
     
     var body: some View {
         NavigationView {
             VStack {
                 if (filterredMinutes.count > 0) {
                     List(filterredMinutes) { min in
-                        Button(action: {
-                            guard let url = URL(string: EndpointApi.minutesDetail + String(min.id)) else { return }
-                            UIApplication.shared.open(url)
-                        }) {
+                        NavigationLink(destination:
+                            UrlWebView(url: "\(EndpointApi.minutesDetail)\(min.id)"),
+                                       label: {
                             HStack {
                                 Text(min.createdAt.formattedDate())
                                 Spacer()
                                 Text(min.createdAt.getElapsedInterval())
                             }
-                        }
+                        })
                     }
                 } else {
                     Text("No minutes to display").frame(maxHeight: .infinity)
@@ -53,24 +54,20 @@ struct MinutesView: View {
                 trailing: Button(action: {
                     if self.viewModel.minutes.count > 0 {
                         guard let url = URL(string: self.viewModel.minutes[0].masterform) else {
-                            self.showingNoMasterform = true
                             return
                         }
                         UIApplication.shared.open(url)
-                    } else {
-                        self.showingNoMasterform = true
                     }
                     
                 }) {
-                    Text("Masterform")
+                    HStack {
+                        Text("Masterform")
+                        if availableMasterform {
+                            Text("(\(self.viewModel.minutes[0].createdAt.getElapsedInterval()))")
+                        }
+                    }.opacity(availableMasterform ? 1.0 : 0.0)
             })
-                .alert(isPresented: $showingNoMasterform) {
-                    Alert(
-                        title: Text("No recent masterform"),
-                        message: Text("There is no masterform associated with the most recent minutes")
-                    )
-            }
-        }.onAppear(perform: viewModel.getMinutes)
+            }.onAppear(perform: viewModel.getMinutes)
     }
     
     var filterredMinutes: Minutes {

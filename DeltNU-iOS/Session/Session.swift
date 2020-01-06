@@ -33,8 +33,10 @@ class Session: ObservableObject {
     
     private var disposables = Set<AnyCancellable>()
         
-    func clearSession() {
-        self.activeSession = false
+    func clearSession(deactivateSession: Bool = true) {
+        if (deactivateSession) {
+            self.activeSession = false
+        }
         
         if let unwrappedCookies = HTTPCookieStorage.shared.cookies {
             let sessionCookie = unwrappedCookies.first { cookie in
@@ -49,9 +51,13 @@ class Session: ObservableObject {
     }
     
     func refreshCookie() {
+        clearSession(deactivateSession: false)
         let credentials = credentialCache.getCachedCredentials()
         //TODO Fix the hard cast
-        let credentialSuccess = credentials as! CredentialSuccess
+        guard let credentialSuccess = credentials as? CredentialSuccess else {
+            self.activeSession = false
+            return
+        }
         let credential = Credential(email: credentialSuccess.email, password: credentialSuccess.password)
         authRemote.refreshCookie(credential: credential)
     }
@@ -130,3 +136,5 @@ class Session: ObservableObject {
         }
     }
 }
+
+

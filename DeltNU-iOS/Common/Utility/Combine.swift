@@ -23,27 +23,46 @@ func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, DeltNuError> {
 }
 
 extension URLSession.DataTaskPublisher {
-    func checkStatusCode() -> Publishers.TryMap<URLSession.DataTaskPublisher, URLSession.DataTaskPublisher.Output> {
-        var refreshSent = false
+    func checkStatusCode() -> Publishers.Retry<Publishers.TryMap<URLSession.DataTaskPublisher, URLSession.DataTaskPublisher.Output>> {
         
         return self
             .tryMap { (output) -> URLSession.DataTaskPublisher.Output in
             guard let httpResponse = output.response as? HTTPURLResponse else {
                 throw DeltNuError.network(description: "Unable to cast URLResponse to HTTPURLResponse")
             }
-            guard httpResponse.statusCode == 400 else {
-                if (httpResponse.statusCode == 302) {
-                    if !refreshSent {
-                        Session.shared.refreshCookie()
-                        refreshSent = true
-                    }
+            guard httpResponse.statusCode == 200 else {
+                if (httpResponse.statusCode == 403) {
+                    Session.shared.refreshCookie()
                     throw DeltNuError.network(description: "Auth token expired")
                 } else {
                     throw DeltNuError.network(description: "Status code: \(httpResponse.statusCode) received")
                 }
             }
-            return output
-        }
+                return output
+        }.retry(1)
     }
 }
 
+
+extension URLSession {
+
+    func performSynchronously(request: URLRequest) -> (data: Data?, response: URLResponse?, error: Error?) {
+        let semaphore = DispatchSemaphore(value: 0)
+
+        var data: Data?
+        var response: URLResponse?
+        var error: Error?
+
+        let task = self.dataTask(with: request) {
+            data = $0
+            response = $1
+            error = $2
+            semaphore.signal()
+        }
+
+        task.resume()
+        semaphore.wait()
+
+        return (data, response, error)
+    }
+}

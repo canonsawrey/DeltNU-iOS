@@ -44,19 +44,16 @@ class DefaultAuthRemote: AuthRemote {
     
     func refreshCookie(credential: Credential) {
         let request = self.buildRequest(credential: credential)
+        let result = session.performSynchronously(request: request)
         
-        let task = session.dataTask(with: request) { data, response, error in
-            guard let httpResponse = response as? HTTPURLResponse else {
-                Session.shared.activeSession = false
-                return
-            }
-            guard error == nil && self.containsSetCookie(response: httpResponse) else {
-                Session.shared.activeSession = false
-                return
-            }
+        guard let httpResponse = result.response as? HTTPURLResponse else {
+            Session.shared.activeSession = false
+            return
         }
-        
-        task.resume()
+        guard result.error == nil && self.containsSetCookie(response: httpResponse) else {
+            Session.shared.activeSession = false
+            return
+        }
     }
     
     

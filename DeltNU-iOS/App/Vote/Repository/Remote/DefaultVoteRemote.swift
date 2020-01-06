@@ -22,27 +22,9 @@ class DefaultVoteRemote: VoteRemote {
     
     func getRemotePolls() -> AnyPublisher<Polls, DeltNuError> {
         let urlRequest = URLRequest(url: url)
-        var refreshSent = false
         
         return session.dataTaskPublisher(for: urlRequest)
-            .tryMap { (output) -> URLSession.DataTaskPublisher.Output in
-                guard let httpResponse = output.response as? HTTPURLResponse else {
-                    throw DeltNuError.network(description: "Unable to cast URLResponse to HTTPURLResponse")
-                }
-                guard httpResponse.statusCode == 200 else {
-                    if (httpResponse.statusCode == 302) {
-                        if !refreshSent {
-                            Session.shared.refreshCookie()
-                            refreshSent = true
-                        }
-                        throw DeltNuError.network(description: "Auth token expired")
-                    } else {
-                        throw DeltNuError.network(description: "Status code: \(httpResponse.statusCode) received")
-                    }
-                }
-                return output
-            }
-            .retry(3)
+            .checkStatusCode()
             .mapError { error in
                 if error is DeltNuError {
                     return error as! DeltNuError

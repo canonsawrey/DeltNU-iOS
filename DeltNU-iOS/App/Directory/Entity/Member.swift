@@ -29,6 +29,7 @@ struct Member: Codable, Identifiable {
     let latitude, longitude: Double?
     let rememberDigest, resetDigest, resetSentAt: String?
     let gradSemester: Int?
+    let pictureUrl: String
 
 
     enum CodingKeys: String, CodingKey {
@@ -52,6 +53,7 @@ struct Member: Codable, Identifiable {
         case resetDigest = "reset_digest"
         case resetSentAt = "reset_sent_at"
         case gradSemester = "grad_semester"
+        case pictureUrl = "picture_url"
     }
 }
 

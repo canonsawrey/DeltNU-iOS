@@ -13,7 +13,7 @@ struct MinutesView: View {
     @ObservedObject var viewModel: MinutesViewModel
     @State var selectedYear: Int = 0
     let years = [2020, 2019, 2018]
-    @State var selectedSemester: Int = 0
+    @State var selectedSemester: Int = 1
     var availableMasterform: Bool {
         return self.viewModel.minutes.count > 0 && self.viewModel.minutes[0].masterform != ""
     }

@@ -20,4 +20,5 @@ class UserDefaultsKeyApi {
     static let minutes = "key::minutes"
     static let directory =  "key::directory"
     static let polls = "key::polls"
+    static let serviceHours = "key::serviceHours"
 }

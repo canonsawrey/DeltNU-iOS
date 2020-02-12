@@ -23,5 +23,6 @@ class EndpointApi {
     static let votePost =  "https://www.deltnu.com/questions/app_vote"
     static let voteIndex =  "https://www.deltnu.com/questions/app_index"
     static let directoryIndex =  "https://www.deltnu.com/directory/app_index"
+    static let serviceHoursIndex = "https://www.deltnu.com/servicehours/app_index"
     
 }

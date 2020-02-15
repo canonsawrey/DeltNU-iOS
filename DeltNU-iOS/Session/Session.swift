@@ -101,6 +101,7 @@ class Session: ObservableObject {
                         if authResponse.success {
                             self.setupSession(credential: credentials, showApp: showApp)
                         } else {
+                            
                             showApp()
                         }
                 })

@@ -33,7 +33,7 @@ struct MemberView: View {
                 .font(.largeTitle)
                 .padding()
                 
-            Text(member.pledgeClass.rawValue)
+            Text(member.pledgeClass)
                 .padding()
             
             Text(member.phoneNumber)

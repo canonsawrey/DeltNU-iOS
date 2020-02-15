@@ -21,14 +21,15 @@ class DefaultDirectoryRemote: DirectoryRemote {
     
     func getRemoteDirectory() -> AnyPublisher<MemberDirectory, DeltNuError> {
         let urlRequest = URLRequest(url: url)
-        
+        print("\n||||||FETCHING MEMBERS|||||\n")
         return session.dataTaskPublisher(for: urlRequest)
             .mapError { error in
                 .network(description: error.localizedDescription)
         }
         .flatMap(maxPublishers: .max(1)) { pair in
             decode(pair.data)
-        }.handleEvents(receiveOutput: { output in
+            }
+        .handleEvents(receiveOutput: { output in
             self.directoryCache.setCachedDirectory(directory: output)
         })
             .eraseToAnyPublisher()

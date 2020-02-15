@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,7 +49,6 @@
 		54308A4C23947CC00008FE98 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4B23947CC00008FE98 /* Session.swift */; };
 		54308A4F2395C73C0008FE98 /* AuthRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A4E2395C73C0008FE98 /* AuthRemote.swift */; };
 		54308A532395CA4C0008FE98 /* DefaultAuthRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A522395CA4C0008FE98 /* DefaultAuthRemote.swift */; };
-		5434D9FF23BC0DEE003DDEA9 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434D9FE23BC0DEE003DDEA9 /* Combine.swift */; };
 		5434DA0123BC214A003DDEA9 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5434DA0023BC214A003DDEA9 /* Combine.swift */; };
 		544ABAB023A822C0004227C2 /* VoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAAF23A822C0004227C2 /* VoteRemote.swift */; };
 		544ABAB223A827C3004227C2 /* DefaultVoteRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */; };
@@ -83,7 +82,6 @@
 		54E3279D23A7154B007827B5 /* DefaultDirectoryRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3279C23A7154B007827B5 /* DefaultDirectoryRemote.swift */; };
 		54E3279F23A72300007827B5 /* MinutesRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3279E23A72300007827B5 /* MinutesRemote.swift */; };
 		54E327A123A725CF007827B5 /* DefaultMinutesRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E327A023A725CF007827B5 /* DefaultMinutesRemote.swift */; };
-		7ED64161084D5C5A12852FA1 /* Pods_DeltNU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A8D09F0E819BBED62126D8 /* Pods_DeltNU.framework */; };
 		845277B123E658750057A695 /* DefaultServiceHoursRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B023E658750057A695 /* DefaultServiceHoursRepository.swift */; };
 		845277B323E658840057A695 /* ServiceHoursRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B223E658840057A695 /* ServiceHoursRepository.swift */; };
 		845277B523E6593D0057A695 /* ServiceHoursCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B423E6593D0057A695 /* ServiceHoursCache.swift */; };
@@ -93,7 +91,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1BBABF0B348A113E05E54DCB /* Pods-DeltNU.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeltNU.debug.xcconfig"; path = "Target Support Files/Pods-DeltNU/Pods-DeltNU.debug.xcconfig"; sourceTree = "<group>"; };
 		541278C123B52ED00005224D /* Cachable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cachable.swift; sourceTree = "<group>"; };
 		541278C523B532AD0005224D /* VoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRepository.swift; sourceTree = "<group>"; };
 		541278C723B5331B0005224D /* DefaultVoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteRepository.swift; sourceTree = "<group>"; };
@@ -138,7 +135,6 @@
 		54308A4B23947CC00008FE98 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		54308A4E2395C73C0008FE98 /* AuthRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRemote.swift; sourceTree = "<group>"; };
 		54308A522395CA4C0008FE98 /* DefaultAuthRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAuthRemote.swift; sourceTree = "<group>"; };
-		5434D9FE23BC0DEE003DDEA9 /* Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Combine.swift; path = "DeltNU-iOS/Common/Utility/Combine.swift"; sourceTree = "<group>"; };
 		5434DA0023BC214A003DDEA9 /* Combine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combine.swift; sourceTree = "<group>"; };
 		544ABAAF23A822C0004227C2 /* VoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteRemote.swift; sourceTree = "<group>"; };
 		544ABAB123A827C3004227C2 /* DefaultVoteRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultVoteRemote.swift; sourceTree = "<group>"; };
@@ -172,14 +168,12 @@
 		54E3279C23A7154B007827B5 /* DefaultDirectoryRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDirectoryRemote.swift; sourceTree = "<group>"; };
 		54E3279E23A72300007827B5 /* MinutesRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesRemote.swift; sourceTree = "<group>"; };
 		54E327A023A725CF007827B5 /* DefaultMinutesRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMinutesRemote.swift; sourceTree = "<group>"; };
-		799C0615F46738F74D2B1A59 /* Pods-DeltNU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeltNU.release.xcconfig"; path = "Target Support Files/Pods-DeltNU/Pods-DeltNU.release.xcconfig"; sourceTree = "<group>"; };
 		845277B023E658750057A695 /* DefaultServiceHoursRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceHoursRepository.swift; sourceTree = "<group>"; };
 		845277B223E658840057A695 /* ServiceHoursRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHoursRepository.swift; sourceTree = "<group>"; };
 		845277B423E6593D0057A695 /* ServiceHoursCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHoursCache.swift; sourceTree = "<group>"; };
 		845277B623E659BF0057A695 /* DefaultServiceHoursCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceHoursCache.swift; sourceTree = "<group>"; };
 		845277B823E6709F0057A695 /* ServiceHoursRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHoursRemote.swift; sourceTree = "<group>"; };
 		845277BA23E670D00057A695 /* DefaultServiceHoursRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceHoursRemote.swift; sourceTree = "<group>"; };
-		84A8D09F0E819BBED62126D8 /* Pods_DeltNU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeltNU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +181,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ED64161084D5C5A12852FA1 /* Pods_DeltNU.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,13 +221,10 @@
 		541E350023887ED100BBCE31 = {
 			isa = PBXGroup;
 			children = (
-				5434D9FE23BC0DEE003DDEA9 /* Combine.swift */,
 				54308A382392CFA00008FE98 /* README.md */,
 				541E352823888FAA00BBCE31 /* .gitignore */,
 				541E350B23887ED100BBCE31 /* DeltNU-iOS */,
 				541E350A23887ED100BBCE31 /* Products */,
-				B2A0A98191B3A9CD37C8EF0C /* Pods */,
-				921203E908F5ED56AFF052D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -646,23 +636,6 @@
 			path = Remote;
 			sourceTree = "<group>";
 		};
-		921203E908F5ED56AFF052D4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				84A8D09F0E819BBED62126D8 /* Pods_DeltNU.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B2A0A98191B3A9CD37C8EF0C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				1BBABF0B348A113E05E54DCB /* Pods-DeltNU.debug.xcconfig */,
-				799C0615F46738F74D2B1A59 /* Pods-DeltNU.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -670,11 +643,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 541E351D23887ED400BBCE31 /* Build configuration list for PBXNativeTarget "DeltNU" */;
 			buildPhases = (
-				E4B5FF13A655CC15A19224E2 /* [CP] Check Pods Manifest.lock */,
 				541E350523887ED100BBCE31 /* Sources */,
 				541E350623887ED100BBCE31 /* Frameworks */,
 				541E350723887ED100BBCE31 /* Resources */,
-				EC33092B2C9F8D6E0F65A70F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -738,48 +709,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		E4B5FF13A655CC15A19224E2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DeltNU-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC33092B2C9F8D6E0F65A70F /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DeltNU/Pods-DeltNU-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DeltNU/Pods-DeltNU-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DeltNU/Pods-DeltNU-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		541E350523887ED100BBCE31 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -787,7 +716,6 @@
 			files = (
 				5480B29223C3FA59007DC42C /* ServiceHoursBarView.swift in Sources */,
 				845277B923E6709F0057A695 /* ServiceHoursRemote.swift in Sources */,
-				5434D9FF23BC0DEE003DDEA9 /* Combine.swift in Sources */,
 				541E353F238A1BC200BBCE31 /* Poll.swift in Sources */,
 				54E327A123A725CF007827B5 /* DefaultMinutesRemote.swift in Sources */,
 				54308A4F2395C73C0008FE98 /* AuthRemote.swift in Sources */,
@@ -990,7 +918,6 @@
 		};
 		541E351E23887ED400BBCE31 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BBABF0B348A113E05E54DCB /* Pods-DeltNU.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1011,7 +938,6 @@
 		};
 		541E351F23887ED400BBCE31 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 799C0615F46738F74D2B1A59 /* Pods-DeltNU.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

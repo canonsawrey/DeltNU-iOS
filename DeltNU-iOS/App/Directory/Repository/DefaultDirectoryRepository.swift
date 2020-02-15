@@ -15,6 +15,7 @@ class DefaultDirectoryRepository: DirectoryRepository {
     private let directoryRemote: DirectoryRemote = DefaultDirectoryRemote()
     
     func getMembers() -> AnyPublisher<MemberDirectory, DeltNuError> {
+        print("\n||||||GETTING MEMBERS|||||\n")
         return Publishers.Merge(
             directoryCache.getCachedDirectory(),
             directoryRemote.getRemoteDirectory()

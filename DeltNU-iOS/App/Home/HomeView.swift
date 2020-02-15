@@ -14,7 +14,7 @@ struct HomeView: View {
         userRepository.getUser()
     }
     //private let serviceHoursRepository: ServiceHoursRepository = DefaultServiceHoursRepository()
-    private var hoursCompleted: Double? = 20
+    private var hoursCompleted: Double? = 8
 //    {
 //        serviceHoursRepository.getIndividualServiceHoursCompleted(user: user)
 //    }

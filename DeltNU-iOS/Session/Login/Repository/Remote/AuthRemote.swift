@@ -11,6 +11,8 @@ import Combine
 
 protocol AuthRemote {
     func authenticate(credential: Credential) -> AnyPublisher<AuthenticationResponse, DeltNuError>
+    
+    func refreshCookie(credential: Credential)
 }
 
 struct AuthenticationResponse {

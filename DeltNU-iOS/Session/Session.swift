@@ -29,12 +29,15 @@ class Session: ObservableObject {
     private let voteRemote: Cachable = DefaultVoteRemote()
     private let directoryRemote: Cachable = DefaultDirectoryRemote()
     private let minutesRemote: Cachable = DefaultMinutesRemote()
+    //private let serviceHoursRemote: Cachable = DefaultServiceHoursRemote()
     private let directoryCache = DefaultDirectoryCache()
     
     private var disposables = Set<AnyCancellable>()
         
-    func clearSession() {
-        self.activeSession = false
+    func clearSession(deactivateSession: Bool = true) {
+        if (deactivateSession) {
+            self.activeSession = false
+        }
         
         if let unwrappedCookies = HTTPCookieStorage.shared.cookies {
             let sessionCookie = unwrappedCookies.first { cookie in
@@ -48,12 +51,16 @@ class Session: ObservableObject {
         }
     }
     
-    func refreshCookie() -> AnyPublisher<AuthenticationResponse, DeltNuError> {
+    func refreshCookie() {
+        clearSession(deactivateSession: false)
         let credentials = credentialCache.getCachedCredentials()
         //TODO Fix the hard cast
-        let credentialSuccess = credentials as! CredentialSuccess
+        guard let credentialSuccess = credentials as? CredentialSuccess else {
+            self.activeSession = false
+            return
+        }
         let credential = Credential(email: credentialSuccess.email, password: credentialSuccess.password)
-        return authRemote.authenticate(credential: credential)
+        authRemote.refreshCookie(credential: credential)
     }
     
     func fillCaches(userEmail: String) -> AnyPublisher<[CacheResponse], Never> {
@@ -94,6 +101,7 @@ class Session: ObservableObject {
                         if authResponse.success {
                             self.setupSession(credential: credentials, showApp: showApp)
                         } else {
+                            
                             showApp()
                         }
                 })
@@ -130,3 +138,5 @@ class Session: ObservableObject {
         }
     }
 }
+
+

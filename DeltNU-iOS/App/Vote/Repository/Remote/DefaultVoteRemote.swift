@@ -24,16 +24,21 @@ class DefaultVoteRemote: VoteRemote {
         let urlRequest = URLRequest(url: url)
         
         return session.dataTaskPublisher(for: urlRequest)
+            .checkStatusCode()
             .mapError { error in
-                .network(description: error.localizedDescription)
-        }
-        .flatMap(maxPublishers: .max(1)) { pair in
-            decode(pair.data)
-        }
-        .handleEvents(receiveOutput: { output in
-            self.voteCache.setCachedPolls(polls: output)
-        })
-        .eraseToAnyPublisher()
+                if error is DeltNuError {
+                    return error as! DeltNuError
+                } else {
+                    return DeltNuError.unknown(description: error.localizedDescription)
+                }
+            }
+            .flatMap(maxPublishers: .max(1)) { pair in
+                decode(pair.data)
+            }
+            .handleEvents(receiveOutput: { output in
+                self.voteCache.setCachedPolls(polls: output)
+            })
+            .eraseToAnyPublisher()
     }
     
     func fetchAndCache() -> AnyPublisher<CacheResponse, Never> {

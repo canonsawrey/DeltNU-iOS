@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-import Foundation
 import Combine
 
 func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, DeltNuError> {
@@ -23,21 +21,46 @@ func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, DeltNuError> {
 }
 
 extension URLSession.DataTaskPublisher {
-//    func catch302() -> AnyPublisher<Int, DeltNuError> {
-//        return self
-//            .mapError { error in
-//                .network(description: error.localizedDescription)
-//            }
-//            .flatMap { pair in
-//            guard let httpResponse = pair.response as? HTTPURLResponse else {
-//                fatalError("Catch 302 should only be used on HTTP requests")
-//            }
-//            if httpResponse.statusCode == 302 {
-//                return 1
-//            } else {
-//                return 2
-//            }
-//        }.eraseToAnyPublisher()
-//    }
+    func checkStatusCode() -> Publishers.Retry<Publishers.TryMap<URLSession.DataTaskPublisher, URLSession.DataTaskPublisher.Output>> {
+        
+        return self
+            .tryMap { (output) -> URLSession.DataTaskPublisher.Output in
+            guard let httpResponse = output.response as? HTTPURLResponse else {
+                throw DeltNuError.network(description: "Unable to cast URLResponse to HTTPURLResponse")
+            }
+            guard httpResponse.statusCode == 200 else {
+                if (httpResponse.statusCode == 403) {
+                    Session.shared.refreshCookie()
+                    throw DeltNuError.network(description: "Auth token expired")
+                } else {
+                    throw DeltNuError.network(description: "Status code: \(httpResponse.statusCode) received")
+                }
+            }
+                return output
+        }.retry(1)
+    }
 }
 
+
+extension URLSession {
+
+    func performSynchronously(request: URLRequest) -> (data: Data?, response: URLResponse?, error: Error?) {
+        let semaphore = DispatchSemaphore(value: 0)
+
+        var data: Data?
+        var response: URLResponse?
+        var error: Error?
+
+        let task = self.dataTask(with: request) {
+            data = $0
+            response = $1
+            error = $2
+            semaphore.signal()
+        }
+
+        task.resume()
+        semaphore.wait()
+
+        return (data, response, error)
+    }
+}

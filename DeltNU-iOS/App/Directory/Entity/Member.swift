@@ -13,23 +13,24 @@ struct Member: Codable, Identifiable {
     let id: Int
     let firstName, lastName, email, passwordDigest: String
     let role: Role
-    let pledgeClass: PledgeClass
+    let pledgeClass: String
     let gradYear: String?
-    let createdAt, updatedAt: Date
+    let createdAt, updatedAt: String
     let pictureFileName: String?
-    let pictureContentType: String?
+    let pictureContentType: PictureContentType?
     let pictureFileSize: Int?
-    let pictureUpdatedAt: Date?
+    let pictureUpdatedAt: String?
     let phoneNumber: String
     let address: String?
     let aptnum: String?
-    let major: String?
+    let major: Major?
     let clubs, nuid: String?
-    let active, admin: Bool
+    let active: Bool
+    let admin: Bool?
     let latitude, longitude: Double?
     let rememberDigest, resetDigest, resetSentAt: String?
     let gradSemester: Int?
-
+    let pictureURL: String
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -52,20 +53,19 @@ struct Member: Codable, Identifiable {
         case resetDigest = "reset_digest"
         case resetSentAt = "reset_sent_at"
         case gradSemester = "grad_semester"
+        case pictureURL = "picture_url"
     }
 }
 
-enum PledgeClass: String, Codable {
-    case epsilon = "Epsilon"
-    case eta = "Eta"
-    case gamma = "Gamma"
-    case iota = "Iota"
-    case kappa = "Kappa"
-    case lambda = "Lambda"
-    case mu = "Mu"
-    case nu = "Nu"
-    case theta = "Theta"
-    case zeta = "Zeta"
+enum Major: String, Codable {
+    case bioengineering = "Bioengineering"
+    case computerScience = "Computer Science"
+    case empty = ""
+}
+
+enum PictureContentType: String, Codable {
+    case imageJPEG = "image/jpeg"
+    case imagePNG = "image/png"
 }
 
 enum Role: String, Codable {
@@ -74,3 +74,4 @@ enum Role: String, Codable {
 }
 
 typealias MemberDirectory = [Member]
+

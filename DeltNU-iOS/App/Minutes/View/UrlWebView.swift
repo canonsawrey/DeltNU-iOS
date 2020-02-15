@@ -11,7 +11,7 @@ struct UrlWebView: View {
     let url: URL?
     
     var body: some View {
-        Group {
+        ZStack {
             if url != nil {
                 WebView(request: URLRequest(url: url!))
             } else {

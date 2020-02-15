@@ -37,6 +37,11 @@ struct MemberView: View {
                 }) {
                     Image(systemName: "message.circle").foregroundColor(Color("colorCTA"))
                 }
+                Button(action: {
+                    UIApplication.shared.open(URL(string: "tel:\(self.member.phoneNumber)")!, options: [:], completionHandler: nil)
+                }) {
+                    Image(systemName: "phone.circle").foregroundColor(Color("colorCTA")).padding()
+                }
             }
             
             HStack {

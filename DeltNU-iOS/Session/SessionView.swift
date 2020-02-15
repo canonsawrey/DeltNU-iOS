@@ -51,7 +51,7 @@ struct SessionView: View {
                                 .tag(3)
                         }.onAppear(perform: {self.tabIndex = 0})
                         .edgesIgnoringSafeArea(.top)
-                        .accentColor(Color("secondary"))
+                        .accentColor(Color("colorCTA"))
                     } else {
                         LoginView(viewModel: LoginViewModel())
                             .transition(AnyTransition.move(edge: .top))

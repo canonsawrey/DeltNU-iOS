@@ -67,7 +67,21 @@ struct DirectoryView: View {
                         HStack {
                             Text("\(member.firstName) \(member.lastName)")
                             Spacer()
-                            Text(member.gradYear ?? "-")
+                            Button(action: {
+                                UIApplication.shared.open(URL(string: "sms:\(member.phoneNumber)")!, options: [:], completionHandler: nil)
+                            }) {
+                                Image(systemName: "message.circle").foregroundColor(Color("colorCTA"))
+                            }
+                            Button(action: {
+                                UIApplication.shared.open(URL(string: "tel:\(member.phoneNumber)")!, options: [:], completionHandler: nil)
+                            }) {
+                                Image(systemName: "phone.circle").foregroundColor(Color("colorCTA")).padding()
+                            }
+                            Button(action: {
+                                UIApplication.shared.open(URL(string: "mailto:\(member.email)")!, options: [:], completionHandler: nil)
+                            }) {
+                                Image(systemName: "envelope.circle").foregroundColor(Color("colorCTA"))
+                            }
                         }
                     }
                 }

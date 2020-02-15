@@ -25,11 +25,8 @@ struct HomeView: View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
-                    Image(systemName: "person")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: geo.size.width, maxHeight: geo.size.height * 3 / 5)
-                        .padding(50)
+                    UserView(member: self.user, size: geo.size.height * 3 / 5).padding(50)
+                
                     ServiceHoursBarView(hoursCompleted: self.hoursCompleted, hoursNeeded: self.hoursNeeded)
                         .frame(maxWidth: geo.size.width, maxHeight: geo.size.height / 5)
                         .padding()

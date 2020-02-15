@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 struct TileButton: View {
     let action: () -> ()
@@ -121,3 +122,68 @@ struct KeyboardHost<Content: View>: View {
         }
     }
 } 
+
+struct UserView: View {
+    var member: Member?
+    var size: CGFloat
+    
+    init(member: Member?, size: CGFloat) {
+        self.member = member
+        self.size = size
+    }
+    
+    var body: some View {
+        ZStack {
+            if (member == nil || member?.pictureURL == "/images/medium/picture.png") {
+                Image(systemName: "person")
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                RemoteImageView(withURL: EndpointApi.baseUrl + member!.pictureURL, size: self.size)
+            }
+        }
+        .clipShape(RoundedRectangle(cornerRadius: appStyle.cornerRadius))
+        .frame(maxWidth: self.size, maxHeight: self.size)
+    }
+}
+
+struct RemoteImageView: View {
+    @ObservedObject var imageLoader: ImageLoader
+    @State var image: UIImage = UIImage()
+    var size: CGFloat
+
+    init(withURL url:String, size: CGFloat) {
+        imageLoader = ImageLoader(urlString:url)
+        self.size = size
+    }
+
+    var body: some View {
+        VStack {
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+        }.onReceive(imageLoader.didChange) { data in
+            self.image = UIImage(data: data) ?? UIImage()
+        }
+    }
+}
+
+class ImageLoader: ObservableObject {
+    var didChange = PassthroughSubject<Data, Never>()
+    var data = Data() {
+        didSet {
+            didChange.send(data)
+        }
+    }
+
+    init(urlString:String) {
+        guard let url = URL(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                self.data = data
+            }
+        }
+        task.resume()
+    }
+}

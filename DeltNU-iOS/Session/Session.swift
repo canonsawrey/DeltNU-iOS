@@ -29,7 +29,7 @@ class Session: ObservableObject {
     private let voteRemote: Cachable = DefaultVoteRemote()
     private let directoryRemote: Cachable = DefaultDirectoryRemote()
     private let minutesRemote: Cachable = DefaultMinutesRemote()
-    private let serviceHoursRemote: Cachable = DefaultServiceHoursRemote()
+    //private let serviceHoursRemote: Cachable = DefaultServiceHoursRemote()
     private let directoryCache = DefaultDirectoryCache()
     
     private var disposables = Set<AnyCancellable>()
@@ -65,7 +65,7 @@ class Session: ObservableObject {
     
     func fillCaches(userEmail: String) -> AnyPublisher<[CacheResponse], Never> {
         //TODO dispose of these
-        let publishers = [voteRemote.fetchAndCache(), directoryRemote.fetchAndCache(), minutesRemote.fetchAndCache(), serviceHoursRemote.fetchAndCache()]
+        let publishers = [voteRemote.fetchAndCache(), directoryRemote.fetchAndCache(), minutesRemote.fetchAndCache()]
         return publishers
             .publisher
             .flatMap { $0 }

@@ -13,10 +13,11 @@ struct HomeView: View {
     private var user: Member? {
         userRepository.getUser()
     }
-    private let serviceHoursRepository: ServiceHoursRepository = DefaultServiceHoursRepository()
-    private var hoursCompleted: Double? {
-        serviceHoursRepository.getIndividualServiceHoursCompleted(user: user)
-    }
+    //private let serviceHoursRepository: ServiceHoursRepository = DefaultServiceHoursRepository()
+    private var hoursCompleted: Double? = 20
+//    {
+//        serviceHoursRepository.getIndividualServiceHoursCompleted(user: user)
+//    }
     let hoursNeeded = 10
     @State var showingSheet = false
     
@@ -49,32 +50,32 @@ struct HomeView: View {
     }
 }
 
-struct AttendanceView: View {
-    let events = 3
-    let eventsAttended = 2
-    
-    var body: some View {
-        VStack {
-            Text("Weekly attendance")
-            GeometryReader { geo in
-                HStack {
-                    ForEach(1...self.events, id: \.self) { count in
-                        ZStack {
-                            RoundedRectangle(cornerRadius: appStyle.cornerRadius)
-                                .stroke(Color("colorOnPrimary"), lineWidth: 3)
-                                .frame(width: geo.size.width / CGFloat(self.events), height: geo.size.height)
-                            RoundedRectangle(cornerRadius: appStyle.cornerRadius)
-                                .foregroundColor(count <= self.eventsAttended ? Color("tertiary") : Color("primary"))
-                                .frame(width: geo.size.width / CGFloat(self.events), height: geo.size.height)
-                        }
-                    }
-                }
-            }.padding(.horizontal)
-        }
-    }
-}
+//struct AttendanceView: View {
+//    let events = 3
+//    let eventsAttended = 2
+//
+//    var body: some View {
+//        VStack {
+//            Text("Weekly attendance")
+//            GeometryReader { geo in
+//                HStack {
+//                    ForEach(1...self.events, id: \.self) { count in
+//                        ZStack {
+//                            RoundedRectangle(cornerRadius: appStyle.cornerRadius)
+//                                .stroke(Color("colorOnPrimary"), lineWidth: 3)
+//                                .frame(width: geo.size.width / CGFloat(self.events), height: geo.size.height)
+//                            RoundedRectangle(cornerRadius: appStyle.cornerRadius)
+//                                .foregroundColor(count <= self.eventsAttended ? Color("tertiary") : Color("primary"))
+//                                .frame(width: geo.size.width / CGFloat(self.events), height: geo.size.height)
+//                        }
+//                    }
+//                }
+//            }.padding(.horizontal)
+//        }
+//    }
+//}
 
-struct DashboardView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }

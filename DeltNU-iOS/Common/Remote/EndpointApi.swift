@@ -16,6 +16,7 @@ class EndpointApi {
     static let shared = EndpointApi()
     private init() { }
     
+    static let baseUrl = "https://www.deltnu.com"
     static let login = "https://www.deltnu.com/app_login"
     static let resetPassword = "https://www.deltnu.com/password_resets/new"
     static let minutesIndex =  "https://www.deltnu.com/minutes/app_index"

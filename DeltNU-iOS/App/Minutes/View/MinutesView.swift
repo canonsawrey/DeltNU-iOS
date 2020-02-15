@@ -65,7 +65,8 @@ struct MinutesView: View {
                         if availableMasterform {
                             Text("(\(self.viewModel.minutes[0].createdAt.getElapsedInterval()))")
                         }
-                    }.opacity(availableMasterform ? 1.0 : 0.0)
+                    }
+                    .opacity(availableMasterform ? 1.0 : 0.0)
             })
             }.onAppear(perform: viewModel.getMinutes)
     }

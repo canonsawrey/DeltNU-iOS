@@ -30,7 +30,6 @@ class DirectoryViewModel: ViewModel, ObservableObject, Identifiable {
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { [weak self] value in
-                    print("\n||||||COMPLETION|||||\n")
                     guard let self = self else { return }
                     switch value {
                     case .failure:

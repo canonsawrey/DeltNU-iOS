@@ -36,11 +36,24 @@ struct MemberView: View {
             Text(member.pledgeClass)
                 .padding()
             
-            Text(member.phoneNumber)
-                .padding()
-        
-            Text(member.email)
-                .padding()
+            HStack {
+                Text(member.phoneNumber).padding()
+                Button(action: {
+                    UIApplication.shared.open(URL(string: "sms:\(self.member.phoneNumber)")!, options: [:], completionHandler: nil)
+                }) {
+                    Image(systemName: "message.circle").foregroundColor(Color("colorCTA"))
+                }
+            }
+            
+            HStack {
+                Text(member.email)
+                    .padding()
+                Button(action: {
+                    UIApplication.shared.open(URL(string: "mailto:\(self.member.email)")!, options: [:], completionHandler: nil)
+                }) {
+                    Image(systemName: "envelope.circle").foregroundColor(Color("colorCTA"))
+                }
+            }
             
             Spacer()
             

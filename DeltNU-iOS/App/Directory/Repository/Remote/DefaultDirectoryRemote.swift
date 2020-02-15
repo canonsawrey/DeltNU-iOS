@@ -21,7 +21,6 @@ class DefaultDirectoryRemote: DirectoryRemote {
     
     func getRemoteDirectory() -> AnyPublisher<MemberDirectory, DeltNuError> {
         let urlRequest = URLRequest(url: url)
-        print("\n||||||FETCHING MEMBERS|||||\n")
         return session.dataTaskPublisher(for: urlRequest)
             .mapError { error in
                 .network(description: error.localizedDescription)

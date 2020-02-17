@@ -43,7 +43,7 @@ struct HomeView: View {
             .sheet(isPresented: $showingSheet) {
                 PreferencesView()
             }
-        }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+        }.navigationViewStyle(StackNavigationViewStyle()).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }
 

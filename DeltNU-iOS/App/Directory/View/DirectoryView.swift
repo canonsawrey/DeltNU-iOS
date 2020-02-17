@@ -93,7 +93,8 @@ struct DirectoryView: View {
                     }!)
             }
             .navigationBarTitle("Directory")
-        }.onAppear(perform: viewModel.getMembers)
+        }.navigationViewStyle(StackNavigationViewStyle())
+            .onAppear(perform: viewModel.getMembers)
     }
     
     init(viewModel: DirectoryViewModel) {

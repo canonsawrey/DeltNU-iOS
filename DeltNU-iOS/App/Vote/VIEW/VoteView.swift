@@ -70,7 +70,8 @@ struct VoteView: View {
                     EmptyView()
                 }
             })
-        }.onAppear(perform: viewModel.getPolls)
+        }.navigationViewStyle(StackNavigationViewStyle())
+            .onAppear(perform: viewModel.getPolls)
     }
     
     init(viewModel: VoteViewModel) {

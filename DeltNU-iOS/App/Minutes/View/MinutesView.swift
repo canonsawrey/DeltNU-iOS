@@ -68,7 +68,8 @@ struct MinutesView: View {
                     }
                     .opacity(availableMasterform ? 1.0 : 0.0)
             })
-            }.onAppear(perform: viewModel.getMinutes)
+            }.navigationViewStyle(StackNavigationViewStyle())
+            .onAppear(perform: viewModel.getMinutes)
     }
     
     var filterredMinutes: Minutes {

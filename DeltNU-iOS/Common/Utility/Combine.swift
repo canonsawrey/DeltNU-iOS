@@ -21,25 +21,25 @@ func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, DeltNuError> {
 }
 
 extension URLSession.DataTaskPublisher {
-    func checkStatusCode() -> Publishers.Retry<Publishers.TryMap<URLSession.DataTaskPublisher, URLSession.DataTaskPublisher.Output>> {
+    func checkStatusCode() -> Publishers.TryMap<Publishers.ReceiveOn<URLSession.DataTaskPublisher, DispatchQueue>, URLSession.DataTaskPublisher.Output> {
         
         return self
+            .receive(on: DispatchQueue.main)
             .tryMap { (output) -> URLSession.DataTaskPublisher.Output in
             guard let httpResponse = output.response as? HTTPURLResponse else {
                 throw DeltNuError.network(description: "Unable to cast URLResponse to HTTPURLResponse")
             }
-            guard httpResponse.statusCode == 200 else {
-                if (httpResponse.statusCode == 403) {
-                    //Session.shared.refreshCookie()
-                    Session.shared.activeSession = false
-        
-                    throw DeltNuError.network(description: "Auth token expired")
+                guard httpResponse.statusCode == 200 else {
+                    if (httpResponse.statusCode == 403) {
+                    Session.shared.refreshCookie()
+                    Session.shared.showReauthAlert = true
+                    throw DeltNuError.session(description: "Auth token expired")
                 } else {
                     throw DeltNuError.network(description: "Status code: \(httpResponse.statusCode) received")
                 }
             }
                 return output
-        }.retry(1)
+        }
     }
 }
 

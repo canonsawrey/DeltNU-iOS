@@ -27,6 +27,7 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     
     func login() {
         self.signingIn = true
+        print("\n\n\nLOGIN CALLED\n\n\n")
         
         authRemote.authenticate(credential: Credential(email: self.email, password: self.password))
             .receive(on: DispatchQueue.main)
@@ -45,6 +46,7 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
                     //TODO This is a terrible way to do this. We should find a way to throw a combine error if auth fails
                     if authResponse.success {
                         self.credentialRepository.storeCredentials(email: self.email, password: self.password)
+                        self.signingIn = false
                         self.signedIn = true
                         self.setupSession()
                     } else {

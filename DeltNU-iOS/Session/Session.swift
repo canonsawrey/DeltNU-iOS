@@ -18,6 +18,7 @@ class Session: ObservableObject {
     @Published var activeSession: Bool = false
     @Published var globalError = false
     @Published var globalErrorMessage = "Try again later."
+    @Published var showReauthAlert = false
     //For storing user object
     private let userRepository = DefaultUserRepository()
     
@@ -54,7 +55,6 @@ class Session: ObservableObject {
     func refreshCookie() {
         clearSession(deactivateSession: false)
         let credentials = credentialCache.getCachedCredentials()
-        //TODO Fix the hard cast
         guard let credentialSuccess = credentials as? CredentialSuccess else {
             self.activeSession = false
             return
@@ -65,7 +65,8 @@ class Session: ObservableObject {
     
     func fillCaches(userEmail: String) -> AnyPublisher<[CacheResponse], Never> {
         //TODO dispose of these
-        let publishers = [voteRemote.fetchAndCache(), directoryRemote.fetchAndCache(), minutesRemote.fetchAndCache()]
+        let publishers = [voteRemote.fetchAndCache(), directoryRemote.fetchAndCache(),
+            minutesRemote.fetchAndCache()]
         return publishers
             .publisher
             .flatMap { $0 }

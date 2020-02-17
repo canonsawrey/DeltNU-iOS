@@ -18,8 +18,7 @@ struct SessionView: View {
     
     var body: some View {
         VStack {
-            ZStack {
-                if !session.globalError {
+            VStack {
                     if session.activeSession {
                         TabView(selection: $tabIndex) {
                             HomeView()
@@ -56,10 +55,17 @@ struct SessionView: View {
                         LoginView(viewModel: LoginViewModel())
                             .transition(AnyTransition.move(edge: .top))
                     }
+                if (session.globalError) {
+                    Text("ERROR: \(session.globalErrorMessage)").foregroundColor(Color("negative"))
                 } else {
-                    Text("ERROR\n\(session.globalErrorMessage)")
+                    EmptyView()
                 }
             }.foregroundColor(Color("colorOnPrimary"))
+            .alert(isPresented: $session.showReauthAlert) {
+            Alert(
+                title: Text("Reauthenticating..."),
+                message: Text("Session expired. Try again after."))
+            }
 //            if !Reachability.isConnectedToNetwork() {
 //                ZStack {
 //                    Color("negative").edgesIgnoringSafeArea(.all)

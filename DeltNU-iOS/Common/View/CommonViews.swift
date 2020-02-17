@@ -133,17 +133,30 @@ struct UserView: View {
     }
     
     var body: some View {
+        GeometryReader { geometry in
         ZStack {
-            if (member == nil || member?.pictureURL == "/images/medium/picture.png") {
-                Image(systemName: "person")
-                    .resizable()
-                    .scaledToFit()
+            Circle().fill(Color("colorOnPrimary"))
+            VStack {
+                Spacer()
+                HStack {
+            if (self.member == nil || self.member?.pictureURL == "/images/medium/picture.png") {
+                Image(systemName: "person.fill")
+                .resizable()
+                .scaleEffect(0.65)
+                    .clipShape(Circle())
+                    .shadow(radius: 10)
+                
             } else {
-                RemoteImageView(withURL: EndpointApi.baseUrl + member!.pictureURL, size: self.size)
+                RemoteImageView(withURL: EndpointApi.baseUrl + self.member!.pictureURL, size: self.size).aspectRatio(contentMode: .fill).offset(y: 40)
+                    .clipShape(Circle())
+                .shadow(radius: 10)
+            }
+                }.foregroundColor(Color("colorOnSecondary"))
+                Spacer()
             }
         }
-        .clipShape(RoundedRectangle(cornerRadius: appStyle.cornerRadius))
-        .frame(maxWidth: self.size, maxHeight: self.size)
+        .frame(maxWidth: geometry.size.width < geometry.size.height ? geometry.size.width : geometry.size.height, maxHeight: geometry.size.width < geometry.size.height ? geometry.size.width : geometry.size.height)
+        }
     }
 }
 
@@ -160,8 +173,8 @@ struct RemoteImageView: View {
     var body: some View {
         VStack {
             Image(uiImage: image)
+                
                 .resizable()
-                .aspectRatio(contentMode: .fit)
         }.onReceive(imageLoader.didChange) { data in
             self.image = UIImage(data: data) ?? UIImage()
         }

@@ -30,7 +30,9 @@ extension URLSession.DataTaskPublisher {
             }
             guard httpResponse.statusCode == 200 else {
                 if (httpResponse.statusCode == 403) {
-                    Session.shared.refreshCookie()
+                    //Session.shared.refreshCookie()
+                    Session.shared.activeSession = false
+        
                     throw DeltNuError.network(description: "Auth token expired")
                 } else {
                     throw DeltNuError.network(description: "Status code: \(httpResponse.statusCode) received")

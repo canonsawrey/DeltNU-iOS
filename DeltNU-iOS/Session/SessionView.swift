@@ -59,7 +59,7 @@ struct SessionView: View {
                 } else {
                     Text("ERROR\n\(session.globalErrorMessage)")
                 }
-            }
+            }.foregroundColor(Color("colorOnPrimary"))
 //            if !Reachability.isConnectedToNetwork() {
 //                ZStack {
 //                    Color("negative").edgesIgnoringSafeArea(.all)

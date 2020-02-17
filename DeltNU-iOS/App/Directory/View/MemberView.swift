@@ -64,7 +64,7 @@ struct MemberView: View {
                         Text("Add to contacts ")
                         Image(systemName: "person.badge.plus")
                     }.foregroundColor(Color("colorCTA"))
-                }.padding(.bottom)
+                }.padding()
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

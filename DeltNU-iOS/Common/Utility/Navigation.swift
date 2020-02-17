@@ -30,7 +30,7 @@ enum Navigation: String {
         case .preferences:
             return "gear"
         case .profile:
-            return "person"
+            return "person.circle"
         }
     }
 }

@@ -25,11 +25,12 @@ struct HomeView: View {
         NavigationView {
             GeometryReader { geo in
                 VStack {
+                    Spacer()
                     UserView(member: self.user, size: geo.size.height * 3 / 5).padding(50)
-                
-                    ServiceHoursBarView(hoursCompleted: self.hoursCompleted, hoursNeeded: self.hoursNeeded)
-                        .frame(maxWidth: geo.size.width, maxHeight: geo.size.height / 5)
-                        .padding()
+                    Spacer()
+                    //ServiceHoursBarView(hoursCompleted: self.hoursCompleted, hoursNeeded: self.hoursNeeded)
+                    //    .frame(maxWidth: geo.size.width, maxHeight: geo.size.height / 5)
+                    //    .padding()
                 }
             }
             .navigationBarTitle(self.user != nil ? "Welcome, \(self.user!.firstName)" : "Home")
@@ -37,13 +38,13 @@ struct HomeView: View {
                 trailing: Button(action: {
                     self.showingSheet = true
                 }) {
-                    Image(systemName: Navigation.preferences.systemAsset()).foregroundColor(Color("colorCTA"))
+                    Image(systemName: Navigation.preferences.systemAsset()).foregroundColor(Color("CTA"))
                 }
             )
             .sheet(isPresented: $showingSheet) {
                 PreferencesView()
             }
-        }.navigationViewStyle(StackNavigationViewStyle()).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center).environment(\.colorScheme, .dark)
+        }.navigationViewStyle(StackNavigationViewStyle()).frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
     }
 }
 

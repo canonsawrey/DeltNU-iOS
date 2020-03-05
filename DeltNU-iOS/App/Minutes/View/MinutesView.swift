@@ -61,12 +61,13 @@ struct MinutesView: View {
                     
                 }) {
                     HStack {
-                        Text("Masterform")
                         if availableMasterform {
-                            Text("(\(self.viewModel.minutes[0].createdAt.getElapsedInterval()))")
+                            Text("\(self.viewModel.minutes[0].createdAt.monthAndDay()) masterform")
                         }
+                        Image(systemName: "arrow.up.right")
                     }
                     .opacity(availableMasterform ? 1.0 : 0.0)
+                    .foregroundColor(Color("CTA"))
             })
             }.navigationViewStyle(StackNavigationViewStyle())
             .onAppear(perform: viewModel.getMinutes)

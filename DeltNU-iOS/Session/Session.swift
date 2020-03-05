@@ -18,7 +18,6 @@ class Session: ObservableObject {
     @Published var activeSession: Bool = false
     @Published var globalError = false
     @Published var globalErrorMessage = "Try again later."
-    @Published var showReauthAlert = false
     //For storing user object
     private let userRepository = DefaultUserRepository()
     
@@ -46,8 +45,6 @@ class Session: ObservableObject {
             }
             if let cookie = sessionCookie {
                 HTTPCookieStorage.shared.deleteCookie(cookie)
-            } else {
-                fatalError("Could not find session cookie for an active session")
             }
         }
     }

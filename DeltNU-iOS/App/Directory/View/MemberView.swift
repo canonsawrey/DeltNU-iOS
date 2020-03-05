@@ -35,12 +35,12 @@ struct MemberView: View {
                 Button(action: {
                     UIApplication.shared.open(URL(string: "sms:\(self.member.phoneNumber)")!, options: [:], completionHandler: nil)
                 }) {
-                    Image(systemName: "message.circle").foregroundColor(Color("colorCTA"))
+                    Image(systemName: "message.circle").foregroundColor(Color("CTA"))
                 }
                 Button(action: {
                     UIApplication.shared.open(URL(string: "tel:\(self.member.phoneNumber)")!, options: [:], completionHandler: nil)
                 }) {
-                    Image(systemName: "phone.circle").foregroundColor(Color("colorCTA")).padding()
+                    Image(systemName: "phone.circle").foregroundColor(Color("CTA")).padding()
                 }
             }
             
@@ -50,7 +50,7 @@ struct MemberView: View {
                 Button(action: {
                     UIApplication.shared.open(URL(string: "mailto:\(self.member.email)")!, options: [:], completionHandler: nil)
                 }) {
-                    Image(systemName: "envelope.circle").foregroundColor(Color("colorCTA"))
+                    Image(systemName: "envelope.circle").foregroundColor(Color("CTA"))
                 }
             }
             
@@ -63,7 +63,7 @@ struct MemberView: View {
                     HStack {
                         Text("Add to contacts ")
                         Image(systemName: "person.badge.plus")
-                    }.foregroundColor(Color("colorCTA"))
+                    }.foregroundColor(Color("CTA"))
                 }.padding()
             }
         }

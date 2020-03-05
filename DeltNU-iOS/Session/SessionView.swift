@@ -50,7 +50,7 @@ struct SessionView: View {
                                 .tag(3)
                         }.onAppear(perform: {self.tabIndex = 0})
                         .edgesIgnoringSafeArea(.top)
-                        .accentColor(Color("colorCTA"))
+                        .accentColor(Color("CTA"))
                     } else {
                         LoginView(viewModel: LoginViewModel())
                             .transition(AnyTransition.move(edge: .top))
@@ -61,11 +61,6 @@ struct SessionView: View {
                     EmptyView()
                 }
             }.foregroundColor(Color("colorOnPrimary"))
-            .alert(isPresented: $session.showReauthAlert) {
-            Alert(
-                title: Text("Reauthenticating..."),
-                message: Text("Session expired. Try again after."))
-            }
 //            if !Reachability.isConnectedToNetwork() {
 //                ZStack {
 //                    Color("negative").edgesIgnoringSafeArea(.all)

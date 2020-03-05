@@ -18,9 +18,6 @@
 		541E351323887ED400BBCE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541E351223887ED400BBCE31 /* Assets.xcassets */; };
 		541E351623887ED400BBCE31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541E351523887ED400BBCE31 /* Preview Assets.xcassets */; };
 		541E351923887ED400BBCE31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541E351723887ED400BBCE31 /* LaunchScreen.storyboard */; };
-		541E35232388884F00BBCE31 /* minutes.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35212388884F00BBCE31 /* minutes.json */; };
-		541E35242388884F00BBCE31 /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35222388884F00BBCE31 /* questions.json */; };
-		541E352723888D1800BBCE31 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E352623888D1800BBCE31 /* users.json */; };
 		541E352923888FAA00BBCE31 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 541E352823888FAA00BBCE31 /* .gitignore */; };
 		541E352D2388905B00BBCE31 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E352C2388905B00BBCE31 /* Member.swift */; };
 		541E35322389CF7800BBCE31 /* DirectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35312389CF7800BBCE31 /* DirectoryView.swift */; };
@@ -39,7 +36,6 @@
 		541E3571239131B000BBCE31 /* DirectoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E3570239131B000BBCE31 /* DirectoryViewModel.swift */; };
 		541E35792391342B00BBCE31 /* DeltNuError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E35782391342B00BBCE31 /* DeltNuError.swift */; };
 		541E357F23914AE900BBCE31 /* DirectoryRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E357E23914AE900BBCE31 /* DirectoryRemote.swift */; };
-		541E35812391815000BBCE31 /* options.json in Resources */ = {isa = PBXBuildFile; fileRef = 541E35802391815000BBCE31 /* options.json */; };
 		541E358623918B0400BBCE31 /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E358523918B0400BBCE31 /* PreferencesView.swift */; };
 		54308A392392CFA00008FE98 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 54308A382392CFA00008FE98 /* README.md */; };
 		54308A3D2393797D0008FE98 /* MinutesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54308A3C2393797D0008FE98 /* MinutesViewModel.swift */; };
@@ -76,7 +72,6 @@
 		5480B29223C3FA59007DC42C /* ServiceHoursBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5480B29123C3FA59007DC42C /* ServiceHoursBarView.swift */; };
 		5480B29423C3FA66007DC42C /* ServiceHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5480B29323C3FA66007DC42C /* ServiceHours.swift */; };
 		549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A832399BBE100B6BEA9 /* Credential.swift */; };
-		549A3A88239E011400B6BEA9 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A87239E011400B6BEA9 /* Mock.swift */; };
 		54C14E052399943D0065A1CB /* CredentialCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E042399943D0065A1CB /* CredentialCache.swift */; };
 		54C14E07239997860065A1CB /* DefaultCredentialCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E06239997860065A1CB /* DefaultCredentialCache.swift */; };
 		54E3279D23A7154B007827B5 /* DefaultDirectoryRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3279C23A7154B007827B5 /* DefaultDirectoryRemote.swift */; };
@@ -104,9 +99,6 @@
 		541E351523887ED400BBCE31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		541E351823887ED400BBCE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		541E351A23887ED400BBCE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		541E35212388884F00BBCE31 /* minutes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = minutes.json; sourceTree = "<group>"; };
-		541E35222388884F00BBCE31 /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
-		541E352623888D1800BBCE31 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		541E352823888FAA00BBCE31 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		541E352C2388905B00BBCE31 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		541E35312389CF7800BBCE31 /* DirectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryView.swift; sourceTree = "<group>"; };
@@ -125,7 +117,6 @@
 		541E3570239131B000BBCE31 /* DirectoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewModel.swift; sourceTree = "<group>"; };
 		541E35782391342B00BBCE31 /* DeltNuError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeltNuError.swift; sourceTree = "<group>"; };
 		541E357E23914AE900BBCE31 /* DirectoryRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryRemote.swift; sourceTree = "<group>"; };
-		541E35802391815000BBCE31 /* options.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = options.json; sourceTree = "<group>"; };
 		541E358523918B0400BBCE31 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		54308A382392CFA00008FE98 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		54308A3C2393797D0008FE98 /* MinutesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesViewModel.swift; sourceTree = "<group>"; };
@@ -162,7 +153,6 @@
 		5480B29123C3FA59007DC42C /* ServiceHoursBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHoursBarView.swift; sourceTree = "<group>"; };
 		5480B29323C3FA66007DC42C /* ServiceHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHours.swift; sourceTree = "<group>"; };
 		549A3A832399BBE100B6BEA9 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
-		549A3A87239E011400B6BEA9 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		54C14E042399943D0065A1CB /* CredentialCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialCache.swift; sourceTree = "<group>"; };
 		54C14E06239997860065A1CB /* DefaultCredentialCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCredentialCache.swift; sourceTree = "<group>"; };
 		54E3279C23A7154B007827B5 /* DefaultDirectoryRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDirectoryRemote.swift; sourceTree = "<group>"; };
@@ -241,7 +231,6 @@
 			children = (
 				541278CD23B5CE670005224D /* Launch */,
 				541E353B238A16CE00BBCE31 /* Common */,
-				541E35202388847800BBCE31 /* Mock */,
 				544ABAC923AEB43D004227C2 /* Session */,
 				541E356F23912DF000BBCE31 /* App */,
 				541E350C23887ED100BBCE31 /* AppDelegate.swift */,
@@ -259,18 +248,6 @@
 				541E351523887ED400BBCE31 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		541E35202388847800BBCE31 /* Mock */ = {
-			isa = PBXGroup;
-			children = (
-				541E352623888D1800BBCE31 /* users.json */,
-				541E35212388884F00BBCE31 /* minutes.json */,
-				541E35222388884F00BBCE31 /* questions.json */,
-				541E35802391815000BBCE31 /* options.json */,
-				549A3A87239E011400B6BEA9 /* Mock.swift */,
-			);
-			path = Mock;
 			sourceTree = "<group>";
 		};
 		541E35252388885A00BBCE31 /* Utility */ = {
@@ -694,13 +671,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				541E35812391815000BBCE31 /* options.json in Resources */,
-				541E352723888D1800BBCE31 /* users.json in Resources */,
 				541E352923888FAA00BBCE31 /* .gitignore in Resources */,
-				541E35242388884F00BBCE31 /* questions.json in Resources */,
 				541E351923887ED400BBCE31 /* LaunchScreen.storyboard in Resources */,
 				5461467423B96779006D4D23 /* InterstitialLaunchScreen.storyboard in Resources */,
-				541E35232388884F00BBCE31 /* minutes.json in Resources */,
 				54308A392392CFA00008FE98 /* README.md in Resources */,
 				541E351623887ED400BBCE31 /* Preview Assets.xcassets in Resources */,
 				541E351323887ED400BBCE31 /* Assets.xcassets in Resources */,
@@ -773,7 +746,6 @@
 				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,
 				544ABABE23A8463F004227C2 /* DefaultMinutesCache.swift in Sources */,
 				544ABACE23AFF531004227C2 /* SinglePollViewModel.swift in Sources */,
-				549A3A88239E011400B6BEA9 /* Mock.swift in Sources */,
 				845277BB23E670D00057A695 /* DefaultServiceHoursRemote.swift in Sources */,
 				845277B723E659BF0057A695 /* DefaultServiceHoursCache.swift in Sources */,
 				541E352D2388905B00BBCE31 /* Member.swift in Sources */,

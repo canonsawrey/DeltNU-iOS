@@ -51,12 +51,10 @@ class DefaultAuthRemote: AuthRemote {
                     switch value {
                         //TODO handle these
                         case .failure:
-                            Session.shared.showReauthAlert = false
                             Session.shared.activeSession = false
                             break
                         case .finished:
                             print("----------REAUTH SUCCESS---------")
-                            Session.shared.showReauthAlert = false
                             break
                 }
             },

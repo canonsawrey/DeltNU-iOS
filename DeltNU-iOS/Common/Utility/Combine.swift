@@ -29,16 +29,15 @@ extension URLSession.DataTaskPublisher {
             guard let httpResponse = output.response as? HTTPURLResponse else {
                 throw DeltNuError.network(description: "Unable to cast URLResponse to HTTPURLResponse")
             }
-                guard httpResponse.statusCode == 200 else {
-                    if (httpResponse.statusCode == 403) {
-                    Session.shared.refreshCookie()
-                    Session.shared.showReauthAlert = true
+            guard httpResponse.statusCode == 200 else {
+                if (httpResponse.statusCode == 403) {
+                    Session.shared.activeSession = false
                     throw DeltNuError.session(description: "Auth token expired")
                 } else {
                     throw DeltNuError.network(description: "Status code: \(httpResponse.statusCode) received")
                 }
             }
-                return output
+            return output
         }
     }
 }

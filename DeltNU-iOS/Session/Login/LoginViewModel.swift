@@ -27,6 +27,7 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
     
     func login() {
         self.signingIn = true
+        self.error = ""
         
         authRemote.authenticate(credential: Credential(email: self.email, password: self.password))
             .receive(on: DispatchQueue.main)

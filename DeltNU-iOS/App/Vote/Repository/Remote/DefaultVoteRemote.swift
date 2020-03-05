@@ -24,7 +24,7 @@ class DefaultVoteRemote: VoteRemote {
         let urlRequest = URLRequest(url: url)
         
         return session.dataTaskPublisher(for: urlRequest)
-            //.checkStatusCode()
+            .checkStatusCode()
             .mapError { error in
                 if error is DeltNuError {
                     return error as! DeltNuError

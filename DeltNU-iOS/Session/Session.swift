@@ -45,8 +45,6 @@ class Session: ObservableObject {
             }
             if let cookie = sessionCookie {
                 HTTPCookieStorage.shared.deleteCookie(cookie)
-            } else {
-                fatalError("Could not find session cookie for an active session")
             }
         }
     }
@@ -54,7 +52,6 @@ class Session: ObservableObject {
     func refreshCookie() {
         clearSession(deactivateSession: false)
         let credentials = credentialCache.getCachedCredentials()
-        //TODO Fix the hard cast
         guard let credentialSuccess = credentials as? CredentialSuccess else {
             self.activeSession = false
             return
@@ -65,7 +62,8 @@ class Session: ObservableObject {
     
     func fillCaches(userEmail: String) -> AnyPublisher<[CacheResponse], Never> {
         //TODO dispose of these
-        let publishers = [voteRemote.fetchAndCache(), directoryRemote.fetchAndCache(), minutesRemote.fetchAndCache()]
+        let publishers = [voteRemote.fetchAndCache(), directoryRemote.fetchAndCache(),
+            minutesRemote.fetchAndCache()]
         return publishers
             .publisher
             .flatMap { $0 }

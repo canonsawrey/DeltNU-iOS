@@ -15,6 +15,7 @@ struct TileButton: View {
     let text: String
     let color: Color
     let textColor: Color
+    let selected: Bool
     
     
     var body: some View {
@@ -26,19 +27,21 @@ struct TileButton: View {
                     .background(self.color)
                     .cornerRadius(appStyle.cornerRadius)
                 
-            }.padding()
+            }.padding(self.selected ? 30 : 10)
+            .animation(.linear)
         }
     }
     
-    init(action: @escaping () -> (), text: String, color: Color, textColor: Color) {
+    init(action: @escaping () -> (), text: String, color: Color, textColor: Color, selected: Bool) {
         self.action = action
         self.text = text
         self.color = color
         self.textColor = textColor
+        self.selected = selected
     }
     
     init(text: String, color: Color, textColor: Color) {
-        self.init(action: { }, text: text, color: color, textColor: textColor)
+        self.init(action: { }, text: text, color: color, textColor: textColor, selected: false)
     }
 }
 
@@ -135,7 +138,7 @@ struct UserView: View {
     var body: some View {
         GeometryReader { geometry in
         ZStack {
-            Circle().fill(Color("colorOnPrimary"))
+            Circle().fill(Color("backgroundGrey"))
             VStack {
                 Spacer()
                 HStack {
@@ -144,12 +147,10 @@ struct UserView: View {
                 .resizable()
                 .scaleEffect(0.65)
                     .clipShape(Circle())
-                    .shadow(radius: 10)
                 
             } else {
                 RemoteImageView(withURL: EndpointApi.baseUrl + self.member!.pictureURL, size: self.size).aspectRatio(contentMode: .fill).offset(y: 40)
                     .clipShape(Circle())
-                .shadow(radius: 10)
             }
                 }.foregroundColor(Color("colorOnSecondary"))
                 Spacer()

@@ -27,8 +27,9 @@ struct SinglePollView: View {
                         self.viewModel.castVote(optionId: String(option.id))
                 },
                     text: option.name,
-                    color: Color("colorCTA"),
-                    textColor: Color("colorOnCTA")
+                    color: String(option.id) == self.viewModel.castIndex ? Color("tertiary") : Color("CTA"),
+                    textColor: Color("colorOnCTA"),
+                    selected: String(option.id) == self.viewModel.castIndex
                 )
             }
         }

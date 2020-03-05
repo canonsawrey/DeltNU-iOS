@@ -18,8 +18,7 @@ struct SessionView: View {
     
     var body: some View {
         VStack {
-            ZStack {
-                if !session.globalError {
+            VStack {
                     if session.activeSession {
                         TabView(selection: $tabIndex) {
                             HomeView()
@@ -51,13 +50,15 @@ struct SessionView: View {
                                 .tag(3)
                         }.onAppear(perform: {self.tabIndex = 0})
                         .edgesIgnoringSafeArea(.top)
-                        .accentColor(Color("colorCTA"))
+                        .accentColor(Color("CTA"))
                     } else {
                         LoginView(viewModel: LoginViewModel())
                             .transition(AnyTransition.move(edge: .top))
                     }
+                if (session.globalError) {
+                    Text("ERROR: \(session.globalErrorMessage)").foregroundColor(Color("negative"))
                 } else {
-                    Text("ERROR\n\(session.globalErrorMessage)")
+                    EmptyView()
                 }
             }.foregroundColor(Color("colorOnPrimary"))
 //            if !Reachability.isConnectedToNetwork() {

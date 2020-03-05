@@ -40,7 +40,9 @@ class DirectoryViewModel: ViewModel, ObservableObject, Identifiable {
                 },
                 receiveValue: { [weak self] receivedMembers in
                     guard let self = self else { return }
-                    self.members = receivedMembers
+                    if (self.members.count != receivedMembers.count) {
+                        self.members = receivedMembers
+                    }
             })
             .store(in: &disposables)
     }

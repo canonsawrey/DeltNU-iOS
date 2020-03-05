@@ -11,6 +11,7 @@ import Combine
 class SinglePollViewModel: ViewModel, ObservableObject, Identifiable {
     @Published var voteStatus: Bool? = nil
     @Published var showAlert: Bool = false
+    @Published var castIndex: String? = nil
     
     private let castVoteRepository: CastVoteRemote
     //Other
@@ -21,6 +22,7 @@ class SinglePollViewModel: ViewModel, ObservableObject, Identifiable {
     }
     
     func castVote(optionId: String) {
+        castIndex = optionId
         castVoteRepository.castVote(optionId: optionId)
             .receive(on: DispatchQueue.main)
             .sink(
@@ -41,6 +43,7 @@ class SinglePollViewModel: ViewModel, ObservableObject, Identifiable {
                         self.voteStatus = true
                     } else {
                         self.voteStatus = false
+                        self.castIndex = nil
                     }
             })
             .store(in: &disposables)

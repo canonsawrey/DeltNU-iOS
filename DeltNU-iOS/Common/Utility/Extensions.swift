@@ -9,17 +9,6 @@
 import Foundation
 import SwiftUI
 
-
-//-------------DATE-----------------
-extension Date {
-    func formattedDate() -> String {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        return formatter.string(from: self)
-    }
-}
-
-
 //------------COLOR-----------------
 extension Color {
 
@@ -115,6 +104,20 @@ extension Date {
         }
 
     }
+    
+    func monthAndDay() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM d"
+        return formatter.string(from: self)
+    }
+    
+
+    func formattedDate() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .long
+        return formatter.string(from: self)
+    }
+
 }
 
 //----------- BUNDLE ----------------

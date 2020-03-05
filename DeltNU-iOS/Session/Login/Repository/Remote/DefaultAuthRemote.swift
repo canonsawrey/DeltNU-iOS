@@ -12,7 +12,7 @@ import Combine
 class DefaultAuthRemote: AuthRemote {
     private let session: URLSession
     private let url: URL = URL(string: EndpointApi.login)!
-    private var cancellable: AnyCancellable? = nil
+    private var disposables = Set<AnyCancellable>()
     
     init(session: URLSession = .shared) {
         self.session = session
@@ -43,17 +43,24 @@ class DefaultAuthRemote: AuthRemote {
     }
     
     func refreshCookie(credential: Credential) {
-        let request = self.buildRequest(credential: credential)
-        let result = session.performSynchronously(request: request)
-        
-        guard let httpResponse = result.response as? HTTPURLResponse else {
-            Session.shared.activeSession = false
-            return
-        }
-        guard result.error == nil && self.containsSetCookie(response: httpResponse) else {
-            Session.shared.activeSession = false
-            return
-        }
+        self.authenticate(credential: credential)
+            .receive(on: DispatchQueue.main)
+            .sink(
+                receiveCompletion: { [weak self] value in
+                    guard let self = self else { return }
+                    switch value {
+                        //TODO handle these
+                        case .failure:
+                            Session.shared.activeSession = false
+                            break
+                        case .finished:
+                            print("----------REAUTH SUCCESS---------")
+                            break
+                }
+            },
+            receiveValue: { [weak self] response in
+        })
+        .store(in: &disposables)
     }
     
     

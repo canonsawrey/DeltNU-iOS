@@ -22,7 +22,7 @@ struct DirectoryView: View {
                 HStack {
                     HStack {
                         Image(systemName: "magnifyingglass")
-                            .foregroundColor(Color("colorCTA"))
+                            .foregroundColor(Color("CTA"))
                         
                         TextField("Search", text: $viewModel.searchText, onEditingChanged: { isEditing in
                             self.showCancelButton = true
@@ -47,7 +47,7 @@ struct DirectoryView: View {
                             self.viewModel.searchText = ""
                             self.showCancelButton = false
                         }
-                        .foregroundColor(Color("colorCTA"))
+                        .foregroundColor(Color("CTA"))
                     }
                 }
                 .padding(.horizontal)
@@ -70,17 +70,17 @@ struct DirectoryView: View {
                             Button(action: {
                                 UIApplication.shared.open(URL(string: "sms:\(member.phoneNumber)")!, options: [:], completionHandler: nil)
                             }) {
-                                Image(systemName: "message.circle").foregroundColor(Color("colorCTA"))
+                                Image(systemName: "message.circle").foregroundColor(Color("CTA"))
                             }
                             Button(action: {
                                 UIApplication.shared.open(URL(string: "tel:\(member.phoneNumber)")!, options: [:], completionHandler: nil)
                             }) {
-                                Image(systemName: "phone.circle").foregroundColor(Color("colorCTA")).padding()
+                                Image(systemName: "phone.circle").foregroundColor(Color("CTA")).padding()
                             }
                             Button(action: {
                                 UIApplication.shared.open(URL(string: "mailto:\(member.email)")!, options: [:], completionHandler: nil)
                             }) {
-                                Image(systemName: "envelope.circle").foregroundColor(Color("colorCTA"))
+                                Image(systemName: "envelope.circle").foregroundColor(Color("CTA"))
                             }
                         }
                     }

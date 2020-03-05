@@ -22,6 +22,7 @@ class DefaultDirectoryRemote: DirectoryRemote {
     func getRemoteDirectory() -> AnyPublisher<MemberDirectory, DeltNuError> {
         let urlRequest = URLRequest(url: url)
         return session.dataTaskPublisher(for: urlRequest)
+            .checkStatusCode()
             .mapError { error in
                 .network(description: error.localizedDescription)
         }

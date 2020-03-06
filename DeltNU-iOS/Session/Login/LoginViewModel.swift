@@ -96,7 +96,6 @@ class LoginViewModel: ViewModel, ObservableObject, Identifiable {
         if (response is CredentialSuccess) {
             self.email = (response as! CredentialSuccess).email
             self.password = (response as! CredentialSuccess).password
-            self.login()
         }
     }
     

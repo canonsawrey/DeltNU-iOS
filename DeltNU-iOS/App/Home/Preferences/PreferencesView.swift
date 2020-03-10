@@ -15,6 +15,7 @@ struct PreferencesView: View {
     
     private let credentialRepository = DefaultCredentialCache()
     private let session = Session.shared
+    private let version: String? = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String?
     
     var body: some View {
         NavigationView {
@@ -23,7 +24,7 @@ struct PreferencesView: View {
                     HStack {
                         Text("App Version")
                         Spacer()
-                        Text("1.0.0.0")
+                        Text(version == nil ? "1.0" : version!)
                     }
                     Button(action: {
                         self.showingLogout = true

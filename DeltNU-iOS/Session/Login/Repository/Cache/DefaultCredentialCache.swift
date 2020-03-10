@@ -8,26 +8,26 @@
 
 import Foundation
 
-
-//TODO_ANY: This needs to be encyprted
 class DefaultCredentialCache: CredentialCache {
     private let defaults = UserDefaults.standard
     private let emailKey = UserDefaultsKeyApi.credentialEmail
     private let passwordKey = UserDefaultsKeyApi.credentialPassword
+    private let saltCache = SaltCache()
     
     func getCachedCredentials() -> CredentialResponse {
         let email = defaults.string(forKey: emailKey)
         let password = defaults.string(forKey: passwordKey)
         
         if email != nil && password != nil {
-            return CredentialSuccess(email: email!, password: password!)
+            return CredentialSuccess(email: saltCache.quickDecrypt(email!),
+                                     password: saltCache.quickDecrypt(password!))
         }
         return CredentialFailure(reason: "Email or password not found")
     }
     
     func storeCredentials(email: String, password: String) {
-        defaults.set(email, forKey: emailKey)
-        defaults.set(password, forKey: passwordKey)
+        defaults.set(saltCache.quickEncrypt(email), forKey: emailKey)
+        defaults.set(saltCache.quickEncrypt(password), forKey: passwordKey)
     }
     
     func clearCredentials() {

@@ -23,7 +23,8 @@ class DefaultCommunityServiceRemote: CommunityServiceRemote {
         let urlRequest = URLRequest(url: url)
         
         return session.dataTaskPublisher(for: urlRequest)
-            .mapError { error in
+        .checkStatusCode()
+        .mapError { error in
                 .network(description: error.localizedDescription)
         }
         .flatMap(maxPublishers: .max(1)) { pair in

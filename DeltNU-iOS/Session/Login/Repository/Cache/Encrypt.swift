@@ -7,74 +7,70 @@
 //
 
 import Foundation
+import CryptoSwift
 
-class SaltCache {
+class Encrypt {
     private let defaults = UserDefaults.standard
-    private let saltKey = "key::salt"
-    private let saltLength = 10
+    private let keyCache = "key::key"
+    private let ivCache = "key::iv"
     
     func quickEncrypt(_ str: String) -> String {
-        let salt = getSalt()
-        var retStr = ""
-        var index = 0;
-        
-        for char in str {
-            retStr.append(
-                Character(
-                    UnicodeScalar(
-                        ((Int(char.asciiValue!) + (salt / (10 ^ index))) + 256) % 128
-                    )!
-                )
-            )
-            index = (index + 1) % 10
-        }
-        
-        return retStr
+        let key = getKey()
+        let iv = getIv()
+        guard
+            let data = str.data(using: .utf8),
+            let bytes = try? ChaCha20(key: key, iv: iv).encrypt(data.bytes)
+            else { return str }
+        return Data(bytes).toHexString()
     }
     
     func quickDecrypt(_ str: String) -> String {
-        let salt = getSalt()
-        var retStr = ""
-        var index = 0;
-        
-        for char in str {
-            retStr.append(
-                Character(
-                    UnicodeScalar(
-                        ((Int(char.asciiValue!) - (salt / (10 ^ index))) + 256) % 128
-                    )!
-                )
-            )
-            index = (index + 1) % 10
-        }
-        
-        return retStr
+        let key = getKey()
+        let iv = getIv()
+        guard
+            let bytes = try? ChaCha20(key: key, iv: iv).decrypt(Array<UInt8>(hex: str)),
+            let decryptedString = String(data: Data(bytes), encoding: .utf8)
+            else { return str }
+        return decryptedString
     }
     
-    func getSalt() -> Int {
-        let salt = defaults.integer(forKey: saltKey)
-        if salt == 0 {
-            return makeSalt()
+    func getKey() -> Array<UInt8> {
+        guard let key = defaults.array(forKey: keyCache) as? Array<UInt8> else {
+            return makeKey()
+        }
+        return key
+    }
+    
+    func makeKey() -> Array<UInt8> {
+        let arr = randomArray(length: 32)
+        defaults.set(arr, forKey: keyCache)
+        return arr
+    }
+    
+    func getIv() -> Array<UInt8> {
+        guard let salt = defaults.array(forKey: ivCache) as? Array<UInt8> else {
+            return makeIv()
         }
         return salt
     }
     
-    func makeSalt() -> Int {
-        let str = randomInt(length: saltLength)
-        defaults.set(str, forKey: saltKey)
+    func makeIv() -> Array<UInt8> {
+        let str = randomArray(length: 12)
+        defaults.set(str, forKey: ivCache)
         return str
     }
     
-    func randomInt(length: Int) -> Int {
-        var ret = 0;
-        for i in 0...length {
-            ret = ret + 10 ^ i * Int.random(in: 1...9)
+    func randomArray(length: Int) -> Array<UInt8> {
+        var ret: [UInt8] = Array(repeating: 0x00, count: length)
+        for i in 0...(length - 1) {
+            ret[i] = UInt8.random(in: 1...100)
         }
         return ret
     }
     
     func clearCredentials() {
-        defaults.removeObject(forKey: saltKey)
+        defaults.removeObject(forKey: keyCache)
+        defaults.removeObject(forKey: ivCache)
     }
 }
 

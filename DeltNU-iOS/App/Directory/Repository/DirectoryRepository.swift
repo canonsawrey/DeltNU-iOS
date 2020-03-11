@@ -11,4 +11,6 @@ import Combine
 
 protocol DirectoryRepository {
     func getMembers() -> AnyPublisher<MemberDirectory, DeltNuError>
+    
+    func getIdMap() -> AnyPublisher<IdMap, DeltNuError>
 }

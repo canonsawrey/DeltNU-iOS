@@ -9,6 +9,6 @@
 import Foundation
 import Combine
 
-protocol ServiceHoursRemote: Cachable {
+protocol CommunityServiceRemote: Cachable {
     func getRemoteServiceHours() -> AnyPublisher<ServiceHours, DeltNuError>
 }

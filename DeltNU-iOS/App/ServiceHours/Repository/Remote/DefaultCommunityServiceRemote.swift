@@ -9,11 +9,11 @@
 import Foundation
 import Combine
 
-class DefaultServiceHoursRemote: ServiceHoursRemote {
+class DefaultCommunityServiceRemote: CommunityServiceRemote {
     private let session: URLSession
     private let url: URL = URL(string: EndpointApi.serviceHoursIndex)!
     private var cancellable: AnyCancellable? = nil
-    private let serviceHoursCache = DefaultServiceHoursCache()
+    private let serviceHoursCache = DefaultCommunityServiceCache()
     
     init(session: URLSession = .shared) {
         self.session = session

@@ -9,7 +9,6 @@
 import Foundation
 import Combine
 
-protocol ServiceHoursRepository {
+protocol CommunityServiceRepository {
     func getServiceHours() -> AnyPublisher<ServiceHours, DeltNuError>
-    func getIndividualServiceHoursCompleted(user: Member?) -> Double?
 }

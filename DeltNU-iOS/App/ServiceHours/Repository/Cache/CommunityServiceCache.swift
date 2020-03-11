@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-protocol ServiceHoursCache {
+protocol CommunityServiceCache {
     func getCachedServiceHours() -> AnyPublisher<ServiceHours, DeltNuError>
     
     func setCachedServiceHours(serviceHours: ServiceHours) -> Bool

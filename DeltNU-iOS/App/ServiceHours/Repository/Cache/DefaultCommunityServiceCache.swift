@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class DefaultServiceHoursCache: ServiceHoursCache {
+class DefaultCommunityServiceCache: CommunityServiceCache {
     private let userDefaults = UserDefaults.standard
     private let coder = Coder()
     private let cacheKey = UserDefaultsKeyApi.serviceHours

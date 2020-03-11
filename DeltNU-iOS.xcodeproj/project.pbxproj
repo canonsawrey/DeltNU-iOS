@@ -69,7 +69,7 @@
 		544ABAEB23B1B381004227C2 /* UserDefaultsKeyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544ABAEA23B1B381004227C2 /* UserDefaultsKeyApi.swift */; };
 		5461467423B96779006D4D23 /* InterstitialLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5461467323B96779006D4D23 /* InterstitialLaunchScreen.storyboard */; };
 		5461467623B96AA0006D4D23 /* InterstitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5461467523B96AA0006D4D23 /* InterstitialViewController.swift */; };
-		5480B29223C3FA59007DC42C /* ServiceHoursBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5480B29123C3FA59007DC42C /* ServiceHoursBarView.swift */; };
+		5480B29223C3FA59007DC42C /* CommunityServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5480B29123C3FA59007DC42C /* CommunityServiceView.swift */; };
 		5480B29423C3FA66007DC42C /* ServiceHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5480B29323C3FA66007DC42C /* ServiceHours.swift */; };
 		549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549A3A832399BBE100B6BEA9 /* Credential.swift */; };
 		54C14E052399943D0065A1CB /* CredentialCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C14E042399943D0065A1CB /* CredentialCache.swift */; };
@@ -77,12 +77,16 @@
 		54E3279D23A7154B007827B5 /* DefaultDirectoryRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3279C23A7154B007827B5 /* DefaultDirectoryRemote.swift */; };
 		54E3279F23A72300007827B5 /* MinutesRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E3279E23A72300007827B5 /* MinutesRemote.swift */; };
 		54E327A123A725CF007827B5 /* DefaultMinutesRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E327A023A725CF007827B5 /* DefaultMinutesRemote.swift */; };
+		841370D0241837870098775B /* CommunityServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841370CF241837860098775B /* CommunityServiceViewModel.swift */; };
+		841370D224187DA20098775B /* IdMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841370D124187DA20098775B /* IdMap.swift */; };
+		841370D4241897160098775B /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841370D3241897160098775B /* EventView.swift */; };
+		841370D6241897C60098775B /* ServiceEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841370D5241897C60098775B /* ServiceEvent.swift */; };
 		845277B123E658750057A695 /* DefaultServiceHoursRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B023E658750057A695 /* DefaultServiceHoursRepository.swift */; };
-		845277B323E658840057A695 /* ServiceHoursRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B223E658840057A695 /* ServiceHoursRepository.swift */; };
-		845277B523E6593D0057A695 /* ServiceHoursCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B423E6593D0057A695 /* ServiceHoursCache.swift */; };
-		845277B723E659BF0057A695 /* DefaultServiceHoursCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B623E659BF0057A695 /* DefaultServiceHoursCache.swift */; };
-		845277B923E6709F0057A695 /* ServiceHoursRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B823E6709F0057A695 /* ServiceHoursRemote.swift */; };
-		845277BB23E670D00057A695 /* DefaultServiceHoursRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277BA23E670D00057A695 /* DefaultServiceHoursRemote.swift */; };
+		845277B323E658840057A695 /* CommunityServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B223E658840057A695 /* CommunityServiceRepository.swift */; };
+		845277B523E6593D0057A695 /* CommunityServiceCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B423E6593D0057A695 /* CommunityServiceCache.swift */; };
+		845277B723E659BF0057A695 /* DefaultCommunityServiceCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B623E659BF0057A695 /* DefaultCommunityServiceCache.swift */; };
+		845277B923E6709F0057A695 /* CommunityServiceRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B823E6709F0057A695 /* CommunityServiceRemote.swift */; };
+		845277BB23E670D00057A695 /* DefaultCommunityServiceRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277BA23E670D00057A695 /* DefaultCommunityServiceRemote.swift */; };
 		84C837A32412EDD900A8B0EC /* DeltNUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C837A22412EDD900A8B0EC /* DeltNUTests.swift */; };
 		84D4AE8B2412C83B003391C9 /* Encrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4AE8A2412C83B003391C9 /* Encrypt.swift */; };
 /* End PBXBuildFile section */
@@ -162,7 +166,7 @@
 		544ABAEA23B1B381004227C2 /* UserDefaultsKeyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeyApi.swift; sourceTree = "<group>"; };
 		5461467323B96779006D4D23 /* InterstitialLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InterstitialLaunchScreen.storyboard; sourceTree = "<group>"; };
 		5461467523B96AA0006D4D23 /* InterstitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterstitialViewController.swift; sourceTree = "<group>"; };
-		5480B29123C3FA59007DC42C /* ServiceHoursBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHoursBarView.swift; sourceTree = "<group>"; };
+		5480B29123C3FA59007DC42C /* CommunityServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityServiceView.swift; sourceTree = "<group>"; };
 		5480B29323C3FA66007DC42C /* ServiceHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHours.swift; sourceTree = "<group>"; };
 		549A3A832399BBE100B6BEA9 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		54C14E042399943D0065A1CB /* CredentialCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialCache.swift; sourceTree = "<group>"; };
@@ -170,12 +174,16 @@
 		54E3279C23A7154B007827B5 /* DefaultDirectoryRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDirectoryRemote.swift; sourceTree = "<group>"; };
 		54E3279E23A72300007827B5 /* MinutesRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutesRemote.swift; sourceTree = "<group>"; };
 		54E327A023A725CF007827B5 /* DefaultMinutesRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultMinutesRemote.swift; sourceTree = "<group>"; };
+		841370CF241837860098775B /* CommunityServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityServiceViewModel.swift; sourceTree = "<group>"; };
+		841370D124187DA20098775B /* IdMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdMap.swift; sourceTree = "<group>"; };
+		841370D3241897160098775B /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		841370D5241897C60098775B /* ServiceEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEvent.swift; sourceTree = "<group>"; };
 		845277B023E658750057A695 /* DefaultServiceHoursRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceHoursRepository.swift; sourceTree = "<group>"; };
-		845277B223E658840057A695 /* ServiceHoursRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHoursRepository.swift; sourceTree = "<group>"; };
-		845277B423E6593D0057A695 /* ServiceHoursCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHoursCache.swift; sourceTree = "<group>"; };
-		845277B623E659BF0057A695 /* DefaultServiceHoursCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceHoursCache.swift; sourceTree = "<group>"; };
-		845277B823E6709F0057A695 /* ServiceHoursRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHoursRemote.swift; sourceTree = "<group>"; };
-		845277BA23E670D00057A695 /* DefaultServiceHoursRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceHoursRemote.swift; sourceTree = "<group>"; };
+		845277B223E658840057A695 /* CommunityServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityServiceRepository.swift; sourceTree = "<group>"; };
+		845277B423E6593D0057A695 /* CommunityServiceCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityServiceCache.swift; sourceTree = "<group>"; };
+		845277B623E659BF0057A695 /* DefaultCommunityServiceCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommunityServiceCache.swift; sourceTree = "<group>"; };
+		845277B823E6709F0057A695 /* CommunityServiceRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityServiceRemote.swift; sourceTree = "<group>"; };
+		845277BA23E670D00057A695 /* DefaultCommunityServiceRemote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCommunityServiceRemote.swift; sourceTree = "<group>"; };
 		84C837A02412EDD900A8B0EC /* DeltNUTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeltNUTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C837A22412EDD900A8B0EC /* DeltNUTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeltNUTests.swift; sourceTree = "<group>"; };
 		84C837A42412EDD900A8B0EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -354,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				541E352C2388905B00BBCE31 /* Member.swift */,
+				841370D124187DA20098775B /* IdMap.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -580,6 +589,7 @@
 			isa = PBXGroup;
 			children = (
 				5480B29323C3FA66007DC42C /* ServiceHours.swift */,
+				841370D5241897C60098775B /* ServiceEvent.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -587,7 +597,9 @@
 		5480B28F23C3F97E007DC42C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5480B29123C3FA59007DC42C /* ServiceHoursBarView.swift */,
+				5480B29123C3FA59007DC42C /* CommunityServiceView.swift */,
+				841370CF241837860098775B /* CommunityServiceViewModel.swift */,
+				841370D3241897160098775B /* EventView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -598,7 +610,7 @@
 				845277AF23E657F90057A695 /* Remote */,
 				845277AE23E657F40057A695 /* Cache */,
 				845277B023E658750057A695 /* DefaultServiceHoursRepository.swift */,
-				845277B223E658840057A695 /* ServiceHoursRepository.swift */,
+				845277B223E658840057A695 /* CommunityServiceRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -624,8 +636,8 @@
 		845277AE23E657F40057A695 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				845277B423E6593D0057A695 /* ServiceHoursCache.swift */,
-				845277B623E659BF0057A695 /* DefaultServiceHoursCache.swift */,
+				845277B423E6593D0057A695 /* CommunityServiceCache.swift */,
+				845277B623E659BF0057A695 /* DefaultCommunityServiceCache.swift */,
 			);
 			path = Cache;
 			sourceTree = "<group>";
@@ -633,8 +645,8 @@
 		845277AF23E657F90057A695 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
-				845277B823E6709F0057A695 /* ServiceHoursRemote.swift */,
-				845277BA23E670D00057A695 /* DefaultServiceHoursRemote.swift */,
+				845277B823E6709F0057A695 /* CommunityServiceRemote.swift */,
+				845277BA23E670D00057A695 /* DefaultCommunityServiceRemote.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -752,13 +764,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5480B29223C3FA59007DC42C /* ServiceHoursBarView.swift in Sources */,
-				845277B923E6709F0057A695 /* ServiceHoursRemote.swift in Sources */,
+				5480B29223C3FA59007DC42C /* CommunityServiceView.swift in Sources */,
+				845277B923E6709F0057A695 /* CommunityServiceRemote.swift in Sources */,
 				541E353F238A1BC200BBCE31 /* Poll.swift in Sources */,
 				54E327A123A725CF007827B5 /* DefaultMinutesRemote.swift in Sources */,
+				841370D0241837870098775B /* CommunityServiceViewModel.swift in Sources */,
 				54308A4F2395C73C0008FE98 /* AuthRemote.swift in Sources */,
 				54308A4723946AEF0008FE98 /* LoginView.swift in Sources */,
 				541278CA23B5342F0005224D /* VoteCache.swift in Sources */,
+				841370D224187DA20098775B /* IdMap.swift in Sources */,
 				541E3559238C60CC00BBCE31 /* Extensions.swift in Sources */,
 				541E3557238B9F4D00BBCE31 /* UrlWebView.swift in Sources */,
 				541E3552238A54D600BBCE31 /* HomeView.swift in Sources */,
@@ -771,6 +785,7 @@
 				845277B123E658750057A695 /* DefaultServiceHoursRepository.swift in Sources */,
 				541278CC23B534910005224D /* DefaultVoteCache.swift in Sources */,
 				54308A4A23946C280008FE98 /* LoginViewModel.swift in Sources */,
+				841370D6241897C60098775B /* ServiceEvent.swift in Sources */,
 				549A3A842399BBE100B6BEA9 /* Credential.swift in Sources */,
 				541E350F23887ED100BBCE31 /* SceneDelegate.swift in Sources */,
 				544ABAB023A822C0004227C2 /* VoteRemote.swift in Sources */,
@@ -797,6 +812,7 @@
 				544ABADF23B1A7E8004227C2 /* UserRepository.swift in Sources */,
 				54308A4C23947CC00008FE98 /* Session.swift in Sources */,
 				541E357F23914AE900BBCE31 /* DirectoryRemote.swift in Sources */,
+				841370D4241897160098775B /* EventView.swift in Sources */,
 				54C14E07239997860065A1CB /* DefaultCredentialCache.swift in Sources */,
 				5461467623B96AA0006D4D23 /* InterstitialViewController.swift in Sources */,
 				544ABAD823B1A567004227C2 /* Navigation.swift in Sources */,
@@ -811,15 +827,15 @@
 				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,
 				544ABABE23A8463F004227C2 /* DefaultMinutesCache.swift in Sources */,
 				544ABACE23AFF531004227C2 /* SinglePollViewModel.swift in Sources */,
-				845277BB23E670D00057A695 /* DefaultServiceHoursRemote.swift in Sources */,
-				845277B723E659BF0057A695 /* DefaultServiceHoursCache.swift in Sources */,
+				845277BB23E670D00057A695 /* DefaultCommunityServiceRemote.swift in Sources */,
+				845277B723E659BF0057A695 /* DefaultCommunityServiceCache.swift in Sources */,
 				541E352D2388905B00BBCE31 /* Member.swift in Sources */,
 				541E35382389D94500BBCE31 /* VoteView.swift in Sources */,
 				541E353A238A0C5B00BBCE31 /* AppStyle.swift in Sources */,
-				845277B523E6593D0057A695 /* ServiceHoursCache.swift in Sources */,
+				845277B523E6593D0057A695 /* CommunityServiceCache.swift in Sources */,
 				541E355B238C6C9D00BBCE31 /* SwiftUiWorkarounds.swift in Sources */,
 				544ABAEB23B1B381004227C2 /* UserDefaultsKeyApi.swift in Sources */,
-				845277B323E658840057A695 /* ServiceHoursRepository.swift in Sources */,
+				845277B323E658840057A695 /* CommunityServiceRepository.swift in Sources */,
 				544ABAC723A86D7A004227C2 /* Coder.swift in Sources */,
 				84D4AE8B2412C83B003391C9 /* Encrypt.swift in Sources */,
 				544ABAE523B1ACA0004227C2 /* DefaultDirectoryRepository.swift in Sources */,

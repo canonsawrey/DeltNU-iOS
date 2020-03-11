@@ -39,6 +39,16 @@ class DeltNUTests: XCTestCase {
         let decrypted = saltCache.quickDecrypt(encrypted)
         assert(str == decrypted)
         print(decrypted)
+        
+    }
+    
+    func testEncryption2() {
+        let saltCache = SaltCache()
+        let str = "sawrey.c@husky.neu.edu"
+        let encrypted = saltCache.quickEncrypt(str)
+        let decrypted = saltCache.quickDecrypt(encrypted)
+        assert(str == decrypted)
+        print(decrypted)
     }
 
 }

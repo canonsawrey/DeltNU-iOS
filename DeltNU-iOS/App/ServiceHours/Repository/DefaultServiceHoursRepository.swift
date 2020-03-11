@@ -9,10 +9,10 @@
 import Foundation
 import Combine
 
-class DefaultServiceHoursRepository: ServiceHoursRepository {
+class DefaultCommunityServiceRepository: CommunityServiceRepository {
     
-    private let serviceHoursCache: ServiceHoursCache = DefaultServiceHoursCache()
-    private let serviceHoursRemote: ServiceHoursRemote = DefaultServiceHoursRemote()
+    private let serviceHoursCache: CommunityServiceCache = DefaultCommunityServiceCache()
+    private let serviceHoursRemote: CommunityServiceRemote = DefaultCommunityServiceRemote()
     private let cacheKey = UserDefaultsKeyApi.serviceHours
     private let userDefaults = UserDefaults.standard
     private let coder = Coder()
@@ -22,28 +22,5 @@ class DefaultServiceHoursRepository: ServiceHoursRepository {
             serviceHoursCache.getCachedServiceHours(),
             serviceHoursRemote.getRemoteServiceHours()
         ).eraseToAnyPublisher()
-    }
-    
-    func getIndividualServiceHoursCompleted(user: Member?) -> Double? {
-        guard let uUser = user else {
-            return nil
-        }
-        guard let data = userDefaults.data(forKey: cacheKey) else {
-            return nil
-        }
-        do {
-            let hours = try coder.decoder.decode(ServiceHours.self, from: data)
-            guard let match = hours.hoursPerUser.first(where: { usr in
-                guard let unwrapped = usr.id else {
-                    return false
-                }
-                return Int(unwrapped) == uUser.id
-            }) else {
-                return nil
-            }
-            return match.sumhours
-        } catch {
-            return nil
-        }
     }
 }

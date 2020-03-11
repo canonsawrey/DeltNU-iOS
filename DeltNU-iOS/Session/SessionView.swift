@@ -35,19 +35,27 @@ struct SessionView: View {
                                 }
                                 .tag(1)
                             
+                            CommunityServiceView(viewModel: CommunityServiceViewModel(repository: DefaultCommunityServiceRepository(),
+                                                                                      directoryRepo: DefaultDirectoryRepository()))
+                                .tabItem {
+                                    Image(systemName: Navigation.commService.systemAsset())
+                                    Text("Service")
+                                }
+                                .tag(2)
+                            
                             VoteView(viewModel: VoteViewModel(repository: DefaultVoteRepository()))
                                 .tabItem {
                                     Image(systemName: Navigation.vote.systemAsset())
                                     Text("Vote")
                                 }
-                                .tag(2)
+                                .tag(3)
                             
                             DirectoryView(viewModel: DirectoryViewModel(repository: DefaultDirectoryRepository()))
                                 .tabItem {
                                     Image(systemName: Navigation.directory.systemAsset())
                                     Text("Directory")
                                 }
-                                .tag(3)
+                                .tag(4)
                         }.onAppear(perform: {self.tabIndex = 0})
                         .edgesIgnoringSafeArea(.top)
                         .accentColor(Color("CTA"))

@@ -21,7 +21,7 @@ struct SessionView: View {
             VStack {
                     if session.activeSession {
                         TabView(selection: $tabIndex) {
-                            HomeView()
+                            HomeView(viewModel: HomeViewModel())
                                 .tabItem {
                                     Image(systemName: Navigation.home.systemAsset())
                                     Text("Home")

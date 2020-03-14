@@ -68,8 +68,8 @@ struct LoginView: View {
                         UIApplication.shared.open(url)
                     }) {
                     Text("Forgot password")
-                }.foregroundColor(Color("CTA")).padding()
                 }
+                }.foregroundColor(Color("CTA")).padding()
         }
     }
 }

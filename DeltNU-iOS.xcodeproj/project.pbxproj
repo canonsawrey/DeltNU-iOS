@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -83,6 +83,10 @@
 		841370D6241897C60098775B /* ServiceEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841370D5241897C60098775B /* ServiceEvent.swift */; };
 		841370EB2419370D0098775B /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841370E1241936EA0098775B /* CryptoSwift.framework */; };
 		841370EC2419370D0098775B /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841370E1241936EA0098775B /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		844B73CE241D4F910021F3C7 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 844B73CD241D4F910021F3C7 /* CodeScanner */; };
+		844B73D6241D5F8B0021F3C7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B73D5241D5F8B0021F3C7 /* HomeViewModel.swift */; };
+		844B73D8241D60A00021F3C7 /* AttendanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B73D7241D60A00021F3C7 /* AttendanceRepository.swift */; };
+		844B73DA241D60B70021F3C7 /* DefaultAttendanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B73D9241D60B70021F3C7 /* DefaultAttendanceRepository.swift */; };
 		845277B123E658750057A695 /* DefaultServiceHoursRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B023E658750057A695 /* DefaultServiceHoursRepository.swift */; };
 		845277B323E658840057A695 /* CommunityServiceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B223E658840057A695 /* CommunityServiceRepository.swift */; };
 		845277B523E6593D0057A695 /* CommunityServiceCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277B423E6593D0057A695 /* CommunityServiceCache.swift */; };
@@ -230,6 +234,9 @@
 		841370D3241897160098775B /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		841370D5241897C60098775B /* ServiceEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEvent.swift; sourceTree = "<group>"; };
 		841370D8241936EA0098775B /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = Crypto/CryptoSwift/CryptoSwift.xcodeproj; sourceTree = "<group>"; };
+		844B73D5241D5F8B0021F3C7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		844B73D7241D60A00021F3C7 /* AttendanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepository.swift; sourceTree = "<group>"; };
+		844B73D9241D60B70021F3C7 /* DefaultAttendanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAttendanceRepository.swift; sourceTree = "<group>"; };
 		845277B023E658750057A695 /* DefaultServiceHoursRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultServiceHoursRepository.swift; sourceTree = "<group>"; };
 		845277B223E658840057A695 /* CommunityServiceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityServiceRepository.swift; sourceTree = "<group>"; };
 		845277B423E6593D0057A695 /* CommunityServiceCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityServiceCache.swift; sourceTree = "<group>"; };
@@ -247,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844B73CE241D4F910021F3C7 /* CodeScanner in Frameworks */,
 				841370EB2419370D0098775B /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,8 +404,10 @@
 		541E3550238A54C600BBCE31 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				844B73D4241D5D9C0021F3C7 /* Attendance */,
 				541E358423918ADA00BBCE31 /* Preferences */,
 				541E3551238A54D600BBCE31 /* HomeView.swift */,
+				844B73D5241D5F8B0021F3C7 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -716,6 +726,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		844B73D4241D5D9C0021F3C7 /* Attendance */ = {
+			isa = PBXGroup;
+			children = (
+				844B73D7241D60A00021F3C7 /* AttendanceRepository.swift */,
+				844B73D9241D60B70021F3C7 /* DefaultAttendanceRepository.swift */,
+			);
+			path = Attendance;
+			sourceTree = "<group>";
+		};
 		845277AE23E657F40057A695 /* Cache */ = {
 			isa = PBXGroup;
 			children = (
@@ -760,6 +779,9 @@
 			dependencies = (
 			);
 			name = DeltNU;
+			packageProductDependencies = (
+				844B73CD241D4F910021F3C7 /* CodeScanner */,
+			);
 			productName = "DeltNU-iOS";
 			productReference = 541E350923887ED100BBCE31 /* DeltNU.app */;
 			productType = "com.apple.product-type.application";
@@ -810,6 +832,9 @@
 				Base,
 			);
 			mainGroup = 541E350023887ED100BBCE31;
+			packageReferences = (
+				844B73CC241D4F910021F3C7 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = 541E350A23887ED100BBCE31 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -911,6 +936,7 @@
 				544ABAD023AFF562004227C2 /* CastVoteRemote.swift in Sources */,
 				541E350D23887ED100BBCE31 /* AppDelegate.swift in Sources */,
 				845277B123E658750057A695 /* DefaultServiceHoursRepository.swift in Sources */,
+				844B73D6241D5F8B0021F3C7 /* HomeViewModel.swift in Sources */,
 				541278CC23B534910005224D /* DefaultVoteCache.swift in Sources */,
 				54308A4A23946C280008FE98 /* LoginViewModel.swift in Sources */,
 				841370D6241897C60098775B /* ServiceEvent.swift in Sources */,
@@ -929,6 +955,7 @@
 				544ABAD223AFF5AC004227C2 /* DefaultCastVoteRemote.swift in Sources */,
 				541E3545238A43AC00BBCE31 /* MemberView.swift in Sources */,
 				544ABABC23A84633004227C2 /* MinutesCache.swift in Sources */,
+				844B73DA241D60B70021F3C7 /* DefaultAttendanceRepository.swift in Sources */,
 				541E353D238A178200BBCE31 /* CommonViews.swift in Sources */,
 				541E35792391342B00BBCE31 /* DeltNuError.swift in Sources */,
 				54E3279F23A72300007827B5 /* MinutesRemote.swift in Sources */,
@@ -941,6 +968,7 @@
 				54308A4C23947CC00008FE98 /* Session.swift in Sources */,
 				541E357F23914AE900BBCE31 /* DirectoryRemote.swift in Sources */,
 				841370D4241897160098775B /* EventView.swift in Sources */,
+				844B73D8241D60A00021F3C7 /* AttendanceRepository.swift in Sources */,
 				54C14E07239997860065A1CB /* DefaultCredentialCache.swift in Sources */,
 				5461467623B96AA0006D4D23 /* InterstitialViewController.swift in Sources */,
 				544ABAD823B1A567004227C2 /* Navigation.swift in Sources */,
@@ -1229,6 +1257,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		844B73CC241D4F910021F3C7 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		844B73CD241D4F910021F3C7 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 844B73CC241D4F910021F3C7 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 541E350123887ED100BBCE31 /* Project object */;
 }

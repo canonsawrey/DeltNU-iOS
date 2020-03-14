@@ -24,7 +24,7 @@ struct PreferencesView: View {
                     HStack {
                         Text("App Version")
                         Spacer()
-                        Text(version == nil ? "1.0" : version!)
+                        Text(version == nil ? "Unknown" : version!)
                     }
                     Button(action: {
                         self.showingLogout = true

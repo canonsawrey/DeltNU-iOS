@@ -33,8 +33,18 @@ class DeltNUTests: XCTestCase {
     }
     
     func testEncryption() {
-        let saltCache = SaltCache()
+        let saltCache = Encrypt()
         let str = "@..d./{},u81ejdio32jdfi;jnfk%^&O&*!_@cujbaew;{}|-`~~0-f3j2hc~!`,1<>?oinbew&@$!_ce*(@!#!wncui23"
+        let encrypted = saltCache.quickEncrypt(str)
+        let decrypted = saltCache.quickDecrypt(encrypted)
+        assert(str == decrypted)
+        print(decrypted)
+        
+    }
+    
+    func testEncryption2() {
+        let saltCache = Encrypt()
+        let str = "sawrey.c@husky.neu.edu"
         let encrypted = saltCache.quickEncrypt(str)
         let decrypted = saltCache.quickDecrypt(encrypted)
         assert(str == decrypted)

@@ -16,6 +16,7 @@ enum Navigation: String {
     case directory = "Directory"
     case preferences = "Preferences"
     case profile = "Profile"
+    case commService
     
     func systemAsset() -> String {
         switch self {
@@ -31,6 +32,8 @@ enum Navigation: String {
             return "gear"
         case .profile:
             return "person.circle"
+        case .commService:
+            return "star"
         }
     }
 }

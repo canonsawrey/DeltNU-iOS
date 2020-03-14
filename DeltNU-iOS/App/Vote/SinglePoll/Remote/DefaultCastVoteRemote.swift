@@ -22,6 +22,7 @@ class DefaultCastVoteRemote: CastVoteRemote {
         let request = buildRequest(optionId: optionId)
         
         return session.dataTaskPublisher(for: request)
+            .checkStatusCode()
             //.timeout(interval: , scheduler: Scheduler.)
             .tryMap { data, response in
                 guard let httpResponse = response as? HTTPURLResponse else {

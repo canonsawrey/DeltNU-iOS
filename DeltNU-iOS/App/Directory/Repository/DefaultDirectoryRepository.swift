@@ -11,6 +11,7 @@ import Combine
 
 class DefaultDirectoryRepository: DirectoryRepository {
     
+    
     private let directoryCache: DirectoryCache = DefaultDirectoryCache()
     private let directoryRemote: DirectoryRemote = DefaultDirectoryRemote()
     
@@ -19,5 +20,12 @@ class DefaultDirectoryRepository: DirectoryRepository {
             directoryCache.getCachedDirectory(),
             directoryRemote.getRemoteDirectory()
         ).eraseToAnyPublisher()
+    }
+    
+    func getIdMap() -> AnyPublisher<IdMap, DeltNuError> {
+        return getMembers().map { members in
+            IdMap(members: members)
+        }
+        .eraseToAnyPublisher()
     }
 }

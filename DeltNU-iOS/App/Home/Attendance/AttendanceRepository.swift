@@ -9,5 +9,7 @@
 import Foundation
 
 protocol AttendanceRepository {
+    func markedPresent(date: Date)
     
+    func lastMarkedPresent() -> Date?
 }

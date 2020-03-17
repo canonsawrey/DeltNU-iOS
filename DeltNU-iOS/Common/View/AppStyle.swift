@@ -14,6 +14,7 @@ let appStyle = Style()
 
 class Style {
     let cornerRadius: CGFloat = 15.0
-    let largeIconSize: CGFloat = 40.0
+    //let largeIconSize: CGFloat = 40.0
+    let cornerIconSize: CGFloat = 25.0
 }
 

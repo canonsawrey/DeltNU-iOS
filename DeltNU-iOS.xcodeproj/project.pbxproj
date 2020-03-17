@@ -94,6 +94,7 @@
 		845277BB23E670D00057A695 /* DefaultCommunityServiceRemote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845277BA23E670D00057A695 /* DefaultCommunityServiceRemote.swift */; };
 		84C837A32412EDD900A8B0EC /* DeltNUTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C837A22412EDD900A8B0EC /* DeltNUTests.swift */; };
 		84D4AE8B2412C83B003391C9 /* Encrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D4AE8A2412C83B003391C9 /* Encrypt.swift */; };
+		84D55CDA242122C20046A1CB /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D55CD9242122C20046A1CB /* ScannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +210,7 @@
 		84C837A22412EDD900A8B0EC /* DeltNUTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeltNUTests.swift; sourceTree = "<group>"; };
 		84C837A42412EDD900A8B0EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84D4AE8A2412C83B003391C9 /* Encrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encrypt.swift; sourceTree = "<group>"; };
+		84D55CD9242122C20046A1CB /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -671,6 +673,7 @@
 			children = (
 				844B73D7241D60A00021F3C7 /* AttendanceRepository.swift */,
 				844B73D9241D60B70021F3C7 /* DefaultAttendanceRepository.swift */,
+				84D55CD9242122C20046A1CB /* ScannerView.swift */,
 			);
 			path = Attendance;
 			sourceTree = "<group>";
@@ -879,6 +882,7 @@
 				54308A3D2393797D0008FE98 /* MinutesViewModel.swift in Sources */,
 				544ABAD623B1A2F5004227C2 /* EndpointApi.swift in Sources */,
 				541E3548238A46C100BBCE31 /* MinutesView.swift in Sources */,
+				84D55CDA242122C20046A1CB /* ScannerView.swift in Sources */,
 				544ABABE23A8463F004227C2 /* DefaultMinutesCache.swift in Sources */,
 				544ABACE23AFF531004227C2 /* SinglePollViewModel.swift in Sources */,
 				845277BB23E670D00057A695 /* DefaultCommunityServiceRemote.swift in Sources */,

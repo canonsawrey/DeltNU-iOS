@@ -65,7 +65,7 @@ struct VoteView: View {
                 self.viewModel.refreshing = true
             }) {
                 if !viewModel.refreshing {
-                    Image(systemName: "goforward").foregroundColor(Color("CTA"))
+                    Image(systemName: "goforward").font(.system(size: appStyle.cornerIconSize)).foregroundColor(Color("CTA"))
                 } else {
                     EmptyView()
                 }

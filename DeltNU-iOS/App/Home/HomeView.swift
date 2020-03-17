@@ -39,16 +39,16 @@ struct HomeView: View {
                     self.showingSheet = true
                     self.isPreferences = true
                 }) {
-                    Image(systemName: Navigation.preferences.systemAsset()).foregroundColor(Color("CTA"))
+                    Image(systemName: Navigation.preferences.systemAsset()).font(.system(size: appStyle.cornerIconSize)).foregroundColor(Color("CTA"))
                 }
             )
             .sheet(isPresented: $showingSheet) {
                 ZStack {
                 EmptyView()
                     if (self.isPreferences) {
-                         PreferencesView()
+                        PreferencesView()
                     } else {
-                        CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: self.handleScan)
+                        ScannerView(self.handleScan)
                     }
                 }
             }
@@ -57,7 +57,7 @@ struct HomeView: View {
     
     func handleScan(result: Result<String, CodeScannerView.ScanError>) {
         self.showingSheet = false
-        viewModel.lastMarkedPresent = Date.init()
+        self.viewModel.logPresent(date: Date.init())
     }
 }
 

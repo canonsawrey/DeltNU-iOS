@@ -10,4 +10,18 @@ import Foundation
 
 class DefaultAttendanceRepository : AttendanceRepository {
     
+    private let userDefaults = UserDefaults.standard
+    private let key = UserDefaultsKeyApi.attendanceLastMarked
+    
+    func markedPresent(date: Date) {
+        userDefaults.set(date, forKey: key)
+    }
+    
+    func lastMarkedPresent() -> Date? {
+        let obj = userDefaults.object(forKey: key)
+        guard let date = obj as? Date else {
+            return nil
+        }
+        return date
+    }
 }

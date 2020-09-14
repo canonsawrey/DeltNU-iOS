@@ -19,55 +19,57 @@ struct SessionView: View {
     var body: some View {
         VStack {
             VStack {
-                    if session.activeSession {
-                        TabView(selection: $tabIndex) {
-                            HomeView()
-                                .tabItem {
-                                    Image(systemName: Navigation.home.systemAsset())
-                                    Text("Home")
-                                }
-                                .tag(0)
-                            
-                            MinutesView(viewModel: MinutesViewModel(repository: DefaultMinutesRepository()))
-                                .tabItem {
-                                    Image(systemName: Navigation.minutes.systemAsset())
-                                    Text("Minutes")
-                                }
-                                .tag(1)
-                            
-                            CommunityServiceView(viewModel: CommunityServiceViewModel(repository: DefaultCommunityServiceRepository(),
-                                                                                      directoryRepo: DefaultDirectoryRepository()))
-                                .tabItem {
-                                    Image(systemName: Navigation.commService.systemAsset())
-                                    Text("Service")
-                                }
-                                .tag(2)
-                            
-                            VoteView(viewModel: VoteViewModel(repository: DefaultVoteRepository()))
-                                .tabItem {
-                                    Image(systemName: Navigation.vote.systemAsset())
-                                    Text("Vote")
-                                }
-                                .tag(3)
-                            
-                            DirectoryView(viewModel: DirectoryViewModel(repository: DefaultDirectoryRepository()))
-                                .tabItem {
-                                    Image(systemName: Navigation.directory.systemAsset())
-                                    Text("Directory")
-                                }
-                                .tag(4)
-                        }.onAppear(perform: {self.tabIndex = 0})
-                        .edgesIgnoringSafeArea(.top)
-                        .accentColor(Color("CTA"))
-                    } else {
-                        LoginView(viewModel: LoginViewModel())
-                            .transition(AnyTransition.move(edge: .top))
-                    }
+                Spacer()
+                if session.activeSession {
+                    TabView(selection: $tabIndex) {
+                        HomeView()
+                            .tabItem {
+                                Image(systemName: Navigation.home.systemAsset())
+                                Text("Home")
+                            }
+                            .tag(0)
+                        
+                        MinutesView(viewModel: MinutesViewModel(repository: DefaultMinutesRepository()))
+                            .tabItem {
+                                Image(systemName: Navigation.minutes.systemAsset())
+                                Text("Minutes")
+                            }
+                            .tag(1)
+                        
+                        CommunityServiceView(viewModel: CommunityServiceViewModel(repository: DefaultCommunityServiceRepository(),
+                                                                                  directoryRepo: DefaultDirectoryRepository()))
+                            .tabItem {
+                                Image(systemName: Navigation.commService.systemAsset())
+                                Text("Service")
+                            }
+                            .tag(2)
+                        
+                        VoteView(viewModel: VoteViewModel(repository: DefaultVoteRepository()))
+                            .tabItem {
+                                Image(systemName: Navigation.vote.systemAsset())
+                                Text("Vote")
+                            }
+                            .tag(3)
+                        
+                        DirectoryView(viewModel: DirectoryViewModel(repository: DefaultDirectoryRepository()))
+                            .tabItem {
+                                Image(systemName: Navigation.directory.systemAsset())
+                                Text("Directory")
+                            }
+                            .tag(4)
+                    }.onAppear(perform: {self.tabIndex = 0})
+                    .edgesIgnoringSafeArea(.top)
+                    .accentColor(Color("CTA"))
+                } else {
+                    LoginView(viewModel: LoginViewModel())
+                        .transition(AnyTransition.move(edge: .top))
+                }
                 if (session.globalError) {
                     Text("ERROR: \(session.globalErrorMessage)").foregroundColor(Color("negative"))
                 } else {
                     EmptyView()
                 }
+                Spacer()
             }.foregroundColor(Color("colorOnPrimary"))
 //            if !Reachability.isConnectedToNetwork() {
 //                ZStack {

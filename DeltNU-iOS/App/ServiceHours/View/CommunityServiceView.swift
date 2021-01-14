@@ -65,6 +65,6 @@ struct CommunityServiceView: View {
 
 struct CommunityServiceView_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceHoursBarView(hoursCompleted: 3, hoursNeeded: 10)
+        EmptyView() //TODO real preview
     }
 }

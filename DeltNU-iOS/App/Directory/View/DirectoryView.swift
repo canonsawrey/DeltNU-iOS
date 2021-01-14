@@ -19,40 +19,7 @@ struct DirectoryView: View {
     var body: some View {
         NavigationView {
             VStack {
-                HStack {
-                    HStack {
-                        Image(systemName: "magnifyingglass")
-                            .foregroundColor(Color("CTA"))
-                        
-                        TextField("Search", text: $viewModel.searchText, onEditingChanged: { isEditing in
-                            self.showCancelButton = true
-                        }, onCommit: {
-                            //print("onCommit")
-                        }).foregroundColor(.primary)
-                        
-                        Button(action: {
-                            self.viewModel.searchText = ""
-                        }) {
-                            Image(systemName: "xmark.circle.fill").opacity(viewModel.searchText == "" ? 0 : 1)
-                        }
-                    }
-                    .padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
-                    .foregroundColor(Color("secondary"))
-                    .background(Color(.secondarySystemBackground))
-                    .cornerRadius(10.0)
-                    
-                    if showCancelButton  {
-                        Button("Cancel") {
-                            UIApplication.shared.endEditing(true) // this must be placed before the other commands here
-                            self.viewModel.searchText = ""
-                            self.showCancelButton = false
-                        }
-                        .foregroundColor(Color("CTA"))
-                    }
-                }
-                .padding(.horizontal)
-                .navigationBarHidden(showCancelButton)
-                
+                SearchBar(text: $viewModel.searchText).padding(.horizontal)
                 //Member list - hide if not loaded
                 List(viewModel.members.filter {
                     $0.firstName.hasPrefix(viewModel.searchText) ||

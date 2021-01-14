@@ -64,20 +64,7 @@ struct SessionView: View {
                     LoginView(viewModel: LoginViewModel())
                         .transition(AnyTransition.move(edge: .top))
                 }
-                if (session.globalError) {
-                    Text("ERROR: \(session.globalErrorMessage)").foregroundColor(Color("negative"))
-                } else {
-                    EmptyView()
-                }
-                Spacer()
-            }.foregroundColor(Color("colorOnPrimary"))
-//            if !Reachability.isConnectedToNetwork() {
-//                ZStack {
-//                    Color("negative").edgesIgnoringSafeArea(.all)
-//                    Text("Internet connection not detected")
-//                        .foregroundColor(.white)
-//                }
-//            }
+            }
         }
     }
 }

@@ -65,7 +65,10 @@ struct VoteView: View {
                 self.viewModel.refreshing = true
             }) {
                 if !viewModel.refreshing {
-                    Image(systemName: "goforward").foregroundColor(Color("CTA"))
+                    HStack {
+                        Text("Refresh")
+                        Image(systemName: "arrow.clockwise")
+                    }.foregroundColor(Color("CTA"))
                 } else {
                     EmptyView()
                 }

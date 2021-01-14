@@ -11,9 +11,6 @@ import SwiftUI
 struct MinutesView: View {
     //View model
     @ObservedObject var viewModel: MinutesViewModel
-    @State var selectedYear: Int = 0
-    let years = [2020, 2019, 2018]
-    @State var selectedSemester: Int = 1
     var availableMasterform: Bool {
         return self.viewModel.minutes.count > 0 && self.viewModel.minutes[0].masterform != ""
     }
@@ -21,8 +18,8 @@ struct MinutesView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if (filterredMinutes.count > 0) {
-                    List(filterredMinutes) { min in
+                if (viewModel.minutes.count > 0) {
+                    List(viewModel.minutes) { min in
                         NavigationLink(destination:
                             UrlWebView(url: "\(EndpointApi.minutesDetail)\(min.id)"),
                                        label: {
@@ -36,18 +33,6 @@ struct MinutesView: View {
                 } else {
                     Text("No minutes to display").frame(maxHeight: .infinity)
                 }
-                Picker(selection: $selectedSemester, label: Text("Semester")) {
-                    Text("Fall").tag(0)
-                    Text("Spring").tag(1)
-                }.pickerStyle(SegmentedPickerStyle())
-                    .accentColor(.black)
-                    .padding(.horizontal)
-                Picker(selection: $selectedYear, label: Text("Year")) {
-                    ForEach(0 ..< years.count) {
-                        Text(String(self.years[$0])).tag($0)
-                    }
-                }.pickerStyle(SegmentedPickerStyle())
-                    .padding()
             }
             .navigationBarTitle("Minutes")
             .navigationBarItems(
@@ -62,7 +47,7 @@ struct MinutesView: View {
                 }) {
                     HStack {
                         if availableMasterform {
-                            Text("\(self.viewModel.minutes[0].createdAt.monthAndDay()) masterform")
+                            Text("\(self.viewModel.minutes[0].createdAt.monthAndDay()) Master Form")
                         }
                         Image(systemName: "arrow.up.right")
                     }
@@ -71,16 +56,6 @@ struct MinutesView: View {
             })
             }.navigationViewStyle(StackNavigationViewStyle())
             .onAppear(perform: viewModel.getMinutes)
-    }
-    
-    var filterredMinutes: Minutes {
-        viewModel.minutes.filter { min in
-            let calendar = Calendar.current
-            let year = calendar.component(.year, from: min.createdAt)
-            let month = calendar.component(.month, from: min.createdAt)
-            let rightSemester = selectedSemester == 0 ? month >= 6 : month <= 6
-            return year == years[selectedYear] && rightSemester
-        }
     }
     
     init(viewModel: MinutesViewModel) {

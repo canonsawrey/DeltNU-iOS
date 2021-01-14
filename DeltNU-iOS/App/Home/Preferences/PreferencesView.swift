@@ -29,7 +29,7 @@ struct PreferencesView: View {
                     Button(action: {
                         self.showingLogout = true
                     }) {
-                        Text("Logout")
+                        Text("Logout").foregroundColor(Color("negative"))
                     }
                 }
             }.frame(maxHeight: .infinity, alignment: .top)

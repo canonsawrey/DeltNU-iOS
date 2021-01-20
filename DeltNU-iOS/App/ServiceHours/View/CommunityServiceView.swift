@@ -53,9 +53,11 @@ struct CommunityServiceView: View {
                     .padding(.bottom)
             }
             .sheet(isPresented: $showingEvent) {
-                EventView(event: self.viewModel.serviceEvents.first { event in
+                if let ev = self.viewModel.serviceEvents.first(where: { event in
                     event.id == self.selectedEvent
-                }!)
+                }) {
+                    EventView(event: ev)
+                }
             }
             .navigationBarTitle("Community Service")
         }.navigationViewStyle(StackNavigationViewStyle())

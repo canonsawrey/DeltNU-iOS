@@ -55,9 +55,11 @@ struct DirectoryView: View {
                 .resignKeyboardOnDragGesture()
             }
             .sheet(isPresented: $showingMember) {
-                MemberView(member: self.viewModel.members.first { member in
+                if let brother = self.viewModel.members.first(where: { member in
                     member.id == self.selectedMember
-                    }!)
+                }) {
+                    MemberView(member: brother)
+                }
             }
             .navigationBarTitle("Directory")
         }.navigationViewStyle(StackNavigationViewStyle())

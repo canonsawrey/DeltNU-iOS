@@ -55,9 +55,11 @@ struct VoteView: View {
                 Spacer()
             }
             .sheet(isPresented: $showingPoll) {
-                SinglePollView(poll: self.viewModel.polls.first { poll in
+                if let vote = self.viewModel.polls.first(where: { poll in
                     poll.id == self.selectedPoll
-                    }!)
+                }) {
+                    SinglePollView(poll: vote)
+                }
             }
             .navigationBarTitle("Vote")
             .navigationBarItems(trailing: Button(action: {

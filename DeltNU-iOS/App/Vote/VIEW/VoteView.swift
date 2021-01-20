@@ -11,7 +11,6 @@ import SwiftUI
 struct VoteView: View {
     @ObservedObject var viewModel: VoteViewModel
     @State var showingPoll = false
-    @State var selectedPoll = 0
     private var activePolls: Polls { viewModel.polls.filter { poll in
         poll.isActive }
     }
@@ -27,7 +26,7 @@ struct VoteView: View {
                         if (activePolls.count > 0) {
                             ForEach(activePolls) { poll in
                                 Button(action: {
-                                    self.selectedPoll = poll.id
+                                    self.viewModel.activatePoll(pollId: poll.id)
                                     self.showingPoll = true
                                 }) {
                                     Text("\(poll.title)")
@@ -40,10 +39,7 @@ struct VoteView: View {
                     Section(header: Text("Expired")) {
                         if (expiredPolls.count > 0) {
                             ForEach(expiredPolls) { poll in
-                                Button(action: {
-                                    self.selectedPoll = poll.id
-                                    self.showingPoll = true
-                                }) {
+                                Button(action: {}) {
                                     Text("\(poll.title)")
                                 }.disabled(true)
                             }
@@ -55,9 +51,9 @@ struct VoteView: View {
                 Spacer()
             }
             .sheet(isPresented: $showingPoll) {
-                SinglePollView(poll: self.viewModel.polls.first { poll in
-                    poll.id == self.selectedPoll
-                    }!)
+                if let vote = self.viewModel.activePoll {
+                    SinglePollView(poll: vote)
+                }
             }
             .navigationBarTitle("Vote")
             .navigationBarItems(trailing: Button(action: {
@@ -86,5 +82,12 @@ struct VoteView: View {
 struct VoteView_Previews: PreviewProvider {
     static var previews: some View {
         VoteView(viewModel: VoteViewModel(repository: DefaultVoteRepository()))
+    }
+}
+
+extension View {
+    func Print(_ vars: Any...) -> some View {
+        for v in vars { print(v) }
+        return EmptyView()
     }
 }

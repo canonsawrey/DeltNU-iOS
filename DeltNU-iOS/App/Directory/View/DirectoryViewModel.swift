@@ -12,6 +12,7 @@ import Combine
 class DirectoryViewModel: ViewModel, ObservableObject, Identifiable {
     //Published to the subscribing View
     @Published var members: MemberDirectory = []
+    @Published var selectedMember: Member?
     @Published var searchText = ""
     @Published var showCancelButton: Bool = false
     
@@ -45,6 +46,12 @@ class DirectoryViewModel: ViewModel, ObservableObject, Identifiable {
                     }
             })
             .store(in: &disposables)
+    }
+    
+    func selectMember(memberId: Int) {
+        self.selectedMember = members.first { member in
+            member.id == memberId
+        }
     }
     
     deinit {

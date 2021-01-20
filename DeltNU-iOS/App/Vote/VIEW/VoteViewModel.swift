@@ -13,6 +13,7 @@ class VoteViewModel: ViewModel, ObservableObject, Identifiable {
     
     @Published var polls: Polls = []
     @Published var refreshing = false
+    @Published var activePoll: Poll?
     
     private let voteRepository: VoteRepository
     //Other
@@ -43,6 +44,13 @@ class VoteViewModel: ViewModel, ObservableObject, Identifiable {
                     self.refreshing = false
             })
             .store(in: &disposables)
+    }
+    
+    func activatePoll(pollId: Int)
+    {
+        self.activePoll = self.polls.first { poll in
+            poll.id == pollId
+        }
     }
     
     deinit {

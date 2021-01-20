@@ -12,7 +12,6 @@ struct DirectoryView: View {
     //View model
     @ObservedObject var viewModel: DirectoryViewModel
     //Member detail bottom sheet state
-    @State var selectedMember: Int = 0
     @State var showingMember = false
     @State var showCancelButton = false
     
@@ -28,7 +27,7 @@ struct DirectoryView: View {
                         viewModel.searchText == ""
                 }) { member in
                     Button(action: {
-                        self.selectedMember = member.id
+                        self.viewModel.selectMember(memberId: member.id)
                         self.showingMember = true
                     }) {
                         HStack {
@@ -55,9 +54,7 @@ struct DirectoryView: View {
                 .resignKeyboardOnDragGesture()
             }
             .sheet(isPresented: $showingMember) {
-                if let brother = self.viewModel.members.first(where: { member in
-                    member.id == self.selectedMember
-                }) {
+                if let brother = self.viewModel.selectedMember {
                     MemberView(member: brother)
                 }
             }

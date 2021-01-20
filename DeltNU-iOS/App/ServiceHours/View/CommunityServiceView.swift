@@ -13,7 +13,6 @@ struct CommunityServiceView: View {
     //View model
     @ObservedObject var viewModel: CommunityServiceViewModel
     let filterOptions = ["My hours", "All brothers"]
-    @State var selectedEvent: Int = 0
     @State var showingEvent = false
     
     var body: some View {
@@ -29,7 +28,7 @@ struct CommunityServiceView: View {
                     Section(header: Text("Logged events")) {
                         ForEach(viewModel.serviceEvents) { serviceEvent in
                             Button(action: {
-                                self.selectedEvent = serviceEvent.id
+                                self.viewModel.selectEvent(eventId: serviceEvent.id)
                                 self.showingEvent = true
                             }) {
                                 GeometryReader { geo in
@@ -53,9 +52,7 @@ struct CommunityServiceView: View {
                     .padding(.bottom)
             }
             .sheet(isPresented: $showingEvent) {
-                if let ev = self.viewModel.serviceEvents.first(where: { event in
-                    event.id == self.selectedEvent
-                }) {
+                if let ev = self.viewModel.selectedEvent {
                     EventView(event: ev)
                 }
             }

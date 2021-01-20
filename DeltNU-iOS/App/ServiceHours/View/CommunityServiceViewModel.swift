@@ -17,6 +17,7 @@ class CommunityServiceViewModel: ViewModel, ObservableObject, Identifiable {
     //Published to the subscribing View
     @Published var hoursStruct: ServiceHours = ServiceHours()
     @Published var memberMap: IdMap = IdMap(members: [])
+    @Published var selectedEvent: ServiceEvent?
     //View related logic
     @Published var userHoursOnly = 0 //0 = true
     private var user: Member? {
@@ -61,6 +62,12 @@ class CommunityServiceViewModel: ViewModel, ObservableObject, Identifiable {
     init(repository: CommunityServiceRepository, directoryRepo: DirectoryRepository) {
         self.communityServiceRepository = repository
         self.directoryRepository = directoryRepo
+    }
+    
+    func selectEvent(eventId: Int) {
+        self.selectedEvent = serviceEvents.first { event in
+            event.id == eventId
+        }
     }
     
     func getHours() {
